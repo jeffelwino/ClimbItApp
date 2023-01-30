@@ -1,4 +1,5 @@
 <template>
+
   <v-app>
     <v-app-bar
       app
@@ -46,20 +47,24 @@
     <router-view />
   </div>
   </v-main>
-    
-
-
-  </v-app>
   
+  </v-app> 
+
 </template>
 
 <script>
+//import DsiplayMap from './components/DisplayMap.vue'
+
 
 export default {
   name: 'App',
-
+  
   data: () => ({
     //
   }),
-};
+}
 </script>
+
+<style>
+
+</style>
