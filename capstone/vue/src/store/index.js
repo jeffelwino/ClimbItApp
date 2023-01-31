@@ -20,7 +20,44 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-
+    areas: [
+      {
+        name: 'a1',
+        area_name: 1,
+        description: 'funky monkeys playing funky music',
+        latitude: 39.912545,
+        longitude: -83.860522
+      },
+      {
+        name: 'a2',
+        area_name: 2,
+        description: 'Jazzy frogs singing the blues',
+        latitude: 29.957444,
+        longitude: -90.062935
+      },
+      {
+        name: 'a3',
+        area_name: 3,
+        description: 'hip-hop birds hipping and hopping',
+        latitude: 40.782865,
+        longitude: -73.965355
+      },
+      {
+        name: 'a4',
+        area_name: 4,
+        description: 'Smoky the Bear playing on his guitar',
+        latitude: 35.611764,
+        longitude: -83.489545
+      },
+      {
+        name: 'a5',
+        area_name: 5,
+        description: 'The famous seals singing their opera',
+        latitude: 41.506348,
+        longitude:  -81.609336
+      }
+    ]
+    
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
