@@ -9,17 +9,12 @@
          <h2>Register</h2>
      </v-card-title>
      
-     <v-text-field outlined label="Email" v-model="user.email"></v-text-field>
-
       <v-text-field outlined label="Username" v-model="user.username"></v-text-field>
 
       <v-text-field outlined label="Password" :type="showPassword ? 'text' : 'password'" v-model="user.password"></v-text-field>
 
       <v-text-field outlined label="Confirm Password" v-model="user.confirmPassword"></v-text-field>
 
-      <v-text-field outlined label="Location (optional)" v-model="user.location"></v-text-field>
-
-      <v-textarea label="About Me (optional)" outlined v-model="user.bio"></v-textarea>
 
 <v-layout class="mt-5">
     <v-btn>cancel</v-btn>
@@ -45,9 +40,6 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        email: '',
-        location: '',
-        bio: '',
         role: 'user',
       },
       registrationErrors: false,
