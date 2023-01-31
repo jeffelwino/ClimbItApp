@@ -1,14 +1,15 @@
 <template>
+<v-container>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+  
     <display-map/>
 
-    <div>
-      <StateList></StateList>
-
-    </div>
+    <v-sheet class="mt-5">
+      <state-list></state-list>
+    </v-sheet>
   </div>
+  </v-container>
 </template>
 
 <script>

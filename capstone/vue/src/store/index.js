@@ -19,59 +19,52 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {},
+    user: currentUser || {},       
     // activeST: '',
     states: [
-      {
-        abbrev: "AL",
+      { abbrev: "AL",
         name: "Alabama",
-        areas: 100
+        areas: 100  
       },
-      {
-        abbrev: "AK",
+      { abbrev: "AK",
         name: "Alaska",
         areas: 151
       },
-      {
-        abbrev: "AZ",
-        name: "Arizona",
-        areas: 200
+      { abbrev: "AZ",
+      name: "Arizona",
+        areas: 200 
       },
-      {
-        abbrev: "AK",
-        name: "Arkansas",
-        areas: 300
+      { abbrev: "AK",
+      name: "Arkansas",
+        areas: 300  
       },
-      {
-        abbrev: "CA",
-        name: "California",
-        areas: 400
+       { abbrev: "CA",
+       name: "California",
+        areas: 400  
       },
-      {
-        abbrev: "CO",
+        { abbrev: "CO",
         name: "Colorado",
-        areas: 100
+        areas: 100  
       },
-      {
-        abbrev: "CN",
+      { abbrev: "CN",
         name: "Connecticut",
         areas: 151
       },
-      {
-        abbrev: "DE",
+      { abbrev: "DE",
         name: "Delaware",
-        areas: 200
+        areas: 200 
       },
-      {
-        abbrev: "FL",
+      { abbrev: "FL",
         name: "Florida",
-        areas: 300
+        areas: 300  
       },
-      {
-        abbrev: "GA",
+       { abbrev: "GA",
         name: "Georgia",
-        areas: 400
+        areas: 400  
       },
+<<<<<<< HEAD
+  ],
+=======
       {
         abbrev: "OH",
         name: "Ohio",
@@ -88,6 +81,7 @@ export default new Vuex.Store({
         areas: 1
       },
     ],
+>>>>>>> main
     areas: [
       {
         name: 'Western Ohio',
@@ -121,6 +115,16 @@ export default new Vuex.Store({
         latitude: 39.90432334823612,
         longitude: -82.46752271817516
       },
+<<<<<<< HEAD
+      {
+        name: 'a5',
+        area_name: 5,
+        description: 'The famous seals singing their opera',
+        latitude: 41.506348,
+        longitude:  -81.609336
+      }
+=======
+>>>>>>> main
     ],
     crags: [
       { id: 1, area_id: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', latitude: 39.912833, longitude: -83.860439 },
@@ -168,7 +172,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('user',JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');

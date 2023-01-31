@@ -3,7 +3,6 @@
 
 <v-row justify="center">
     <v-dialog
-      
       scrollable
       max-width="300px"
     >
