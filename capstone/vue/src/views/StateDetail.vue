@@ -29,8 +29,6 @@ export default {
 created() {
     this.loadState();
 }
-
-    
 };
     
 

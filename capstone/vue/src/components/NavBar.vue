@@ -1,21 +1,24 @@
 <template>
     <v-app-bar
       app
-      elevate-on-scroll
       color="blue"
       dark
     >
-    <v-row >
+    <v-row align-items="center">
     <v-icon large>mdi-spa</v-icon>
     <v-toolbar-title class="ml-5"> <h2>ClimbIt</h2> </v-toolbar-title>
 
     <v-spacer></v-spacer>
+
+    <v-btn icon> <v-icon>mdi-magnify</v-icon></v-btn>
+
+  
     
-        <v-text-field 
+        <!-- <v-text-field 
         solo
         label="search routes"
         append-inner-icon="mdi-search"
-        ></v-text-field>
+        ></v-text-field> -->
 
         <v-app-bar-nav-icon large></v-app-bar-nav-icon>
     
