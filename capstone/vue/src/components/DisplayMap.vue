@@ -52,7 +52,7 @@ export default {
     },
     navigateToPage(id) {
       this.$router.push({
-        name: "test",
+        name: "area",
         params: { id: id },
       });
     },

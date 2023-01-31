@@ -23,6 +23,7 @@ export default {
     return {
       area: {
         name: "",
+        stateAbbrev: "",
         id: "",
         description: "",
         latitude: "",

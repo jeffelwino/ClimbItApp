@@ -13,7 +13,7 @@ export default {
   name: "crag",
   methods: {
     loadCrag() {
-      this.crag = this.$store.state.area.find((c) => {
+      this.crag = this.$store.state.crags.find((c) => {
         return c.id == this.$route.params.id;
       });
     },

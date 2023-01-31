@@ -1,9 +1,17 @@
 <template>
   <div class="area">
     <div class="weather">
-      The weather the next 5 days is going to be perfect for climbing!
+      The weather here the next 5 days is going to be perfect for climbing!
     </div>
     <p>{{ area.description }}</p>
+    <h2>Here are the crags available to climb at in this area:</h2>
+    <ul>
+      <li v-for="crag in crags" :key="crag.id">
+        <router-link :to="{ name: 'crag', params: { id: crag.id } }">{{
+          crag.name
+        }}</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -24,6 +32,9 @@ export default {
         }
       });
     },
+  },
+  created() {
+    this.loadCrags();
   },
 };
 </script>
