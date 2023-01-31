@@ -10,6 +10,7 @@ import StateDetail from '../views/StateDetail.vue'
 import JeffPlay from '../views/JeffPlay.vue'
 import AllanPlay from '../views/AllanPlay.vue'
 import KevinPlay from '../views/KevinPlay.vue'
+import Area from '../views/Area.vue'
 
 Vue.use(Router)
 
@@ -63,6 +64,14 @@ const router = new Router({
       path: "/state/:abbrev/",
       name: "state-detail",
       component: StateDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/area/:id",
+      name: "area",
+      component: Area,
       meta: {
         requiresAuth: true
       }
