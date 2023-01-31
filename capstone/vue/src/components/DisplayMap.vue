@@ -7,7 +7,7 @@
         :key="marker.id"
         :position="marker.position"
         :label="marker.name"
-        v-on:click="navigateToPage()"
+        v-on:click="navigateToPage(marker.id)"
     /></GmapMap>
   </div>
 </template>
@@ -43,11 +43,18 @@ export default {
           lat: area.latitude,
           lng: area.longitude,
         };
-        this.markers.push({ position: marker, name: area.name });
+        this.markers.push({
+          position: marker,
+          name: area.name,
+          id: area.area_name,
+        });
       });
     },
-    navigateToPage() {
-      this.$router.push({ name: "test" });
+    navigateToPage(id) {
+      this.$router.push({
+        name: "test",
+        params: { id: id },
+      });
     },
   },
 };
