@@ -67,10 +67,10 @@ export default {
          //then set my zoom window to the number of markers I have
          //I have the methods but how do I implement them??
          //let areaMarkers = this.$store.state.areas.id;
-        /*this.$store.state.areas.forEach( (area) => {
+         /*this.$store.state.areas.forEach( (area) => {
             const crag = {} })
-        */
-
+         */
+        
     },
     fitBounds(){
         //This method needs to be able to set the boundaries of the map to just fit in all of the markers
