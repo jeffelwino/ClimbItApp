@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Test from '../views/Test.vue'
+import StateDetail from '../views/StateDetail.vue'
 import JeffPlay from '../views/JeffPlay.vue'
 import AllanPlay from '../views/AllanPlay.vue'
 import KevinPlay from '../views/KevinPlay.vue'
@@ -56,6 +57,14 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/state/:abbrev/",
+      name: "state-detail",
+      component: StateDetail,
+      meta: {
+        requiresAuth: true
       }
     },
     {
