@@ -1,7 +1,13 @@
 <template>
   <div class="map">
     <h2>This is the Map!</h2>
-    <GmapMap :center = "mapCenter" :zoom = "12" id="map" />
+    <GmapMap :center="center" :zoom="12" id="map">
+      <GmapMarker
+        v-for="marker in markers"
+        :key="marker.id"
+        :position="marker.position"
+        :label="marker.name"
+    /></GmapMap>
   </div>
 </template>
 
@@ -11,15 +17,36 @@ export default {
 
   data() {
     return {
-      map: null,
-      mapCenter: { lat: 39.92099, lng: -83.81161 }, //the location of the user
-      locations: [{ coord: { lat: 39.91448, lng: -83.85988 }, name: "MRG" }],
+      center: { lat: 39.92099, lng: -83.81161 }, //default location, will be overriden
+      currentPlace: null,
+      markers: [],
+      places: [],
     };
   },
+  mounted() {
+    this.geolocate();
+    this, this.loadPlaces();
+  },
   methods: {
-  
-   }
-}
+    geolocate: function () {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+      });
+    },
+    loadPlaces() {
+      this.$store.state.areas.forEach((area) => {
+        const marker = {
+          lat: area.latitude,
+          lng: area.longitude,
+        };
+        this.markers.push({ position: marker, name: area.name });
+      });
+    },
+  },
+};
 </script>
 
 <style>
