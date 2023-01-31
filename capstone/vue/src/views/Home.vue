@@ -8,6 +8,7 @@
 
 <script>
 import DisplayMap from '../components/DisplayMap.vue';
+
 export default {
   components: { DisplayMap },
   name: "home"
