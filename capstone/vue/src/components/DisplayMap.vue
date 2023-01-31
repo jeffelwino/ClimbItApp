@@ -46,13 +46,13 @@ export default {
         this.markers.push({
           position: marker,
           name: area.name,
-          id: area.area_name,
+          id: area.id,
         });
       });
     },
     navigateToPage(id) {
       this.$router.push({
-        name: "test",
+        name: "area",
         params: { id: id },
       });
     },
