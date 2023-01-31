@@ -46,7 +46,7 @@ export default {
         this.markers.push({
           position: marker,
           name: area.name,
-          id: area.area_name,
+          id: area.id,
         });
       });
     },

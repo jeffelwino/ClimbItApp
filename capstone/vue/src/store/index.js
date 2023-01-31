@@ -75,36 +75,36 @@ export default new Vuex.Store({
     ],
     areas: [
       {
-        name: 'a1',
-        area_name: 1,
+        name: 'Red River Gorge',
+        id: 1,
         description: 'funky monkeys playing funky music',
         latitude: 39.912545,
         longitude: -83.860522
       },
       {
         name: 'a2',
-        area_name: 2,
+        id: 2,
         description: 'Jazzy frogs singing the blues',
         latitude: 29.957444,
         longitude: -90.062935
       },
       {
         name: 'a3',
-        area_name: 3,
+        id: 3,
         description: 'hip-hop birds hipping and hopping',
         latitude: 40.782865,
         longitude: -73.965355
       },
       {
         name: 'a4',
-        area_name: 4,
+        id: 4,
         description: 'Smoky the Bear playing on his guitar',
         latitude: 35.611764,
         longitude: -83.489545
       },
       {
         name: 'a5',
-        area_name: 5,
+        id: 5,
         description: 'The famous seals singing their opera',
         latitude: 41.506348,
         longitude: -81.609336
@@ -141,10 +141,10 @@ export default new Vuex.Store({
 
     ],
     comments: [
-      {user: "Kevin", body: "This is my first comment"},
-      {user: "Michael", body: "This is a wonderful comment"},
-      {user: "Allan", body: "My Comment"},
-      {user: "Jeff", body: "Rothko is an arteest"} 
+      { user: "Kevin", body: "This is my first comment" },
+      { user: "Michael", body: "This is a wonderful comment" },
+      { user: "Allan", body: "My Comment" },
+      { user: "Jeff", body: "Rothko is an arteest" }
     ]
 
   },
@@ -165,5 +165,5 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-   },
+  },
 })

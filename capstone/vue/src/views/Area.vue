@@ -15,7 +15,7 @@ export default {
   methods: {
     loadArea() {
       this.area = this.$store.state.areas.find((a) => {
-        return a.area_name == this.$route.params.id;
+        return a.id == this.$route.params.id;
       });
     },
   },
@@ -23,7 +23,7 @@ export default {
     return {
       area: {
         name: "",
-        area_name: "",
+        id: "",
         description: "",
         latitude: "",
         longitude: "",
