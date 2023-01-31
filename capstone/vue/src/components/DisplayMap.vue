@@ -1,7 +1,12 @@
 <template>
   <div class="map">
     <h2>This is the Map!</h2>
-    <GmapMap :center="center" :zoom="12" id="map"> </GmapMap>
+    <GmapMap :center="center" :zoom="12" id="map">
+      <GmapMarker
+        v-for="marker in markers"
+        :key="marker.id"
+        :position="marker.position"
+    /></GmapMap>
   </div>
 </template>
 
@@ -21,15 +26,21 @@ export default {
     this.geolocate();
   },
   methods: {
-    setPlace(place) {
-      this.currentPlace = place;
-    },
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
+      });
+    },
+    loadPlaces() {
+      this.$store.areas.forEach((area) => {
+        const marker = {
+          lat: area.lat,
+          lng: area.lng,
+        };
+        this.markers.push({ position: marker });
       });
     },
   },
