@@ -20,7 +20,9 @@
         append-inner-icon="mdi-search"
         ></v-text-field> -->
 
-        <v-app-bar-nav-icon large></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon large>
+          
+        </v-app-bar-nav-icon>
     
 
 
