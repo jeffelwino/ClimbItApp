@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    // activeST: '',
     states: [
       { abbrev: "AL",
         name: "Alabama",
@@ -117,6 +118,6 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
-  }
+    },
+   },
 })
