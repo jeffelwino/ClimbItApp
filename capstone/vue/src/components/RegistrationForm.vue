@@ -1,32 +1,35 @@
 <template>
 
-<v-container
-> 
- <form v-on:submit.prevent="register">
-    
+   
+<v-card> 
+    <v-spacer />
 
-    <h2>Registration Form</h2> 
-    <label for="email">Email</label>
-     <input type="email" name="email" v-model="user.email"><br>
+ <v-form class="px-3" v-on:submit.prevent="register">
+     <v-card-title class="text-center">
+         <h2>Register</h2>
+     </v-card-title>
+     
+     <v-text-field outlined label="Email" v-model="user.email"></v-text-field>
 
-<label for="username">Username</label>
-<input type="text" name="username" v-model="user.username"><br>
+      <v-text-field outlined label="Username" v-model="user.username"></v-text-field>
 
-<label for="password">Password</label>
-<input type="text" name="password" v-model="user.password"><br>
+      <v-text-field outlined label="Password" :type="showPassword ? 'text' : 'password'" v-model="user.password"></v-text-field>
 
-<label for="confirm-password">Confirm Password</label>
-<input type="text" name="confirm-password" v-model="user.confirmPassword"><br>
+      <v-text-field outlined label="Confirm Password" v-model="user.confirmPassword"></v-text-field>
 
-<label for="location">Location</label>
-<input type="text" name="location" v-model="user.location"><br>
+      <v-text-field outlined label="Location (optional)" v-model="user.location"></v-text-field>
 
-<label for="bio">About Me</label>
-<textarea id="bio" name="bio" rows="8" cols="30" v-model="user.bio" ></textarea><br>
+      <v-textarea label="About Me (optional)" outlined v-model="user.bio"></v-textarea>
 
-<button><input type="submit"> </button>
- </form>
-  </v-container>
+<v-layout class="mt-5">
+    <v-btn>cancel</v-btn>
+    <v-spacer></v-spacer>
+<v-btn><input type="submit"></v-btn>
+</v-layout>
+
+ </v-form>
+  </v-card>
+ 
         
 </template>
 
@@ -37,7 +40,8 @@ export default {
   name: 'registration-form',
   data() {
     return {
-      user: {
+        showPassword: false, //hides password when entered
+        user: {
         username: '',
         password: '',
         confirmPassword: '',
@@ -83,30 +87,6 @@ export default {
 };
 </script>
 
-<style scoped>
-
-form{ 
-    
-    max-width: 50vh;
-    border: 2px solid black;
-    text-align: right;
-    padding-right: 2rem;
-}
-
-h2{
-    text-align: center;
-}
-
-input{
-    margin: 20px;
-    border: 1mm solid black;
-
-}
-
-textarea{
-    border: 1mm solid black;
-margin-right: 1.5rem;
-}
-
+<style>
 
 </style>

@@ -5,6 +5,7 @@
       color="blue"
       dark
     >
+
       <!-- <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -53,7 +54,6 @@
 
 export default {
   name: 'App',
-
   data: () => ({
     //
   }),
