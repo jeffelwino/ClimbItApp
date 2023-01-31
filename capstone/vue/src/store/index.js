@@ -20,6 +20,48 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    states: [
+      { abbrev: "AL",
+        name: "Alabama",
+        areas: 100  
+      },
+      { abbrev: "AK",
+        name: "Alaska",
+        areas: 151
+      },
+      { abbrev: "AZ",
+      name: "Arizona",
+        areas: 200 
+      },
+      { abbrev: "AK",
+      name: "Arkansas",
+        areas: 300  
+      },
+       { abbrev: "CA",
+       name: "California",
+        areas: 400  
+      },
+        { abbrev: "CO",
+        name: "Colorado",
+        areas: 100  
+      },
+      { abbrev: "CN",
+        name: "Connecticut",
+        areas: 151
+      },
+      { abbrev: "DE",
+        name: "Delaware",
+        areas: 200 
+      },
+      { abbrev: "FL",
+        name: "Florida",
+        areas: 300  
+      },
+       { abbrev: "GA",
+        name: "Georgia",
+        areas: 400  
+      },
+  ],
     areas: [
       {
         name: 'a1',

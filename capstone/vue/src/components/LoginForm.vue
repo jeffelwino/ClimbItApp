@@ -19,7 +19,7 @@
       <v-text-field
         outlined
         label="username"
-        class="form-control pr-10"
+        class="form-control"
         v-model="user.username"
         required
         autofocus

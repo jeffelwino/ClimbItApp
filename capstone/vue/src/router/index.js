@@ -6,6 +6,9 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Test from '../views/Test.vue'
+import JeffPlay from '../views/JeffPlay.vue'
+import AllanPlay from '../views/AllanPlay.vue'
+import KevinPlay from '../views/KevinPlay.vue'
 
 Vue.use(Router)
 
@@ -38,6 +41,7 @@ const router = new Router({
         requiresAuth: false
       }
     },
+
     {
       path: "/logout",
       name: "logout",
@@ -55,13 +59,37 @@ const router = new Router({
       }
     },
     {
-      path: "/test",
+      path: "/test/:id/",
       name: "test",
       component: Test,
       meta: {
         requiresAuth: true
       },
-    }
+    },
+    {
+      path: "/jeffplay",
+      name: "jeffplay",
+      component: JeffPlay,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/allanplay",
+      name: "allanplay",
+      component: AllanPlay,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/kevinplay",
+      name: "kevinplay",
+      component: KevinPlay,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 
