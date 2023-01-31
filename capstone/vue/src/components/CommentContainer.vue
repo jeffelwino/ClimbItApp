@@ -5,7 +5,7 @@
             <v-btn type="submit" @click="submitComment">Submit</v-btn>
         </v-container>
         <v-container class="commentBank">
-            <v-textarea outlined label = "List of Comments" v-model="bank"><h2>Person's Name</h2></v-textarea>
+            <v-textarea outlined label = "List of Comments" v-model="bank" v-for="comments in $store.state.comments" v-bind:key="comments.user"></v-textarea>
         </v-container> 
     </div>  
 </template>
@@ -13,6 +13,7 @@
 <script>
 export default {
     name: "comment",
+    props: ["comment"],
     data(){
         return{
             body: '',
@@ -23,6 +24,9 @@ export default {
         submitComment(){
             //alert("This is doing something");
             this.bank = this.body;
+
+            // this.$store.comments.name;
+            // this.$store.comments.body;
         }
     }
 }

@@ -112,7 +112,7 @@ export default new Vuex.Store({
     ],
     crags: [
       { id: 1, area_id: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', latitude: 39.912833, longitude: -83.860439 },
-      { id: 2, area_id: 1, name: 'Muir Valley', description: 'A luxury climbign experience', latitude: 37.724503, longitude: -83.634545 },
+      { id: 2, area_id: 1, name: 'Muir Valley', description: 'A luxury climbing experience', latitude: 37.724503, longitude: -83.634545 },
       { id: 3, area_id: 1, name: 'Upper Meadow', description: 'Beautiful area upstream on the Meadow River', latitude: 38.151515, longitude: -80.926571 },
       { id: 4, area_id: 1, name: 'Marne Road', description: 'Roadside climbing in Newark, Ohio', latitude: 40.073522, longitude: -82.259237 },
     ],
@@ -140,6 +140,12 @@ export default new Vuex.Store({
       { id: 12, wall_id: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport' },
 
     ],
+    comments: [
+      {user: "Kevin", body: "This is my first comment"},
+      {user: "Michael", body: "This is a wonderful comment"},
+      {user: "Allan", body: "My Comment"},
+      {user: "Jeff", body: "Rothko is an arteest"} 
+    ]
 
   },
   mutations: {
