@@ -24,6 +24,7 @@ export default {
   },
   mounted() {
     this.geolocate();
+    this, this.loadPlaces();
   },
   methods: {
     geolocate: function () {
@@ -35,10 +36,10 @@ export default {
       });
     },
     loadPlaces() {
-      this.$store.areas.forEach((area) => {
+      this.$store.state.areas.forEach((area) => {
         const marker = {
-          lat: area.lat,
-          lng: area.lng,
+          lat: area.latitude,
+          lng: area.longitude,
         };
         this.markers.push({ position: marker });
       });
