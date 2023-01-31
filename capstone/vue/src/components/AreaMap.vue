@@ -13,6 +13,8 @@
 </template>
 
 <script>
+//import Area from './views/Area.vue'
+
 export default {
   name: "display-map",
 
@@ -23,6 +25,7 @@ export default {
       markers: [],
       places: [],
       areas: [],
+      crags: []
     };
   },
   mounted() {
@@ -57,14 +60,21 @@ export default {
         params: { id: id },
       });
     },
-     getBounds(){
-         //I need to make a method where I search through the array of areas, which exists in 
-         //and using the area_name I pull up all of the markers in that spot
+     getBounds(){ //To limit our zoom window 
+         //I need to make a method where I search through the array of areas
+         //and using the id I pull up all of the crags in that spot
+         //
          //then set my zoom window to the number of markers I have
          //I have the methods but how do I implement them??
-        let areaMarkers = this.$store.state.areas.id;
-        
+         //let areaMarkers = this.$store.state.areas.id;
+        /*this.$store.state.areas.forEach( (area) => {
+            const crag = {} })
+        */
 
+    },
+    fitBounds(){
+        //This method needs to be able to set the boundaries of the map to just fit in all of the markers
+        
     },
   },
 };
