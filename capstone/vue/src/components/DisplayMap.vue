@@ -6,6 +6,7 @@
         v-for="marker in markers"
         :key="marker.id"
         :position="marker.position"
+        :label="marker.name"
     /></GmapMap>
   </div>
 </template>
@@ -41,7 +42,7 @@ export default {
           lat: area.latitude,
           lng: area.longitude,
         };
-        this.markers.push({ position: marker });
+        this.markers.push({ position: marker, name: area.name });
       });
     },
   },
