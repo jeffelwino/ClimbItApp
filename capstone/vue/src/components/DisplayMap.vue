@@ -1,12 +1,13 @@
 <template>
   <div class="map">
     <h2>This is the Map!</h2>
-    <GmapMap :center="center" :zoom="12" id="map">
+    <GmapMap :center="center" :zoom="10" id="map">
       <GmapMarker
         v-for="marker in markers"
         :key="marker.id"
         :position="marker.position"
         :label="marker.name"
+        v-on:click="navigateToPage()"
     /></GmapMap>
   </div>
 </template>
@@ -44,6 +45,9 @@ export default {
         };
         this.markers.push({ position: marker, name: area.name });
       });
+    },
+    navigateToPage() {
+      this.$router.push({ name: "test" });
     },
   },
 };
