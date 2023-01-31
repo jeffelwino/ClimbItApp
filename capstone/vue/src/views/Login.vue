@@ -1,5 +1,9 @@
 <template>
-  <div id="login" class="text-center">
+<login-form></login-form>
+
+
+
+  <!-- <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -34,43 +38,52 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
-  </div>
+  </div> -->
 </template>
 
 <script>
-import authService from "../services/AuthService";
 
-export default {
+import LoginForm from "../components/LoginForm";
+
+
+export default{
   name: "login",
-  components: {},
-  data() {
-    return {
-      user: {
-        username: "",
-        password: ""
-      },
-      invalidCredentials: false
-    };
-  },
-  methods: {
-    login() {
-      authService
-        .login(this.user)
-        .then(response => {
-          if (response.status == 200) {
-            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
-          }
-        })
-        .catch(error => {
-          const response = error.response;
+components: {LoginForm}
 
-          if (response.status === 401) {
-            this.invalidCredentials = true;
-          }
-        });
-    }
-  }
-};
+}
+// import authService from "../services/AuthService";
+
+// export default {
+//   name: "login",
+//   components: {},
+//   data() {
+//     return {
+//       user: {
+//         username: "",
+//         password: ""
+//       },
+//       invalidCredentials: false
+//     };
+//   },
+//   methods: {
+//     login() {
+//       authService
+//         .login(this.user)
+//         .then(response => {
+//           if (response.status == 200) {
+//             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+//             this.$store.commit("SET_USER", response.data.user);
+//             this.$router.push("/");
+//           }
+//         })
+//         .catch(error => {
+//           const response = error.response;
+
+//           if (response.status === 401) {
+//             this.invalidCredentials = true;
+//           }
+//         });
+//     }
+//   }
+// };
 </script>
