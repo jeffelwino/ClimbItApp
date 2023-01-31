@@ -72,49 +72,61 @@ export default new Vuex.Store({
         name: "Georgia",
         areas: 400
       },
+      {
+        abbrev: "OH",
+        name: "Ohio",
+        areas: 3
+      },
+      {
+        abbrev: "KY",
+        name: "Kentucky",
+        areas: 1
+      },
+      {
+        abbrev: "WV",
+        name: "West Virginia",
+        areas: 1
+      },
     ],
     areas: [
       {
-        name: 'Red River Gorge',
+        name: 'Western Ohio',
+        stateAbbrev: 'OH',
         id: 1,
-        description: 'funky monkeys playing funky music',
-        latitude: 39.912545,
-        longitude: -83.860522
+        description: 'Largely flat, but there is some stuff to do',
+        latitude: 39.918360653356046,
+        longitude: -84.09394703120233
       },
       {
-        name: 'a2',
+        name: 'Red River Gorge',
+        stateAbbrev: 'KY',
         id: 2,
-        description: 'Jazzy frogs singing the blues',
-        latitude: 29.957444,
-        longitude: -90.062935
+        description: 'One of the largest climbing areas in the world, tons of sport climbing to do',
+        latitude: 37.7829227300536,
+        longitude: -83.68310316808764
       },
       {
-        name: 'a3',
+        name: 'New River Gorge',
+        stateAbbrev: 'WV',
         id: 3,
-        description: 'hip-hop birds hipping and hopping',
-        latitude: 40.782865,
-        longitude: -73.965355
+        description: "Bullet-hard sandstone, abeautiful views, what's not to love?",
+        latitude: 38.070297443941975,
+        longitude: -81.08009084642055
       },
       {
-        name: 'a4',
+        name: 'Central/Southern Ohio',
+        stateAbbrev: 'OH',
         id: 4,
-        description: 'Smoky the Bear playing on his guitar',
-        latitude: 35.611764,
-        longitude: -83.489545
+        description: "Plenty of bouldering if that's your thing, but also some options for roped climbing",
+        latitude: 39.90432334823612,
+        longitude: -82.46752271817516
       },
-      {
-        name: 'a5',
-        id: 5,
-        description: 'The famous seals singing their opera',
-        latitude: 41.506348,
-        longitude: -81.609336
-      }
     ],
     crags: [
       { id: 1, area_id: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', latitude: 39.912833, longitude: -83.860439 },
-      { id: 2, area_id: 1, name: 'Muir Valley', description: 'A luxury climbing experience', latitude: 37.724503, longitude: -83.634545 },
-      { id: 3, area_id: 1, name: 'Upper Meadow', description: 'Beautiful area upstream on the Meadow River', latitude: 38.151515, longitude: -80.926571 },
-      { id: 4, area_id: 1, name: 'Marne Road', description: 'Roadside climbing in Newark, Ohio', latitude: 40.073522, longitude: -82.259237 },
+      { id: 2, area_id: 2, name: 'Muir Valley', description: 'A luxury climbing experience', latitude: 37.724503, longitude: -83.634545 },
+      { id: 3, area_id: 3, name: 'Upper Meadow', description: 'Beautiful area upstream on the Meadow River', latitude: 38.151515, longitude: -80.926571 },
+      { id: 4, area_id: 4, name: 'Marne Road', description: 'Roadside climbing in Newark, Ohio', latitude: 40.073522, longitude: -82.259237 },
     ],
     walls: [
       { id: 1, crag_id: 1, name: 'Amusement Wall', description: 'Fun climbing, seeps for awhile after it rains. Busy on nice days' },
