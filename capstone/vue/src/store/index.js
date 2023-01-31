@@ -146,7 +146,7 @@ export default new Vuex.Store({
       { id: 6, wall_id: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport' },
       { id: 7, wall_id: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport' },
       { id: 8, wall_id: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport' },
-      { id: 9, wall_id: 5, name: 'Nasty Weiners', grade: '5.10a', height: '65ft', style: 'sport' },
+      { id: 9, wall_id: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport' },
       { id: 10, wall_id: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport' },
       { id: 11, wall_id: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport' },
       { id: 12, wall_id: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport' },

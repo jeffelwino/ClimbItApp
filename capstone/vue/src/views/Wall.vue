@@ -1,6 +1,7 @@
 <template>
   <div class="wall">
     <h2>Wall Page</h2>
+    <h2>{{ wall.name }}</h2>
     <wall-detail v-bind:wall="wall" />
   </div>
 </template>

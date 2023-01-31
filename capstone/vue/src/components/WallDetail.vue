@@ -7,7 +7,7 @@
     <div class="routes">
       <ul>
         <li v-for="route in routes" :key="route.id">
-          <router-link :to="{ name: route, params: { id: route.id } }">
+          <router-link :to="{ name: 'route', params: { id: route.id } }">
             {{ route.name }} ({{ route.grade }})
           </router-link>
         </li>
