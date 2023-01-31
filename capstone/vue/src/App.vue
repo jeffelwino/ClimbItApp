@@ -3,10 +3,11 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="blue"
       dark
     >
-      <div class="d-flex align-center">
+
+      <!-- <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -35,17 +36,13 @@
       >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <v-main>
-    <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
+
     <router-view />
-  </div>
+  
   </v-main>
   
   </v-app> 
@@ -60,7 +57,6 @@
 export default {
   //components: { DisplayMap },
   name: 'App',
-  
   data: () => ({
     //
   }),
