@@ -2,7 +2,7 @@
   <div class="state-map">
     <GmapMap
       :center="center"
-      :zoom="14"
+      :zoom="10"
       style="width: 100%; height: 600px"
       id="state-map"
     >
