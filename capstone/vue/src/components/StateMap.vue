@@ -2,11 +2,11 @@
   <div class="state-map">
     <GmapMap
       :center="center"
-      :zoom="10"
+      :zoom="8"
       style="width: 100%; height: 600px"
       id="state-map"
     >
-      <GmapMarker :position="center" :label="state.name"
+      <GmapMarker v-for="area in areas" :key="area.id"  :position="{lat: area.latitude, lng: area.longitude}" :label="area.name"
     /></GmapMap>
   </div>
 </template>
@@ -14,7 +14,10 @@
 <script>
 export default {
     name: "state-map",
-    props: ["state"],
+    props: ["state",
+    "areas"
+    ],
+
     data() {
         return {
             center: {lat: this.state.latitude, lng: this.state.longitude}

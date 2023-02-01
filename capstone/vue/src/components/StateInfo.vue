@@ -5,12 +5,13 @@
     </div>
 
     <!-- mapdisplay placeholder-->
-    <div class="placeholdermap">
-      <h2>This will be a map</h2>
-    </div>
+
+    <state-map v-bind:state="state" v-bind:areas="areas"/>
+
 
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas">
+        <h3>Climbing areas in {{state.name}}:</h3>
       <ul>
         <li v-for="area in areas" :key="area.id">
           <router-link :to="{ name: 'area', params: { id: area.id } }">
@@ -31,7 +32,9 @@
 </template>
 
 <script>
+import StateMap from "../components/StateMap.vue";
 export default {
+  components: { StateMap },
   name: "state-info",
   data() {
     return {
