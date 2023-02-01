@@ -12,7 +12,7 @@
 
     <v-btn icon> <v-icon>mdi-magnify</v-icon></v-btn>
 
-
+  <!-- pop-out nav menu -->
       <v-menu transition="scroll-y-transition">
         <template v-slot:activator="{ on, attrs }">
         <v-app-bar-nav-icon large
@@ -50,7 +50,7 @@ export default {
     name: "navbar",
     methods: {
       goToProfile(){
-        this.$router.push({name: 'jeffplay'});
+        this.$router.push({name: 'profile'});
       },
         goToLogout(){
         this.$router.push({name: 'logout'});
