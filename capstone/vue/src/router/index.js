@@ -6,14 +6,15 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Test from '../views/Test.vue'
-import StateDetail from '../views/StateDetail.vue'
+import StatePage from '../views/StatePage.vue'
 import JeffPlay from '../views/JeffPlay.vue'
 import AllanPlay from '../views/AllanPlay.vue'
 import KevinPlay from '../views/KevinPlay.vue'
 import Area from '../views/Area.vue'
 import Crag from '../views/Crag.vue'
 import Wall from '../views/Wall.vue'
-import Route from '../views/Route.vue'
+import Profile from '../views/Profile.vue'
+import RoutePage from '../views/RoutePage.vue'
 
 Vue.use(Router)
 
@@ -46,6 +47,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/profile",
+      name: 'profile',
+      component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
 
     {
       path: "/logout",
@@ -65,8 +74,8 @@ const router = new Router({
     },
     {
       path: "/state/:abbrev/",
-      name: "state-detail",
-      component: StateDetail,
+      name: "state-page",
+      component: StatePage,
       meta: {
         requiresAuth: true
       }
@@ -97,8 +106,8 @@ const router = new Router({
     },
     {
       path: '/route/:id',
-      name: "route",
-      component: Route,
+      name: "route-page",
+      component: RoutePage,
       meta: {
         requiresAuth: true
       }

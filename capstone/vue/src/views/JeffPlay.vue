@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>welcome to the taco house!</h2>
+      <h2>User Profile!</h2>
   </div>
 </template>
 
