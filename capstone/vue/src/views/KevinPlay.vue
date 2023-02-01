@@ -1,12 +1,16 @@
 <template>
-  <comment-container></comment-container>
+    <div>
+        <!-- <comment-container></comment-container> -->
+        <display-comment></display-comment>
+    </div>
 </template>
 
 <script>
-import CommentContainer from "../components/CommentContainer.vue"
+// import CommentContainer from "../components/CommentContainer.vue"
+import DisplayComment from '../components/DisplayComment.vue'
 
 export default {
-  components: { CommentContainer },
+  components: { DisplayComment },
 
 }
 </script>

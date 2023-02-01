@@ -1,19 +1,30 @@
 <template>
+<!-- this is the structure of what a comment will be -->
     <div>
-        <v-container class="comment">
-            <v-text-field outlined label = "Leave a comment here" v-model="body"></v-text-field>
+        <v-card elevation="3">
+            <v-card-title>
+                <v-avatar size=48 color="blue">
+                    <v-icon dark>
+                        mdi-account-circle
+                    </v-icon>
+                </v-avatar>
+                Username</v-card-title>
+            <v-textarea label="body" outlined></v-textarea>
+        </v-card>
+        <!-- <v-container class="comment">
+            <v-text-field clearable=true outlined label = "Leave a comment here" v-model="body"></v-text-field>
             <v-btn type="submit" @click="submitComment">Submit</v-btn>
         </v-container>
         <v-container class="commentBank">
-            <v-textarea outlined label = "List of Comments" v-model="bank" v-for="comments in $store.state.comments" v-bind:key="comments.user"></v-textarea>
-        </v-container> 
+            <v-textarea outlined label = "List of Comments" v-model="bank"></v-textarea>
+        </v-container>  -->
     </div>  
 </template>
 
 <script>
 export default {
     name: "comment",
-    props: ["comment"],
+    props: ["comments"],
     data(){
         return{
             body: '',
@@ -28,6 +39,9 @@ export default {
             // this.$store.comments.name;
             // this.$store.comments.body;
         }
+        // loadComment(){
+        //     this.$store
+        // }
     }
 }
 </script>
