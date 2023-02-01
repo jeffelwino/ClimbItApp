@@ -1,17 +1,21 @@
 <template>
  <div class="route-header">
      <!-- route name and grade box -->
-     <v-container class="blue">
+     <v-container class="blue mt-n12" >
 
-     <v-row class="justify-center blue">
+     <v-row class="justify-center blue ">
          <h3 class="white--text">
         {{ route.name }} ({{ route.grade }})
         </h3>
-    
      </v-row>
-     <v-row class="mt-10 justify-center">
-    <v-btn>
-      ClimbedIt!
+
+     <v-row class="pb-2 justify-space-around">
+
+<!-- Tickbox button -->
+    <tick-box />
+
+    <v-btn small>
+      Wanna ClimbIt
     </v-btn>
      </v-row>
 
@@ -32,7 +36,10 @@
 </template>
 
 <script>
+import TickBox from "./TickBox.vue";
+
 export default {
+  components: { TickBox },
     name: 'route-header',
     props: ["route"],
 
