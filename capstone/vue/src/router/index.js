@@ -14,6 +14,7 @@ import Area from '../views/Area.vue'
 import Crag from '../views/Crag.vue'
 import Wall from '../views/Wall.vue'
 import Route from '../views/Route.vue'
+import Profile from '../views/Profile.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,14 @@ const router = new Router({
       component: Login,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/profile",
+      name: 'profile',
+      component: Profile,
+      meta: {
+        requiresAuth: true
       }
     },
 
