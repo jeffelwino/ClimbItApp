@@ -8,6 +8,7 @@ import *as VueGoogleMaps from 'vue2-google-maps'
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyDjS1gB8xwQ6gt85wOOnQYz4c896BVXEwQ',
