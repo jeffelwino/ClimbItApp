@@ -62,9 +62,6 @@ export default new Vuex.Store({
         name: "Georgia",
         areas: 400  
       },
-<<<<<<< HEAD
-  ],
-=======
       {
         abbrev: "OH",
         name: "Ohio",
@@ -81,7 +78,6 @@ export default new Vuex.Store({
         areas: 1
       },
     ],
->>>>>>> main
     areas: [
       {
         name: 'Western Ohio',
