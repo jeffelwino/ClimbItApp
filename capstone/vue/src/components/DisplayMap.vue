@@ -18,7 +18,7 @@ export default {
 
   data() {
     return {
-      center: { lat: 39.92099, lng: -83.81161 }, //default location, will be overriden
+      center: { lat: 39.92099, lng: -83.81161 }, 
       currentPlace: null,
       markers: [],
       places: [],
