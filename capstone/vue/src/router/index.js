@@ -13,7 +13,7 @@ import KevinPlay from '../views/KevinPlay.vue'
 import Area from '../views/Area.vue'
 import Crag from '../views/Crag.vue'
 import Wall from '../views/Wall.vue'
-import Route from '../views/Route.vue'
+import RoutePage from '../views/RoutePage.vue'
 
 Vue.use(Router)
 
@@ -97,8 +97,8 @@ const router = new Router({
     },
     {
       path: '/route/:id',
-      name: "route",
-      component: Route,
+      name: "route-page",
+      component: RoutePage,
       meta: {
         requiresAuth: true
       }
