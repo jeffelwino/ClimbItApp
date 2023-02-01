@@ -1,36 +1,36 @@
 <template>
   <div class="map">
-    <h2>This is the Map!</h2>
-    <GmapMap :center="center" :zoom="10" id="map">
+    <h2>Crags in the Area</h2>
+    <GmapMap :center="center" :zoom="10" style="width:100%; height:600px;" id="map">
       <GmapMarker
-        v-for="marker in markers"
-        :key="marker.id"
-        :position="marker.position"
-        :label="marker.name"
-        v-on:click="navigateToPage(marker.id)"
+        v-for="crag in crags"
+        :key="crag.id"
+        :position="crag.position"
+        :label="crag.name"
+        v-on:click="navigateToPage(crag.id)"
     /></GmapMap>
   </div>
 </template>
 
 <script>
-//import Area from './views/Area.vue'
 
+//import AreaDetail from './components/AreaDetail.vue'
 export default {
   name: "display-map",
 
   data() {
     return {
-      center: { lat: 39.92099, lng: -83.81161 }, //default location, will be overriden
+      center: { lat: 39.92099, lng: -83.81161 }, // this.$store.state.areas....needs to be on whatever the area clicked on is 
       currentPlace: null,
       markers: [],
       places: [],
       areas: [],
-      crags: []
+      crags: [],
     };
   },
   mounted() {
     this.geolocate();
-    this, this.loadPlaces();
+    this, this.getCrags();
   },
   methods: {
     geolocate: function () {
@@ -60,21 +60,29 @@ export default {
         params: { id: id },
       });
     },
-     getBounds(){ //To limit our zoom window 
-         //I need to make a method where I search through the array of areas
-         //and using the id I pull up all of the crags in that spot
-         //
-         //then set my zoom window to the number of markers I have
-         //I have the methods but how do I implement them??
-         //let areaMarkers = this.$store.state.areas.id;
-         /*this.$store.state.areas.forEach( (area) => {
-            const crag = {} })
-         */
-        
+    getCrags() {
+      //To limit our zoom window
+      //I need to make a method where I search through the array of areas
+      //and using the id I pull up all of the crags in that spot
+      //
+      //then set my zoom window to the number of markers I have
+      //I have the methods but how do I implement them??
+      
+
+      this.$store.state.crags.forEach((crag) => {
+        const cragMarker = {
+          lat: crag.latitude,
+          lng: crag.longitude,
+        };
+        this.crags.push({
+          position: cragMarker,
+          name: crag.name,
+          id: crag.id,
+        });
+      });
     },
-    fitBounds(){
-        //This method needs to be able to set the boundaries of the map to just fit in all of the markers
-        
+    fitBounds() {
+      //This method needs to be able to set the boundaries of the map to just fit in all of the markers
     },
   },
 };
