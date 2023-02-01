@@ -19,16 +19,18 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {},       
+    user: currentUser || {},
     // activeST: '',
     states: [
-      { abbrev: "AL",
+      {
+        abbrev: "AL",
         name: "Alabama",
         areas: 100,  
         latitude: 32.318230,
         longitude: -86.902298
       },
-      { abbrev: "AK",
+      {
+        abbrev: "AK",
         name: "Alaska",
         areas: 151,
         latitude: 66.160507,
@@ -52,31 +54,36 @@ export default new Vuex.Store({
         latitude: 36.778259,
         longitude: -119.417931  
       },
-        { abbrev: "CO",
+      {
+        abbrev: "CO",
         name: "Colorado",
         areas: 100,
         latitude: 39.113014,
         longitude: -105.358887 
       },
-      { abbrev: "CN",
+      {
+        abbrev: "CN",
         name: "Connecticut",
         areas: 151,
         latitude: 41.599998,
         longitude: -72.699997
       },
-      { abbrev: "DE",
+      {
+        abbrev: "DE",
         name: "Delaware",
         areas: 200,
         latitude: 39.000000,
         longitude: -75.500000 
       },
-      { abbrev: "FL",
+      {
+        abbrev: "FL",
         name: "Florida",
         areas: 300,
         latitude: 27.994402,
         longitude: -81.760254  
       },
-       { abbrev: "GA",
+      {
+        abbrev: "GA",
         name: "Georgia",
         areas: 400, 
         latitude: 33.247875,
@@ -184,7 +191,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
