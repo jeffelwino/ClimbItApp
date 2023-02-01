@@ -20,7 +20,7 @@ export default {
 
   data() {
     return {
-      center: { lat: 39.92099, lng: -83.81161 }, // this.$store.state.areas....needs to be on whatever the area clicked on is 
+      center: { lat: 39.92099, lng: -83.81161 }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is 
       currentPlace: null,
       markers: [],
       places: [],
