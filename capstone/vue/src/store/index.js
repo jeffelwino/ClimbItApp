@@ -62,9 +62,6 @@ export default new Vuex.Store({
         name: "Georgia",
         areas: 400  
       },
-<<<<<<< HEAD
-  ],
-=======
       {
         abbrev: "OH",
         name: "Ohio",
@@ -81,7 +78,6 @@ export default new Vuex.Store({
         areas: 1
       },
     ],
->>>>>>> main
     areas: [
       {
         name: 'Western Ohio',
@@ -115,16 +111,6 @@ export default new Vuex.Store({
         latitude: 39.90432334823612,
         longitude: -82.46752271817516
       },
-<<<<<<< HEAD
-      {
-        name: 'a5',
-        area_name: 5,
-        description: 'The famous seals singing their opera',
-        latitude: 41.506348,
-        longitude:  -81.609336
-      }
-=======
->>>>>>> main
     ],
     crags: [
       { id: 1, area_id: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', latitude: 39.912833, longitude: -83.860439 },

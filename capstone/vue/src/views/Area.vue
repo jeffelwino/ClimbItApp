@@ -1,7 +1,7 @@
 <template>
   <div class="area">
     <h2>{{ area.name }}</h2>
-     <area-map /> 
+     <area-map v-bind:area="area"/> 
     <area-detail v-bind:area="area" />
     <!-- <comment-container  -->
   </div>

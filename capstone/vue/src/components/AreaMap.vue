@@ -17,10 +17,10 @@
 //import AreaDetail from './components/AreaDetail.vue'
 export default {
   name: "display-map",
-
+  props: ["area"], //This variable holds whatever is in the area detail
   data() {
     return {
-      center: { lat: 39.92099, lng: -83.81161 }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is 
+      center: { lat: this.area.latitude, lng: this.area.longitude }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is 
       currentPlace: null,
       markers: [],
       places: [],
@@ -28,9 +28,9 @@ export default {
       crags: [],
     };
   },
-  mounted() {
-    this.geolocate();
-    this, this.getCrags();
+   mounted() {
+    // this.geolocate();
+     this.getCrags();
   },
   methods: {
     geolocate: function () {
@@ -56,19 +56,13 @@ export default {
     },
     navigateToPage(id) {
       this.$router.push({
-        name: "test",
+        name: "crag",
         params: { id: id },
       });
     },
+     //To-do: move to Area.vue
     getCrags() {
-      //To limit our zoom window
-      //I need to make a method where I search through the array of areas
-      //and using the id I pull up all of the crags in that spot
-      //
-      //then set my zoom window to the number of markers I have
-      //I have the methods but how do I implement them??
-      
-
+    
       this.$store.state.crags.forEach((crag) => {
         const cragMarker = {
           lat: crag.latitude,
