@@ -12,6 +12,8 @@ import AllanPlay from '../views/AllanPlay.vue'
 import KevinPlay from '../views/KevinPlay.vue'
 import Area from '../views/Area.vue'
 import Crag from '../views/Crag.vue'
+import Wall from '../views/Wall.vue'
+import Route from '../views/Route.vue'
 
 Vue.use(Router)
 
@@ -81,6 +83,22 @@ const router = new Router({
       path: "/crag/:id",
       name: "crag",
       component: Crag,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/wall/:id',
+      name: "wall",
+      component: Wall,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/route/:id',
+      name: "route",
+      component: Route,
       meta: {
         requiresAuth: true
       }

@@ -1,13 +1,15 @@
 <template>
   <div class="crag">
     <div class="description">
-      <p>Description:</p>
+      <h3>Description:</h3>
       <p>{{ crag.description }}</p>
     </div>
     <div class="walls">
       <ul>
         <li v-for="wall in walls" :key="wall.id">
-          {{ wall.name }}
+          <router-link :to="{ name: 'wall', params: { id: wall.id } }">{{
+            wall.name
+          }}</router-link>
         </li>
       </ul>
     </div>
@@ -25,7 +27,8 @@ export default {
   },
   methods: {
     loadWalls() {
-      this.store.state.walls.forEach((wall) => {
+      this.$store.state.walls.forEach((wall) => {
+        console.log("test");
         if (wall.crag_id == this.crag.id) {
           this.walls.push(wall);
         }

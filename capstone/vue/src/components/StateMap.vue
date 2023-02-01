@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <div class="state-map">
+      
+  </div>
 </template>
 
 <script>
-
 export default {
 
 }
