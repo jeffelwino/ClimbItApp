@@ -98,19 +98,6 @@
 <script>
 export default {
     name: 'tickbox',
-    
-    data(){
-        return{
-            dialog: false,
-            survey: {
-            routeName: '',
-            dateClimbed: '',
-            rating: 0,
-            notes:''
-        },
-        }
-    }
-
   data() {
     return {
       dialog: false,
