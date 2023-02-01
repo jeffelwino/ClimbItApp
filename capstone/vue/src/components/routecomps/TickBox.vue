@@ -55,8 +55,8 @@
               Cancel
             </v-btn>
 
-            <v-btn color="blue darken-1" text @click="dialog = false">
-              Submit
+            <v-btn color="blue darken-1" text @click="addSurvey">
+              Submit <!--We want to grab the current route_id  -->
             </v-btn>
           </v-row>
         </v-form>
@@ -81,6 +81,19 @@ export default {
       },
     };
   },
+
+  methods: {
+    addSurvey() {
+      this.dialog=false;
+      this.survey = {
+        routeName: "",
+        dateClimbed: "",
+        rating: 0,
+        notes: "",
+      };
+      
+    }
+  }
 };
 </script>
 
