@@ -1,6 +1,5 @@
 <template>
   <div class="route">
-  
     <route-header v-bind:route="route" />
     <!-- image gallery -->
     <route-gallery />
@@ -8,15 +7,14 @@
     <!-- description -->
     <description></description>
 
-    <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section>
+    <!-- <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section> -->
+    <route-ticks :route="route" />
 
-    <section style="height:10rem; margin-top: 5px; border: 1px solid black">Comments</section>
+    <section style="height: 10rem; margin-top: 5px; border: 1px solid black">
+      Comments
+    </section>
     <!-- Recent Ascents (connected to tickbox)-->
     <!--  Comments -->
-
-    
-
-
   </div>
 </template>
 
@@ -25,9 +23,16 @@ import RouteDetail from "../components/routecomps/RouteDetail.vue";
 import RouteHeader from "../components/routecomps/RouteHeader.vue";
 import RouteGallery from "../components/images/RouteGallery.vue";
 import Description from "../components/Description.vue";
+import RouteTicks from "../components/routecomps/RouteTicks.vue";
 export default {
   name: "route",
-  components: { RouteDetail, RouteHeader,RouteGallery,Description },
+  components: {
+    RouteDetail,
+    RouteHeader,
+    RouteGallery,
+    Description,
+    RouteTicks,
+  },
   data() {
     return {
       route: {

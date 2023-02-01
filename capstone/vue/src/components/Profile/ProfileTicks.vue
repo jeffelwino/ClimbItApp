@@ -1,12 +1,7 @@
 <template>
   <div class="profile-ticks">
     <h3>Here are {{ profile.name }}'s latest ascents:</h3>
-    <tick-display
-      v-for="tick in ticks"
-      :key="tick.id"
-      :tick="tick"
-      :profile="profile"
-    />
+    <tick-display v-for="tick in ticks" :key="tick.id" :tick="tick" />
   </div>
 </template>
 
