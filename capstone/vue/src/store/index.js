@@ -143,10 +143,10 @@ export default new Vuex.Store({
 
     ],
     comments: [
-      { user: "Kevin", body: "This is my first comment" },
-      { user: "Michael", body: "This is a wonderful comment" },
-      { user: "Allan", body: "My Comment" },
-      { user: "Jeff", body: "Rothko is an arteest" }
+      { id: 1, user: "Kevin", body: "This is my first comment" },
+      { id: 1, user: "Michael", body: "This is a wonderful comment" },
+      { id: 2, user: "Allan", body: "My Comment" },
+      { id: 3, user: "Jeff", body: "Rothko is an arteest" }
     ]
 
   },
