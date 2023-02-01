@@ -24,58 +24,84 @@ export default new Vuex.Store({
     states: [
       { abbrev: "AL",
         name: "Alabama",
-        areas: 100  
+        areas: 100,  
+        latitude: 32.318230,
+        longitude: -86.902298
       },
       { abbrev: "AK",
         name: "Alaska",
-        areas: 151
+        areas: 151,
+        latitude: 66.160507,
+        longitude: -153.369141
       },
       { abbrev: "AZ",
-      name: "Arizona",
-        areas: 200 
+        name: "Arizona",
+        areas: 200,
+        latitude: 34.048927,
+        longitude: -111.093735
       },
       { abbrev: "AK",
       name: "Arkansas",
-        areas: 300  
+        areas: 300,
+        latitude: 34.799999,
+        longitude: -92.199997  
       },
        { abbrev: "CA",
        name: "California",
-        areas: 400  
+        areas: 400,
+        latitude: 36.778259,
+        longitude: -119.417931  
       },
         { abbrev: "CO",
         name: "Colorado",
-        areas: 100  
+        areas: 100,
+        latitude: 39.113014,
+        longitude: -105.358887 
       },
       { abbrev: "CN",
         name: "Connecticut",
-        areas: 151
+        areas: 151,
+        latitude: 41.599998,
+        longitude: -72.699997
       },
       { abbrev: "DE",
         name: "Delaware",
-        areas: 200 
+        areas: 200,
+        latitude: 39.000000,
+        longitude: -75.500000 
       },
       { abbrev: "FL",
         name: "Florida",
-        areas: 300  
+        areas: 300,
+        latitude: 27.994402,
+        longitude: -81.760254  
       },
        { abbrev: "GA",
         name: "Georgia",
-        areas: 400  
+        areas: 400, 
+        latitude: 33.247875,
+        longitude: -83.441162 
       },
       {
         abbrev: "OH",
         name: "Ohio",
-        areas: 3
+        areas: 3,
+        latitude: 40.367474,
+        longitude: -82.996216
       },
       {
         abbrev: "KY",
         name: "Kentucky",
-        areas: 1
+        areas: 1,
+        latitude: 37.839333,
+        longitude: -84.270020
       },
       {
         abbrev: "WV",
         name: "West Virginia",
-        areas: 1
+        areas: 1,
+        latitude: 39.000000,
+        longitude: -80.500000
       },
     ],
     areas: [
