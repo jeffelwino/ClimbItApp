@@ -1,23 +1,23 @@
 <template>
-<v-container>
-  <div class="home">
-    <h1>Home</h1>
-  
-    <display-map/>
+  <v-container>
+    <div class="home">
+      <h1>Home</h1>
 
-    <v-sheet class="mt-5">
-      <state-list></state-list>
-    </v-sheet>
-  </div>
+      <display-map />
+
+      <v-sheet class="mt-5">
+        <state-list></state-list>
+      </v-sheet>
+    </div>
   </v-container>
 </template>
 
 <script>
-import DisplayMap from '../components/DisplayMap.vue';
-import StateList from '../components/StateList.vue';
+import DisplayMap from "../components/HomeMap.vue";
+import StateList from "../components/StateList.vue";
 
 export default {
   components: { DisplayMap, StateList },
-  name: "home"
+  name: "home",
 };
 </script>

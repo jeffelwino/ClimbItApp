@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import ProfileInfo from "../components/Profile/ProfileInfo.vue";
-import ProfilePicture from "../components/Profile/ProfilePicture.vue";
-import ProfileTicks from "../components/Profile/ProfileTicks.vue";
-import ProfileTodo from "../components/Profile/ProfileTodo.vue";
+import ProfileInfo from "../components/profile/ProfileInfo.vue";
+import ProfilePicture from "../components/profile/ProfilePicture.vue";
+import ProfileTicks from "../components/profile/ProfileTicks.vue";
+import ProfileTodo from "../components/profile/ProfileTodo.vue";
 export default {
   components: { ProfilePicture, ProfileInfo, ProfileTicks, ProfileTodo },
   name: "profile",

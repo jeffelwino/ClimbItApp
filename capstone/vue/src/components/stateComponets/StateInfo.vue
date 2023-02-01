@@ -6,12 +6,11 @@
 
     <!-- mapdisplay placeholder-->
 
-    <state-map v-bind:state="state" v-bind:areas="areas"/>
-
+    <state-map v-bind:state="state" v-bind:areas="areas" />
 
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas">
-        <h3>Climbing areas in {{state.name}}:</h3>
+      <h3>Climbing areas in {{ state.name }}:</h3>
       <ul>
         <li v-for="area in areas" :key="area.id">
           <router-link :to="{ name: 'area', params: { id: area.id } }">
@@ -32,7 +31,7 @@
 </template>
 
 <script>
-import StateMap from "../components/StateMap.vue";
+import StateMap from "./StateMap.vue";
 export default {
   components: { StateMap },
   name: "state-info",

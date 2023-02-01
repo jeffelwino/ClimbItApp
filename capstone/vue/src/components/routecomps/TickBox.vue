@@ -14,11 +14,6 @@
           <v-divider></v-divider>
           <v-row class="justify-center">
             <v-col cols="12" sm="6" md="3">
-              <v-card-text outlined v-bind:key="survey.routeName"
-                >{{ survey.routeName }}
-              </v-card-text>
-            </v-col>
-            <v-col cols="12" sm="6" md="3">
               <label for="date-climbed" id="date-climbed">Date Climbed:</label>
               <input
                 class="mt-5 ml-2"
@@ -69,29 +64,19 @@
 <script>
 export default {
   name: "tickbox",
+  props: ["route"],
+
   data() {
     return {
       dialog: false,
-
+      // To-do: Similar to principle, set profile_id to logged in user's profile_id
       survey: {
-        routeName: "",
+        routeId: this.route.id,
         dateClimbed: "",
         rating: 0,
         notes: "",
       },
     };
-  },
-
-  methods: {
-    addSurvey() {
-      this.dialog = false;
-      this.survey = {
-        routeName: "",
-        dateClimbed: "",
-        rating: 0,
-        notes: "",
-      };
-    },
   },
 };
 </script>

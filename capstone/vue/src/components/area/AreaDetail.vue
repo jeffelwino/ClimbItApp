@@ -3,6 +3,7 @@
     <div class="weather">
       The weather here the next 5 days is going to be perfect for climbing!
     </div>
+    <!-- Description component -->
     <p>{{ area.description }}</p>
     <h2>Here are the crags available to climb at in this area:</h2>
     <ul>
