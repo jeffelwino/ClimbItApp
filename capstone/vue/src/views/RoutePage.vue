@@ -7,6 +7,10 @@
     <route-detail v-bind:route="route" />
     <!-- description -->
     <description></description>
+
+    <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section>
+
+    <section style="height:10rem; margin-top: 5px; border: 1px solid black">Comments</section>
     <!-- Recent Ascents (connected to tickbox)-->
     <!--  Comments -->
 
