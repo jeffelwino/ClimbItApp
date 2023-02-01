@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="stats ma-5 grey" style="width: 90%; height:100px">
+    <div class="stats ma-5 grey" style="width: 90%; height:10%">
       
       <h4>description</h4>
       </div>
