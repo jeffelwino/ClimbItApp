@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import WallDetail from "../components/WallDetail.vue";
+import WallDetail from "../components/wall/WallDetail.vue";
 export default {
   name: "wall",
   components: { WallDetail },

@@ -1,16 +1,12 @@
 <template>
   <div class="state-map">
     <h2>{{ state.name }}</h2>
-    <state-map v-bind:state="state"/>
-    <state-info v-bind:state="state"/>
   </div>
 </template>
 
 <script>
-import StateInfo from '../components/StateInfo.vue'
-import StateMap from '../components/StateMap.vue'
 export default {
-  components: {StateInfo, StateMap},
+  components: {},
   name: "state",
   data() {
     return {
@@ -34,5 +30,4 @@ export default {
 };
 </script>
 <style scoped>
-
 </style>

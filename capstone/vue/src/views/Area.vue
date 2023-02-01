@@ -1,15 +1,15 @@
 <template>
   <div class="area">
     <h2>{{ area.name }}</h2>
-     <area-map v-bind:area="area"/> 
+    <area-map v-bind:area="area" />
     <area-detail v-bind:area="area" />
     <!-- <comment-container  -->
   </div>
 </template>
 
 <script>
-import AreaDetail from "../components/AreaDetail.vue";
-import AreaMap from '../components/AreaMap.vue'
+import AreaDetail from "../components/area/AreaDetail.vue";
+import AreaMap from "../components/area/AreaMap.vue";
 export default {
   components: { AreaDetail, AreaMap },
   name: "area",
