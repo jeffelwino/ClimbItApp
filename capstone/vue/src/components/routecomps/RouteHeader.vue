@@ -18,15 +18,8 @@
       Wanna ClimbIt
     </v-btn>
      </v-row>
-
-      
      <v-card class="blue">
-            
-
      </v-card>
-       
-    
-
      </v-container>
     
      <!-- tick box button -->

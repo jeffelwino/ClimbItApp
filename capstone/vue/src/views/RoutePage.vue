@@ -1,18 +1,29 @@
 <template>
   <div class="route">
   
-    
     <route-header v-bind:route="route" />
+    <!-- image gallery -->
+    <route-gallery />
     <route-detail v-bind:route="route" />
+    <!-- description -->
+    <description></description>
+    <!-- Recent Ascents (connected to tickbox)-->
+    <!--  Comments -->
+
+    
+
+
   </div>
 </template>
 
 <script>
 import RouteDetail from "../components/routecomps/RouteDetail.vue";
 import RouteHeader from "../components/routecomps/RouteHeader.vue";
+import RouteGallery from "../components/images/RouteGallery.vue";
+import Description from "../components/Description.vue";
 export default {
   name: "route",
-  components: { RouteDetail, RouteHeader },
+  components: { RouteDetail, RouteHeader,RouteGallery,Description },
   data() {
     return {
       route: {

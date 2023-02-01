@@ -14,7 +14,7 @@
     </template>
 <v-card>
   <v-form class="px-3">
-    <v-card-title class="justify-center grey">
+    <v-card-title class="dark-grey">
         <span class="text-h4">Congrats! Tell us more!</span>
     </v-card-title>
     <v-divider></v-divider>
@@ -24,7 +24,7 @@
           sm="6"
           md="3"
         >
-         <v-text-field label="route" v:model="survey.routeName"> </v-text-field>
+         <v-card-text outlined v-bind:key="survey.routeName">{{survey.routeName}} </v-card-text>
          </v-col>
         <v-col
           cols="12"
@@ -83,8 +83,6 @@
 </v-form>
 </v-card>
      </v-dialog>
-
-
     </v-sheet>
 
 </template>
@@ -96,7 +94,6 @@ export default {
     data(){
         return{
             dialog: false,
-            
             survey: {
             routeName: '',
             dateClimbed: '',
