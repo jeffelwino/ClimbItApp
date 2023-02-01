@@ -20,7 +20,7 @@
                 name="date-climbed"
                 id="date-climbed"
                 type="date"
-                v:model="survey.dateClimbed"
+                v-model="survey.date"
               />
             </v-col>
           </v-row>
@@ -42,7 +42,7 @@
               <v-textarea
                 outlined
                 label="notes"
-                v:model="survey.notes"
+                v-model="survey.note"
               ></v-textarea>
             </v-col>
           </v-row>
@@ -51,9 +51,7 @@
               Cancel
             </v-btn>
 
-            <v-btn color="blue darken-1" text @click="dialog = false">
-              Submit
-            </v-btn>
+            <v-btn color="blue darken-1" text @click="saveTick"> Submit </v-btn>
           </v-row>
         </v-form>
       </v-card>
@@ -71,12 +69,29 @@ export default {
       dialog: false,
       // To-do: Similar to principle, set profile_id to logged in user's profile_id
       survey: {
-        routeId: this.route.id,
-        dateClimbed: "",
+        id: 0,
+        profile_id: this.$store.state.user.id,
+        route_id: this.route.id,
+        date: "",
         rating: 0,
-        notes: "",
+        note: "",
       },
     };
+  },
+  methods: {
+    saveTick() {
+      this.survey.id = this.$store.getters.nextTickId;
+      this.$store.commit("SAVE_TICK", this.survey);
+      this.survey = {
+        id: 0,
+        profile_id: this.$store.state.user.id,
+        route_id: this.route.id,
+        date: "",
+        rating: 0,
+        note: "",
+      };
+      this.dialog = false;
+    },
   },
 };
 </script>

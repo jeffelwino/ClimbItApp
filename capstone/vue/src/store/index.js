@@ -25,7 +25,7 @@ export default new Vuex.Store({
       {
         abbrev: "AL",
         name: "Alabama",
-        areas: 100,  
+        areas: 100,
         latitude: 32.318230,
         longitude: -86.902298
       },
@@ -36,30 +36,33 @@ export default new Vuex.Store({
         latitude: 66.160507,
         longitude: -153.369141
       },
-      { abbrev: "AZ",
+      {
+        abbrev: "AZ",
         name: "Arizona",
         areas: 200,
         latitude: 34.048927,
         longitude: -111.093735
       },
-      { abbrev: "AK",
-      name: "Arkansas",
+      {
+        abbrev: "AK",
+        name: "Arkansas",
         areas: 300,
         latitude: 34.799999,
-        longitude: -92.199997  
+        longitude: -92.199997
       },
-       { abbrev: "CA",
-       name: "California",
+      {
+        abbrev: "CA",
+        name: "California",
         areas: 400,
         latitude: 36.778259,
-        longitude: -119.417931  
+        longitude: -119.417931
       },
       {
         abbrev: "CO",
         name: "Colorado",
         areas: 100,
         latitude: 39.113014,
-        longitude: -105.358887 
+        longitude: -105.358887
       },
       {
         abbrev: "CN",
@@ -73,21 +76,21 @@ export default new Vuex.Store({
         name: "Delaware",
         areas: 200,
         latitude: 39.000000,
-        longitude: -75.500000 
+        longitude: -75.500000
       },
       {
         abbrev: "FL",
         name: "Florida",
         areas: 300,
         latitude: 27.994402,
-        longitude: -81.760254  
+        longitude: -81.760254
       },
       {
         abbrev: "GA",
         name: "Georgia",
-        areas: 400, 
+        areas: 400,
         latitude: 33.247875,
-        longitude: -83.441162 
+        longitude: -83.441162
       },
       {
         abbrev: "OH",
@@ -180,8 +183,55 @@ export default new Vuex.Store({
       { id: 1, user: "Michael", body: "This is a wonderful comment" },
       { id: 2, user: "Allan", body: "My Comment" },
       { id: 3, user: "Jeff", body: "Rothko is an arteest" }
+    ],
+    ticks: [
+      {
+        id: 1,
+        profile_id: 4,
+        route_id: 9,
+        date: "10/18/2022",
+        note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
+        rating: 4,
+      },
+      {
+        id: 2,
+        profile_id: 4,
+        route_id: 6,
+        date: "6/11/2021",
+        note: "Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors though.",
+        rating: 3,
+      },
+    ],
+    profiles: [
+      {
+        id: 4,
+        name: "Michael Eden"
+      },
+      {
+        id: 1,
+        name: "Jeff"
+      },
+      {
+        id: 3,
+        name: "Kevin"
+      },
+      {
+        id: 2,
+        name: "Allan"
+      }
     ]
 
+  },
+  getters: {
+    nextTickId(state) {
+      let tickId = 0;
+      state.ticks.forEach(tick => {
+        if (tick.id >= tickId) {
+          tickId = tick.id;
+        }
+      })
+      return tickId + 1;
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -200,5 +250,10 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    SAVE_TICK(state, tick) {
+      state.ticks.push(tick);
+    },
+
+
   },
 })

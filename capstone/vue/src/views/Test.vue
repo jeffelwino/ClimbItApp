@@ -1,8 +1,6 @@
 <template>
   <div class="test">
-    <h2>Test landing page</h2>
-    <h2>{{ area.name }}</h2>
-    <p>{{ area.description }}</p>
+    <h1>THIS IS MICHAEL'S OWN PERSONAL PRIVATE VIEW</h1>
   </div>
 </template>
 
@@ -28,7 +26,7 @@ export default {
     };
   },
   created() {
-    this.loadArea();
+    console.log(this.$store.state.user.id);
   },
 };
 </script>
