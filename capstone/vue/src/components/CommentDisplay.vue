@@ -1,6 +1,7 @@
 <template>
 <!-- this is the structure of what a comment will be -->
     <v-container>
+        <h1>hard</h1>
         <v-card elevation="3">
             <v-card-title>
                 <v-avatar size=48 color="blue">
@@ -8,8 +9,8 @@
                         mdi-account-circle
                     </v-icon>
                 </v-avatar>
-                Username</v-card-title>
-            <v-textarea label="body" outlined></v-textarea>
+                {{comment.user}}</v-card-title>
+            <v-card-text label="body" outlined>{{comment.body}}</v-card-text>
         </v-card>
         <!-- <v-container class="comment">
             <v-text-field clearable=true outlined label = "Leave a comment here" v-model="body"></v-text-field>
@@ -24,7 +25,7 @@
 <script>
 export default {
     name: "comment",
-    props: ["comments"],
+    props: ["comment"],
     data(){
         return{
             body: '',
