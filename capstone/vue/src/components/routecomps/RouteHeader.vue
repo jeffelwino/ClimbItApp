@@ -27,6 +27,7 @@ export default {
   components: { TickBox },
   name: "route-header",
   props: ["route"],
+  computed: {},
 };
 </script>
 
