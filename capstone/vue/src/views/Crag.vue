@@ -4,14 +4,16 @@
     <h2>{{ crag.name }}</h2>
     <!-- Refactored into the container -->
     <wall-card-container v-bind:crag="crag"/>
+    <crag-comment v-bind:crag="crag"/>
   </div>
 </template>
 
 <script>
 import WallCardContainer from "../components/WallCardContainer.vue";
+import CragComment from "../components/CragComment.vue"
 
 export default {
-  components: { WallCardContainer },
+  components: { WallCardContainer, CragComment },
   name: "crag",
   methods: {
     loadCrag() {
