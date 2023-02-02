@@ -10,16 +10,28 @@
 
       <v-card>
         <v-form class="px-3">
-
+          <v-row class="justify-center">
           <v-card-title class="dark-grey">
-            <span class="text-h4">Congrats! Tell us more!</span>
+            
+            <span class="
+            text-h6
+            text-md-h5
+            text-lg-h4
+            text-truncate"
+            >Congrats! Tell us more!</span>
+            
           </v-card-title>
-
+          </v-row>
           <v-divider></v-divider>
           
           <v-row class="justify-center">
-            <v-col cols="12" sm="6" md="3">
-              <label for="date-climbed" id="date-climbed">Date Climbed:</label>
+            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+              <label for="date-climbed" id="date-climbed" class="
+              text-h7
+              text-md-h5
+              text-lg-h4
+              text-truncate" 
+              >Date Climbed:</label>
               <input
                 class="mt-5 ml-2"
                 name="date-climbed"
@@ -31,7 +43,7 @@
           </v-row>
 
           <v-row class="inline-block">
-            <v-col cols="12" sm="6" md="3">
+            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <v-card-text>
                 Rating:
                 <v-rating
@@ -44,8 +56,8 @@
                 ></v-rating>
               </v-card-text>
             </v-col>
-
-            <v-col cols="12" sm="6" md="3">
+          
+            <v-col cols="12" sm="6" md="4">
               <v-textarea
                 outlined
                 label="notes"
