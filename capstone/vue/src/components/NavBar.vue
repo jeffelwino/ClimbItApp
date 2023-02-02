@@ -4,17 +4,25 @@
       color="blue"
       dark
     >
-    <v-row align-items="center">
-    <v-icon large>mdi-spa</v-icon>
-    <!-- <v-img src="../assets\climbit-logo-v4.png"></v-img> -->
+    <v-row align="end">
+    <!-- <v-icon large>mdi-spa</v-icon> -->
+    <div class="d-flex justify-start">
+    <v-img src="../assets\climbit-logo-v4.png"
+  class="ma-1"
+      contain
+      height="3rem"
+      max-width="2rem"
+    ></v-img>
+    </div>
+
 
     <v-toolbar-title class="ml-5"> 
-      <h2 @click="goToHome">ClimbIt</h2> 
+      <h1 @click="goToHome">ClimbIt</h1> 
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
  
-    <h4 class="white--text d-flex align-center mr-5" 
+    <h4 class="white--text d-flex align-center" 
     v-show="$store.state.token === ''" 
     @click="goToLogin"> 
       Log-In/Register
@@ -37,7 +45,7 @@
           <v-divider></v-divider>
             <v-list-item
             link>
-            <v-list-item-title>Placeholder</v-list-item-title>
+            <v-list-item-title>Lorem Ipsum</v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
 
@@ -60,7 +68,6 @@ export default {
     methods: {
       goToProfile(){
         if (this.$store.state.token === ''){
-          // this.$router.push({name: 'login'});
           this.goToLogin();
         }
         else{

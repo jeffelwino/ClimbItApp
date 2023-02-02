@@ -204,6 +204,22 @@ export default new Vuex.Store({
         note: "Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors though.",
         rating: 3,
       },
+      {
+        id: 3,
+        profile_id: 3,
+        routeId: 9,
+        date: "10/19/2022",
+        note: "Great.",
+        rating: 3,
+      },
+      {
+        id: 4,
+        profile_id: 2,
+        routeId: 9,
+        date: "10/20/2022",
+        note: "Ass",
+        rating: 1,
+      },
     ],
     profiles: [
       {
@@ -235,6 +251,15 @@ export default new Vuex.Store({
       })
       return tickId + 1;
     },
+    nextCommentId(state){
+      let commentId = 0;
+      state.comments.forEach(comment => {
+        if (comment.commentId >= commentId) {
+          commentId = comment.commentId;
+        }
+      })
+      return commentId + 1;
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -256,6 +281,9 @@ export default new Vuex.Store({
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
     },
+    SAVE_COMMENT(state, comment){
+      state.comments.push(comment);
+    }
 
 
   },

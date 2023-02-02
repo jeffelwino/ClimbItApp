@@ -1,7 +1,6 @@
 <template>
 <!-- this is the structure of what a comment will be -->
     <v-container>
-        <h1>hard</h1>
         <v-card elevation="3">
             <v-card-title>
                 <v-avatar size=48 color="blue">
