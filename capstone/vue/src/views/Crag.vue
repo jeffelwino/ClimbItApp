@@ -2,17 +2,16 @@
   <div class="crag">
     <h2>Crag Page</h2>
     <h2>{{ crag.name }}</h2>
-    <crag-map v-bind:crag="crag" />
     <!-- Refactored into the container -->
-    <crag-detail v-bind:crag="crag" />
+    <wall-card-container v-bind:crag="crag"/>
   </div>
 </template>
 
 <script>
-import CragDetail from "../components/crag/CragDetail.vue";
-import CragMap from "../components/crag/CragMap.vue";
+import WallCardContainer from "../components/WallCardContainer.vue";
+
 export default {
-  components: { CragDetail, CragMap },
+  components: { WallCardContainer },
   name: "crag",
   methods: {
     loadCrag() {

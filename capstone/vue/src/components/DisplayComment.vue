@@ -15,7 +15,8 @@ import CommentContainer from './CommentContainer.vue'
 
 export default {
   components: { CommentContainer },
-    methods: {
+  props: ["comments"],
+  methods: {
         submitComment(){
             //alert("This is doing something");
             this.bank = this.body;
