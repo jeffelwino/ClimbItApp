@@ -6,9 +6,9 @@
     <route-detail v-bind:route="route" />
     <!-- description -->
     <div>
-     <v-card class="stats ma-5 grey">
+     <v-card class="ma-5 pa-2">
       <h4>description:</h4>
-      <br>
+      
       <p>{{ route.description}} </p>
       </v-card>
     </div>

@@ -24,20 +24,7 @@
       </v-dialog>
     </v-row>
 
-    <!-- <v-simple-table>
-          <tbody>
-        <tr
 
-        >
-          <td>{{ state.name }}</td>
-          <td>{{ state.name }}</td>
-          <td>{{ state.name }}</td>
-          <td>{{ state.name }}</td>
-          <td>{{ state.name }}</td>
-          
-        </tr>
-      </tbody>
-      </v-simple-table> -->
   </v-container>
 </template>
 

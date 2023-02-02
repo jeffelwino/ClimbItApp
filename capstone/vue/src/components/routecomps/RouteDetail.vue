@@ -1,39 +1,35 @@
 <template>
   
     <v-container>
-      <v-card class="ma-5 justify-center" border="2px solid black" width="90%">
+      <v-card class="ma-4 justify-center" width="90%">
       <v-card-title> <h3>Stats:</h3>  </v-card-title>
-      <v-card-text>
+      <v-divider></v-divider>
+      <v-card-text class="justify center">
       <v-layout>
-        <!-- <v-col
-          cols="12"
-          sm="6"
-          md="3"> -->
-        <ul>
-        <li>Height: {{ route.height }}</li>
-        <li>Style: {{ route.style }}</li>
-        </ul>
-      
-          <!-- </v-col>
-          <v-col -->
-          <!-- cols="12"
-          sm="6"
-          md="3"> -->
-          <ul  class="ml-10">
-        <li>Rating: 
-          
-           <v-rating
+
+        <v-list>
+        <v-list-item>Height: {{ route.height }}</v-list-item>
+        <v-list-item>Style: {{ route.style }}</v-list-item>
+        </v-list>
+        <!-- <v-spacer></v-spacer> -->
+          <v-list  class="ml-10">
+        <v-list-item> Rating:  
+          <v-rating
              readonly
+             dense
             v-model="averageRating"
+          
             color="yellow darken-3"
             background-color="grey darken-1"
             empty-icon="$ratingFull"
             hover
-            x-small>
+            size="12">
         </v-rating>
-        </li>
-        <li>Protection</li>
-      </ul>
+          
+           
+        </v-list-item>
+        <v-list-item>Protection: </v-list-item>
+      </v-list>
           <!-- </v-col> -->
       </v-layout>
       </v-card-text>
