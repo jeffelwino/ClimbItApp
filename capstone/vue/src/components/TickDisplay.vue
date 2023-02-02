@@ -1,16 +1,25 @@
 <template>
   <div class="tick-display">
-    <h4>{{ profile.name }} climbed {{ route.name }} on {{ tick.date }}</h4>
+
+    <v-card class="mb-2">
+      <v-layout class="justify-space-around">
+        <h6>{{ profile.name }} climbed {{ route.name }} on {{ tick.date }}</h6>
+        <v-spacer></v-spacer>
     <v-rating
       readonly
       :value="tick.rating"
+      class="mr-2"
       color="yellow darken-3"
       background-color="grey darken-1"
       empty-icon="$ratingFull"
-      hover
-      medium
+      dense
+      x-small
     ></v-rating>
     <p v-if="tick-note">{{ tick.note }}</p>
+
+      </v-layout>
+    
+    </v-card>
   </div>
 </template>
 
