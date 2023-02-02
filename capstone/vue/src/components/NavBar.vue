@@ -33,11 +33,12 @@
         <template v-slot:activator="{ on, attrs }">
         <v-app-bar-nav-icon large
             v-bind="attrs"
-            v-on="on">
+            v-on="on"
+            v-show="$store.state.token !== ''">
 
-        </v-app-bar-nav-icon>
+        </v-app-bar-nav-icon >
         </template>
-         <v-list color="green">
+         <v-list   color="green">
           <v-list-item exact @click="goToProfile" link
             >
             <v-list-item-title>View Profile</v-list-item-title>

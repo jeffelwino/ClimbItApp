@@ -18,7 +18,7 @@
              readonly
              dense
             v-model="averageRating"
-          
+            half-increments
             color="yellow darken-3"
             background-color="grey darken-1"
             empty-icon="$ratingFull"
