@@ -223,25 +223,35 @@ export default new Vuex.Store({
     ],
     profiles: [
       {
+        id: 3,
+        name: "Kevin",
+        location: "Long Island, New  York",
+        bio: "My name is Kevin and I like to climb rocks",
+        todos: [1, 9, 5],
+        picture: require('@/assets/profile-picture.jpg')
+      },
+      {
         id: 4,
         name: "Mike",
         location: "Sunbury, Ohio",
         bio: "My name is Michael and I like to climb rocks",
         todos: [12, 5, 3],
-        picture: '../../assets/profile-picture.jpg'
-
+        picture: require('@/assets/profile-picture.jpg')
       },
       {
-        id: 1,
-        name: "Jeff"
+        id: 5,
+        name: "Jeff",
+        location: "Chicago, Illinois",
+        bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
+        todos: [12],
+        picture: 'src/assets/climbit-logo-v4.png'
       },
       {
-        id: 3,
-        name: "Kevin"
-      },
-      {
-        id: 2,
-        name: "Allan"
+        id: 6,
+        name: "Allan",
+        bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
+        todos: [],
+        picture: ''
       }
     ]
 

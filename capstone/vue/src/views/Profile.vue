@@ -17,14 +17,26 @@ export default {
   name: "profile",
 
   data() {
-    return {};
+    return {
+      profile: {
+        id: 0,
+        name: "",
+        location: "",
+        bio: "",
+        todos: [],
+        picture: "",
+      },
+    };
   },
-  computed: {
-    profile() {
-      return this.$store.state.profiles.find((p) => {
-        return (p.id = this.$route.params.id);
+  methods: {
+    loadProfile() {
+      this.profile = this.$store.state.profiles.find((profile) => {
+        return profile.id == this.$route.params.id;
       });
     },
+  },
+  mounted() {
+    this.loadProfile();
   },
 };
 </script>
