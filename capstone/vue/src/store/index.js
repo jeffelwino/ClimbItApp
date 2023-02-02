@@ -180,9 +180,12 @@ export default new Vuex.Store({
     ],
     comments: [
       { commentId: 1, routeId: 1, user: "Kevin", body: "This is my first comment" },
-      { commentId: 1, routeId: 1, user: "Michael", body: "This is a wonderful comment" },
-      { commentId: 1, routeId: 2, user: "Allan", body: "My Comment" },
-      { commentId: 1, routeId: 3, user: "Jeff", body: "Rothko is an arteest" }
+      { commentId: 2, routeId: 1, user: "Michael", body: "This is a wonderful comment" },
+      { commentId: 3, routeId: 2, user: "Allan", body: "My Comment" },
+      { commentId: 4, routeId: 3, user: "Jeff", body: "Rothko is an arteest" },
+      { commentId: 5, cragId: 1, user: "I don't care", body: "Whatever" },
+      { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you"},
+      { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful"}
     ],
     ticks: [
       {

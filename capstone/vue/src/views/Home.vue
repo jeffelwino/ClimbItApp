@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <div class="home">
-      <h1>Home</h1>
-
+    <div class="home mt-n10">
       <display-map />
 
       <v-sheet class="mt-5">

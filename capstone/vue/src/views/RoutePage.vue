@@ -36,6 +36,8 @@ import RouteHeader from "../components/routecomps/RouteHeader.vue";
 import RouteGallery from "../components/images/RouteGallery.vue";
 // import Description from "../components/Description.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
+import RouteComment from "../components/routecomps/RouteComment.vue";
+
 export default {
   name: "route",
   components: {
@@ -44,6 +46,7 @@ export default {
     RouteGallery,
     // Description,
     RouteTicks,
+    RouteComment
   },
   data() {
     return {

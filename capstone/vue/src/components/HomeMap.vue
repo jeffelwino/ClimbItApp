@@ -1,6 +1,6 @@
 <template>
   <div class="map">
-    <h2>This is the Map!</h2>
+    <h2>Climbs near you!</h2>
     <GmapMap :center="center" :zoom="10" id="map">
       <GmapMarker
         v-for="marker in markers"
@@ -50,11 +50,17 @@ export default {
         });
       });
     },
-    navigateToPage(id) {
-      this.$router.push({
-        name: "area",
-        params: { id: id },
-      });
+    navigateToPage(areaId) {
+        if(this.$store.state.token === ''){
+           this.$router.push({
+             name: 'login'
+             });
+        } else {
+          this.$router.push({
+          name: "area",
+          params: { id: areaId },
+        });
+      }
     },
   },
 };
