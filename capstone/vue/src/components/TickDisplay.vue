@@ -10,14 +10,14 @@
       hover
       medium
     ></v-rating>
-    <p>{{ tick.note }}</p>
+    <p v-if="tick-note">{{ tick.note }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "tick-display",
-  props: ["tick"],
+  props: ["tick", "tick-note"],
   computed: {
     route() {
       return this.$store.state.routes.find((r) => {

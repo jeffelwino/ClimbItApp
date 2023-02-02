@@ -1,7 +1,7 @@
 <template>
   <div class="route-ticks">
     <h3>Here are the latest ticks for {{ route.name }}</h3>
-    <tick-display v-for="tick in ticks" :key="tick.id" :tick="tick" />
+    <tick-display v-bind:route-ticks="false" v-for="tick in ticks" :key="tick.id" :tick="tick" />
   </div>
 </template>
 
