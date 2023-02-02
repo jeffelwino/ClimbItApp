@@ -1,7 +1,7 @@
 <template>
   <v-container class="px-3">
     <div class="route-ticks">
-      <h3>Latest Ticks For {{ route.name }}</h3>
+      <h3 class="text-h6 text-md-h5 text-lg-h4 text-truncate">Latest Ticks For {{ route.name }}</h3>
       <tick-display v-bind:route-ticks="false" v-for="tick in limitedList" :key="tick.id" :tick="tick" />
       <v-btn @click="toggleLimit">See All</v-btn>
     </div>
