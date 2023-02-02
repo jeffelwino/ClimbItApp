@@ -1,7 +1,7 @@
 <template>
   <div class="todo">
     <h3>Here is {{ profile.name }}'s to-do list:</h3>
-    <todo-display v-for="todo in todos" :key="todo.id" :todo="todo" />
+    <todo-display v-for="todo in profile.todos" :key="todo.id" :todo="todo" />
   </div>
 </template>
 
@@ -13,22 +13,23 @@ export default {
   props: ["profile"],
   data() {
     return {
-      todos: [
-        {
-          profile_id: 1,
-          routeId: 12,
-        },
-        {
-          profile_id: 1,
-          routeId: 5,
-        },
-        {
-          profile_id: 1,
-          routeId: 3,
-        },
-      ],
+      //     todos: [
+      //       {
+      //         profile_id: 1,
+      //         routeId: 12,
+      //       },
+      //       {
+      //         profile_id: 1,
+      //         routeId: 5,
+      //       },
+      //       {
+      //         profile_id: 1,
+      //         routeId: 3,
+      //       },
+      //     ],
     };
   },
+  computed: {},
 };
 </script>
 

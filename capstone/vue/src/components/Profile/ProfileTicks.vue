@@ -1,7 +1,12 @@
 <template>
   <div class="profile-ticks">
-    <h3>Here are {{ profile.name }}'s latest ascents:</h3>
-    <tick-display v-bind:route-ticks="true" v-for="tick in ticks" :key="tick.id" :tick="tick" />
+    <h3>Here are {{ profile.name }}'s latest ticks:</h3>
+    <tick-display
+      v-for="tick in ticks"
+      :key="tick.id"
+      :tick="tick"
+      :showNote="true"
+    />
   </div>
 </template>
 
@@ -34,8 +39,8 @@ export default {
     };
   },
   methods: {
-      loadTicks() {
-      this.ticks = this.$store.state.ticks.find((tick) => {
+    loadTicks() {
+      this.ticks = this.$store.state.ticks.filter((tick) => {
         return tick.profile_id == this.$route.params.id;
       });
     },

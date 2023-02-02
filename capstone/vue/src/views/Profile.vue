@@ -17,13 +17,14 @@ export default {
   name: "profile",
 
   data() {
-    return {
-      profile: {
-        name: "Michael Eden",
-        location: "Sunbury, Ohio",
-        bio: "My name is Michael and I like to climb rocks",
-      },
-    };
+    return {};
+  },
+  computed: {
+    profile() {
+      return this.$store.state.profiles.find((p) => {
+        return (p.id = this.$route.params.id);
+      });
+    },
   },
 };
 </script>

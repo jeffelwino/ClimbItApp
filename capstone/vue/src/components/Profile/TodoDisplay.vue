@@ -11,7 +11,8 @@ export default {
   computed: {
     route() {
       return this.$store.state.routes.find((r) => {
-        return r.id == this.todo.routeId;
+        console.log("todo:" + this.todo);
+        return r.id == this.todo;
       });
     },
   },
