@@ -31,7 +31,7 @@
         <v-list-item>Protection: </v-list-item>
       </v-list>
           <!-- </v-col> -->
-      </v-layout>
+      </v-layout>g
       </v-card-text>
       </v-card>
     </v-container>
