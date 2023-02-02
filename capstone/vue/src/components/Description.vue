@@ -2,7 +2,9 @@
   <div>
     <div class="stats ma-5 grey" style="width: 90%; height:10%">
       
-      <h4>description</h4>
+      <h4>description:</h4>
+      <br>
+      
       </div>
 
   </div>
