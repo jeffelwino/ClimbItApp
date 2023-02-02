@@ -69,8 +69,6 @@ export default {
     methods: {
       goToProfile(){
         this.$router.push({name: 'profile'});
-      }
-        
       },
         goToLogout(){
         this.$router.push({name: 'logout'});
@@ -82,9 +80,10 @@ export default {
         this.$router.push({name: 'login'});
       }
 
-    }
-
+    },
 }
+
+
 </script>
 
 <style>

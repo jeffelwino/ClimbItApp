@@ -1,10 +1,10 @@
 <template>
-  <v-card>
+  <v-card class="mb-5">
         <v-card-title>Leave a comment here!</v-card-title>
         <v-text-field clearable outlined v-model="newComment.body">
         </v-text-field>
             <v-btn block @click="submitComment">Submit</v-btn>
-        </v-card>
+    </v-card>
 </template>
 
 <script>
