@@ -9,9 +9,19 @@
         <!-- description -->
         <div>
           <v-card class="ma-5 pa-2">
-            <h4>description:</h4>
+            <h4 class="
+            text-h6
+            text-md-h5
+            text-lg-h4
+            text-truncate"
+            >Description:</h4>
 
-            <p>{{ route.description }}</p>
+            <p class= 
+           "text-h8
+            text-md-h5
+            text-lg-h4
+            text-truncate"
+            >{{ route.description }}</p>
           </v-card>
         </div>
 

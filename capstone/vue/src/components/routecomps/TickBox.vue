@@ -24,22 +24,25 @@
           </v-row>
           <v-divider></v-divider>
           
-          <v-row class="justify-center">
+          <v-row >
             <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <label for="date-climbed" id="date-climbed" class="
               text-h7
-              text-md-h5
-              text-lg-h4
+              text-md-h6
+              text-lg-h5
               text-truncate" 
               >Date Climbed:</label>
+            </v-col>
+          
+            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <input
-                class="mt-5 ml-2"
                 name="date-climbed"
                 id="date-climbed"
                 type="date"
                 v-model="survey.date"
               />
             </v-col>
+            
           </v-row>
 
           <v-row class="inline-block">
@@ -57,7 +60,7 @@
               </v-card-text>
             </v-col>
           
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="4" lg="4">
               <v-textarea
                 outlined
                 label="notes"
