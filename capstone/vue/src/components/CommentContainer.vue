@@ -1,6 +1,6 @@
 <template>
 <!-- this is the structure of what a comment will be -->
-    <div>
+    <v-container>
         <v-card elevation="3">
             <v-card-title>
                 <v-avatar size=48 color="blue">
@@ -18,7 +18,7 @@
         <v-container class="commentBank">
             <v-textarea outlined label = "List of Comments" v-model="bank"></v-textarea>
         </v-container>  -->
-    </div>  
+    </v-container>  
 </template>
 
 <script>
