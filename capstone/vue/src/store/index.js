@@ -165,17 +165,17 @@ export default new Vuex.Store({
     ],
     routes: [
       { id: 1, wallId: 1, name: 'Slappy McCracken', grade: '5.10b', height: '30ft', style: 'sport', description: 'The oldest climbing route in Ohio. Very busy during the weekend.' },
-      { id: 2, wallId: 1, name: 'Knope We Can', grade: '5.7', height: '25ft', style: 'sport',description: 'Est quid nostre papadio.Lorem ipsum quod maximus manatee. \n A climb in the classic Northhampton style. \n Old granite so watch your step!.' },
-      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad',description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
-      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport',description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.'},
-      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport',description: 'Est quid nostre papadio.' },
-      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport',description: 'Est quid nostre papadio.' },
-      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport',description: 'Est quid nostre papadio.' },
-      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport',description: 'Est quid nostre papadio.' },
-      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport',description: 'Est quid nostre papadio.' },
-      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport',description: 'n/a' },
-      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport',description: 'n/a' },
-      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport',description: 'n/a' },
+      { id: 2, wallId: 1, name: 'Knope We Can', grade: '5.7', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.Lorem ipsum quod maximus manatee. \n A climb in the classic Northhampton style. \n Old granite so watch your step!.' },
+      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad', description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
+      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport', description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.' },
+      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.' },
+      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.' },
+      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport', description: 'Est quid nostre papadio.' },
+      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport', description: 'Est quid nostre papadio.' },
+      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport', description: 'Est quid nostre papadio.' },
+      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport', description: 'n/a' },
+      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport', description: 'n/a' },
+      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport', description: 'n/a' },
 
     ],
     comments: [
@@ -184,8 +184,8 @@ export default new Vuex.Store({
       { commentId: 3, routeId: 2, user: "Allan", body: "My Comment" },
       { commentId: 4, routeId: 3, user: "Jeff", body: "Rothko is an arteest" },
       { commentId: 5, cragId: 1, user: "I don't care", body: "Whatever" },
-      { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you"},
-      { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful"}
+      { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you" },
+      { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful" }
     ],
     ticks: [
       {
@@ -223,20 +223,35 @@ export default new Vuex.Store({
     ],
     profiles: [
       {
-        id: 4,
-        name: "Michael Eden"
-      },
-      {
-        id: 1,
-        name: "Jeff"
-      },
-      {
         id: 3,
-        name: "Kevin"
+        name: "Kevin",
+        location: "Long Island, New  York",
+        bio: "My name is Kevin and I like to climb rocks",
+        todos: [1, 9, 5],
+        picture: require('@/assets/profile-picture.jpg')
       },
       {
-        id: 2,
-        name: "Allan"
+        id: 4,
+        name: "Mike",
+        location: "Sunbury, Ohio",
+        bio: "My name is Michael and I like to climb rocks",
+        todos: [12, 5, 3],
+        picture: require('@/assets/profile-picture.jpg')
+      },
+      {
+        id: 5,
+        name: "Jeff",
+        location: "Chicago, Illinois",
+        bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
+        todos: [12],
+        picture: 'src/assets/climbit-logo-v4.png'
+      },
+      {
+        id: 6,
+        name: "Allan",
+        bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
+        todos: [],
+        picture: ''
       }
     ]
 
@@ -251,7 +266,7 @@ export default new Vuex.Store({
       })
       return tickId + 1;
     },
-    nextCommentId(state){
+    nextCommentId(state) {
       let commentId = 0;
       state.comments.forEach(comment => {
         if (comment.commentId >= commentId) {
@@ -281,8 +296,15 @@ export default new Vuex.Store({
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
     },
-    SAVE_COMMENT(state, comment){
+    SAVE_COMMENT(state, comment) {
       state.comments.push(comment);
+    },
+    ADD_TODO(state, info) {
+      state.profiles.forEach(profile => {
+        if (profile.id == info.profileId) {
+          profile.todos.push(info.routeId);
+        }
+      })
     }
 
 

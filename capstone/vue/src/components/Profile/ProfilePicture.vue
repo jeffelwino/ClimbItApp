@@ -1,6 +1,6 @@
 <template>
   <div class="profile-picture">
-    <img src="../../assets/profile-picture.jpg" alt="profile picture" />
+    <img src="profile.picture" alt="profile picture" />
   </div>
 </template>
 

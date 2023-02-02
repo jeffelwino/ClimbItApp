@@ -19,11 +19,24 @@ export default {
   data() {
     return {
       profile: {
-        name: "Michael Eden",
-        location: "Sunbury, Ohio",
-        bio: "My name is Michael and I like to climb rocks",
+        id: 0,
+        name: "",
+        location: "",
+        bio: "",
+        todos: [],
+        picture: "",
       },
     };
+  },
+  methods: {
+    loadProfile() {
+      this.profile = this.$store.state.profiles.find((profile) => {
+        return profile.id == this.$route.params.id;
+      });
+    },
+  },
+  mounted() {
+    this.loadProfile();
   },
 };
 </script>

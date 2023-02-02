@@ -1,28 +1,45 @@
 <template>
   <div class="route">
-    <route-header v-bind:route="route" />
-    <!-- image gallery -->
-    <route-gallery />
-    <route-detail v-bind:route="route" />
-    <!-- description -->
-    <div>
-     <v-card class="ma-5 pa-2">
-      <h4>description:</h4>
-      
-      <p>{{ route.description}} </p>
-      </v-card>
-    </div>
-    
+    <v-container class="route-contents">
+      <!-- <v-row> -->
+      <route-header v-bind:route="route" />
+      <!-- image gallery -->
+      <route-gallery />
+      <route-detail v-bind:route="route" />
+      <!-- description -->
+      <div>
+        <v-card class="ma-5 pa-2">
+          <h4 class="text-h6 text-md-h5 text-lg-h4 text-truncate">
+            Description:
+          </h4>
 
-    <!-- <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section> -->
-    <route-ticks :route="route" />
+          <p
+            class="
+              text--secondary
+              text-caption
+              text-sm-body-2
+              text-md-body-1
+              text-lg-body-1
+              text-xl-body-1
+              text-justify
+            "
+          >
+            {{ route.description }}
+          </p>
+        </v-card>
+      </div>
 
-    <section style="height: 10rem; margin-top: 5px; border: 1px solid black">
-      <!-- Comments -->
-      <route-comment v-bind:route="route"/>
-    </section>
-    <!-- Recent Ascents (connected to tickbox)-->
-    <!--  Comments -->
+      <!-- <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section> -->
+      <route-ticks :route="route" />
+
+      <section style="height: 10rem; margin-top: 5px; border: 1px solid black">
+        Comments
+        <route-comment v-bind:route="route" />
+      </section>
+      <!-- Recent Ascents (connected to tickbox)-->
+      <!--  Comments -->
+      <!-- </v-row> -->
+    </v-container>
   </div>
 </template>
 
@@ -42,7 +59,7 @@ export default {
     RouteGallery,
     // Description,
     RouteTicks,
-    RouteComment
+    RouteComment,
   },
   data() {
     return {

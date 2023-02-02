@@ -10,7 +10,7 @@
         <!-- Tickbox button -->
         <tick-box :route="route" />
 
-        <v-btn small> Wanna ClimbIt </v-btn>
+        <v-btn small @click="addTodo"> Wanna ClimbIt </v-btn>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
@@ -27,6 +27,16 @@ export default {
   components: { TickBox },
   name: "route-header",
   props: ["route"],
+  computed: {},
+  methods: {
+    addTodo() {
+      console.log(this.route.id);
+      this.$store.commit("ADD_TODO", {
+        profileId: this.$store.state.user.id,
+        routeId: this.route.id,
+      });
+    },
+  },
 };
 </script>
 
