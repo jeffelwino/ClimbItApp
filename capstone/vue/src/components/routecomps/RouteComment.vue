@@ -1,6 +1,7 @@
 <template>
     <div>
-        <submit-comment/>
+        <submit-comment v-bind:subject="subject" :route="route"/>
+        <h1>Comments</h1>
         <comment-display v-for="comment in comments" v-bind:key="comment.commentId" v-bind:comment="comment"/>
     </div>
 </template>
@@ -14,27 +15,28 @@ export default {
   props: ["route"],
   data(){
       return {
-          comments: [],
+        //  comments: [],
+          subject: "route"
+      }
+  },
+  computed: {
+      comments(){
+        return this.$store.state.comments.filter(c => {
+            return c.routeId == this.route.id;
+        })
       }
   },
   methods: {
-        submitComment(){
-            //alert("This is doing something");
-            this.bank = this.body;
-
-            // this.$store.comments.name;
-            // this.$store.comments.body;
-        },
-        loadComments(){
-            this.$store.state.comments.forEach((comment) => {
-           // let comment = { commentId: commentObj.commentId, routeId: commentObj.routeId, user: commentObj.user, body: commentObj.body }
+    //     loadComments(){
+    //         this.$store.state.comments.forEach((comment) => {
+    //        // let comment = { commentId: commentObj.commentId, routeId: commentObj.routeId, user: commentObj.user, body: commentObj.body }
 
                
-            if (comment.routeId == this.route.id){
-                this.comments.push(comment);
-            }
-        });            // this.comments=this.$store.state.comments;
-    }
+    //         if (comment.routeId == this.route.id){
+    //             this.comments.push(comment);
+    //         }
+    //     });            // this.comments=this.$store.state.comments;
+    // }
 },
     created(){
         this.loadComments();

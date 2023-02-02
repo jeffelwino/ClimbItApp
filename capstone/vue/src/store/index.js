@@ -251,6 +251,15 @@ export default new Vuex.Store({
       })
       return tickId + 1;
     },
+    nextCommentId(state){
+      let commentId = 0;
+      state.comments.forEach(comment => {
+        if (comment.commentId >= commentId) {
+          commentId = comment.commentId;
+        }
+      })
+      return commentId + 1;
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -272,6 +281,9 @@ export default new Vuex.Store({
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
     },
+    SAVE_COMMENT(state, comment){
+      state.comments.push(comment);
+    }
 
 
   },
