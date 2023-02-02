@@ -79,7 +79,7 @@ export default {
       survey: {
         id: 0,
         profile_id: this.$store.state.user.id,
-        route_id: this.route.id,
+        routeId: this.route.id,
         date: "",
         rating: 0,
         note: "",
@@ -93,7 +93,7 @@ export default {
       this.survey = {
         id: 0,
         profile_id: this.$store.state.user.id,
-        route_id: this.route.id,
+        routeId: this.route.id,
         date: "",
         rating: 0,
         note: "",

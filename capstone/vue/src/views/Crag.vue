@@ -24,7 +24,7 @@ export default {
     return {
       crag: {
         id: "",
-        area_id: "",
+        areaId: "",
         name: "",
         description: "",
         latitude: "",

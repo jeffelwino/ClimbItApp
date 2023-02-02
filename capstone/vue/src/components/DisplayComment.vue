@@ -6,7 +6,7 @@
             </v-text-field>
             <v-btn block @click="submitComment">Submit</v-btn>
         </v-card>
-        <comment-container v-for="comment in $store.state.comments" v-bind:key="comment.id"/>
+        <comment-container v-for="comment in $store.state.comments" v-bind:key="comment.commentId"/>
     </div>
 </template>
 

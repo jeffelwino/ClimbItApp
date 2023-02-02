@@ -44,7 +44,7 @@ export default {
     return {
       route: {
         id: "",
-        wall_id: "",
+        wallId: "",
         name: "",
         grade: "",
         height: "",

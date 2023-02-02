@@ -21,7 +21,7 @@ export default {
   computed: {
     route() {
       return this.$store.state.routes.find((r) => {
-        return r.id == this.tick.route_id;
+        return r.id == this.tick.routeId;
       });
     },
     profile() {

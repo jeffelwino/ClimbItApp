@@ -28,7 +28,7 @@ export default {
   methods: {
     loadCrags() {
       this.$store.state.crags.forEach((crag) => {
-        if (crag.area_id == this.area.id) {
+        if (crag.areaId == this.area.id) {
           this.crags.push(crag);
         }
       });
