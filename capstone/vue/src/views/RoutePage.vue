@@ -5,7 +5,14 @@
     <route-gallery />
     <route-detail v-bind:route="route" />
     <!-- description -->
-    <description></description>
+    <div>
+     <v-card class="ma-5 pa-2">
+      <h4>description:</h4>
+      
+      <p>{{ route.description}} </p>
+      </v-card>
+    </div>
+    
 
     <!-- <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section> -->
     <route-ticks :route="route" />
@@ -22,7 +29,7 @@
 import RouteDetail from "../components/routecomps/RouteDetail.vue";
 import RouteHeader from "../components/routecomps/RouteHeader.vue";
 import RouteGallery from "../components/images/RouteGallery.vue";
-import Description from "../components/Description.vue";
+// import Description from "../components/Description.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
 export default {
   name: "route",
@@ -30,7 +37,7 @@ export default {
     RouteDetail,
     RouteHeader,
     RouteGallery,
-    Description,
+    // Description,
     RouteTicks,
   },
   data() {
@@ -42,6 +49,7 @@ export default {
         grade: "",
         height: "",
         style: "",
+        description: "",
       },
     };
   },
