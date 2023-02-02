@@ -68,12 +68,8 @@ export default {
 
     methods: {
       goToProfile(){
-        if (this.$store.state.token === ''){
-          this.goToLogin();
-        }
-        else{
-            this.$router.push({name: 'profile'});
-        }
+        this.$router.push({name: 'profile'});
+      }
         
       },
         goToLogout(){
