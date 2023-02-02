@@ -28,7 +28,7 @@ export default {
   methods: {
     loadRoutes() {
       this.$store.state.routes.forEach((route) => {
-        if (route.wall_id == this.wall.id) {
+        if (route.wallId == this.wall.id) {
           this.routes.push(route);
         }
       });

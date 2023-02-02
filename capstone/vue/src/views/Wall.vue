@@ -15,7 +15,7 @@ export default {
     return {
       wall: {
         id: "",
-        crag_id: "",
+        cragId: "",
         name: "",
         description: "",
       },

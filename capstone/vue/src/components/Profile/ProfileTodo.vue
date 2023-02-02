@@ -16,15 +16,15 @@ export default {
       todos: [
         {
           profile_id: 1,
-          route_id: 12,
+          routeId: 12,
         },
         {
           profile_id: 1,
-          route_id: 5,
+          routeId: 5,
         },
         {
           profile_id: 1,
-          route_id: 3,
+          routeId: 3,
         },
       ],
     };

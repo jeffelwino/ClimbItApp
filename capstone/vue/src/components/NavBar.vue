@@ -6,6 +6,7 @@
     >
     <v-row align-items="center">
     <v-icon large>mdi-spa</v-icon>
+    <!-- <v-img src="../assets\climbit-logo-v4.png"></v-img> -->
     <v-toolbar-title class="ml-5"> <h2 @click="goToHome">ClimbIt</h2> </v-toolbar-title>
 
     <v-spacer></v-spacer>

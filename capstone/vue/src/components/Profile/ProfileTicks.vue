@@ -17,7 +17,7 @@ export default {
         {
           id: 1,
           profile_id: 1,
-          route_id: 9,
+          routeId: 9,
           date: "10/18/2022",
           note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
           rating: 4,
@@ -25,7 +25,7 @@ export default {
         {
           id: 2,
           profile_id: 1,
-          route_id: 6,
+          routeId: 6,
           date: "6/11/2021",
           note: "Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors though.",
           rating: 3,

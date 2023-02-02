@@ -14,7 +14,7 @@ export default {
   computed: {
     ticks() {
       return this.$store.state.ticks.filter((t) => {
-        return t.route_id == this.route.id;
+        return t.routeId == this.route.id;
       });
     },
   },

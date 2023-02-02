@@ -1,8 +1,10 @@
 <template>
+<v-container>
   <div>
     <state-info />
     <state-map v-bind:state="state" />
-  </div>
+    </div>
+  </v-container>
 </template>
 
 <script>

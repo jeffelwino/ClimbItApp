@@ -17,7 +17,7 @@ export default {
   methods: {
         loadWalls() {
             this.$store.state.walls.forEach((wall) => {
-                if(wall.crag_id == this.crag.id) {
+                if(wall.cragId == this.crag.id) {
                     this.walls.push(wall);
                 }
             });

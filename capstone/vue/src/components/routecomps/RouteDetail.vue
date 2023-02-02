@@ -31,7 +31,7 @@
         <v-list-item>Protection: </v-list-item>
       </v-list>
           <!-- </v-col> -->
-      </v-layout>
+      </v-layout>g
       </v-card-text>
       </v-card>
     </v-container>
@@ -47,7 +47,7 @@ export default {
   computed: {
         averageRating() {
             const ticks = this.$store.state.ticks.filter((t) => {
-            return t.route_id == this.route.id;});
+            return t.routeId == this.route.id;});
             let sum = ticks.reduce((currentSum, tick) => {
             return currentSum + tick.rating;
             }, 0);
