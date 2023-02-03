@@ -49,19 +49,18 @@
 
 <script>
 export default {
-    name: "wall-card",
-    props: ["wall"],
-    data: () => ({
-      show: false,
-    }),
-    methods: {
-        loadRoute(){
-            this.$router.push({name: 'wall', params: {id:this.wall.id}})
-            }
-        }
-    }
+  name: "wall-card",
+  props: ["wall"],
+  data: () => ({
+    show: false,
+  }),
+  methods: {
+    loadRoute() {
+      this.$router.push({ name: "wall", params: { id: this.wall.id } });
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
