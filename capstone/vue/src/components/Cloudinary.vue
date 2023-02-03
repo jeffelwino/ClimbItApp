@@ -24,8 +24,8 @@ export default {
       {
         // Insert your cloud name and presets here, 
         // see the documentation
-        cloudName: 'dacyocfmf', 
-        uploadPreset: 'dshjquno'
+        cloudName: 'dkyxz4oih',
+        uploadPreset: 'dq3kmsfm'
       }, 
       (error, result) => { 
         if (!error && result && result.event === "success") { 
