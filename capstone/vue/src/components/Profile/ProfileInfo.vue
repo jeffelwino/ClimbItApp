@@ -5,70 +5,74 @@
     <p>{{ profile.bio }}</p>
     <v-btn @click="showForm = !showForm">Edit</v-btn>
 
-    <v-card v-if="showForm === true">
+    <v-card v-if="showForm">
       <v-form>
-        <v-text-field label="profile.name" v-model="editedProfile.name"></v-text-field>
-        <v-text-field label="location" v-model="editedProfile.location"></v-text-field>
-        <v-text-field label="bio" v-model="editedProfile.bio"></v-text-field>
+        <v-text-field label="Name" v-model="editedProfile.name"></v-text-field>
+        <v-text-field
+          label="Location"
+          v-model="editedProfile.location"
+        ></v-text-field>
+        <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
         <v-btn @click="updateProfileChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
       </v-form>
-
-
     </v-card>
   </div>
-  
 </template>
 
 <script>
 export default {
   name: "profile-info",
-  data(){
-    return{
+  data() {
+    return {
       showForm: false,
       //  originalProfile: this.profile,
-       editedProfile: {
-         name: '',
-         location: '',
-         bio: ''
-       }
-    }
+      editedProfile: {
+        id: this.$store.state.user.id,
+        name: "",
+        location: "",
+        bio: "",
+      },
+    };
   },
-  computed:{
-    profile(){
-    return this.$store.state.profiles.find(profile => {
-      console.log(profile);
-      return profile.id == this.$route.params.id;
-    });
-    }
+  computed: {
+    profile() {
+      return this.$store.state.profiles.find((profile) => {
+        return profile.id == this.$route.params.id;
+      });
+    },
   },
   // props: ["profile"],
   methods: {
-      updateProfileChanges() {
-      this.$store.commit("UPDATE_PROFILE", this.editedProfile);
+    updateProfileChanges() {
+      console.log("update, profile, edited profile: ");
       console.log(this.profile);
+      console.log(this.editedProfile);
+      this.$store.commit("UPDATE_PROFILE", this.editedProfile);
+      this.editedProfile = {
+        id: this.$store.state.user.id,
+        name: "",
+        location: "",
+        bio: "",
+      };
       this.showForm = false;
-      this.editedProfile =  {
-         name: '',
-         location: '',
-         bio: ''
-       };
+    },
+    cancelChanges() {
+      console.log("Cancel change, profile, edited profile:");
+      console.log(this.profile);
+      console.log(this.editedProfile);
+      this.editedProfile = {
+        id: this.$store.state.user.id,
+        name: "",
+        location: "",
+        bio: "",
+      };
+      this.showForm = false;
+    },
   },
-  cancelChanges(){
-    this.showForm = false;
-    console.log(this.profile)
-     this.editedProfile =  {
-         name: '',
-         location: '',
-         bio: ''
-       };
-  }
+  created() {
+    //  this.editedProfile = this.profile;
   },
-  created(){
-  //  this.editedProfile = this.profile;
-
-  }
-
 };
 </script>
 

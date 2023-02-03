@@ -275,7 +275,7 @@ export default new Vuex.Store({
       })
       return commentId + 1;
     },
-   
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -294,23 +294,25 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    UPDATE_PROFILE(state, profileToChange){
+    UPDATE_PROFILE(state, profileToChange) {
+      console.log("mutation")
+      console.log(profileToChange)
       state.profiles.forEach(profile => {
-        if(profile.id === profileToChange.id)
-        {
-          if(profileToChange.name){
+        if (profile.id == profileToChange.id) {
+          console.log(profileToChange.name)
+          if (profileToChange.name) {
             profile.name = profileToChange.name;
           }
-          if(profileToChange.location){
+          if (profileToChange.location) {
             profile.location = profileToChange.location;
           }
-          if(profileToChange.bio){
+          if (profileToChange.bio) {
             profile.bio = profileToChange.bio;
           }
-          
+
         }
       });
-        
+
     },
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
