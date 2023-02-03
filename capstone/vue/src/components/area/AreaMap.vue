@@ -1,9 +1,25 @@
 <template>
   <div class="map">
     <h2>Crags in the Area</h2>
-    <GmapMap :center="center" :zoom="9" style="width:100%; height:400px;" id="map">
+    <GmapMap
+      :options="{
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        disableDefaultUi: false,
+        mapTypeId: 'satellite',
+      }"
+      :center="center"
+      :zoom="9"
+      style="width: 100%; height: 400px"
+      id="map"
+    >
       <GmapMarker
         v-for="crag in crags"
+        :color="white"
         :key="crag.id"
         :position="crag.position"
         :label="crag.name"
@@ -13,14 +29,13 @@
 </template>
 
 <script>
-
 //import AreaDetail from './components/AreaDetail.vue'
 export default {
   name: "display-map",
   props: ["area"], //This variable holds whatever is in the area detail
   data() {
     return {
-      center: { lat: this.area.latitude, lng: this.area.longitude }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is 
+      center: { lat: this.area.latitude, lng: this.area.longitude }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is
       currentPlace: null,
       markers: [],
       places: [],
@@ -28,9 +43,9 @@ export default {
       crags: [],
     };
   },
-   mounted() {
+  mounted() {
     // this.geolocate();
-     this.getCrags();
+    this.getCrags();
   },
   methods: {
     geolocate: function () {
@@ -60,9 +75,8 @@ export default {
         params: { id: id },
       });
     },
-     //To-do: move to Area.vue
+    //To-do: move to Area.vue
     getCrags() {
-    
       this.$store.state.crags.forEach((crag) => {
         const cragMarker = {
           lat: crag.latitude,

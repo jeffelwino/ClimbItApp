@@ -1,7 +1,21 @@
 <template>
   <div class="map">
     <h2>Climbs near you!</h2>
-    <GmapMap :center="center" :zoom="10" id="map">
+    <GmapMap
+      :options="{
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        disableDefaultUi: false,
+        mapTypeId: 'satellite', 
+      }"
+      :center="center"
+      :zoom="10"
+      id="map"
+    >
       <GmapMarker
         v-for="marker in markers"
         :key="marker.id"
@@ -18,7 +32,7 @@ export default {
 
   data() {
     return {
-      center: { lat: 39.92099, lng: -83.81161 }, 
+      center: { lat: 39.92099, lng: -83.81161 },
       currentPlace: null,
       markers: [],
       places: [],
@@ -51,12 +65,12 @@ export default {
       });
     },
     navigateToPage(areaId) {
-        if(this.$store.state.token === ''){
-           this.$router.push({
-             name: 'login'
-             });
-        } else {
-          this.$router.push({
+      if (this.$store.state.token === "") {
+        this.$router.push({
+          name: "login",
+        });
+      } else {
+        this.$router.push({
           name: "area",
           params: { id: areaId },
         });

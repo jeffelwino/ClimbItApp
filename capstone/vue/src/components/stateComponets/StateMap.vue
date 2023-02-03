@@ -2,14 +2,15 @@
   <div class="state-map">
     <GmapMap
       :options="{
-   zoomControl: true,
-   mapTypeControl: false,
-   scaleControl: false,
-   streetViewControl: false,
-   rotateControl: false,
-   fullscreenControl: true,
-   disableDefaultUi: false
- }"
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        disableDefaultUi: false,
+        mapTypeId: 'satellite',
+      }"
       :center="center"
       :zoom="7"
       style="width: 100%; height: 400px"
