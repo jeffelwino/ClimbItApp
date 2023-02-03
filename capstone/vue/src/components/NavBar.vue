@@ -15,8 +15,8 @@
       <v-toolbar-title class="
             ma-2
             text-h10
-            text-md-h6
-            text-lg-h4
+            text-md-h7.5
+            
             text-truncate">
         <h1 @click="goToHome">ClimbIt</h1>
       </v-toolbar-title>
