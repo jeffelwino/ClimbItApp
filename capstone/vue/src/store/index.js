@@ -223,6 +223,21 @@ export default new Vuex.Store({
     ],
     profiles: [
       {
+        id: 1,
+        name: "Admin",
+        location: "Admin",
+        bio: "Admin",
+        todos: [],
+        picture: ''
+      }, {
+        id: 2,
+        name: "user",
+        location: "user",
+        bio: "user",
+        todos: [],
+        picture: ''
+      },
+      {
         id: 3,
         name: "Kevin",
         location: "Long Island, New  York",
