@@ -15,7 +15,6 @@
           <h4 class="text-h6 text-md-h5 text-lg-h4 text-truncate">
             Description:
           </h4>
-
           <p
             class="
               text--secondary
@@ -66,29 +65,13 @@ export default {
     RouteComment,
     RouteTools,
   },
-  data() {
-    return {
-      route: {
-        id: "",
-        wallId: "",
-        name: "",
-        grade: "",
-        height: "",
-        style: "",
-        description: "",
-      },
-    };
-  },
-  methods: {
-    loadRoute() {
-      this.route = this.$store.state.routes.find((r) => {
-        return r.id == this.$route.params.id;
-      });
-    },
-  },
-  created() {
-    this.loadRoute();
-  },
+computed: {
+        route(){
+            return this.$store.state.routes.find(r => {
+                return r.id == this.$route.params.id;
+            });
+        }
+},
 };
 </script>
 
