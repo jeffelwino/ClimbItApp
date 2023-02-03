@@ -20,7 +20,7 @@
 
       <h4
         class="white--text d-flex align-center"
-        v-if="$store.state.token === ''"
+        v-show="$store.state.token === ''"
         @click="goToLogin"
       >
         Log-In/Register
