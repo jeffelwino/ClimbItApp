@@ -12,13 +12,8 @@
         ></v-img>
       </div>
 
-<<<<<<< HEAD
-      <v-toolbar-title class="ml-5" @click="goToHome">
-        <h1>ClimbIt</h1>
-=======
       <v-toolbar-title class="ml-5">
         <h1 @click="goToHome">ClimbIt</h1>
->>>>>>> 7e94c40b2a61533d1b270fd85a182a49235c9358
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -43,28 +38,16 @@
           </v-app-bar-nav-icon>
         </template>
         <v-list color="green">
-<<<<<<< HEAD
-          <v-list-item exact @click="goToProfile">
-            <v-list-item-title>View Profile</v-list-item-title>
-          </v-list-item>
-          <v-divider></v-divider>
-          <v-list-item>
-=======
           <v-list-item exact @click="goToProfile" link>
             <v-list-item-title>View Profile</v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
           <v-list-item link>
->>>>>>> 7e94c40b2a61533d1b270fd85a182a49235c9358
             <v-list-item-title>Lorem Ipsum</v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
 
-<<<<<<< HEAD
-          <v-list-item exact @click="goToLogout">
-=======
           <v-list-item exact @click="goToLogout" link>
->>>>>>> 7e94c40b2a61533d1b270fd85a182a49235c9358
             <v-list-item-title>LogOut</v-list-item-title>
           </v-list-item>
         </v-list>
@@ -79,14 +62,10 @@ export default {
 
   methods: {
     goToProfile() {
-<<<<<<< HEAD
-      this.$router.push({ name: "profile" });
-=======
       this.$router.push({
         name: "profile",
         params: { id: this.$store.state.user.id },
       });
->>>>>>> 7e94c40b2a61533d1b270fd85a182a49235c9358
     },
 
     goToLogout() {
