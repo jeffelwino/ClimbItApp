@@ -8,28 +8,17 @@
 
         <v-card v-if="showForm">
       <v-form>
-
         <v-text-field label="Route Name" v-model="updatedRoute.name"></v-text-field>
-
-        <v-text-field
-          label="Grade" v-model="updatedRoute.grade"></v-text-field>
-
+        <v-text-field label="Grade" v-model="updatedRoute.grade"></v-text-field>
         <v-text-field label="height" v-model="updatedRoute.height"></v-text-field>
-
-          <v-text-field label="style" v-model="updatedRoute.style"></v-text-field>
-
-            <v-text-field label="protection" v-model="updatedRoute.protection"></v-text-field>
-
-            <v-text-field label="description" v-model="updatedRoute.description"></v-text-field>
-
-
+        <v-text-field label="style" v-model="updatedRoute.style"></v-text-field>
+        <v-text-field label="protection" v-model="updatedRoute.protection"></v-text-field>
+        <v-text-field label="description" v-model="updatedRoute.description"></v-text-field>
 
         <v-btn @click="saveChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
       </v-form>
     </v-card>
-
-
       </v-sheet>
   </div>
 </template>
@@ -101,9 +90,6 @@ export default {
           protection: this.routePage.protection,
           description:this.routePage.description    
             };
-      
-      console.log(this.showform);
-      console.log(this.updatedRoute);
       this.showForm = false;
         
     }

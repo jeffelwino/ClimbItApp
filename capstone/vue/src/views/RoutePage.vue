@@ -3,7 +3,7 @@
     
     <v-container class="route-contents">
       
-      <!-- <v-row> -->
+      <!-- header -->
       <route-header v-bind:route="route" />
       <route-tools v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'" />
       <!-- image gallery -->
@@ -66,11 +66,11 @@ export default {
     RouteTools,
   },
 computed: {
-        route(){
-            return this.$store.state.routes.find(r => {
-                return r.id == this.$route.params.id;
-            });
-        }
+  route(){
+    return this.$store.state.routes.find(r => {
+      return r.id == this.$route.params.id;
+      });
+    }
 },
 };
 </script>
