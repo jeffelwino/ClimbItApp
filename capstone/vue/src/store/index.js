@@ -341,7 +341,6 @@ export default new Vuex.Store({
       }
     },
 
-
     DELETE_ROUTE(state, id){
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {
@@ -350,7 +349,6 @@ export default new Vuex.Store({
         }
       }
     }
-
 
   },
 })
