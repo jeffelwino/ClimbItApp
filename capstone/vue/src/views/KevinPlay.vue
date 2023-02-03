@@ -1,18 +1,17 @@
 <template>
     <div>
-        <crag-comment v-bind:crag="crag"/>
-        <!-- <display-comment></display-comment>
-        <wall-card></wall-card> -->
+      <submit-photo/>
+      <cloudinary/>
     </div>
 </template>
 
 <script>
-import CragComment from "../components/CragComment.vue"
-// import DisplayComment from '../components/DisplayComment.vue'
-// import WallCard from '../components/WallCard.vue'
+import Cloudinary from '../components/Cloudinary.vue'
+import SubmitPhoto from '../components/SubmitPhoto.vue'
+
 
 export default {
-  components: { CragComment },
+  components: {SubmitPhoto, Cloudinary  },
   data() {
       return{
         route: { id: 1, wallId: 1, name: 'Slappy McCracken', grade: '5.10b', height: '30ft', style: 'sport', description: 'The oldest climbing route in Ohio. Very busy during the weekend.' },

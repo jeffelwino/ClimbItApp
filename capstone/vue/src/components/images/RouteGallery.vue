@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="mx-7 mt-5" >
+    <v-card class="mx-7 mt-5"  >
       <v-carousel hide-delimiters  height="auto">
     <v-carousel-item
       v-for="(item,i) in items"
