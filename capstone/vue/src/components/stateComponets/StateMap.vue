@@ -9,7 +9,7 @@
         rotateControl: false,
         fullscreenControl: true,
         disableDefaultUi: false,
-        mapTypeId: 'satellite',
+        
       }"
       :center="center"
       :zoom="7"
