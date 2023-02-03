@@ -1,9 +1,18 @@
 <template>
   <div class="state-map">
     <GmapMap
+      :options="{
+   zoomControl: true,
+   mapTypeControl: false,
+   scaleControl: false,
+   streetViewControl: false,
+   rotateControl: false,
+   fullscreenControl: true,
+   disableDefaultUi: false
+ }"
       :center="center"
-      :zoom="8"
-      style="width: 100%; height: 600px"
+      :zoom="7"
+      style="width: 100%; height: 400px"
       id="state-map"
     >
       <GmapMarker

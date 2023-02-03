@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="blue" dark>
-    <v-row align="end">
+    <v-row class="d-flex align-center">
       <!-- <v-icon large>mdi-spa</v-icon> -->
       <div class="d-flex justify-start">
         <v-img
@@ -12,15 +12,24 @@
         ></v-img>
       </div>
 
-      <v-toolbar-title class="ml-5">
+      <v-toolbar-title class="
+            ml-5
+            text-h10
+            text-md-h6
+            text-lg-h4
+            text-truncate">
         <h1 @click="goToHome">ClimbIt</h1>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <h4
-        class="white--text d-flex align-center"
-        v-show="$store.state.token === ''"
+        class="text-h10
+            text-md-h8
+            text-lg-h4
+            text-truncate
+            d-flex align-center"
+        v-if="$store.state.token === ''"
         @click="goToLogin"
       >
         Log-In/Register
@@ -29,7 +38,7 @@
       <!-- pop-out nav menu -->
       <v-menu transition="scroll-y-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-app-bar-nav-icon
+          <v-app-bar-nav-icon 
             large
             v-bind="attrs"
             v-on="on"

@@ -1,7 +1,7 @@
 <template>
   <div class="map">
     <h2>Crags in the Area</h2>
-    <GmapMap :center="center" :zoom="10" style="width:100%; height:600px;" id="map">
+    <GmapMap :center="center" :zoom="9" style="width:100%; height:400px;" id="map">
       <GmapMarker
         v-for="crag in crags"
         :key="crag.id"

@@ -25,7 +25,7 @@
           <v-divider></v-divider>
           
           <v-row >
-            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6" >
               <label for="date-climbed" id="date-climbed" class="
               text-h7
               text-md-h6
@@ -34,7 +34,7 @@
               >Date Climbed:</label>
             </v-col>
           
-            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6" >
               <input
                 name="date-climbed"
                 id="date-climbed"
@@ -46,7 +46,7 @@
           </v-row>
 
           <v-row class="inline-block">
-            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6" >
               <v-card-text>
                 Rating:
                 <v-rating
