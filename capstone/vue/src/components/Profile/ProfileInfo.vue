@@ -6,12 +6,12 @@
     <v-btn @click="showForm = !showForm">Edit</v-btn>
 
     <v-card v-if="showForm === true">
-      <v-form>
+      <v-form ref="form">
         <v-text-field label="profile.name" v-model="editedProfile.name"></v-text-field>
         <v-text-field label="location" v-model="editedProfile.location"></v-text-field>
         <v-text-field label="bio" v-model="editedProfile.bio"></v-text-field>
         <v-btn @click="updateProfileChanges">Submit</v-btn>
-        <v-btn @click="cancelChanges">Cancel</v-btn>
+        <v-btn @click="reset">Cancel</v-btn>
       </v-form>
 
 
@@ -54,15 +54,18 @@ export default {
          bio: ''
        };
   },
-  cancelChanges(){
-    this.showForm = false;
-    console.log(this.profile)
-     this.editedProfile =  {
-         name: '',
-         location: '',
-         bio: ''
-       };
-  }
+  reset () {
+        this.$refs.form.reset()
+      },
+  // cancelChanges(){
+  //   this.showForm = false;
+  //   console.log(this.profile)
+  //    this.editedProfile =  {
+  //        name: '',
+  //        location: '',
+  //        bio: ''
+  //      };
+  // }
   },
   created(){
   //  this.editedProfile = this.profile;
