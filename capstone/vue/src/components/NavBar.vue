@@ -13,7 +13,7 @@
       </div>
 
       <v-toolbar-title class="
-            ml-5
+            ma-2
             text-h10
             text-md-h6
             text-lg-h4
@@ -24,11 +24,11 @@
       <v-spacer></v-spacer>
 
       <h4
-        class="text-h10
-            text-md-h8
-            text-lg-h4
-            text-truncate
-            d-flex align-center"
+        class="
+            text-h10
+            text-md-h9
+            text-lg-h8
+            text-truncate"
         v-if="$store.state.token === ''"
         @click="goToLogin"
       >
