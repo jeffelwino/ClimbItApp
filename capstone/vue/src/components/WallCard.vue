@@ -1,4 +1,5 @@
 <template>
+  <v-container>
   <v-card
     class="mx-auto"
     max-width="700"
@@ -43,6 +44,7 @@
       </div>
     </v-expand-transition>
   </v-card>
+  </v-container>
 </template>
 
 <script>
