@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  props: ["profile"],
+  computed: {
+    profile() {
+      return this.$store.state.profiles.find((profile) => {
+        return profile.id == this.$route.params.id;
+      });
+    },
+  },
 };
 </script>
 

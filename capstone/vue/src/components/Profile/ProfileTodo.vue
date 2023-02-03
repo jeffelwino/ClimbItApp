@@ -10,26 +10,16 @@ import TodoDisplay from "./TodoDisplay.vue";
 export default {
   components: { TodoDisplay },
   name: "todo",
-  props: ["profile"],
   data() {
-    return {
-      //     todos: [
-      //       {
-      //         profile_id: 1,
-      //         routeId: 12,
-      //       },
-      //       {
-      //         profile_id: 1,
-      //         routeId: 5,
-      //       },
-      //       {
-      //         profile_id: 1,
-      //         routeId: 3,
-      //       },
-      //     ],
-    };
+    return {};
   },
-  computed: {},
+  computed: {
+    profile() {
+      return this.$store.state.profiles.find((profile) => {
+        return profile.id == this.$route.params.id;
+      });
+    },
+  },
 };
 </script>
 

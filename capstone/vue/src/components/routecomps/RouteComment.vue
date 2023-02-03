@@ -12,13 +12,13 @@ import SubmitComment from '../SubmitComment.vue';
 
 export default {
   components: { CommentDisplay, SubmitComment },
-  props: ["route"],
+  
   data(){
       return {
         //  comments: [],
           subject: "route"
       }
-  },
+  }, props: ['route'],
   computed: {
       comments(){
         return this.$store.state.comments.filter(c => {

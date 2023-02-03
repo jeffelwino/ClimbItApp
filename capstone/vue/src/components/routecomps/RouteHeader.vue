@@ -26,8 +26,8 @@ import TickBox from "./TickBox.vue";
 export default {
   components: { TickBox },
   name: "route-header",
-  props: ["route"],
-  computed: {},
+  props: ['route'],
+  
   methods: {
     addTodo() {
       console.log(this.route.id);

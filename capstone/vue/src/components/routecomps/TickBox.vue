@@ -85,7 +85,13 @@
 <script>
 export default {
   name: "tickbox",
-  props: ["route"],
+  computed: {
+        route(){
+            return this.$store.state.routes.find(r => {
+                return r.id == this.$route.params.id;
+            });
+        }
+    },
 
   data() {
     return {
