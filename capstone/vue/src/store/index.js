@@ -295,24 +295,13 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     UPDATE_PROFILE(state, profileToChange) {
-      console.log("mutation")
-      console.log(profileToChange)
-      state.profiles.forEach(profile => {
-        if (profile.id == profileToChange.id) {
-          console.log(profileToChange.name)
-          if (profileToChange.name) {
-            profile.name = profileToChange.name;
-          }
-          if (profileToChange.location) {
-            profile.location = profileToChange.location;
-          }
-          if (profileToChange.bio) {
-            profile.bio = profileToChange.bio;
-          }
-
+      for (let i = 0; i < state.profiles.length; i++) {
+        if (state.profiles[i].id == profileToChange.id) {
+          state.profiles.splice(i, 1);
+          state.profiles.push(profileToChange);
+          break;
         }
-      });
-
+      }
     },
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);

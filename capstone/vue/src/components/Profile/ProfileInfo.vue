@@ -6,7 +6,7 @@
     <v-btn @click="showForm = !showForm">Edit</v-btn>
 
     <v-card v-if="showForm">
-      <v-form>
+      <v-form ref="form">
         <v-text-field label="Name" v-model="editedProfile.name"></v-text-field>
         <v-text-field
           label="Location"
@@ -26,13 +26,7 @@ export default {
   data() {
     return {
       showForm: false,
-      //  originalProfile: this.profile,
-      editedProfile: {
-        id: this.$store.state.user.id,
-        name: "",
-        location: "",
-        bio: "",
-      },
+      editedProfile: {},
     };
   },
   computed: {
@@ -42,36 +36,40 @@ export default {
       });
     },
   },
-  // props: ["profile"],
   methods: {
     updateProfileChanges() {
-      console.log("update, profile, edited profile: ");
-      console.log(this.profile);
-      console.log(this.editedProfile);
       this.$store.commit("UPDATE_PROFILE", this.editedProfile);
       this.editedProfile = {
-        id: this.$store.state.user.id,
-        name: "",
-        location: "",
-        bio: "",
+        id: this.profile.id,
+        name: this.profile.name,
+        location: this.profile.location,
+        bio: this.profile.bio,
+        todos: this.profile.todos,
+        picture: this.profile.picture,
       };
       this.showForm = false;
     },
     cancelChanges() {
-      console.log("Cancel change, profile, edited profile:");
-      console.log(this.profile);
-      console.log(this.editedProfile);
       this.editedProfile = {
-        id: this.$store.state.user.id,
-        name: "",
-        location: "",
-        bio: "",
+        id: this.profile.id,
+        name: this.profile.name,
+        location: this.profile.location,
+        bio: this.profile.bio,
+        todos: this.profile.todos,
+        picture: this.profile.picture,
       };
       this.showForm = false;
     },
   },
   created() {
-    //  this.editedProfile = this.profile;
+    this.editedProfile = {
+      id: this.profile.id,
+      name: this.profile.name,
+      location: this.profile.location,
+      bio: this.profile.bio,
+      todos: this.profile.todos,
+      picture: this.profile.picture,
+    };
   },
 };
 </script>
