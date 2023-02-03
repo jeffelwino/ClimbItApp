@@ -217,8 +217,16 @@ export default new Vuex.Store({
         profile_id: 2,
         routeId: 9,
         date: "10/20/2022",
-        note: "Ass",
+        note: "Not reptar",
         rating: 1,
+      },
+      {
+        id: 5,
+        profile_id: 4,
+        routeId: 1,
+        date: "10/18/2022",
+        note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
+        rating: 4,
       },
     ],
     profiles: [
@@ -357,10 +365,21 @@ export default new Vuex.Store({
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {
           state.routes.splice(i, 1);
+         break;
+        }
+      }
+    },
+
+
+    // DELETES WALL
+    DELETE_WALL(state, id){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == id) {
+          state.walls.splice(i, 1);
           break;
         }
       }
-    }
+    },
 
   },
 })

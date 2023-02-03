@@ -2,7 +2,10 @@
   <div>
     <v-sheet color="red">
       <h1>Admin TOOL BAR</h1>
-      <v-btn @click="deleteRoutePage(routePage.id)"> Delete Route</v-btn>
+      <!--  Delete wall and all child routes in progress -->
+      <v-btn @click="deleteWall"> Delete Wall</v-btn>
+
+      <!-- Edit wall info -->
       <v-btn @click="showForm = !showForm">Edit Info</v-btn>
       <v-card v-if="showForm">
         <v-form>
@@ -41,7 +44,7 @@
         </v-form>
       </v-card>
 
-<!-- add route form/button -->
+<!-- add route -->
       <v-btn @click="createForm = !createForm">Add Route</v-btn>
       <v-card v-if="createForm">
         <v-form>
@@ -101,6 +104,12 @@ export default {
         description: "",
       },
     };
+  },  computed: {
+    wall(){
+      return this.$store.state.walls.find(w => {
+        return w.id == this.$route.params.id;
+      });
+    }
   },
   methods:{
       saveRoute(){
@@ -117,6 +126,21 @@ export default {
                 protection: "",
                 description: "",
             }
+      },
+        // DELETES WALL AND CHILD ROUTES 
+      deleteWall(){
+           if(confirm("Are you sure you want to delete this Wall and all routes on it? This cannot be undone!!")){
+               console.log(this.wall);
+               let cragId = this.wall.cragId;
+                this.$store.state.routes.forEach((r) => {
+                    if(r.wallId == this.wall.id){
+                        this.$store.commit('DELETE_ROUTE', r.id);
+                    }
+                });
+            this.$store.commit('DELETE_WALL', this.wall.id);
+            this.$router.push({name: "crag", params: {id: cragId}})
+            }  
+
       }
   }
 };
