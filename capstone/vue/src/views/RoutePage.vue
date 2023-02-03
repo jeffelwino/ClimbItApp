@@ -60,7 +60,6 @@ export default {
     RouteDetail,
     RouteHeader,
     RouteGallery,
-    // Description,
     RouteTicks,
     RouteComment,
     RouteTools,

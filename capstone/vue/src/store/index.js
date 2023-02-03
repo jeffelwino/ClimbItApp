@@ -290,6 +290,15 @@ export default new Vuex.Store({
       })
       return commentId + 1;
     },
+    nextRouteId(state) {
+      let routeId = 0;
+      state.routes.forEach(r => {
+        if (r.id >= routeId) {
+          routeId = r.id;
+        }
+      })
+      return routeId + 1;
+    },
 
   },
   mutations: {
@@ -323,6 +332,9 @@ export default new Vuex.Store({
     },
     SAVE_COMMENT(state, comment) {
       state.comments.push(comment);
+    },
+    SAVE_ROUTE(state, newRoute){
+      state.routes.push(newRoute);
     },
     ADD_TODO(state, info) {
       state.profiles.forEach(profile => {

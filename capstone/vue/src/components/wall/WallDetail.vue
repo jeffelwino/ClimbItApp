@@ -19,18 +19,10 @@ export default {
   components: { RouteCard },
   data() {
     return {
-      routes: [],
       ticks: []
     };
   },
   methods: {
-    loadRoutes() {
-      this.$store.state.routes.forEach((route) => {
-        if (route.wallId == this.wall.id) {
-          this.routes.push(route);
-        }
-      });  
-    },
     loadTicks(){
       this.$store.state.ticks.forEach((tick) => {
         this.routes.forEach(route => {
@@ -42,6 +34,12 @@ export default {
     }
   },
     computed: {
+        routes(){
+          return this.$store.state.routes.filter((route) => {
+                return route.wallId == this.wall.id;
+      });  
+
+        },
         averageRating() {
             
             const ticks = this.$store.state.ticks.filter((t) => {
@@ -53,7 +51,7 @@ export default {
         }
         },
   created() {
-    this.loadRoutes();
+    
     this.loadTicks();
   },
 };
