@@ -164,18 +164,18 @@ export default new Vuex.Store({
 
     ],
     routes: [
-      { id: 1, wallId: 1, name: 'Slappy McCracken', grade: '5.10b', height: '30ft', style: 'sport', description: 'The oldest climbing route in Ohio. Very busy during the weekend.' },
-      { id: 2, wallId: 1, name: 'Knope We Can', grade: '5.7', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.Lorem ipsum quod maximus manatee. \n A climb in the classic Northhampton style. \n Old granite so watch your step!.' },
-      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad', description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
-      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport', description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.' },
-      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.' },
-      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport', description: 'Est quid nostre papadio.' },
-      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport', description: 'Est quid nostre papadio.' },
-      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport', description: 'Est quid nostre papadio.' },
-      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport', description: 'Est quid nostre papadio.' },
-      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport', description: 'n/a' },
-      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport', description: 'n/a' },
-      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport', description: 'n/a' },
+      { id: 1, wallId: 1, name: 'Slappy McCracken', grade: '5.10b', height: '30ft', style: 'sport', protection: "7 bolts", description: 'The oldest climbing route in Ohio. Very busy during the weekend.' },
+      { id: 2, wallId: 1, name: 'Knope We Can', grade: '5.7', height: '25ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.Lorem ipsum quod maximus manatee. \n A climb in the classic Northhampton style. \n Old granite so watch your step!.' },
+      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad',protection: "7 bolts", description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
+      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.' },
+      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
+      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
+      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
 
     ],
     comments: [
@@ -222,6 +222,21 @@ export default new Vuex.Store({
       },
     ],
     profiles: [
+      {
+        id: 1,
+        name: "Admin",
+        location: "Admin",
+        bio: "Admin",
+        todos: [],
+        picture: ''
+      }, {
+        id: 2,
+        name: "user",
+        location: "user",
+        bio: "user",
+        todos: [],
+        picture: ''
+      },
       {
         id: 3,
         name: "Kevin",
@@ -275,7 +290,7 @@ export default new Vuex.Store({
       })
       return commentId + 1;
     },
-   
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -294,23 +309,14 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    UPDATE_PROFILE(state, profileToChange){
-      state.profiles.forEach(profile => {
-        if(profile.id === profileToChange.id)
-        {
-          if(profileToChange.name){
-            profile.name = profileToChange.name;
-          }
-          if(profileToChange.location){
-            profile.location = profileToChange.location;
-          }
-          if(profileToChange.bio){
-            profile.bio = profileToChange.bio;
-          }
-          
+    UPDATE_PROFILE(state, profileToChange) {
+      for (let i = 0; i < state.profiles.length; i++) {
+        if (state.profiles[i].id == profileToChange.id) {
+          state.profiles.splice(i, 1);
+          state.profiles.push(profileToChange);
+          break;
         }
-      });
-        
+      }
     },
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
@@ -324,8 +330,25 @@ export default new Vuex.Store({
           profile.todos.push(info.routeId);
         }
       })
-    }
+    },
+    UPDATE_ROUTE(state, route){
+      for (let i = 0; i < state.routes.length; i++) {
+        if (state.routes[i].id == route.id) {
+          state.routes.splice(i, 1);
+          state.routes.push(route)
+          break;
+        }
+      }
+    },
 
+    DELETE_ROUTE(state, id){
+      for (let i = 0; i < state.routes.length; i++) {
+        if (state.routes[i].id == id) {
+          state.routes.splice(i, 1);
+          break;
+        }
+      }
+    }
 
   },
 })

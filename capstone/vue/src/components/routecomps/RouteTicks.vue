@@ -26,7 +26,7 @@ export default {
     };
   },
   components: { TickDisplay },
-  props: ["route"],
+  props: ['route'],
   computed: {
     ticks() {
       return this.$store.state.ticks.filter((t) => {

@@ -85,7 +85,7 @@
 <script>
 export default {
   name: "tickbox",
-  props: ["route"],
+  props: ['route'],
 
   data() {
     return {

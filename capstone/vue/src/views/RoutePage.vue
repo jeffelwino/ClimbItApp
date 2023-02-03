@@ -1,8 +1,11 @@
 <template>
   <div class="route">
+    
     <v-container class="route-contents">
-      <!-- <v-row> -->
+      
+      <!-- header -->
       <route-header v-bind:route="route" />
+      <route-tools v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'" />
       <!-- image gallery -->
       <route-gallery />
       <route-detail v-bind:route="route" />
@@ -12,7 +15,6 @@
           <h4 class="text-h6 text-md-h5 text-lg-h4 text-truncate">
             Description:
           </h4>
-
           <p
             class="
               text--secondary
@@ -50,6 +52,7 @@ import RouteGallery from "../components/images/RouteGallery.vue";
 // import Description from "../components/Description.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
 import RouteComment from "../components/routecomps/RouteComment.vue";
+import RouteTools from "../components/adminTools/RouteTools.vue";
 
 export default {
   name: "route",
@@ -60,30 +63,15 @@ export default {
     // Description,
     RouteTicks,
     RouteComment,
+    RouteTools,
   },
-  data() {
-    return {
-      route: {
-        id: "",
-        wallId: "",
-        name: "",
-        grade: "",
-        height: "",
-        style: "",
-        description: "",
-      },
-    };
-  },
-  methods: {
-    loadRoute() {
-      this.route = this.$store.state.routes.find((r) => {
-        return r.id == this.$route.params.id;
+computed: {
+  route(){
+    return this.$store.state.routes.find(r => {
+      return r.id == this.$route.params.id;
       });
-    },
-  },
-  created() {
-    this.loadRoute();
-  },
+    }
+},
 };
 </script>
 
