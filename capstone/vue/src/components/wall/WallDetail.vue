@@ -1,10 +1,11 @@
 <template>
   <div class="wall">
-    <div class="description">
+    <div class="description mx-5">
+       <h2>{{ wall.name }}</h2>
       <h3>Description:</h3>
       <p>{{ wall.description }}</p>
     </div>
-    <div class="routes">
+    <div class="routes mx-3">
       <route-card v-for="route in routes" :key="route.id" :route="route"/>
     </div>
   </div>

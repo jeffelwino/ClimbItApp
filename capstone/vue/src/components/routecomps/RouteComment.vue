@@ -1,7 +1,7 @@
 <template>
     <div>
         <submit-comment v-bind:subject="subject" :route="route"/>
-        <h1>Comments</h1>
+        <h3>Comment</h3>
         <comment-display v-for="comment in comments" v-bind:key="comment.commentId" v-bind:comment="comment"/>
     </div>
 </template>

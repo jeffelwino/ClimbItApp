@@ -369,6 +369,16 @@ export default new Vuex.Store({
         }
       }
     },
+    UPDATE_WALL(state, wall){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == wall.id) {
+          state.walls.splice(i, 1);
+          state.walls.push(wall)
+          break;
+        }
+      }
+    },
+    
 
 
     // DELETES WALL

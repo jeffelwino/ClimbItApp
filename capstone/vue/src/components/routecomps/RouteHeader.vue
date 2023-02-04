@@ -6,7 +6,13 @@
         <h3 class="white--text">{{ route.name }} ({{ route.grade }})</h3>
       </v-row>
 
+<!-- return to wall page button -->
       <v-row class="pb-2 justify-space-around">
+        <v-btn small v-bind:to="{name: 'wall', params: '{id: route.wallId}'}">
+          <v-icon >mdi-arrow-left-circle</v-icon>   
+            Back 
+            </v-btn>
+
         <!-- Tickbox button -->
         <tick-box :route="route" />
 

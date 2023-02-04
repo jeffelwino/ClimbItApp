@@ -48,7 +48,7 @@ export default {
         }
     },
     methods: {
-      //help function. resets route information at submit or cancel or created
+      //helper function. resets route information at submit or cancel or created
       resetUpdatedRoute(){
           this.updatedRoute = {
           id: this.routePage.id,

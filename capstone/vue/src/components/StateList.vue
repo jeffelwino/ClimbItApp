@@ -1,26 +1,32 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-dialog scrollable max-width="300px">
+      <v-dialog scrollable max-width="500px">
         <template v-slot:activator="{ on, attrs }">
           <v-btn color="primary" dark v-bind="attrs" v-on="on">
             Search Climbing By State
           </v-btn>
         </template>
-        <v-card>
-          <v-list-item
-            v-for="state in $store.state.states"
+        <v-card class="d-flex flex-wrap px-3">
+    
+          <v-flex-item>
+          <v-chip class="blue white--text ma-2"             
+          v-for="state in $store.state.states"
             v-bind:key="state.name"
-            @click="goToStatePage(state.abbrev)"
-          >
+            @click="goToStatePage(state.abbrev)">
+            {{ state.name }}
+          </v-chip>
+          </v-flex-item>
+
+
             <!-- <router-link
               v-bind:to="{
                 name: 'state-page',
                 params: { abbrev: state.abbrev },
               }"> -->
-              {{ state.name }}
+              
               <!-- </router-link> -->
-          </v-list-item>
+        
         </v-card>
       </v-dialog>
     </v-row>

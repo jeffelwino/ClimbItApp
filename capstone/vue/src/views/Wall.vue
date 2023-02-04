@@ -1,8 +1,25 @@
 <template>
   <div class="wall">
     <wall-tools v-if="this.$store.state.user.authorities[0].name =='ROLE_ADMIN'" />
-    <h2>{{ wall.name }}</h2>
+
+    <!-- return to crag page button -->
+      <div class="mx-5">
+      <v-row class="mt-n10 pb-5 justify-start">
+        <v-btn x-small v-bind:to="{name: 'crag', params: '{id: wall.cragId}'}">
+          <v-icon x-small >mdi-arrow-left-circle</v-icon>   
+            to crag 
+            </v-btn>
+            </v-row>
+            </div>
+    
+       
+      <div class="card mx-3"> 
+     
     <wall-detail v-bind:wall="wall" />
+    </div> 
+    
+         
+
   </div>
 </template>
 
@@ -22,5 +39,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>
