@@ -1,22 +1,19 @@
 <template>
   <v-container class="px-3">
     <v-card>
-      <v-card-title class="text-h6 text-md-h5 text-lg-h4 text-truncate">
+      <v-card
+        class="text-h7 text-md-h5 text-lg-h4 text-truncate">
         Latest Ticks For {{ route.name }}
-      </v-card-title>
+      </v-card>
       <v-divider></v-divider>
-        <tick-display
+      <tick-display
         v-bind:route-ticks="false"
         v-for="tick in limitedList"
         :key="tick.id"
         :tick="tick"
       />
       <v-btn @click="toggleLimit">See All</v-btn>
-
     </v-card>
-
-
-   
   </v-container>
 </template>
 
@@ -31,7 +28,7 @@ export default {
     };
   },
   components: { TickDisplay },
-  props: ['route'],
+  props: ["route"],
   computed: {
     ticks() {
       return this.$store.state.ticks.filter((t) => {
