@@ -73,7 +73,7 @@ const router = new Router({
       }
     },
     {
-      path: "/state/:abbrev/",
+      path: "/state/:abbrev",
       name: "state-page",
       component: StatePage,
       meta: {

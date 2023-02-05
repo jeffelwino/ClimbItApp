@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet color="red">
+    <v-sheet class="red mb-5">
       <h1>Admin TOOL BAR</h1> 
       <!-- Turn into a dialogue box -->
       <!--  Delete wall and all child routes in progress -->
@@ -8,8 +8,12 @@
       <v-btn small @click="deleteWall"> Delete Wall</v-btn>
 
       <!-- Edit wall info -->
-      <v-btn small @click="showForm = !showForm">Edit Info</v-btn>
-      <v-card v-if="showForm">
+      <v-btn small @click.stop="dialog = true">
+        Edit Info
+        </v-btn>
+        
+      <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-card>
         <v-form>
           <v-text-field
             clearable
@@ -21,14 +25,17 @@
             label="Description"
             v-model="updatedWall.description"
           ></v-text-field>
-          <v-btn @click="saveChanges">Submit</v-btn>
-          <v-btn @click="cancelChanges">Cancel</v-btn>
+          <v-btn @click.stop="saveChanges">Submit</v-btn>
+          <v-btn @click.stop="cancelChanges">Cancel</v-btn>
         </v-form>
       </v-card>
+      </v-dialog>
 
       <!-- add route -->
-      <v-btn small @click="showCreateForm = !showCreateForm">Add Route</v-btn>
-      <v-card v-if="showCreateForm">
+      <v-btn small @click.stop="dialog2 = true">Add Route</v-btn>
+
+      <v-dialog v-model="dialog2" persistent max-width="600px">
+        <v-card>
         <v-form>
           <v-text-field
             clearable
@@ -64,6 +71,11 @@
           <v-btn @click="cancelRoute">Cancel</v-btn>
         </v-form>
       </v-card>
+
+
+      </v-dialog>
+    
+      
       </v-row>
     </v-sheet>
   </div>
@@ -74,8 +86,8 @@ export default {
   name: "wall-tools",
   data() {
     return {
-      showCreateForm: false,
-      showForm: false,
+      dialog2: false,
+      dialog: false,
       newRoute: {
         id: 0,
         wallId: this.$route.params.id,
@@ -99,7 +111,7 @@ export default {
     //Saves updates to wall
     saveChanges() {
       this.$store.commit("UPDATE_WALL", this.updatedWall);
-      this.showForm = false;
+      this.dialog = false;
       this.resetUpdatedWall();
     },
 
@@ -117,7 +129,7 @@ export default {
     saveRoute() {
       this.newRoute.id = this.$store.getters.nextRouteId;
       this.$store.commit("SAVE_ROUTE", this.newRoute);
-      this.showCreateForm = false;
+      this.dialog2 = false;
       this.newRoute = {
         id: 0,
         wallId: this.$route.params.id,
@@ -148,7 +160,7 @@ export default {
       }
     },
     cancelChanges() {
-      this.showForm = false;
+      this.dialog = false;
       this.resetUpdatedWall();
     },
 
@@ -163,14 +175,14 @@ export default {
         protection: "",
         description: "",
       };
-      this.showCreateForm = false;
+      this.dialog2 = false;
 
     }
   },
   created() {
     this.resetUpdatedWall();
-    this.showForm = false;
-    this.showCreateForm = false;
+    this.dialog = false;
+    this.dialog2 = false;
   },
 };
 </script>

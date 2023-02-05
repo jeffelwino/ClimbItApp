@@ -187,6 +187,15 @@ export default new Vuex.Store({
       { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you" },
       { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful" }
     ],
+    // cragComments: [
+    //   { commentId: 1, cragId: 1, user: "Kevin", body: "This is my crag" },
+    //   { commentId: 2, cragId: 1, user: "Michael", body: "This is a wonderful crag" },
+    //   { commentId: 3, cragId: 2, user: "Allan", body: "My crag" },
+    //   { commentId: 4, cragId: 3, user: "Jeff", body: "Rothko is a crag" },
+    //   { commentId: 5, cragId: 1, user: "I don't care", body: "Whatever crag" },
+    //   { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you crag" },
+    //   { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful crag" }
+    // ],
     ticks: [
       {
         id: 1,
@@ -307,6 +316,24 @@ export default new Vuex.Store({
       })
       return routeId + 1;
     },
+    nextWallId(state) {
+      let wallId = 0;
+      state.walls.forEach(w => {
+        if (w.id >= wallId) {
+          wallId = w.id;
+        }
+      })
+      return wallId + 1;
+    },
+    nextAreaId(state) {
+      let areaId = 0;
+      state.areas.forEach(a => {
+        if (a.id >= areaId) {
+          areaId = a.id;
+        }
+      })
+      return areaId + 1;
+    },
 
   },
   mutations: {
@@ -344,6 +371,15 @@ export default new Vuex.Store({
     SAVE_ROUTE(state, newRoute){
       state.routes.push(newRoute);
     },
+    SAVE_WALL(state, newWall){
+      state.walls.push(newWall);
+    },
+    SAVE_CRAG(state, newCrag){
+      state.crags.push(newCrag);
+    },
+    SAVE_AREA(state, newArea){
+      state.areas.push(newArea);
+    },
     ADD_TODO(state, info) {
       state.profiles.forEach(profile => {
         if (profile.id == info.profileId) {
@@ -378,9 +414,27 @@ export default new Vuex.Store({
         }
       }
     },
-    
-
-
+    UPDATE_CRAG(state, crag){
+      for (let i = 0; i < state.crags.length; i++) {
+        if (state.crags[i].id == crag.id) {
+          state.crags.splice(i, 1);
+          state.crags.push(crag)
+          break;
+        }
+      }
+    },
+    UPDATE_AREA(state, area){
+      for (let i = 0; i < state.areas.length; i++) {
+        if (state.areas[i].id == area.id) {
+          state.areas.splice(i, 1);
+          state.areas.push(area)
+          break;
+        }
+      }
+    },
+  
+      
+  
     // DELETES WALL
     DELETE_WALL(state, id){
       for (let i = 0; i < state.walls.length; i++) {

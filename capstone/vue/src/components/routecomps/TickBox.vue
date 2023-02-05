@@ -1,12 +1,17 @@
 <template>
 
-    <v-dialog v-model="dialog" persistent max-width="600px">
+    
 
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn class="light-green" small v-bind="attrs" v-on="on">
+      <v-sheet>
+
+      
+      <!-- v-slot:activator="{ on, attrs }"> -->
+        <v-btn class="light-green" @click.stop="dialog = true" >
+        <!-- small v-bind="attrs" v-on="on"> -->
           ClimbedIt!
         </v-btn>
-      </template>
+    
+      <v-dialog v-model="dialog" persistent max-width="600px">
 
       <v-card>
         <v-form class="px-3">
@@ -70,17 +75,19 @@
 
           </v-row>
           <v-row class="justify-space-around">
-            <v-btn color="blue darken-1" text @click="dialog = false">
+            <v-btn color="blue darken-1" text @click.stop="dialog = false">
               Cancel
             </v-btn>
 
-            <v-btn color="blue darken-1" text @click="saveTick"> Submit </v-btn>
+            <v-btn color="blue darken-1" text @click.stop="saveTick"> Submit </v-btn>
           </v-row>
         </v-form>
       </v-card>
     </v-dialog>
+    </v-sheet>
+    </template>
  
-</template>
+
 
 <script>
 export default {
