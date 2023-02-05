@@ -1,7 +1,7 @@
 <template>
    <v-app>
      <NavBar></NavBar>
-    <!-- <image-upload-preview/> -->
+     <!--<image-upload-preview/> -->
     <v-main>
 
     <router-view />
@@ -20,7 +20,7 @@
 export default {
  
   name: 'App',
-  components: {NavBar,},  //ImageUploadPreview
+  components: {NavBar},  //ImageUploadPreview
   data: () => ({
     
   }),

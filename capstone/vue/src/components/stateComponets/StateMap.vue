@@ -33,7 +33,7 @@ export default {
 
   data() {
     return {
-      center: { lat: this.state.latitude, lng: this.state.longitude },
+      center: {lat: this.state.latitude, lng: this.state.longitude},
     };
   },
   methods: {

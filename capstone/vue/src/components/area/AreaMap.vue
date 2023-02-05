@@ -1,6 +1,8 @@
 <template>
   <div class="map">
     <h2>Crags in the Area</h2>
+    <!-- <GmapAutocomplete
+    @place_changed='setPlace'/> -->
     <GmapMap
       :options="{
         zoomControl: true,
@@ -9,8 +11,7 @@
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: true,
-        disableDefaultUi: false,
-        
+        disableDefaultUi: false, 
       }"
       :center="center"
       :zoom="9"
@@ -19,7 +20,6 @@
     >
       <GmapMarker
         v-for="crag in crags"
-        :color="white"
         :key="crag.id"
         :position="crag.position"
         :label="crag.name"
@@ -48,6 +48,11 @@ export default {
     this.getCrags();
   },
   methods: {
+
+    // setPlace(place) {
+    //   this.currentPlace = place;
+    // },
+
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
@@ -89,9 +94,9 @@ export default {
         });
       });
     },
-    fitBounds() {
-      //This method needs to be able to set the boundaries of the map to just fit in all of the markers
-    },
+    // fitBounds() {
+    //   //This method needs to be able to set the boundaries of the map to just fit in all of the markers
+    // },
   },
 };
 </script>

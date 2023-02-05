@@ -34,7 +34,7 @@ export default {
       if (!file) return;
       const readData = (f) =>
         new Promise((resolve) => {
-          const reader = new FileReader();
+          const reader = new FileReader(); //Looks like a scanner obj from Java
           reader.onloadend = () => resolve(reader.result);
           reader.readAsDataURL(f);
         });
