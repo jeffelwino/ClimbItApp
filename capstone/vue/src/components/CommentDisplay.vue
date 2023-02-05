@@ -1,9 +1,9 @@
 <template>
 <!-- this is the structure of what a comment will be -->
-    <v-container>
+    
         <v-card elevation="3">
-            <v-card-title>
-                <v-avatar size=48 color="blue">
+            <v-card-title class="grey lighten-4 py-2">
+                <v-avatar size="36" color="blue" class="mr-3">
                     <v-icon dark>
                         mdi-account-circle
                     </v-icon>
@@ -18,7 +18,7 @@
         <v-container class="commentBank">
             <v-textarea outlined label = "List of Comments" v-model="bank"></v-textarea>
         </v-container>  -->
-    </v-container>  
+    
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+
     <v-dialog v-model="dialog" persistent max-width="600px">
 
       <template v-slot:activator="{ on, attrs }">
@@ -25,7 +25,7 @@
           <v-divider></v-divider>
           
           <v-row >
-            <v-col cols="12" sm="6" >
+            <v-col cols="12" sm="6">
               <label for="date-climbed" id="date-climbed" class="
               text-h7
               text-md-h6
@@ -60,7 +60,7 @@
               </v-card-text>
             </v-col>
           
-            <v-col cols="12" sm="6" md="4" lg="4">
+            <v-col cols="12" sm="6" md="4">
               <v-textarea
                 outlined
                 label="notes"
@@ -79,7 +79,7 @@
         </v-form>
       </v-card>
     </v-dialog>
-  </v-sheet>
+ 
 </template>
 
 <script>

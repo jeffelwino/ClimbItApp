@@ -28,7 +28,8 @@
             text-h10
             text-md-h9
             text-lg-h8
-            text-truncate"
+            text-truncate
+        white--text d-flex align-center"
         v-if="$store.state.token === ''"
         @click="goToLogin"
       >

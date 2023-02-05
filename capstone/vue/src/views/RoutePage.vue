@@ -2,6 +2,7 @@
   <div class="route">
     
     <v-container class="route-contents">
+
       
       <!-- header -->
       <route-header v-bind:route="route" />
@@ -31,15 +32,20 @@
         </v-card>
       </div>
 
-      <!-- <section style="height:10rem; margin-top: 5px; border: 1px solid black"> Recent Ticks</section> -->
-      <route-ticks :route="route" />
-
-      <section style="height: 10rem; margin-top: 5px; border: 1px solid black">
-        Comments
-        <route-comment v-bind:route="route" />
-      </section>
-      <!-- Recent Ascents (connected to tickbox)-->
-      <!--  Comments -->
+<!-- Recent Ascents (connected to tickbox)-->
+<v-container>
+  <route-ticks :route="route" />
+</v-container>
+      
+      <!-- Comments Section -->
+        <v-container>
+            <route-comment v-bind:route="route" /> 
+        </v-container>
+       
+      
+      
+      
+      
       <!-- </v-row> -->
     </v-container>
   </div>
@@ -60,7 +66,6 @@ export default {
     RouteDetail,
     RouteHeader,
     RouteGallery,
-    // Description,
     RouteTicks,
     RouteComment,
     RouteTools,

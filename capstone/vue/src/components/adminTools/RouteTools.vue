@@ -4,16 +4,14 @@
           <h1>Admin TOOL BAR</h1>
           <v-btn @click="deleteRoutePage(routePage.id)"> Delete Route</v-btn>
           <v-btn @click="showForm= ! showForm">Edit Info</v-btn>
-
-
         <v-card v-if="showForm">
-      <v-form>
-        <v-text-field label="Route Name" v-model="updatedRoute.name"></v-text-field>
-        <v-text-field label="Grade" v-model="updatedRoute.grade"></v-text-field>
-        <v-text-field label="height" v-model="updatedRoute.height"></v-text-field>
-        <v-text-field label="style" v-model="updatedRoute.style"></v-text-field>
-        <v-text-field label="protection" v-model="updatedRoute.protection"></v-text-field>
-        <v-text-field label="description" v-model="updatedRoute.description"></v-text-field>
+        <v-form>
+        <v-text-field clearable label="Route Name" v-model="updatedRoute.name"></v-text-field>
+        <v-text-field clearable label="Grade" v-model="updatedRoute.grade"></v-text-field>
+        <v-text-field clearable label="height" v-model="updatedRoute.height"></v-text-field>
+        <v-text-field clearable label="style" v-model="updatedRoute.style"></v-text-field>
+        <v-text-field clearable label="protection" v-model="updatedRoute.protection"></v-text-field>
+        <v-text-field clearable label="description" v-model="updatedRoute.description"></v-text-field>
 
         <v-btn @click="saveChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
@@ -50,6 +48,7 @@ export default {
         }
     },
     methods: {
+      //helper function. resets route information at submit or cancel or created
       resetUpdatedRoute(){
           this.updatedRoute = {
           id: this.routePage.id,
@@ -80,16 +79,7 @@ export default {
         }
     },
     created(){
-      this.updatedRoute = {
-          id: this.routePage.id,
-          wallId: this.routePage.wallId,
-          name:this.routePage.name,
-          grade:this.routePage.grade,
-          height:this.routePage.height,
-          style: this.routePage.style,
-          protection: this.routePage.protection,
-          description:this.routePage.description    
-            };
+      this.resetUpdatedRoute();
       this.showForm = false;
         
     }

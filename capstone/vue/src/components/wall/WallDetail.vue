@@ -1,10 +1,11 @@
 <template>
   <div class="wall">
-    <div class="description">
+    <div class="description mx-5">
+       <h2>{{ wall.name }}</h2>
       <h3>Description:</h3>
       <p>{{ wall.description }}</p>
     </div>
-    <div class="routes">
+    <div class="routes mx-3">
       <route-card v-for="route in routes" :key="route.id" :route="route"/>
     </div>
   </div>
@@ -19,18 +20,10 @@ export default {
   components: { RouteCard },
   data() {
     return {
-      routes: [],
       ticks: []
     };
   },
   methods: {
-    loadRoutes() {
-      this.$store.state.routes.forEach((route) => {
-        if (route.wallId == this.wall.id) {
-          this.routes.push(route);
-        }
-      });  
-    },
     loadTicks(){
       this.$store.state.ticks.forEach((tick) => {
         this.routes.forEach(route => {
@@ -42,6 +35,12 @@ export default {
     }
   },
     computed: {
+        routes(){
+          return this.$store.state.routes.filter((route) => {
+                return route.wallId == this.wall.id;
+      });  
+
+        },
         averageRating() {
             
             const ticks = this.$store.state.ticks.filter((t) => {
@@ -53,7 +52,7 @@ export default {
         }
         },
   created() {
-    this.loadRoutes();
+    
     this.loadTicks();
   },
 };

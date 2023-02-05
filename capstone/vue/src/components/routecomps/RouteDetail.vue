@@ -24,7 +24,7 @@
                   >
                   </v-rating>
                 </v-list-item>
-                <v-list-item>Protection: </v-list-item>
+                <v-list-item>Protection: {{route.protection}} </v-list-item>
               </v-list>
               <!-- <v-spacer></v-spacer> -->
               <v-list> </v-list>

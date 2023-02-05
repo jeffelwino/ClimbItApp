@@ -217,8 +217,16 @@ export default new Vuex.Store({
         profile_id: 2,
         routeId: 9,
         date: "10/20/2022",
-        note: "Ass",
+        note: "Not reptar",
         rating: 1,
+      },
+      {
+        id: 5,
+        profile_id: 4,
+        routeId: 1,
+        date: "10/18/2022",
+        note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
+        rating: 4,
       },
     ],
     profiles: [
@@ -290,6 +298,15 @@ export default new Vuex.Store({
       })
       return commentId + 1;
     },
+    nextRouteId(state) {
+      let routeId = 0;
+      state.routes.forEach(r => {
+        if (r.id >= routeId) {
+          routeId = r.id;
+        }
+      })
+      return routeId + 1;
+    },
 
   },
   mutations: {
@@ -324,6 +341,9 @@ export default new Vuex.Store({
     SAVE_COMMENT(state, comment) {
       state.comments.push(comment);
     },
+    SAVE_ROUTE(state, newRoute){
+      state.routes.push(newRoute);
+    },
     ADD_TODO(state, info) {
       state.profiles.forEach(profile => {
         if (profile.id == info.profileId) {
@@ -345,10 +365,31 @@ export default new Vuex.Store({
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {
           state.routes.splice(i, 1);
+         break;
+        }
+      }
+    },
+    UPDATE_WALL(state, wall){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == wall.id) {
+          state.walls.splice(i, 1);
+          state.walls.push(wall)
           break;
         }
       }
-    }
+    },
+    
+
+
+    // DELETES WALL
+    DELETE_WALL(state, id){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == id) {
+          state.walls.splice(i, 1);
+          break;
+        }
+      }
+    },
 
   },
 })

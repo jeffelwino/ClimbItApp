@@ -1,15 +1,24 @@
 <template>
   <v-card @click="navigateToRoute()"
-    >{{ route.name }} ({{ route.grade }})
-    <v-rating
+    >
+    <v-layout class="mr-4 py-2">
+    <span>{{ route.name }} ({{ route.grade }})  </span>
+    <v-spacer></v-spacer>
+   <v-rating
       readonly
+      small
+      dense
       v-model="averageRating"
       half-increments
       color="yellow darken-3"
       background-color="grey darken-1"
       empty-icon="$ratingFull"
     ></v-rating>
+    </v-layout>
+ 
+    <v-divider class="blue"></v-divider>
   </v-card>
+  
 </template>
 
 <script>
