@@ -2,12 +2,9 @@
   <div class="tick-display">
     <v-card class="mb-2" height="4rem">
       <v-layout class="justify-space-around">
-       <span
-       class="mt-2
-       text-subtitle-2
-       text-sm-h5
-       "
-       > {{ profile.name }}  {{ tick.date }}</span>
+        <span class="mt-2 text-subtitle-2 text-sm-h5">
+          {{ profile.name }} {{ tick.date }}</span
+        >
         <v-spacer></v-spacer>
         <v-rating
           readonly
@@ -37,7 +34,7 @@ export default {
     },
     profile() {
       return this.$store.state.profiles.find((p) => {
-        return p.id == this.tick.profile_id;
+        return p.id == this.tick.profileId;
       });
     },
   },

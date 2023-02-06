@@ -166,26 +166,26 @@ export default new Vuex.Store({
     routes: [
       { id: 1, wallId: 1, name: 'Slappy McCracken', grade: '5.10b', height: '30ft', style: 'sport', protection: "7 bolts", description: 'The oldest climbing route in Ohio. Very busy during the weekend.' },
       { id: 2, wallId: 1, name: 'Knope We Can', grade: '5.7', height: '25ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.Lorem ipsum quod maximus manatee. \n A climb in the classic Northhampton style. \n Old granite so watch your step!.' },
-      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad',protection: "7 bolts", description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
-      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.' },
-      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
-      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
-      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
-      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
-      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport',protection: "7 bolts", description: 'Est quid nostre papadio.' },
-      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
-      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
-      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport',protection: "7 bolts", description: 'n/a' },
+      { id: 3, wallId: 2, name: 'Chain Mail Hula Skirt', grade: '5.7', height: '25ft', style: 'trad', protection: "7 bolts", description: 'Est quid nostre papadio.The raccoons are notorious here. \n Avoid in winter.' },
+      { id: 4, wallId: 2, name: 'Excellent Ella', grade: '5.6', height: '25ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio. Several portholes available. \n Avoid in Spring.' },
+      { id: 5, wallId: 3, name: 'Digitalis', grade: '5.11d', height: '25ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 6, wallId: 3, name: 'Chin Chimney', grade: '5.8', height: '25ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 7, wallId: 4, name: 'Send Me On My Way', grade: '5.9', height: '75ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 8, wallId: 4, name: 'Rat Stew', grade: '5.10a', height: '75ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 9, wallId: 5, name: 'Nasty Wieners', grade: '5.10a', height: '65ft', style: 'sport', protection: "7 bolts", description: 'Est quid nostre papadio.' },
+      { id: 10, wallId: 5, name: 'Infatuation', grade: '5.7', height: '60ft', style: 'sport', protection: "7 bolts", description: 'n/a' },
+      { id: 11, wallId: 6, name: 'Katz Corner', grade: '5.6', height: '35ft', style: 'sport', protection: "7 bolts", description: 'n/a' },
+      { id: 12, wallId: 6, name: 'Silver Streaks', grade: '5.9', height: '60ft', style: 'sport', protection: "7 bolts", description: 'n/a' },
 
     ],
     comments: [
-      { commentId: 1, routeId: 1, user: "Kevin", body: "This is my first comment" },
-      { commentId: 2, routeId: 1, user: "Michael", body: "This is a wonderful comment" },
-      { commentId: 3, routeId: 2, user: "Allan", body: "My Comment" },
-      { commentId: 4, routeId: 3, user: "Jeff", body: "Rothko is an arteest" },
-      { commentId: 5, cragId: 1, user: "I don't care", body: "Whatever" },
-      { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you" },
-      { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful" }
+      { commentId: 1, routeId: 1, profileId: 3, body: "This is my first comment" },
+      { commentId: 2, routeId: 1, profileId: 4, body: "This is a wonderful comment" },
+      { commentId: 3, routeId: 2, profileId: 5, body: "My Comment" },
+      { commentId: 4, routeId: 3, profileId: 6, body: "Rothko is an arteest" },
+      { commentId: 5, cragId: 1, profileId: 3, body: "Whatever" },
+      { commentId: 6, cragId: 1, profileId: 4, body: "Hey you" },
+      { commentId: 7, cradId: 2, profileId: 5, body: "Wonderful" }
     ],
     // cragComments: [
     //   { commentId: 1, cragId: 1, user: "Kevin", body: "This is my crag" },
@@ -199,7 +199,7 @@ export default new Vuex.Store({
     ticks: [
       {
         id: 1,
-        profile_id: 4,
+        profileId: 4,
         routeId: 9,
         date: "10/18/2022",
         note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
@@ -207,7 +207,7 @@ export default new Vuex.Store({
       },
       {
         id: 2,
-        profile_id: 4,
+        profileId: 4,
         routeId: 6,
         date: "6/11/2021",
         note: "Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors though.",
@@ -215,7 +215,7 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-        profile_id: 3,
+        profileId: 3,
         routeId: 9,
         date: "10/19/2022",
         note: "Great.",
@@ -223,7 +223,7 @@ export default new Vuex.Store({
       },
       {
         id: 4,
-        profile_id: 2,
+        profileId: 2,
         routeId: 9,
         date: "10/20/2022",
         note: "Not reptar",
@@ -231,7 +231,7 @@ export default new Vuex.Store({
       },
       {
         id: 5,
-        profile_id: 4,
+        profileId: 4,
         routeId: 1,
         date: "10/18/2022",
         note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
@@ -240,14 +240,14 @@ export default new Vuex.Store({
     ],
     profiles: [
       {
-        id: 1,
+        id: 2,
         name: "Admin",
         location: "Admin",
         bio: "Admin",
         todos: [],
         picture: ''
       }, {
-        id: 2,
+        id: 1,
         name: "user",
         location: "user",
         bio: "user",
@@ -377,16 +377,16 @@ export default new Vuex.Store({
     SAVE_COMMENT(state, comment) {
       state.comments.push(comment);
     },
-    SAVE_ROUTE(state, newRoute){
+    SAVE_ROUTE(state, newRoute) {
       state.routes.push(newRoute);
     },
-    SAVE_WALL(state, newWall){
+    SAVE_WALL(state, newWall) {
       state.walls.push(newWall);
     },
-    SAVE_CRAG(state, newCrag){
+    SAVE_CRAG(state, newCrag) {
       state.crags.push(newCrag);
     },
-    SAVE_AREA(state, newArea){
+    SAVE_AREA(state, newArea) {
       state.areas.push(newArea);
     },
     ADD_TODO(state, info) {
@@ -396,7 +396,7 @@ export default new Vuex.Store({
         }
       })
     },
-    UPDATE_ROUTE(state, route){
+    UPDATE_ROUTE(state, route) {
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == route.id) {
           state.routes.splice(i, 1);
@@ -406,15 +406,15 @@ export default new Vuex.Store({
       }
     },
 
-    DELETE_ROUTE(state, id){
+    DELETE_ROUTE(state, id) {
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {
           state.routes.splice(i, 1);
-         break;
+          break;
         }
       }
     },
-    UPDATE_WALL(state, wall){
+    UPDATE_WALL(state, wall) {
       for (let i = 0; i < state.walls.length; i++) {
         if (state.walls[i].id == wall.id) {
           state.walls.splice(i, 1);
@@ -423,7 +423,7 @@ export default new Vuex.Store({
         }
       }
     },
-    UPDATE_CRAG(state, crag){
+    UPDATE_CRAG(state, crag) {
       for (let i = 0; i < state.crags.length; i++) {
         if (state.crags[i].id == crag.id) {
           state.crags.splice(i, 1);
@@ -432,7 +432,7 @@ export default new Vuex.Store({
         }
       }
     },
-    UPDATE_AREA(state, area){
+    UPDATE_AREA(state, area) {
       for (let i = 0; i < state.areas.length; i++) {
         if (state.areas[i].id == area.id) {
           state.areas.splice(i, 1);
@@ -441,11 +441,11 @@ export default new Vuex.Store({
         }
       }
     },
-  
-      
-  
+
+
+
     // DELETES WALL
-    DELETE_WALL(state, id){
+    DELETE_WALL(state, id) {
       for (let i = 0; i < state.walls.length; i++) {
         if (state.walls[i].id == id) {
           state.walls.splice(i, 1);
