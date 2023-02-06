@@ -151,10 +151,10 @@ export default new Vuex.Store({
       },
     ],
     crags: [
-      { id: 1, areaId: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', latitude: 39.912833, longitude: -83.860439 },
-      { id: 2, areaId: 2, name: 'Muir Valley', description: 'A luxury climbing experience', latitude: 37.724503, longitude: -83.634545 },
-      { id: 3, areaId: 3, name: 'Upper Meadow', description: 'Beautiful area upstream on the Meadow River', latitude: 38.151515, longitude: -80.926571 },
-      { id: 4, areaId: 4, name: 'Marne Road', description: 'Roadside climbing in Newark, Ohio', latitude: 40.073522, longitude: -82.259237 },
+      { id: 1, areaId: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', position: { lat: 39.912833, lng: -83.860439 } },
+      { id: 2, areaId: 2, name: 'Muir Valley', description: 'A luxury climbing experience', position: { lat: 37.724503, lng: -83.634545 } },
+      { id: 3, areaId: 3, name: 'Upper Meadow', description: 'Beautiful area upstream on the Meadow River', position: { lat: 38.151515, lng: -80.926571 } },
+      { id: 4, areaId: 4, name: 'Marne Road', description: 'Roadside climbing in Newark, Ohio', position: { lat: 40.073522, lng: -82.259237 } },
     ],
     walls: [
       { id: 1, cragId: 1, name: 'Amusement Wall', description: 'Fun climbing, seeps for awhile after it rains. Busy on nice days' },
