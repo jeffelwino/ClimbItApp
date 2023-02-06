@@ -1,8 +1,8 @@
 <template>
   <v-container class="px-3">
     <v-card>
-      <v-card-title class="text-h6 text-md-h5 text-lg-h4 text-truncate">
-        Latest Ticks For {{ route.name }}
+      <v-card-title class= "justify-center text-h6 text-md-h5 text-lg-h4">
+        Latest ClimbedIts For <br> {{ route.name }}
       </v-card-title>
       <v-divider></v-divider>
         <tick-display
@@ -10,8 +10,10 @@
         v-for="tick in limitedList"
         :key="tick.id"
         :tick="tick"
+        :offProfile="true"
+        
       />
-      <v-btn @click="toggleLimit">See All</v-btn>
+      <v-btn v-show="ticks.length > limit" @click="toggleLimit">See All</v-btn>
 
     </v-card>
 
@@ -26,7 +28,10 @@ export default {
   name: "route-ticks",
   data() {
     return {
-      //limit on number of ticks displayed. if this changes, also change toggleLimit value
+      /* 
+      ** limit on number of ticks displayed. if this changes, also change 
+      ** toggleLimit value in methods 
+      */
       limit: 2,
     };
   },

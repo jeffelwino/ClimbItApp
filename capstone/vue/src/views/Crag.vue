@@ -25,7 +25,7 @@
 
 <script>
 import CragTools from "../components/adminTools/CragTools.vue";
-import WallCardContainer from "../components/WallCardContainer.vue";
+import WallCardContainer from "../components/crag/WallCardContainer.vue";
 import CragComment from "../components/CragComment.vue";
 
 export default {

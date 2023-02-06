@@ -1,34 +1,39 @@
 <template>
-  <div class="info">
-    <h2>{{ profile.name }}</h2>
-    <h3>{{ profile.location }}</h3>
-    <p>{{ profile.bio }}</p>
-    <v-btn
-      v-if="$route.params.id == $store.state.user.id"
-      @click="showForm = !showForm"
-      >Edit</v-btn
-    >
+  
+    <v-card class="light-blue">
+      <h2>{{ profile.name }}</h2>
+      <h3>{{ profile.location }}</h3>
+      <p>{{ profile.bio }}</p>
+      <v-btn
+        v-if="$route.params.id == $store.state.user.id"
+        @click="showForm = !showForm"
+        >Edit</v-btn
+      >
 
-    <v-card v-if="showForm">
-      <v-form ref="form">
-        <v-text-field label="Name" v-model="editedProfile.name"></v-text-field>
-        <v-text-field
-          label="Location"
-          v-model="editedProfile.location"
-        ></v-text-field>
-        <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
-        <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
-        <v-file-input
-          show-size
-          disabled
-          multiple
-          label="Profile Pic"
-        ></v-file-input>
-        <v-btn @click="updateProfileChanges">Submit</v-btn>
-        <v-btn @click="cancelChanges">Cancel</v-btn>
-      </v-form>
+      <v-card v-if="showForm">
+        <v-form ref="form">
+          <v-text-field
+            label="Name"
+            v-model="editedProfile.name"
+          ></v-text-field>
+          <v-text-field
+            label="Location"
+            v-model="editedProfile.location"
+          ></v-text-field>
+          <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
+          <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
+          <v-file-input
+            show-size
+            disabled
+            multiple
+            label="Profile Pic"
+          ></v-file-input>
+          <v-btn @click="updateProfileChanges">Submit</v-btn>
+          <v-btn @click="cancelChanges">Cancel</v-btn>
+        </v-form>
+      </v-card>
     </v-card>
-  </div>
+  
 </template>
 
 <script>

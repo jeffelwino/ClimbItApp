@@ -1,6 +1,8 @@
 <template>
   <div class="todo">
-    <h4>-{{ route.name }}</h4>
+    <v-card outlined @click.prevent="navigateToPage">
+    <h5>{{ route.name }}</h5>
+    </v-card>
   </div>
 </template>
 
@@ -16,6 +18,17 @@ export default {
       });
     },
   },
+  methods: {
+      navigateToPage() {
+     
+        this.$router.push({
+          name: "route-page",
+          params: { id: this.route.id },
+        });
+      
+    },
+  }
+  
 };
 </script>
 

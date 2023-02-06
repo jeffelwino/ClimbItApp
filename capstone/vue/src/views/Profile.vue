@@ -1,10 +1,12 @@
 <template>
-  <div class="profile">
+  <!-- <div class="profile"> -->
+    <v-container>
     <profile-picture :profile="profile" class="picture" />
     <profile-info :profile="profile" class="info" />
     <profile-ticks :profile="profile" class="ticks" />
     <profile-todo :profile="profile" class="todo" />
-  </div>
+    </v-container>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -67,12 +69,11 @@ export default {
 }
 .ticks {
   grid-area: ticks;
-  background-color: grey;
-  margin: 10px;
-}
-.todo {
+ 
+  
+} 
+ .todo {
   grid-area: todo;
-  background-color: grey;
-  margin: 10px;
-}
+
+} 
 </style>

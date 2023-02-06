@@ -2,7 +2,10 @@
   <v-sheet class="red mb-5">
     <h1>Admin TOOL BAR</h1>
     <v-row class="justify-space-around">
-
+      <!-- 
+        40.030787465595026 
+        -84.2212916018421 
+        -->
       <!-- Edit area info -->
       <v-btn small @click.stop="dialog = true"> Edit Info </v-btn>
 
@@ -19,17 +22,17 @@
               label="Description"
               v-model="updatedArea.description"
             ></v-text-field>
-            
-             <v-text-field
-            clearable
-            label="Area Latitude(North-South)"
-            v-model="updatedArea.latitude"
-          ></v-text-field>
-          <v-text-field
-            clearable
-            label="Area Longitude(East-West)"
-            v-model="updatedArea.longitude"
-          ></v-text-field>
+
+            <v-text-field
+              clearable
+              label="Area Latitude(North-South)"
+              v-model="updatedArea.latitude"
+            ></v-text-field>
+            <v-text-field
+              clearable
+              label="Area Longitude(East-West)"
+              v-model="updatedArea.longitude"
+            ></v-text-field>
             <v-btn @click.stop="saveChanges">Submit</v-btn>
             <v-btn @click.stop="cancelChanges">Cancel</v-btn>
           </v-form>
@@ -52,16 +55,16 @@
               label="description"
               v-model="newCrag.description"
             ></v-text-field>
-               <v-text-field
-            clearable
-            label="Crag Latitude(North-South)"
-            v-model="newCrag.latitude"
-          ></v-text-field>
-          <v-text-field
-            clearable
-            label="Crag Longitude(East-West)"
-            v-model="newCrag.longitude"
-          ></v-text-field>
+            <v-text-field
+              clearable
+              label="Crag Latitude(North-South)"
+              v-model="newCrag.position.lat"
+            ></v-text-field>
+            <v-text-field
+              clearable
+              label="Crag Longitude(East-West)"
+              v-model="newCrag.position.lng"
+            ></v-text-field>
             <v-btn @click="saveCrag">Submit</v-btn>
             <v-btn @click="cancelCrag">Cancel</v-btn>
           </v-form>
@@ -70,6 +73,8 @@
     </v-row>
   </v-sheet>
 </template>
+
+
 
 <script>
 export default {
@@ -80,11 +85,12 @@ export default {
       dialog: false,
       newCrag: {
         id: 0,
-        AreaId: this.$route.params.id,
+        areaId: parseInt(this.$route.params.id),
         name: "",
-        latitude: "",
-        longitude: ""
-
+        position: {
+          lat: 0,
+          lng: 0,
+        },
       },
     };
   },
@@ -98,9 +104,13 @@ export default {
   methods: {
     //Saves updates to area
     saveChanges() {
-      this.$store.commit("UPDATE_CRAG", this.updatedCrag);
+      let lat = parseFloat(this.updatedArea.position.lat);
+      let lng = parseFloat(this.updatedArea.position.lng);
+      console.log(lat);
+      this.updatedArea.position = { lat: lat, lng: lng };
+      this.$store.commit("UPDATE_AREA", this.updatedArea);
       this.dialog = false;
-      this.resetUpdatedCrag();
+      this.resetUpdatedArea();
     },
 
     //helper function. resets area information at submit or cancel or created
@@ -110,8 +120,10 @@ export default {
         stateAbbrev: this.area.stateAbbrev,
         name: this.area.name,
         description: this.area.description,
-        latitude: this.area.latitude,
-        longitude: this.area.longitude,
+        position: {
+          lat: "",
+          lng: "",
+        },
       };
     },
 
@@ -125,8 +137,10 @@ export default {
         AreaId: this.$route.params.id,
         name: "",
         description: "",
-        latitude: "",
-        longitude: ""
+        position: {
+          lat: "",
+          lng: "",
+        },
       };
     },
     cancelChanges() {
@@ -140,8 +154,10 @@ export default {
         areaId: this.$route.params.id,
         name: "",
         description: "",
-        latitude: "",
-        longitude: ""
+        position: {
+          lat: "",
+          lng: "",
+        },
       };
       this.dialog2 = false;
     },
