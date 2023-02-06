@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+
 Vue.use(Vuex)
+
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
@@ -245,14 +247,21 @@ export default new Vuex.Store({
         location: "Admin",
         bio: "Admin",
         todos: [],
-        picture: ''
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "ssu0yraojylulspeeuhv"
+
+        }
       }, {
         id: 1,
         name: "user",
         location: "user",
         bio: "user",
         todos: [],
-        picture: ''
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-5"
+        }
       },
       {
         id: 3,
@@ -260,7 +269,10 @@ export default new Vuex.Store({
         location: "Long Island, New  York",
         bio: "My name is Kevin and I like to climb rocks",
         todos: [1, 9, 5],
-        picture: require('@/assets/profile-picture.jpg')
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample"
+        }
       },
       {
         id: 4,
@@ -268,7 +280,10 @@ export default new Vuex.Store({
         location: "Sunbury, Ohio",
         bio: "My name is Michael and I like to climb rocks",
         todos: [12, 5, 3],
-        picture: require('@/assets/profile-picture.jpg')
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-4"
+        }
       },
       {
         id: 5,
@@ -276,15 +291,21 @@ export default new Vuex.Store({
         location: "Chicago, Illinois",
         bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
         todos: [12],
-        picture: 'src/assets/climbit-logo-v4.png'
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-3"
+        }
       },
       {
         id: 6,
         name: "Allan",
         bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
         todos: [],
-        picture: ''
-      }
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-2"
+        }
+      },
     ]
 
   },

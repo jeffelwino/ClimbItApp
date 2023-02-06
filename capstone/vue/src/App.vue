@@ -15,6 +15,15 @@
 <script>
  import NavBar from "./components/NavBar.vue";
  //import ImageUploadPreview from './components/ImageUploadPreview.vue'
+ import Cloudinary from "cloudinary-vue";
+ import Vue from 'vue';
+
+ Vue.use(Cloudinary, {
+  configuration: { 
+    cloudName: "dacyocfmf",
+    secure: true }
+});
+
 
 
 export default {

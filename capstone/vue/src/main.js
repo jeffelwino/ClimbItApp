@@ -5,7 +5,17 @@ import store from './store/index'
 import axios from 'axios'
 import vuetify from './plugins/vuetify'
 import *as VueGoogleMaps from 'vue2-google-maps'
+import Cloudinary, { CldImage, CldVideo, CldTransformation, CldContext } from "cloudinary-vue";
 
+Vue.use(Cloudinary, {
+  configuration: { cloudName: "demo" },
+  components: {
+    CldContext,
+    CldImage, 
+    CldVideo, 
+    CldTransformation,
+  }
+});
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
@@ -23,3 +33,4 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
