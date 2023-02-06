@@ -13,6 +13,13 @@
           v-model="editedProfile.location"
         ></v-text-field>
         <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
+        <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
+        <v-file-input
+          show-size
+          disabled
+          multiple
+          label="Profile Pic"
+         ></v-file-input>
         <v-btn @click="updateProfileChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
       </v-form>
