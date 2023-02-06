@@ -8,8 +8,8 @@ public class Crag {
     private double latitude;
     private double longitude;
 
-    public Crag(String cragId, String areaId, String cragName, String description, double latitude, double longitude) {
-        this.id = cragId;
+    public Crag(String id, String areaId, String cragName, String description, double latitude, double longitude) {
+        this.id = id;
         this.areaId = areaId;
         this.name = cragName;
         this.description = description;
