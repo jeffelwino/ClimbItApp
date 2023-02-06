@@ -6,6 +6,7 @@
         :publicId="profile.picture.publicId"
         width="300"
       />
+      <cloudinary/>
     </cld-context>
   </div>
 </template>
@@ -18,14 +19,16 @@
 //     cloudName: "dacyocfmf",
 //     secure: true }
 // });
+import Cloudinary from "../imageComps/Cloudinary.vue"
 
 export default {
+  components: { Cloudinary },
   props: ["profile"],
   data() {
     return {
       picture: {
         cloudName: this.profile.picture.cloudName,
-        publicId: this.profile.picture.publicId,
+        publicId: this.profile.picture.publicId
       },
     };
   },

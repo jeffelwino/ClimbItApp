@@ -1,21 +1,21 @@
 <template>
-  <v-card>
-    <v-card-text>
-      <v-img :src="result.info.url"></v-img>
-      <h2>Click below to submit your photos for route</h2>
-      <v-btn v-on:click="upload">Upload</v-btn><br>
-    </v-card-text>  
-  </v-card>
+  <v-container>
+      <v-btn v-on:click="upload">Upload your profile picture</v-btn><br>
+  </v-container>
 </template>
 
 <script>
 export default {
+  props: ["profile"],
+
   name: 'cloudinary-comp',
+
   data() {
     return {
       myWidget : {}
     }
   },
+
   methods: {
       upload() {
         this.myWidget.open();
@@ -33,6 +33,7 @@ export default {
         if (!error && result && result.event === "success") { 
           console.log('Done! Here is the image info: ', result.info); 
           console.log("Image URL: " + result.info.url);
+          console.log("This is the public id: " + result.info.public_id);
         }
       }
     );

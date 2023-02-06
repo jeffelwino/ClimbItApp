@@ -271,7 +271,7 @@ export default new Vuex.Store({
         todos: [1, 9, 5],
         picture: {
           cloudName: "dacyocfmf",
-          publicId: "cld-sample"
+          publicId: "s"
         }
       },
       {
@@ -462,7 +462,7 @@ export default new Vuex.Store({
         }
       }
     },
-
+    
 
 
     // DELETES WALL

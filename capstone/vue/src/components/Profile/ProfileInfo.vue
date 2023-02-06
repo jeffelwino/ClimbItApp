@@ -32,7 +32,9 @@
 </template>
 
 <script>
+
 export default {
+  components: {  },
   name: "profile-info",
   data() {
     return {
