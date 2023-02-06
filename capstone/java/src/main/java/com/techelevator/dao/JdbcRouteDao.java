@@ -17,7 +17,7 @@ public class JdbcRouteDao implements RouteDao{
     @Override
     public Route addRoute(Route route) {
         String sql = "INSERT INTO routes (wall_id, route_name, grade, height, style, protection) " +
-                "VALLLUES (?,?,?,?,?,?) " +
+                "VALUES (?,?,?,?,?,?) " +
                 "RETURNING route_id ";
         String routeId = jdbcTemplate.queryForObject(sql, String.class, route.getWallId(),
                 route.getRouteName(), route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection());
