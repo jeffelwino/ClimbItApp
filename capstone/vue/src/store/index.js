@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+
 Vue.use(Vuex)
+
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
@@ -245,14 +247,20 @@ export default new Vuex.Store({
         location: "Admin",
         bio: "Admin",
         todos: [],
-        picture: ''
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "ssu0yraojylulspeeuhv"
+
+        }
       }, {
         id: 1,
         name: "user",
         location: "user",
         bio: "user",
         todos: [],
-        picture: ''
+        picture: {
+          cloudName: "dacyocfmf",
+        publicId: "cld-sample-5"}
       },
       {
         id: 3,
