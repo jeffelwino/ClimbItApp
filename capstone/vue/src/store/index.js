@@ -260,7 +260,7 @@ export default new Vuex.Store({
         todos: [],
         picture: {
           cloudName: "dacyocfmf",
-        publicId: "cld-sample-5"}
+          publicId: "cld-sample-5"}
       },
       {
         id: 3,
