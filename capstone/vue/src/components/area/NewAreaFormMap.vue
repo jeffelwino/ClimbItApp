@@ -24,7 +24,7 @@ export default {
   props: ["crag"],
   data() {
     return {
-      center: { lat: this.crag.latitude, lng: this.crag.longitude },
+      center: {lat: this.crag.latitude, lng: this.crag.longitude},
       currentPlace: null,
       markers: [],
       places: [],

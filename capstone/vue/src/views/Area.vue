@@ -1,7 +1,8 @@
 <template>
   <div class="area">
     <h2>{{ area.name }}</h2>
-    <area-map v-bind:area="area" />
+    <!-- <area-map v-bind:area="area" /> -->
+    <new-area-form-map v-bind:area="area"/>
     <area-detail v-bind:area="area" />
     <!-- <comment-container  -->
   </div>
@@ -9,9 +10,10 @@
 
 <script>
 import AreaDetail from "../components/area/AreaDetail.vue";
-import AreaMap from "../components/area/AreaMap.vue";
+//import AreaMap from "../components/area/AreaMap.vue";
+import NewAreaFormMap from '../components/area/NewAreaFormMap.vue'
 export default {
-  components: { AreaDetail, AreaMap },
+  components: { AreaDetail,  NewAreaFormMap}, //AreaMap
   name: "area",
   methods: {
     loadArea() {
