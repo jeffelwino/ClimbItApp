@@ -2,7 +2,10 @@
   <v-sheet class="red mb-5">
     <h1>Admin TOOL BAR</h1>
     <v-row class="justify-space-around">
-
+      <!-- 
+        40.030787465595026 
+        -84.2212916018421 
+        -->
       <!-- Edit area info -->
       <v-btn small @click.stop="dialog = true"> Edit Info </v-btn>
 
@@ -71,6 +74,8 @@
   </v-sheet>
 </template>
 
+
+
 <script>
 export default {
   name: "area-tools",
@@ -80,7 +85,7 @@ export default {
       dialog: false,
       newCrag: {
         id: 0,
-        AreaId: this.$route.params.id,
+        areaId: parseInt(this.$route.params.id),
         name: "",
         latitude: "",
         longitude: ""
@@ -98,9 +103,9 @@ export default {
   methods: {
     //Saves updates to area
     saveChanges() {
-      this.$store.commit("UPDATE_CRAG", this.updatedCrag);
+      this.$store.commit("UPDATE_AREA", this.updatedArea);
       this.dialog = false;
-      this.resetUpdatedCrag();
+      this.resetUpdatedArea();
     },
 
     //helper function. resets area information at submit or cancel or created

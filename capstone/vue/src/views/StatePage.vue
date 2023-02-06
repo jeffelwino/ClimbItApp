@@ -4,7 +4,7 @@
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
     <div>
-      <state-info />
+      <state-info :state = "state" />
     </div>
   </v-container>
 </template>

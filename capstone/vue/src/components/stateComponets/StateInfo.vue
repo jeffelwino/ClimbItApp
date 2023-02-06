@@ -35,34 +35,42 @@ import StateMap from "./StateMap.vue";
 export default {
   components: { StateMap },
   name: "state-info",
-  data() {
-    return {
-      state: {
-        abbrev: "",
-        name: "",
-        areas: 0,
-      },
-      areas: [],
-    };
-  },
-  methods: {
-    loadState() {
-      this.state = this.$store.state.states.find((estado) => {
-        return estado.abbrev == this.$route.params.abbrev;
+  props: ["state"],
+  computed: {
+    areas(){
+      return this.$store.state.areas.filter((a) => {
+          return a.stateAbbrev == this.state.abbrev;
       });
-    },
-    loadAreas() {
-      this.$store.state.areas.forEach((area) => {
-        if (area.stateAbbrev == this.state.abbrev) {
-          this.areas.push(area);
-        }
-      });
-    },
-  },
-  created() {
-    this.loadState();
-    this.loadAreas();
-  },
+    }
+  }
+  // data() {
+  //   return {
+  //     state: {
+  //       abbrev: "",
+  //       name: "",
+  //       areas: 0,
+  //     },
+  //     areas: [],
+  //   };
+  // },
+  // methods: {
+  //   loadState() {
+  //     this.state = this.$store.state.states.find((estado) => {
+  //       return estado.abbrev == this.$route.params.abbrev;
+  //     });
+  //   },
+  //   loadAreas() {
+  //     this.$store.state.areas.forEach((area) => {
+  //       if (area.stateAbbrev == this.state.abbrev) {
+  //         this.areas.push(area);
+  //       }
+  //     });
+  //   },
+  // },
+  // created() {
+  //   this.loadState();
+  //   this.loadAreas();
+  // },
 };
 </script>
 
