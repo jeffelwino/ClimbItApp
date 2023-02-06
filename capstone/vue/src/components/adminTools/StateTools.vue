@@ -2,9 +2,8 @@
   <v-sheet class="red mb-5">
     <h1>Admin TOOL BAR</h1>
     <v-row class="justify-space-around">
-
       <!-- add area -->
-      
+
       <v-btn small @click.stop="dialog = true">Add Area</v-btn>
 
       <v-dialog v-model="dialog" persistent max-width="600px">
@@ -21,16 +20,17 @@
               v-model="newArea.description"
             ></v-text-field>
             <v-text-field
-            clearable
-            label="Area Latitude(North-South)"
-            v-model="newArea.latitude"
-          ></v-text-field>
-          <v-text-field
-            clearable
-            label="Area Longitude(East-West)"
-            v-model="newArea.longitude"
-          ></v-text-field>
-          <state-map></state-map>
+              clearable
+              label="Area Latitude(North-South)"
+              v-model="newArea.latitude"
+            ></v-text-field>
+            <v-text-field
+              clearable
+              label="Area Longitude(East-West)"
+              v-model="newArea.longitude"
+            ></v-text-field>
+            <!-- <StateMap v-bind:state="estado"/> -->
+            <NewAreaFormMap v-bind:state="estado"/>
             <v-btn @click.stop="saveArea">Submit</v-btn>
             <v-btn @click="cancelArea">Cancel</v-btn>
           </v-form>
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-//import NewAreaFormMap from '../area/NewAreaFormMap.vue';
-import StateMap from '../stateComponets/StateMap.vue'
+import NewAreaFormMap from '../area/NewAreaFormMap.vue';
+//import StateMap from "../stateComponets/StateMap.vue"; <---This was just practice to load the screen!
 export default {
-  components: { StateMap }, //NewAreaFormMap
-    name: "state-tools",
+  components: {NewAreaFormMap}, // StateMap ^^Same as up top
+  name: "state-tools",
   data() {
     return {
       dialog: false,
@@ -54,7 +54,7 @@ export default {
         name: "",
         stateAbbrev: this.$route.params.abbrev,
         latitude: "",
-        longitude: ""
+        longitude: "",
       },
     };
   },
@@ -76,7 +76,7 @@ export default {
         name: "",
         stateAbbrev: this.$route.params.abbrev,
         latitude: "",
-        longitude: ""
+        longitude: "",
       };
     },
 
@@ -86,19 +86,16 @@ export default {
         name: "",
         stateAbbrev: this.$route.params.abbrev,
         latitude: "",
-        longitude: ""
+        longitude: "",
       };
       this.dialog = false;
-    }
-
+    },
   },
   created() {
     this.dialog = false;
   },
 };
-
 </script>
 
 <style>
-
 </style>

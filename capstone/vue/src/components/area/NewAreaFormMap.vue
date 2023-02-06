@@ -12,6 +12,7 @@
         rotateControl: false,
         fullscreenControl: true,
         disableDefaultUi: false,
+        
       }"
       :center="center"
       :zoom="7"
