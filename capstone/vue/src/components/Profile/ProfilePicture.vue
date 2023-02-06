@@ -25,7 +25,7 @@ export default {
     return {
       picture: {
         cloudName: this.profile.picture.cloudName,
-        publicId: this.profile.picture.publicId,
+        publicId: this.profile.picture.publicId
       },
     };
   },
