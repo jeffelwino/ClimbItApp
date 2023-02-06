@@ -10,16 +10,17 @@ import TodoDisplay from "./TodoDisplay.vue";
 export default {
   components: { TodoDisplay },
   name: "todo",
-  data() {
-    return {};
-  },
-  computed: {
-    profile() {
-      return this.$store.state.profiles.find((profile) => {
-        return profile.id == this.$route.params.id;
-      });
-    },
-  },
+  props: ["profile"],
+  // data() {
+  //   return {};
+  // },
+  // computed: {
+  //   profile() {
+  //     return this.$store.state.profiles.find((profile) => {
+  //       return profile.id == this.$route.params.id;
+  //     });
+  //   },
+  // },
 };
 </script>
 
