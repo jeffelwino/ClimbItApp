@@ -20,23 +20,32 @@
 export default {
   name: "area-detail",
   props: ["area"],
-  data() {
-    return {
-      crags: [],
-    };
-  },
-  methods: {
-    loadCrags() {
-      this.$store.state.crags.forEach((crag) => {
-        if (crag.areaId == this.area.id) {
-          this.crags.push(crag);
-        }
+  computed:{
+    crags(){
+      return this.$store.state.crags.filter((c) => {
+        return c.areaId == this.area.id;
       });
-    },
-  },
-  created() {
-    this.loadCrags();
-  },
+    }
+  }
+
+
+  // data() {
+  //   return {
+  //     crags: [],
+  //   };
+  // },
+  // methods: {
+  //   loadCrags() {
+  //     this.$store.state.crags.forEach((crag) => {
+  //       if (crag.areaId == this.area.id) {
+  //         this.crags.push(crag);
+  //       }
+  //     });
+  //   },
+  // },
+  // created() {
+  //   this.loadCrags();
+  // },
 };
 </script>
 
