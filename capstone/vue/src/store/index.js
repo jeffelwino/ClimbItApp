@@ -199,7 +199,7 @@ export default new Vuex.Store({
     ticks: [
       {
         id: 1,
-        profile_id: 4,
+        profileId: 4,
         routeId: 9,
         date: "10/18/2022",
         note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
@@ -207,7 +207,7 @@ export default new Vuex.Store({
       },
       {
         id: 2,
-        profile_id: 4,
+        profileId: 4,
         routeId: 6,
         date: "6/11/2021",
         note: "Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors though.",
@@ -215,7 +215,7 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-        profile_id: 3,
+        profileId: 3,
         routeId: 9,
         date: "10/19/2022",
         note: "Great.",
@@ -223,7 +223,7 @@ export default new Vuex.Store({
       },
       {
         id: 4,
-        profile_id: 2,
+        profileId: 2,
         routeId: 9,
         date: "10/20/2022",
         note: "Not reptar",
@@ -231,7 +231,7 @@ export default new Vuex.Store({
       },
       {
         id: 5,
-        profile_id: 4,
+        profileId: 4,
         routeId: 1,
         date: "10/18/2022",
         note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",

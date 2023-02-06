@@ -33,7 +33,7 @@ export default {
       this.$store.commit("SAVE_COMMENT", this.newComment);
       this.newComment = {
         commentId: 0,
-        profile_id: this.$store.state.user.id,
+        profileId: this.$store.state.user.id,
         body: "",
       };
     },

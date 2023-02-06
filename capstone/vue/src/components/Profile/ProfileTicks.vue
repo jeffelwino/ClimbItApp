@@ -23,7 +23,7 @@ export default {
   methods: {
     loadTicks() {
       this.ticks = this.$store.state.ticks.filter((tick) => {
-        return tick.profile_id == this.$route.params.id;
+        return tick.profileId == this.$route.params.id;
       });
     },
   },
