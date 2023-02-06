@@ -88,8 +88,8 @@ export default {
         areaId: parseInt(this.$route.params.id),
         name: "",
         position: {
-          lat: 0,
-          lng: 0,
+          lat: "",
+          lng: "",
         },
       },
     };

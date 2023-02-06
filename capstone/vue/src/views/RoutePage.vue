@@ -54,7 +54,8 @@
 <script>
 import RouteDetail from "../components/routecomps/RouteDetail.vue";
 import RouteHeader from "../components/routecomps/RouteHeader.vue";
-import RouteGallery from "../components/images/RouteGallery.vue";
+import RouteGallery from "../components/imageComps/RouteGallery.vue";
+// import Description from "../components/Description.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
 import RouteComment from "../components/routecomps/RouteComment.vue";
 import RouteTools from "../components/adminTools/RouteTools.vue";
