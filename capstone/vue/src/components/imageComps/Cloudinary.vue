@@ -1,9 +1,10 @@
 <template>
-  <div>
-      <h2>How to use the Cloudinary Upload widget</h2>
-      <button v-on:click="upload">Upload</button><br>
-      <p>Look at the console for the message "Image URL"</p>
-  </div>
+  <v-card>
+    <v-card-text>
+      <h2>Click below to submit your photos for route</h2>
+      <v-btn v-on:click="upload">Upload</v-btn><br>
+    </v-card-text>  
+  </v-card>
 </template>
 
 <script>
@@ -11,6 +12,7 @@ export default {
   name: 'CloudinaryComp',
   data() {
     return {
+      image: "",
       myWidget : {}
     }
   },
