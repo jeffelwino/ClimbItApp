@@ -1,6 +1,7 @@
 <template>
   <v-card>
     <v-card-text>
+      <v-img src='result.info.url'></v-img>
       <h2>Click below to submit your photos for route</h2>
       <v-btn v-on:click="upload">Upload</v-btn><br>
     </v-card-text>  
@@ -9,10 +10,9 @@
 
 <script>
 export default {
-  name: 'CloudinaryComp',
+  name: 'cloudinary-comp',
   data() {
     return {
-      image: "",
       myWidget : {}
     }
   },

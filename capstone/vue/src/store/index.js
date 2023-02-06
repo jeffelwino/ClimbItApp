@@ -240,14 +240,14 @@ export default new Vuex.Store({
     ],
     profiles: [
       {
-        id: 1,
+        id: 2,
         name: "Admin",
         location: "Admin",
         bio: "Admin",
         todos: [],
-        picture: ''
+        picture: 'https://res.cloudinary.com/dacyocfmf/image/upload/v1675450265/cld-sample-5.jpg'
       }, {
-        id: 2,
+        id: 1,
         name: "user",
         location: "user",
         bio: "user",
@@ -260,7 +260,7 @@ export default new Vuex.Store({
         location: "Long Island, New  York",
         bio: "My name is Kevin and I like to climb rocks",
         todos: [1, 9, 5],
-        picture: require('@/assets/profile-picture.jpg')
+        picture: 'https://res.cloudinary.com/dacyocfmf/image/upload/v1675450265/cld-sample-4.jpg'
       },
       {
         id: 4,
@@ -285,7 +285,7 @@ export default new Vuex.Store({
         todos: [],
         picture: ''
       }
-    ]
+    ], 
 
   },
   getters: {
