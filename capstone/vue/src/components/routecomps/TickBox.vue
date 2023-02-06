@@ -1,7 +1,7 @@
 <template>
   <v-sheet>
     <!-- v-slot:activator="{ on, attrs }"> -->
-    <v-btn class="light-green" @click.stop="dialog = true">
+    <v-btn class="light-green" small @click.stop="dialog = true" v-bind:disabled="!isClicked">
       <!-- small v-bind="attrs" v-on="on"> -->
       ClimbedIt!
     </v-btn>
@@ -85,6 +85,7 @@ export default {
 
   data() {
     return {
+      isClicked: true,
       dialog: false,
       // To-do: Similar to principle, set profileId to logged in user's profileId
       survey: {
@@ -96,6 +97,9 @@ export default {
         note: "",
       },
     };
+  },
+  computed: {
+    //if the user has a tick for that specific route then we don't want that ClimbIt button to show for that route
   },
   methods: {
     saveTick() {
