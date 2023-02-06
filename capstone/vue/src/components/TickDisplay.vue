@@ -1,10 +1,15 @@
 <template>
   <div class="tick-display" @click="navigateToPage">
-    <v-card class="mb-2" height="4rem">
-      <v-layout class="justify-space-around">
+    <v-card overflow-auto class="mb-2 px-2">
+      <div>
+      <v-layout class="justify-space-around flex-wrap">
+        
         <span class="mt-2 text-subtitle-2 text-sm-h5">
-          {{ profile.name }} {{ tick.date }} {{ route.name }}</span
-        >
+          <span v-if="offProfile">{{ profile.name }}</span> 
+          {{ tick.date }} 
+          <span v-if="offRoute">{{ route.name }}</span>
+          
+          </span>
         <v-spacer></v-spacer>
         <v-rating
           readonly
@@ -16,8 +21,9 @@
           dense
           size="0.75rem"
         ></v-rating>
-        <p v-if="showNote">{{ tick.note }}</p>
+        <v-card-text v-if="showNote">{{ tick.note }}</v-card-text>
       </v-layout>
+      </div>
     </v-card>
   </div>
 </template>
@@ -25,7 +31,7 @@
 <script>
 export default {
   name: "tick-display",
-  props: ["tick", "showNote"],
+  props: ["tick", "showNote","offProfile", "offRoute"],
   computed: {
     route() {
       return this.$store.state.routes.find((r) => {

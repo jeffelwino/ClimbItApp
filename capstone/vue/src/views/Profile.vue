@@ -69,12 +69,11 @@ export default {
 }
 .ticks {
   grid-area: ticks;
-  background-color: grey;
-  margin: 10px;
-}
-.todo {
+ 
+  
+} 
+ .todo {
   grid-area: todo;
-  background-color: grey;
-  margin: 10px;
-}
+
+} 
 </style>

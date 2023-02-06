@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-picture">
+  <v-container class="profile-picture mt-n10">
     <cld-context cloudName="dacyocfmf" secure="true">
       <cld-image
         :cloudName="profile.picture.cloudName"
@@ -7,7 +7,7 @@
         width="300"
       />
     </cld-context>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -42,8 +42,10 @@ export default {
 
 <style>
 .profile-picture img {
-  width: 100%;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
-  border: black solid 5px;
+  border: black solid 2px;
+  margin-left: 13%;
 }
 </style>
