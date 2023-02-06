@@ -1,20 +1,10 @@
 <template>
   <div class="new-area-form-map">
     <h2>Search and add a pin</h2>
-    <GmapAutocomplete @place_changed="setPlace" />
+    <!-- <GmapAutocomplete @place_changed="setPlace" /> -->
     <button @click.prevent="addMarker">Add Area</button>
     <GmapMap
-      :options="{
-        zoomControl: true,
-        mapTypeControl: true,
-        scaleControl: true,
-        streetViewControl: false,
-        rotateControl: false,
-        fullscreenControl: true,
-        disableDefaultUi: false,
-        
-      }"
-      :center="center"
+      :center="mapCenter"
       :zoom="7"
       style="width: 100%; height: 400px"
       id="area-map"
@@ -34,7 +24,8 @@ export default {
   props: ["state", "areas"],
   data() {
     return {
-      center: { lat: this.state.latitude, lng: this.state.longitude },
+      map: null,
+      mapCenter: { lat: this.state.latitude, lng: this.state.longitude },
       currentPlace: null,
       markers: [],
       places: [],
@@ -44,21 +35,43 @@ export default {
     this.geolocate();
   },
   methods: {
-    setPlace(place) {
-      this.currentPlace = place;
+   initMap() {
+
+      this.map = new window.google.maps.Map(document.getElementId("map"), {
+        center: this.mapCenter,
+        zoom: 7,
+        maxZoom: 20,
+        minZoom: 6,
+        zoomControl: true,
+        mapTypeControl: true,
+        streetViewControl: true,
+        fullscreenControl: true,
+      });
+
+        let noPOIStyle = [{
+          featureType: "poi",
+          elementType: "labels",
+          stylers: [{ visibility: "off"}],
+        }];
+        this.map.setOptions({ styles: noPOIStyle});
+        window.google.maps.event.addListener(this.map, "rightclick", (event) => {this.addPinViaClick(event);
+      });
+
     },
-    addMarker() {
-      if (this.currentPLace) {
-        const marker = {
-          lat: this.currentPlace.geometry.location.lat(),
-          lng: this.currentPlace.geometry.location.lng(),
-        };
-        this.markers.push({ position: marker });
-        this.places.push(this.currentPlace);
-        this.center = marker;
-        this.currentPlace = null;
-      }
+
+    makeMarkerObj(latLng, name) {
+      const markerObj = {coord: latLng, name: name};
+      return markerObj;
     },
+
+    addPinViaClick(event) {
+      let description = window.prompt("Enter a Description");
+      const markerObj = this.makeMarkerObj(event.latLng.toJSON(), description);
+      this.places.push(markerObj);
+      this.dropPin(markerObj);
+    },
+    
+    
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
