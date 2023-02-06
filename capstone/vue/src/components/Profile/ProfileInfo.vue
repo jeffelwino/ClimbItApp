@@ -6,7 +6,7 @@
       <p>{{ profile.bio }}</p>
       <v-btn
         v-if="$route.params.id == $store.state.user.id"
-        @click="showForm = !showForm"
+        @click="snapShot"
         >Edit</v-btn
       >
 
@@ -22,12 +22,13 @@
           ></v-text-field>
           <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
           <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
-          <v-file-input
+          <!-- <v-file-input
             show-size
             disabled
             multiple
             label="Profile Pic"
-          ></v-file-input>
+          ></v-file-input> -->
+          <cloudinary/>
           <v-btn @click="updateProfileChanges">Submit</v-btn>
           <v-btn @click="cancelChanges">Cancel</v-btn>
         </v-form>
@@ -37,14 +38,15 @@
 </template>
 
 <script>
-
+import Cloudinary from "../imageComps/Cloudinary.vue"
 export default {
-  components: {  },
+  components: { Cloudinary },
   name: "profile-info",
   data() {
     return {
       showForm: false,
       editedProfile: {},
+      currentPicture: ""
     };
   },
   computed: {
@@ -55,6 +57,10 @@ export default {
     },
   },
   methods: {
+    snapShot(){
+      this.currentPicture = this.profile.picture.publicId;
+      this.showForm = !this.showForm;
+    },
     updateProfileChanges() {
       this.$store.commit("UPDATE_PROFILE", this.editedProfile);
       this.editedProfile = {
@@ -68,6 +74,7 @@ export default {
       this.showForm = false;
     },
     cancelChanges() {
+      this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:this.currentPicture})
       this.editedProfile = {
         id: this.$route.params.id,
         name: this.profile.name,

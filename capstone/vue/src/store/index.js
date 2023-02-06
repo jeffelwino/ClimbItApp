@@ -392,6 +392,13 @@ export default new Vuex.Store({
         }
       }
     },
+    UPDATE_PROFILE_PIC(state, info){
+      state.profiles.forEach(profile => {
+        if(profile.id == info.profileId){
+          profile.picture.publicId = info.picture
+        }
+      })
+    },
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
     },
