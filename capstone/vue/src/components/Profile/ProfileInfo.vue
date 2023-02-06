@@ -3,7 +3,7 @@
     <h2>{{ profile.name }}</h2>
     <h3>{{ profile.location }}</h3>
     <p>{{ profile.bio }}</p>
-    <v-btn @click="showForm = !showForm">Edit</v-btn>
+    <v-btn v-if="$route.params.id == $store.state.user.id" @click="showForm = !showForm">Edit</v-btn>
 
     <v-card v-if="showForm">
       <v-form ref="form">
@@ -14,7 +14,7 @@
         ></v-text-field>
         <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
         <v-btn @click="updateProfileChanges">Submit</v-btn>
-        <v-btn @click="reset">Cancel</v-btn>
+        <v-btn @click="cancelChanges">Cancel</v-btn>
       </v-form>
     </v-card>
   </div>

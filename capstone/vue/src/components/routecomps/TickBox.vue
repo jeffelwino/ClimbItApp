@@ -1,12 +1,17 @@
 <template>
-  <v-sheet>
-    <v-dialog v-model="dialog" persistent max-width="600px">
 
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn class="light-green" small v-bind="attrs" v-on="on">
+    
+
+      <v-sheet>
+
+      
+      <!-- v-slot:activator="{ on, attrs }"> -->
+        <v-btn class="light-green" @click.stop="dialog = true" >
+        <!-- small v-bind="attrs" v-on="on"> -->
           ClimbedIt!
         </v-btn>
-      </template>
+    
+      <v-dialog v-model="dialog" persistent max-width="600px">
 
       <v-card>
         <v-form class="px-3">
@@ -25,7 +30,7 @@
           <v-divider></v-divider>
           
           <v-row >
-            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6">
               <label for="date-climbed" id="date-climbed" class="
               text-h7
               text-md-h6
@@ -60,7 +65,7 @@
               </v-card-text>
             </v-col>
           
-            <v-col cols="12" sm="6" md="4" lg="4">
+            <v-col cols="12" sm="6" md="4">
               <v-textarea
                 outlined
                 label="notes"
@@ -70,17 +75,19 @@
 
           </v-row>
           <v-row class="justify-space-around">
-            <v-btn color="blue darken-1" text @click="dialog = false">
+            <v-btn color="blue darken-1" text @click.stop="dialog = false">
               Cancel
             </v-btn>
 
-            <v-btn color="blue darken-1" text @click="saveTick"> Submit </v-btn>
+            <v-btn color="blue darken-1" text @click.stop="saveTick"> Submit </v-btn>
           </v-row>
         </v-form>
       </v-card>
     </v-dialog>
-  </v-sheet>
-</template>
+    </v-sheet>
+    </template>
+ 
+
 
 <script>
 export default {

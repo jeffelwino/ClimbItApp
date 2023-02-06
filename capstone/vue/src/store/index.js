@@ -187,6 +187,15 @@ export default new Vuex.Store({
       { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you" },
       { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful" }
     ],
+    // cragComments: [
+    //   { commentId: 1, cragId: 1, user: "Kevin", body: "This is my crag" },
+    //   { commentId: 2, cragId: 1, user: "Michael", body: "This is a wonderful crag" },
+    //   { commentId: 3, cragId: 2, user: "Allan", body: "My crag" },
+    //   { commentId: 4, cragId: 3, user: "Jeff", body: "Rothko is a crag" },
+    //   { commentId: 5, cragId: 1, user: "I don't care", body: "Whatever crag" },
+    //   { commentId: 6, cragId: 1, user: "Timmy", body: "Hey you crag" },
+    //   { commentId: 7, cradId: 2, user: "Lola", body: "Wonderful crag" }
+    // ],
     ticks: [
       {
         id: 1,
@@ -217,8 +226,16 @@ export default new Vuex.Store({
         profile_id: 2,
         routeId: 9,
         date: "10/20/2022",
-        note: "Ass",
+        note: "Not reptar",
         rating: 1,
+      },
+      {
+        id: 5,
+        profile_id: 4,
+        routeId: 1,
+        date: "10/18/2022",
+        note: "Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week",
+        rating: 4,
       },
     ],
     profiles: [
@@ -290,6 +307,33 @@ export default new Vuex.Store({
       })
       return commentId + 1;
     },
+    nextRouteId(state) {
+      let routeId = 0;
+      state.routes.forEach(r => {
+        if (r.id >= routeId) {
+          routeId = r.id;
+        }
+      })
+      return routeId + 1;
+    },
+    nextWallId(state) {
+      let wallId = 0;
+      state.walls.forEach(w => {
+        if (w.id >= wallId) {
+          wallId = w.id;
+        }
+      })
+      return wallId + 1;
+    },
+    nextAreaId(state) {
+      let areaId = 0;
+      state.areas.forEach(a => {
+        if (a.id >= areaId) {
+          areaId = a.id;
+        }
+      })
+      return areaId + 1;
+    },
 
   },
   mutations: {
@@ -324,6 +368,18 @@ export default new Vuex.Store({
     SAVE_COMMENT(state, comment) {
       state.comments.push(comment);
     },
+    SAVE_ROUTE(state, newRoute){
+      state.routes.push(newRoute);
+    },
+    SAVE_WALL(state, newWall){
+      state.walls.push(newWall);
+    },
+    SAVE_CRAG(state, newCrag){
+      state.crags.push(newCrag);
+    },
+    SAVE_AREA(state, newArea){
+      state.areas.push(newArea);
+    },
     ADD_TODO(state, info) {
       state.profiles.forEach(profile => {
         if (profile.id == info.profileId) {
@@ -345,10 +401,49 @@ export default new Vuex.Store({
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {
           state.routes.splice(i, 1);
+         break;
+        }
+      }
+    },
+    UPDATE_WALL(state, wall){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == wall.id) {
+          state.walls.splice(i, 1);
+          state.walls.push(wall)
           break;
         }
       }
-    }
+    },
+    UPDATE_CRAG(state, crag){
+      for (let i = 0; i < state.crags.length; i++) {
+        if (state.crags[i].id == crag.id) {
+          state.crags.splice(i, 1);
+          state.crags.push(crag)
+          break;
+        }
+      }
+    },
+    UPDATE_AREA(state, area){
+      for (let i = 0; i < state.areas.length; i++) {
+        if (state.areas[i].id == area.id) {
+          state.areas.splice(i, 1);
+          state.areas.push(area)
+          break;
+        }
+      }
+    },
+  
+      
+  
+    // DELETES WALL
+    DELETE_WALL(state, id){
+      for (let i = 0; i < state.walls.length; i++) {
+        if (state.walls[i].id == id) {
+          state.walls.splice(i, 1);
+          break;
+        }
+      }
+    },
 
   },
 })

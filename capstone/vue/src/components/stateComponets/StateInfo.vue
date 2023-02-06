@@ -11,15 +11,15 @@
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas">
       <h3>Climbing areas in {{ state.name }}:</h3>
-      <ul>
-        <li v-for="area in areas" :key="area.id">
+      
+        <v-card v-for="area in areas" :key="area.id">
           <router-link :to="{ name: 'area', params: { id: area.id } }">
             {{ area.name }}
           </router-link>
-        </li>
-      </ul>
+        </v-card>
+     
     </div>
-    <!-- <v-card>
+    <!-- 
         <v-list-item
           v-for="state in $store.state.states"
           v-bind:key="state.name"
@@ -51,7 +51,7 @@ export default {
         return estado.abbrev == this.$route.params.abbrev;
       });
     },
-    loadRoutes() {
+    loadAreas() {
       this.$store.state.areas.forEach((area) => {
         if (area.stateAbbrev == this.state.abbrev) {
           this.areas.push(area);
@@ -61,7 +61,7 @@ export default {
   },
   created() {
     this.loadState();
-    this.loadRoutes();
+    this.loadAreas();
   },
 };
 </script>
