@@ -11,10 +11,10 @@ public class Area {
     public Area() {
     }
 
-    public Area(String areaId, String stateAbbrev, String areaName, String description, double latitude, double longitude) {
-        this.id = areaId;
+    public Area(String id, String stateAbbrev, String name, String description, double latitude, double longitude) {
+        this.id = id;
         this.stateAbbrev = stateAbbrev;
-        this.name = areaName;
+        this.name = name;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
