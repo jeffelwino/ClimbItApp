@@ -1,8 +1,8 @@
 <template>
   <div class="route">
     <v-container class="route-contents" justify:center>
-      <div class="mx-5">
-      <v-row class="mt-n10 pb-5 justify-start">
+      <div class="mx-3">
+      <v-row class="mt-n15 pb-15 mR-5 justify-start">
         <v-btn x-small @click="navigateUp" exact class="back-button">
           <v-icon x-small>mdi-arrow-left-circle</v-icon>
           Back
