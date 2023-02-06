@@ -44,8 +44,8 @@ export default {
     };
   },
   mounted() {
-    // this.geolocate();
-    this.getCrags();
+     this.geolocate();
+    //this.getCrags();
   },
   methods: {
 

@@ -30,6 +30,7 @@
             label="Area Longitude(East-West)"
             v-model="newArea.longitude"
           ></v-text-field>
+          <new-area-form-map/>
             <v-btn @click.stop="saveArea">Submit</v-btn>
             <v-btn @click="cancelArea">Cancel</v-btn>
           </v-form>
@@ -40,7 +41,9 @@
 </template>
 
 <script>
+import NewAreaFormMap from '../area/NewAreaFormMap.vue';
 export default {
+  components: { NewAreaFormMap },
     name: "state-tools",
   data() {
     return {

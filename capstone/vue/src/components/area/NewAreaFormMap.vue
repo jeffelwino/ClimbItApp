@@ -1,13 +1,13 @@
 <template>
-  <div class="crag">
+  <div class="new-area-map">
     <h2>Search and add a pin</h2>
     <GmapAutocomplete @place_changed="setPlace" />
-    <button @click="addMarker">Add Crag</button>
+    <button @click="addMarker">Add Area</button>
     <GmapMap
       :center="center"
       :zoom="14"
       style="width: 100%; height: 600px"
-      id="crag-map"
+      id="area-map"
     >
       <GmapMarker
         :key="index"
@@ -20,11 +20,11 @@
 
 <script>
 export default {
-  name: "crag-map",
-  props: ["crag"],
+  name: "new-area-map",
+  props: ["state", "areas"],
   data() {
     return {
-      center: {lat: this.crag.latitude, lng: this.crag.longitude},
+      center: {lat: this.state.latitude, lng: this.state.longitude},
       currentPlace: null,
       markers: [],
       places: [],
@@ -54,9 +54,9 @@ export default {
         };
       });
     },
-    addCrags() {
+    addArea() {
       //This will push the new created crags to the crag store 
-      // this.$router.crags.push(this.places) <-- or something like this...
+      // this.$router.area.push(this.places) <-- or something like this...
     }
   },
 };
