@@ -2,7 +2,10 @@
   <!-- this is the structure of what a comment will be -->
 
   <v-card elevation="3">
-    <v-card-title class="grey lighten-4 py-2">
+    <v-card-title
+      @click="navigateToProfile(profile.id)"
+      class="grey lighten-4 py-2"
+    >
       <v-avatar size="36" color="blue" class="mr-3">
         <v-icon dark> mdi-account-circle </v-icon>
       </v-avatar>
@@ -28,6 +31,11 @@ export default {
       return this.$store.state.profiles.find((profile) => {
         return profile.id == this.comment.profileId;
       });
+    },
+  },
+  methods: {
+    navigateToProfile(id) {
+      this.$router.push({ name: "profile", params: { id: id } });
     },
   },
 };

@@ -1,9 +1,9 @@
 <template>
-  <div class="tick-display">
+  <div class="tick-display" @click="navigateToPage">
     <v-card class="mb-2" height="4rem">
       <v-layout class="justify-space-around">
         <span class="mt-2 text-subtitle-2 text-sm-h5">
-          {{ profile.name }} {{ tick.date }}</span
+          {{ profile.name }} {{ tick.date }} {{ route.name }}</span
         >
         <v-spacer></v-spacer>
         <v-rating
@@ -36,6 +36,21 @@ export default {
       return this.$store.state.profiles.find((p) => {
         return p.id == this.tick.profileId;
       });
+    },
+  },
+  methods: {
+    navigateToPage() {
+      if (this.showNote) {
+        this.$router.push({
+          name: "route-page",
+          params: { id: this.tick.routeId },
+        });
+      } else {
+        this.$router.push({
+          name: "profile",
+          params: { id: this.tick.profileId },
+        });
+      }
     },
   },
 };
