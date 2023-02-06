@@ -42,11 +42,6 @@
             <route-comment v-bind:route="route" /> 
         </v-container>
        
-      
-      
-      
-      
-      <!-- </v-row> -->
     </v-container>
   </div>
 </template>
