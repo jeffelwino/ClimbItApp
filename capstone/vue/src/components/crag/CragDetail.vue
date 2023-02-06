@@ -20,24 +20,31 @@
 export default {
   name: "crag-detail",
   props: ["crag"],
-  data() {
-    return {
-      walls: [],
-    };
-  },
-  methods: {
-    loadWalls() {
-      this.$store.state.walls.forEach((wall) => {
-        console.log("test");
-        if (wall.cragId == this.crag.id) {
-          this.walls.push(wall);
-        }
+  computed: {
+    walls() {
+      return this.$store.state.walls.filter((wall) => {
+        return wall.cragId == this.crag.id;
       });
     },
   },
-  created() {
-    this.loadWalls();
-  },
+  // data() {
+  //   return {
+  //     walls: [],
+  //   };
+  // },
+  // methods: {
+  //   loadWalls() {
+  //     this.$store.state.walls.forEach((wall) => {
+  //       console.log("test");
+  //       if (wall.cragId == this.crag.id) {
+  //         this.walls.push(wall);
+  //       }
+  //     });
+  //   },
+  // },
+  // created() {
+  //   this.loadWalls();
+  // },
 };
 </script>
 
