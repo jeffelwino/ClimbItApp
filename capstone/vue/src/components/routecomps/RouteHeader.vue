@@ -9,16 +9,12 @@
       <!-- return to wall page button -->
       <v-row class="pb-2 justify-space-around">
         <!-- <v-btn small v-bind:to="{ name: 'wall', params: '{id: route.wallId}' }"> -->
-        <v-btn small @click="navigateUp">
-          <v-icon>mdi-arrow-left-circle</v-icon>
-          Back
-        </v-btn>
 
         <!-- Tickbox button -->
-        <tick-box :route="route" />
+        <tick-box :route="route"/>
 
         <!-- add to to-do list button -->
-        <v-btn small @click="addTodo"> Wanna ClimbIt </v-btn>
+        <v-btn small v-if: @click="addTodo"> Wanna ClimbIt </v-btn>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
@@ -33,6 +29,9 @@ export default {
   name: "route-header",
   props: ["route"],
   methods: {
+    // markClimbStatus() {
+    //   this.$store.commit("FLIP_CLIMBEDIT", this.route)
+    // },
     addTodo() {
       console.log(this.route.id);
       this.$store.commit("ADD_TODO", {
@@ -40,9 +39,7 @@ export default {
         routeId: this.route.id,
       });
     },
-    navigateUp() {
-      this.$router.push({ name: "wall", params: { id: this.route.wallId } });
-    },
+   
   },
 };
 </script>

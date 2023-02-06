@@ -1,7 +1,7 @@
 <template>
   <div class="area">
     <div class="weather">
-      The weather here the next 5 days is going to be perfect for climbing!
+      The weather here the next 5 days is going to be perfect for climbing! <!--Find a way to display the weather!-->
     </div>
     <!-- Description component -->
     <p>{{ area.description }}</p>

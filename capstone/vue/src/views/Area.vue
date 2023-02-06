@@ -22,6 +22,7 @@
     />
     <h2>{{ area.name }}</h2>
     <area-map v-bind:area="area" />
+    <!-- <new-area-form-map v-bind:area="area"/> -->
     <area-detail v-bind:area="area" />
     <!-- <comment-container  -->
   </div>
@@ -29,10 +30,12 @@
 
 <script>
 import AreaDetail from "../components/area/AreaDetail.vue";
+//import NewAreaFormMap from '../components/area/NewAreaFormMap.vue'
 import AreaMap from "../components/area/AreaMap.vue";
 import AreaTools from "../components/adminTools/AreaTools.vue";
 export default {
-  components: { AreaDetail, AreaMap, AreaTools },
+  
+  components: { AreaDetail, AreaMap, AreaTools,  }, //NewAreaFormMap
   name: "area",
   computed: {
     area() {

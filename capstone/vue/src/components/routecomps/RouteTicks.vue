@@ -5,7 +5,7 @@
         Latest ClimbedIts For <br> {{ route.name }}
       </v-card-title>
       <v-divider></v-divider>
-        <tick-display
+      <tick-display
         v-bind:route-ticks="false"
         v-for="tick in limitedList"
         :key="tick.id"
@@ -16,9 +16,6 @@
       <v-btn v-show="ticks.length > limit" @click="toggleLimit">See All</v-btn>
 
     </v-card>
-
-
-   
   </v-container>
 </template>
 
@@ -36,7 +33,7 @@ export default {
     };
   },
   components: { TickDisplay },
-  props: ['route'],
+  props: ["route"],
   computed: {
     ticks() {
       return this.$store.state.ticks.filter((t) => {
