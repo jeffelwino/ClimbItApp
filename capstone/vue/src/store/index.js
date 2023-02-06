@@ -275,7 +275,7 @@ export default new Vuex.Store({
         }
       },
       {
-        id: 4,
+        id: 5,
         name: "Mike",
         location: "Sunbury, Ohio",
         bio: "My name is Michael and I like to climb rocks",
@@ -286,7 +286,7 @@ export default new Vuex.Store({
         }
       },
       {
-        id: 5,
+        id: 4,
         name: "Jeff",
         location: "Chicago, Illinois",
         bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
