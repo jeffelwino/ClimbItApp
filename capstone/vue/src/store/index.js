@@ -325,6 +325,15 @@ export default new Vuex.Store({
       })
       return wallId + 1;
     },
+    nextCragId(state) {
+      let cragId = 0;
+      state.crags.forEach(c => {
+        if (c.id >= cragId) {
+          cragId = c.id;
+        }
+      })
+      return cragId + 1;
+    },
     nextAreaId(state) {
       let areaId = 0;
       state.areas.forEach(a => {
