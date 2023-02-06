@@ -1,27 +1,27 @@
 package com.techelevator.model;
 
 public class Wall {
-    private String wallId;
+    private String id;
     private String cragId;
-    private String wallName;
+    private String name;
     private String description;
 
-    public Wall(String wallId, String cragId, String wallName, String description) {
-        this.wallId = wallId;
+    public Wall(String id, String cragId, String name, String description) {
+        this.id = id;
         this.cragId = cragId;
-        this.wallName = wallName;
+        this.name = name;
         this.description = description;
     }
 
     public Wall() {
     }
 
-    public String getWallId() {
-        return wallId;
+    public String getId() {
+        return id;
     }
 
-    public void setWallId(String wallId) {
-        this.wallId = wallId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCragId() {
@@ -32,12 +32,12 @@ public class Wall {
         this.cragId = cragId;
     }
 
-    public String getWallName() {
-        return wallName;
+    public String getName() {
+        return name;
     }
 
-    public void setWallName(String wallName) {
-        this.wallName = wallName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -51,9 +51,9 @@ public class Wall {
     @Override
     public String toString() {
         return "Wall{" +
-                "wallId='" + wallId + '\'' +
+                "wallId='" + id + '\'' +
                 ", cragId='" + cragId + '\'' +
-                ", wallName='" + wallName + '\'' +
+                ", wallName='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

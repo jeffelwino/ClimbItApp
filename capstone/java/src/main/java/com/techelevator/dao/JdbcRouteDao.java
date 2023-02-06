@@ -16,18 +16,18 @@ public class JdbcRouteDao implements RouteDao{
 
     @Override
     public Route addRoute(Route route) {
-        String sql = "INSERT INTO routes (wall_id, route_name, grade, height, style, protection) " +
+        String sql = "INSERT INTO routes (wall_id, name, grade, height, style, protection) " +
                 "VALUES (?,?,?,?,?,?) " +
-                "RETURNING route_id ";
+                "RETURNING id ";
         String routeId = jdbcTemplate.queryForObject(sql, String.class, route.getWallId(),
-                route.getRouteName(), route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection());
+                route.getName(), route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection());
         return getRouteById(routeId);
     }
 
     @Override
     public List<Route> getAllRoutes() {
         List<Route> routes = new ArrayList<>();
-        String sql = "SELECT route_id, wall_id, route_name, grade, height, style, protection " +
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
                 "FROM routes ";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -39,9 +39,9 @@ public class JdbcRouteDao implements RouteDao{
     @Override
     public Route getRouteById(String routeId) {
         Route route=null;
-        String sql = "SELECT route_id, wall_id, route_name, grade, height, style, protection " +
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
                 "FROM routes " +
-                "WHERE route_id = ?";
+                "WHERE id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
         if(results.next()){
             route = mapRowToRoute(results);
@@ -52,25 +52,25 @@ public class JdbcRouteDao implements RouteDao{
     @Override
     public boolean updateRoute(Route route) {
         String sql = "UPDATE route " +
-                "SET wall_id =?, route_name=?, grade=?, height=?, style=?, protection=? " +
-                "WHERE route_id=?";
-        int rowsUpdated = jdbcTemplate.update(sql, route.getWallId(), route.getRouteName(),
-                route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection(), route.getRouteId());
+                "SET wall_id =?, name=?, grade=?, height=?, style=?, protection=? " +
+                "WHERE id=?";
+        int rowsUpdated = jdbcTemplate.update(sql, route.getWallId(), route.getName(),
+                route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection(), route.getId());
         return rowsUpdated==1;
     }
 
     @Override
     public boolean deleteRoute(String routeId) {
         String sql = "DELETE FROM account " +
-                "WHERE route_id = ?";
+                "WHERE id = ?";
         int rowsDeleted=jdbcTemplate.update(sql, routeId);
         return rowsDeleted==1;
     }
 
     private Route mapRowToRoute(SqlRowSet results){
-        String routeId = results.getString("route_id");
+        String routeId = results.getString("id");
         String wallId = results.getString("wall_id");
-        String routeName = results.getString("route_name");
+        String routeName = results.getString("name");
         String grade = results.getString("grade");
         String height=results.getString("height");
         String style=results.getString("style");

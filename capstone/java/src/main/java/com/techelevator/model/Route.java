@@ -1,18 +1,18 @@
 package com.techelevator.model;
 
 public class Route {
-    private String routeId;
+    private String id;
     private String wallId;
-    private String routeName;
+    private String name;
     private String grade;
     private String height;
     private String style;
     private String protection;
 
-    public Route(String routeId, String wallId, String routeName, String grade, String height, String style, String protection) {
-        this.routeId = routeId;
+    public Route(String id, String wallId, String name, String grade, String height, String style, String protection) {
+        this.id = id;
         this.wallId = wallId;
-        this.routeName = routeName;
+        this.name = name;
         this.grade = grade;
         this.height = height;
         this.style = style;
@@ -22,12 +22,12 @@ public class Route {
     public Route() {
     }
 
-    public String getRouteId() {
-        return routeId;
+    public String getId() {
+        return id;
     }
 
-    public void setRouteId(String routeId) {
-        this.routeId = routeId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getWallId() {
@@ -38,12 +38,12 @@ public class Route {
         this.wallId = wallId;
     }
 
-    public String getRouteName() {
-        return routeName;
+    public String getName() {
+        return name;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGrade() {
@@ -82,9 +82,9 @@ public class Route {
     @Override
     public String toString() {
         return "Route{" +
-                "routeId='" + routeId + '\'' +
+                "routeId='" + id + '\'' +
                 ", wallId='" + wallId + '\'' +
-                ", routeName='" + routeName + '\'' +
+                ", routeName='" + name + '\'' +
                 ", grade='" + grade + '\'' +
                 ", height='" + height + '\'' +
                 ", style='" + style + '\'' +
