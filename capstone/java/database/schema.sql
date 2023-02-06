@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, profiles, states, areas, crags, walls, routes CASCADE;
+DROP TABLE IF EXISTS users, profiles, states, areas, crags, walls, routes, todos, ticks, shared_images, comments, comment_crag, comment_route CASCADE;
 DROP SEQUENCE IF EXISTS area_id_seq, crag_id_seq, wall_id_seq, route_id_seq CASCADE;
 
 CREATE TABLE users (
@@ -12,7 +12,7 @@ CREATE TABLE users (
 );
 CREATE TABLE profiles (
 	profile_id SERIAL,
-	user_id integer NOT NULL,
+	user_id int NOT NULL,
 	name varchar(20) default 'new climber',
 	location varchar(30),
 	bio varchar(200),
@@ -77,7 +77,6 @@ CREATE SEQUENCE route_id_seq
 INCREMENT BY 1
 START WITH 1
 NO MAXVALUE;
-
 CREATE TABLE routes (
 	id varchar(5) default 'r-'||nextval('route_id_seq'::regclass),
 	wall_id varchar(5),
@@ -91,20 +90,61 @@ CREATE TABLE routes (
 	CONSTRAINT FK_wall_id FOREIGN KEY (wall_id) REFERENCES walls(id)
 );
 
+CREATE TABLE todos (
+	profile_id int,
+	route_id varchar(5),
+	CONSTRAINT PK_todos PRIMARY KEY (profile_id, route_id),
+	CONSTRAINT FK_profile_todo FOREIGN KEY (profile_id) REFERENCES profiles(profile_id),
+	CONSTRAINT FK_route_todo FOREIGN KEY (route_id) REFERENCES routes(id)
+	
+);
+
+CREATE TABLE ticks (
+	tick_id SERIAL,
+	profile_id int NOT NULL,
+	route_id varchar(5) NOT NULL,
+	date_climbed date,
+	note varchar(200),
+	rating int,
+	CONSTRAINT PK_tick PRIMARY KEY (tick_id),
+	CONSTRAINT FK_profile_tick FOREIGN KEY (profile_id) REFERENCES profiles(profile_id),
+	CONSTRAINT FK_route_tick FOREIGN KEY (route_id) REFERENCES routes(id)
+);
+
+CREATE TABLE shared_images (
+	image_id  varchar(50),
+	route_id varchar(5),
+	CONSTRAINT PK_image PRIMARY KEY (image_id),
+	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
+);
 
 
+CREATE TABLE comments (
+	comment_id SERIAL,
+	profile_id int,
+	body varchar(150),
+	post_date date DEFAULT CURRENT_DATE,
+	CONSTRAINT PK_comment PRIMARY KEY (comment_id),
+	CONSTRAINT FK_profile FOREIGN KEY (profile_id) REFERENCES profiles(profile_id)	
+);
 
+CREATE TABLE comment_crag(
+	comment_id int,
+	crag_id varchar(5),
+	CONSTRAINT PK_comment_crag PRIMARY KEY (comment_id, crag_id),
+	CONSTRAINT FK_comment FOREIGN KEY (comment_id) REFERENCES comments(comment_id),
+	CONSTRAINT FK_crag FOREIGN KEY (crag_id) REFERENCES crags(id)
+);
 
--- CREATE SEQUENCE pantheon_id_seq
---   INCREMENT BY 1
---   START WITH 101
---   NO MAXVALUE;
---   CREATE TABLE pantheon(
---   	  id varchar(5) DEFAULT 'p-'||nextval('pantheon_id_seq'::regclass),
--- 	  name varchar(30) NOT NULL,
--- 	  parent varchar(30),
--- 	  CONSTRAINT PK_pantheon PRIMARY KEY (id),
--- 	  CONSTRAINT FK_parent FOREIGN KEY(parent) REFERENCES pantheon(name),
--- 	  CONSTRAINT UQ_pantheon_name UNIQUE (name)
---   );
+CREATE TABLE comment_route(
+	comment_id int,
+	route_id varchar(5),
+	CONSTRAINT PK_comment_route PRIMARY KEY (comment_id, route_id),
+	CONSTRAINT FK_comment FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
+	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
+);
+
+                                            
+ROLLBACK;
+
 COMMIT TRANSACTION;
