@@ -1,6 +1,7 @@
 <template>
    <v-app>
      <NavBar></NavBar>
+     <!--<image-upload-preview/> -->
     <v-main>
 
     <router-view />
@@ -13,6 +14,7 @@
 
 <script>
  import NavBar from "./components/NavBar.vue";
+ //import ImageUploadPreview from './components/ImageUploadPreview.vue'
  import Cloudinary from "cloudinary-vue";
  import Vue from 'vue';
 
@@ -27,7 +29,7 @@
 export default {
  
   name: 'App',
-  components: {NavBar},
+  components: {NavBar},  //ImageUploadPreview
   data: () => ({
     
   }),

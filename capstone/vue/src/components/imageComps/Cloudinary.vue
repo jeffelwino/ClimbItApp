@@ -1,19 +1,21 @@
 <template>
-  <div>
-      <h2>How to use the Cloudinary Upload widget</h2>
-      <button v-on:click="upload">Upload</button><br>
-      <p>Look at the console for the message "Image URL"</p>
-  </div>
+  <v-container>
+      <v-btn v-if="this.$store.state.user.id == this.$route.params.id" v-on:click="upload">Upload your profile picture</v-btn><br>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: 'CloudinaryComp',
+  props: ["profile"],
+
+  name: 'cloudinary-comp',
+
   data() {
     return {
       myWidget : {}
     }
   },
+
   methods: {
       upload() {
         this.myWidget.open();
@@ -24,13 +26,15 @@ export default {
       {
         // Insert your cloud name and presets here, 
         // see the documentation
-        cloudName: 'dacyocfmf', 
-        uploadPreset: 'dshjquno'
+        cloudName: 'dkyxz4oih',
+        uploadPreset: 'dq3kmsfm'
       }, 
       (error, result) => { 
         if (!error && result && result.event === "success") { 
           console.log('Done! Here is the image info: ', result.info); 
           console.log("Image URL: " + result.info.url);
+          console.log("This is the public id: " + result.info.public_id);
+          this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
         }
       }
     );
