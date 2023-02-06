@@ -6,24 +6,22 @@
         <h3 class="white--text">{{ route.name }} ({{ route.grade }})</h3>
       </v-row>
 
-<!-- return to wall page button -->
+      <!-- return to wall page button -->
       <v-row class="pb-2 justify-space-around">
-        <v-btn small v-bind:to="{name: 'wall', params: '{id: route.wallId}'}">
-          <v-icon >mdi-arrow-left-circle</v-icon>   
-            Back 
-            </v-btn>
+        <!-- <v-btn small v-bind:to="{ name: 'wall', params: '{id: route.wallId}' }"> -->
+        <v-btn small @click="navigateUp">
+          <v-icon>mdi-arrow-left-circle</v-icon>
+          Back
+        </v-btn>
 
         <!-- Tickbox button -->
         <tick-box :route="route" />
 
-         <!-- add to to-do list button -->
+        <!-- add to to-do list button -->
         <v-btn small @click="addTodo"> Wanna ClimbIt </v-btn>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
-
-  
-   
   </div>
 </template>
 
@@ -33,7 +31,7 @@ import TickBox from "./TickBox.vue";
 export default {
   components: { TickBox },
   name: "route-header",
-  props: ['route'],
+  props: ["route"],
   methods: {
     addTodo() {
       console.log(this.route.id);
@@ -41,6 +39,9 @@ export default {
         profileId: this.$store.state.user.id,
         routeId: this.route.id,
       });
+    },
+    navigateUp() {
+      this.$router.push({ name: "wall", params: { id: this.route.wallId } });
     },
   },
 };
