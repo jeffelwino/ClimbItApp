@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     this.geolocate();
-    this, this.loadPlaces();
+    this.loadPlaces();
   },
   methods: {
     geolocate: function () {
