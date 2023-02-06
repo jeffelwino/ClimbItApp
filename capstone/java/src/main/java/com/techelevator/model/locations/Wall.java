@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.model.locations;
 
 public class Wall {
     private String id;

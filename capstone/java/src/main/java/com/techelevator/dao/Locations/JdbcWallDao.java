@@ -1,6 +1,6 @@
-package com.techelevator.dao.Locations;
+package com.techelevator.dao.locations;
 
-import com.techelevator.model.Wall;
+import com.techelevator.model.locations.Wall;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 

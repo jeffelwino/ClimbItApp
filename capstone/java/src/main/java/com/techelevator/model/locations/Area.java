@@ -1,23 +1,23 @@
-package com.techelevator.model;
+package com.techelevator.model.locations;
 
-public class Crag {
+public class Area {
     private String id;
-    private String areaId;
+    private String stateAbbrev;
     private String name;
     private String description;
     private double latitude;
     private double longitude;
 
-    public Crag(String id, String areaId, String cragName, String description, double latitude, double longitude) {
+    public Area() {
+    }
+
+    public Area(String id, String stateAbbrev, String name, String description, double latitude, double longitude) {
         this.id = id;
-        this.areaId = areaId;
-        this.name = cragName;
+        this.stateAbbrev = stateAbbrev;
+        this.name = name;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
-    }
-
-    public Crag() {
     }
 
     public String getId() {
@@ -28,12 +28,12 @@ public class Crag {
         this.id = id;
     }
 
-    public String getAreaId() {
-        return areaId;
+    public String getStateAbbrev() {
+        return stateAbbrev;
     }
 
-    public void setAreaId(String areaId) {
-        this.areaId = areaId;
+    public void setStateAbbrev(String stateAbbrev) {
+        this.stateAbbrev = stateAbbrev;
     }
 
     public String getName() {
@@ -70,10 +70,10 @@ public class Crag {
 
     @Override
     public String toString() {
-        return "Crag{" +
-                "cragId='" + id + '\'' +
-                ", areaId='" + areaId + '\'' +
-                ", cragName='" + name + '\'' +
+        return "Area{" +
+                "areaId='" + id + '\'' +
+                ", stateAbbrev='" + stateAbbrev + '\'' +
+                ", areaName='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +

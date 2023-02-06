@@ -1,6 +1,6 @@
-package com.techelevator.dao.Locations;
+package com.techelevator.dao.locations;
 
-import com.techelevator.model.State;
+import com.techelevator.model.locations.State;
 
 import java.util.List;
 

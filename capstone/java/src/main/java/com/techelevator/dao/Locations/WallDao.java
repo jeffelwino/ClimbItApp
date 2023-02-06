@@ -1,6 +1,6 @@
-package com.techelevator.dao.Locations;
+package com.techelevator.dao.locations;
 
-import com.techelevator.model.Wall;
+import com.techelevator.model.locations.Wall;
 
 import java.util.List;
 
