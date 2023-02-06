@@ -35,7 +35,7 @@ export default {
   props: ["area"], //This variable holds whatever is in the area detail
   data() {
     return {
-      center: { lat: this.area.latitude, lng: this.area.longitude }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is
+      center: { lat: this.area.latitude, lng: this.area.longitude }, // ....needs to be on whatever the area clicked on is
       currentPlace: null,
       markers: [],
       places: [],
@@ -44,14 +44,10 @@ export default {
     };
   },
   mounted() {
-     this.geolocate();
-    //this.getCrags();
+     //this.geolocate();
+     this.getCrags();
   },
   methods: {
-
-    // setPlace(place) {
-    //   this.currentPlace = place;
-    // },
 
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {

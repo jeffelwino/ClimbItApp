@@ -8,8 +8,7 @@
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: true,
-        disableDefaultUi: false,
-        
+        disableDefaultUi: false,   
       }"
       :center="center"
       :zoom="7"
