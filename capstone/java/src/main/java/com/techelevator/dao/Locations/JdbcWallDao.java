@@ -1,4 +1,4 @@
-package com.techelevator.dao;
+package com.techelevator.dao.Locations;
 
 import com.techelevator.model.Wall;
 import org.springframework.jdbc.core.JdbcTemplate;
