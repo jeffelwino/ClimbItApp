@@ -5,21 +5,50 @@
       <div id="buttons" class="coord-input">
         <input v-on:click="addPinViaInput" type="button" value="Add Marker" />
       </div>
+       <!-- <div id="latitude" class ='coord-input'>
+        <span>Latitude:</span><br />
+        <input id="latitude-input" type="text" /><br />
+        <select id="latitude-direction">
+          <option>North</option>
+          <option>South</option></select
+        ><br />
+      </div>
+
+      <div id="longitude" class ='coord-input'>
+        <span>Longitude:</span><br />
+        <input id="longitude-input" type="text" /><br />
+        <select id="longitude-direction">
+          <option>West</option>
+          <option>East</option>
+        </select>
+        <br />
+         <div id="description" class ='coord-input'>
+        <span class="menu-label">Description</span><br />
+        <input id="description-input" type="text" /><br />
+      </div>
+      </div> -->
     </div>
     <GmapMap
       :center="mapCenter"
       :zoom="7"
       style="width: 100%; height: 400px"
-      id="map"
-    >
+      id="map">
+      <GmapMarker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        @click="center=m.position"
+      />
     </GmapMap>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "new-area-form-map",
   props: ["state", "areas"],
+  
   data() {
     return {
       map: null,
@@ -30,14 +59,32 @@ export default {
     };
   },
   mounted() {
-    // this.geolocate();
+    this.geolocate();
     this.initMap();
     this.dropPins();
   },
+
+  
+
   methods: {
+
     setPlace(place) {
       this.currentPlace = place;
     },
+
+      addMarker() {
+      if (this.currentPlace) {
+        const marker = {
+          lat: this.currentPlace.geometry.location.lat(),
+          lng: this.currentPlace.geometry.location.lng(),
+        };
+        this.markers.push({ position: marker });
+        this.places.push(this.currentPlace);
+        this.center = marker;
+        this.currentPlace = null;
+      }
+    },
+
     initMap() {
       this.map = new window.google.maps.Map(document.getElementById("map"), {
         center: this.mapCenter,
@@ -61,6 +108,7 @@ export default {
       window.google.maps.event.addListener(this.map, "rightclick", (event) => {
         this.addPinViaClick(event);
       });
+  
     },
 
     makeMarkerObj(latLng, name) {
@@ -69,11 +117,12 @@ export default {
     },
 
     addPinViaClick(event) {
-      let description = window.prompt("Enter a Description");
+      let description = window.prompt("Enter a description");
       const markerObj = this.makeMarkerObj(event.latLng.toJSON(), description);
       this.places.push(markerObj);
       this.dropPin(markerObj);
     },
+
     addPinViaInput() {
       let latitudeValue = parseFloat(
         document.getElementById("latitude-input").value
@@ -121,7 +170,7 @@ export default {
 
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.center = {
+        this.mapCenter = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
@@ -134,11 +183,16 @@ export default {
 <style>
 #map-header {
   display: flex;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   
 }
-#buttons, #search-bar  {
+/* #buttons, #search-bar  {
   flex-basis: 50%;
+} */
+.coord-input {
+  border: 1px dashed gray;
+  padding: 25px;
+  margin: 25px;
 }
  
 </style>
