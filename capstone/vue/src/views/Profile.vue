@@ -15,29 +15,36 @@ import ProfileTodo from "../components/profile/ProfileTodo.vue";
 export default {
   components: { ProfilePicture, ProfileInfo, ProfileTicks, ProfileTodo },
   name: "profile",
-
-  data() {
-    return {
-      profile: {
-        id: 0,
-        name: "",
-        location: "",
-        bio: "",
-        todos: [],
-        picture: "",
-      },
-    };
-  },
-  methods: {
-    loadProfile() {
-      this.profile = this.$store.state.profiles.find((profile) => {
+  computed: {
+    profile() {
+      return this.$store.state.profiles.find((profile) => {
         return profile.id == this.$route.params.id;
       });
     },
   },
-  mounted() {
-    this.loadProfile();
-  },
+
+  // data() {
+  //   return {
+  //     profile: {
+  //       id: 0,
+  //       name: "",
+  //       location: "",
+  //       bio: "",
+  //       todos: [],
+  //       picture: "",
+  //     },
+  //   };
+  // },
+  // methods: {
+  //   loadProfile() {
+  //     this.profile = this.$store.state.profiles.find((profile) => {
+  //       return profile.id == this.$route.params.id;
+  //     });
+  //   },
+  // },
+  // mounted() {
+  //   this.loadProfile();
+  // },
 };
 </script>
 

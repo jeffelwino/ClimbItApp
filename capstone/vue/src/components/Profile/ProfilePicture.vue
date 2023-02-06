@@ -1,11 +1,29 @@
 <template>
   <div class="profile-picture">
-    <img src="profile.picture" alt="profile picture" />
+   <cld-context cloudName="dacyocfmf" secure=true>
+    <cld-image :cloudName="profile.picture.cloudName"  :publicId="profile.picture.publicId" width="300" />
+    </cld-context>
   </div>
 </template>
 
 <script>
+// import Vue from 'vue';
+// import Cloudinary from "cloudinary-vue";
+// Vue.use(Cloudinary, {
+//   configuration: { 
+//     cloudName: "dacyocfmf",
+//     secure: true }
+// });
+
 export default {
+  data(){
+    return{
+      picture: {
+        cloudName: this.profile.picture.cloudName,
+        publicId: this.profile.picture.publicId,
+      }
+    };
+  },
   computed: {
     profile() {
       return this.$store.state.profiles.find((profile) => {
@@ -13,6 +31,9 @@ export default {
       });
     },
   },
+  created(){
+    
+  }
 };
 </script>
 

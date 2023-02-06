@@ -13,6 +13,14 @@
 
 <script>
  import NavBar from "./components/NavBar.vue";
+ import Cloudinary from "cloudinary-vue";
+ import Vue from 'vue';
+
+ Vue.use(Cloudinary, {
+  configuration: { 
+    cloudName: "dacyocfmf",
+    secure: true }
+});
 
 
 

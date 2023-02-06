@@ -15,27 +15,13 @@ import TickDisplay from "../TickDisplay.vue";
 export default {
   components: { TickDisplay },
   name: "profile-ticks",
-  data() {
-    return {
-      ticks: [],
-    };
-  },
-  methods: {
-    loadTicks() {
-      this.ticks = this.$store.state.ticks.filter((tick) => {
-        return tick.profile_id == this.$route.params.id;
-      });
-    },
-  },
+  props: ["profile"],
   computed: {
-    profile() {
-      return this.$store.state.profiles.find((profile) => {
-        return profile.id == this.$route.params.id;
+    ticks() {
+      return this.$store.state.ticks.filter((tick) => {
+        return tick.profileId == this.$route.params.id;
       });
     },
-  },
-  created() {
-    this.loadTicks();
   },
 };
 </script>
