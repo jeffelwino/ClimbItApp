@@ -3,7 +3,11 @@
     <h2>{{ profile.name }}</h2>
     <h3>{{ profile.location }}</h3>
     <p>{{ profile.bio }}</p>
-    <v-btn v-if="$route.params.id == $store.state.user.id" @click="showForm = !showForm">Edit</v-btn>
+    <v-btn
+      v-if="$route.params.id == $store.state.user.id"
+      @click="showForm = !showForm"
+      >Edit</v-btn
+    >
 
     <v-card v-if="showForm">
       <v-form ref="form">
@@ -19,7 +23,7 @@
           disabled
           multiple
           label="Profile Pic"
-         ></v-file-input>
+        ></v-file-input>
         <v-btn @click="updateProfileChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
       </v-form>
@@ -47,7 +51,7 @@ export default {
     updateProfileChanges() {
       this.$store.commit("UPDATE_PROFILE", this.editedProfile);
       this.editedProfile = {
-        id: this.profile.id,
+        id: this.$route.params.id,
         name: this.profile.name,
         location: this.profile.location,
         bio: this.profile.bio,
@@ -58,7 +62,7 @@ export default {
     },
     cancelChanges() {
       this.editedProfile = {
-        id: this.profile.id,
+        id: this.$route.params.id,
         name: this.profile.name,
         location: this.profile.location,
         bio: this.profile.bio,
@@ -68,9 +72,9 @@ export default {
       this.showForm = false;
     },
   },
-  created() {
+  mounted() {
     this.editedProfile = {
-      id: this.profile.id,
+      id: this.$route.params.id,
       name: this.profile.name,
       location: this.profile.location,
       bio: this.profile.bio,
