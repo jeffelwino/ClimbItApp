@@ -5,7 +5,7 @@
       <v-row class="mt-n15 pb-15 mR-5 justify-start">
         <v-btn x-small @click="navigateUp" exact class="back-button">
           <v-icon x-small>mdi-arrow-left-circle</v-icon>
-          Back
+          To Wall
         </v-btn>
       </v-row>
       </div>

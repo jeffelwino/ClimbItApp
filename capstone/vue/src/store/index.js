@@ -241,71 +241,71 @@ export default new Vuex.Store({
       },
     ],
     profiles: [
-      // {
-      //   id: 2,
-      //   name: "Admin",
-      //   location: "Admin",
-      //   bio: "Admin",
-      //   todos: [],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "ssu0yraojylulspeeuhv"
+      {
+        id: 2,
+        name: "Admin",
+        location: "Admin",
+        bio: "Admin",
+        todos: [],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "ssu0yraojylulspeeuhv"
 
-      //   }
-      // }, {
-      //   id: 1,
-      //   name: "user",
-      //   location: "user",
-      //   bio: "user",
-      //   todos: [],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "cld-sample-5"
-      //   }
-      // },
-      // {
-      //   id: 3,
-      //   name: "Kevin",
-      //   location: "Long Island, New  York",
-      //   bio: "My name is Kevin and I like to climb rocks",
-      //   todos: [1, 9, 5],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "s"
-      //   }
-      // },
-      // {
-      //   id: 5,
-      //   name: "Mike",
-      //   location: "Sunbury, Ohio",
-      //   bio: "My name is Michael and I like to climb rocks",
-      //   todos: [12, 5, 3],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "cld-sample-4"
-      //   }
-      // },
-      // {
-      //   id: 4,
-      //   name: "Jeff",
-      //   location: "Chicago, Illinois",
-      //   bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
-      //   todos: [12],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "cld-sample-3"
-      //   }
-      // },
-      // {
-      //   id: 6,
-      //   name: "Allan",
-      //   bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
-      //   todos: [],
-      //   picture: {
-      //     cloudName: "dacyocfmf",
-      //     publicId: "cld-sample-2"
-      //   }
-      // },
+        }
+      }, {
+        id: 1,
+        name: "user",
+        location: "user",
+        bio: "user",
+        todos: [],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-5"
+        }
+      },
+      {
+        id: 3,
+        name: "Kevin",
+        location: "Long Island, New  York",
+        bio: "My name is Kevin and I like to climb rocks",
+        todos: [1, 9, 5],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "s"
+        }
+      },
+      {
+        id: 5,
+        name: "Mike",
+        location: "Sunbury, Ohio",
+        bio: "My name is Michael and I like to climb rocks",
+        todos: [12, 5, 3],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-4"
+        }
+      },
+      {
+        id: 4,
+        name: "Jeff",
+        location: "Chicago, Illinois",
+        bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
+        todos: [12],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-3"
+        }
+      },
+      {
+        id: 6,
+        name: "Allan",
+        bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
+        todos: [],
+        picture: {
+          cloudName: "dacyocfmf",
+          publicId: "cld-sample-2"
+        }
+      },
     ]
 
   },
