@@ -1,9 +1,9 @@
-package com.techelevator.model;
+package com.techelevator.model.locations;
 
 public class Area {
-    private String areaId;
+    private String id;
     private String stateAbbrev;
-    private String areaName;
+    private String name;
     private String description;
     private double latitude;
     private double longitude;
@@ -11,21 +11,21 @@ public class Area {
     public Area() {
     }
 
-    public Area(String areaId, String stateAbbrev, String areaName, String description, double latitude, double longitude) {
-        this.areaId = areaId;
+    public Area(String id, String stateAbbrev, String name, String description, double latitude, double longitude) {
+        this.id = id;
         this.stateAbbrev = stateAbbrev;
-        this.areaName = areaName;
+        this.name = name;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getAreaId() {
-        return areaId;
+    public String getId() {
+        return id;
     }
 
-    public void setAreaId(String areaId) {
-        this.areaId = areaId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getStateAbbrev() {
@@ -36,12 +36,12 @@ public class Area {
         this.stateAbbrev = stateAbbrev;
     }
 
-    public String getAreaName() {
-        return areaName;
+    public String getName() {
+        return name;
     }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -71,9 +71,9 @@ public class Area {
     @Override
     public String toString() {
         return "Area{" +
-                "areaId='" + areaId + '\'' +
+                "areaId='" + id + '\'' +
                 ", stateAbbrev='" + stateAbbrev + '\'' +
-                ", areaName='" + areaName + '\'' +
+                ", areaName='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
