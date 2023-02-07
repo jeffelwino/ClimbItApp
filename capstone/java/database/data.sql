@@ -92,30 +92,17 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-1','Knope We Can','5.7', '25ft', 'sport', '7 bolts', 'A climb in the classic Northhampton style. Old granite so watch your head!' ),
 ('w-2','Chain Mail Hula Skirt','5.7','25ft','trad', '7 bolts','Est quid nostre papadio.The raccoons are notorious here. Avoid in winter.');
 
-INSERT INTO comments (profile_id, body, post_date) VALUES
-(3,'Great Climb','2022-01-01'),
-(6, 'awful crag. polluted. full of rocks', '2022-01-15'),
-(3,'Slippery when dry','2022-02-02'),
-(4, 'Watch out for ice', '2022-02-03'),
-(4, 'A good time but a short one', '2022-04-02'),
-(3, 'a craggy crag. about the only good thing', '2022-05-02'),
-(5, 'seen better crags', '2023-01-02');
+INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
+('c-1',3,'Great Crag','2022-01-01'),
+('c-1',6, 'awful crag. polluted. full of rocks', '2022-01-15'),
+('c-2',3, 'a craggy crag. about the only good thing', '2022-05-02'),
+('c-1',5, 'seen better crags', '2023-01-02');
 
-INSERT INTO comment_route (comment_id, route_id) VALUES
-(1,'r-1'),
-(3,'r-1'),
-(4,'r-1'),
-(5,'r-2');
-
-INSERT INTO comment_crag (comment_id, crag_id) VALUES
-(2, 'c-1'),
-(6, 'c-1'),
-(7, 'c-2');
-
-INSERT INTO todos (profile_id, route_id) VALUES
-(3,'r-1'),
-(4,'r-1'),
-(3,'r-2');
+INSERT INTO route_comments (route_id, profile_id, body, post_date) VALUES
+('r-2',3,'Slippery when dry','2022-02-02'),
+('r-1',4, 'Watch out for ice', '2022-02-03'),
+('r-1',3,'Great Climb','2022-02-22'),
+('r-1',4, 'better the second time', '2022-04-02');
 
 INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
 (3,'r-1','2022-12-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),

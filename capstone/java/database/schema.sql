@@ -119,29 +119,41 @@ CREATE TABLE shared_images (
 	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
 );
 
-
-CREATE TABLE comments (
+CREATE TABLE crag_comments (
 	comment_id SERIAL,
+	crag_id varchar(5),
 	profile_id int,
 	body varchar(150),
 	post_date date DEFAULT CURRENT_DATE,
-	CONSTRAINT PK_comment PRIMARY KEY (comment_id),
-	CONSTRAINT FK_profile FOREIGN KEY (profile_id) REFERENCES profiles(profile_id)	
-);
-
-CREATE TABLE comment_crag(
-	comment_id int,
-	crag_id varchar(5),
-	CONSTRAINT PK_comment_crag PRIMARY KEY (comment_id, crag_id),
-	CONSTRAINT FK_comment FOREIGN KEY (comment_id) REFERENCES comments(comment_id),
+	CONSTRAINT PK_crag_comment PRIMARY KEY (comment_id),
+	CONSTRAINT FK_profile FOREIGN KEY (profile_id) REFERENCES profiles(profile_id),
 	CONSTRAINT FK_crag FOREIGN KEY (crag_id) REFERENCES crags(id)
 );
 
-CREATE TABLE comment_route(
-	comment_id int,
+CREATE TABLE route_comments (
+	comment_id SERIAL,
 	route_id varchar(5),
-	CONSTRAINT PK_comment_route PRIMARY KEY (comment_id, route_id),
-	CONSTRAINT FK_comment FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
+	profile_id int,
+	body varchar(150),
+	post_date date DEFAULT CURRENT_DATE,
+	CONSTRAINT PK_route_comment PRIMARY KEY (comment_id),
+	CONSTRAINT FK_profile FOREIGN KEY (profile_id) REFERENCES profiles(profile_id),
 	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
 );
+
+--CREATE TABLE comment_crag(
+--	comment_id int,
+--	crag_id
+--	CONSTRAINT PK_comment_crag PRIMARY KEY (comment_id, crag_id),
+--	CONSTRAINT FK_comment FOREIGN KEY (comment_id) REFERENCES comments(comment_id),
+--	CONSTRAINT FK_crag FOREIGN KEY (crag_id) REFERENCES crags(id)
+--);
+
+--CREATE TABLE comment_route(
+--	comment_id int,
+--	route_id varchar(5),
+--	CONSTRAINT PK_comment_route PRIMARY KEY (comment_id, route_id),
+--	CONSTRAINT FK_comment FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
+--	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
+--);
 COMMIT TRANSACTION;
