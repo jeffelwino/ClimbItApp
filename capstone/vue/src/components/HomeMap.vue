@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "display-map",
+  name: "area-map",
 
   data() {
     return {
