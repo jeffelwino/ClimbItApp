@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Comment;
 import com.techelevator.model.CragComment;
+import com.techelevator.model.locations.Crag;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface CragCommentDao {
 //    READ
     List<CragComment> getAllCragComments();
 
-    Comment getCommentById(int id);
+    CragComment getCommentById(int id);
 //    UPDATE
 //    DELETE
 }

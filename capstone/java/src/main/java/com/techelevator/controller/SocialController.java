@@ -28,25 +28,36 @@ public class SocialController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path="/comment")
+    @PostMapping(path="/crag/comment")
     public Comment addComment(@RequestBody CragComment comment){
         return cragCommentDao.addComment(comment);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(path="/route/comment")
+    public RouteComment addComment(@RequestBody RouteComment comment){
+        return routeCommentDao.addComment(comment);
+    }
 
-    @GetMapping(path="/comment/crag")
+
+    @GetMapping(path="/crag/comment")
     public List<CragComment> getAllCragComments(){
         return cragCommentDao.getAllCragComments();
     }
-    @GetMapping(path="/comment/route")
+
+    @GetMapping(path="/route/comment")
     public List<RouteComment> getAllRouteComments(){
         return routeCommentDao.getAllRouteComments();
     }
 
-    @GetMapping(path="/comment/{id}")
-    public Comment getCommentById(@PathVariable int id){
-        Comment comment = cragCommentDao.getCommentById(id);
-        return comment;
+    @GetMapping(path="/crag/comment/{id}")
+    public CragComment getCragCommentById(@PathVariable int id){
+        return cragCommentDao.getCommentById(id);
+
+    }
+    @GetMapping(path="/route/comment/{id}")
+    public RouteComment getCommentById(@PathVariable int id){
+        return routeCommentDao.getCommentById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
