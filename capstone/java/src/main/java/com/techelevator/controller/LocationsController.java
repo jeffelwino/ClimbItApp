@@ -104,7 +104,7 @@ public Wall addWall(@RequestBody Wall wall){
     return wallDao.updateWall(wall);
 }
 @ResponseStatus(HttpStatus.NO_CONTENT)
-@PutMapping(path="/wall/{id}")
+@DeleteMapping(path="/wall/{id}")
     public boolean deleteWall(@RequestBody String id){
     return wallDao.deleteWall(id);
 }
