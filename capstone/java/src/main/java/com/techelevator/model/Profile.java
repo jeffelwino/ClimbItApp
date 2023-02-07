@@ -1,9 +1,7 @@
 package com.techelevator.model;
 
-import java.util.List;
-
 public class Profile {
-    private int profileId;
+    private int id;
     private int userId;
     private String name;
     private String pictureId;
@@ -14,8 +12,8 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String name, String pictureId, String location, String bio) {
-        this.profileId = profileId;
+    public Profile(int id, int userId, String name, String pictureId, String location, String bio) {
+        this.id = id;
         this.userId = userId;
         this.name = name;
         this.pictureId = pictureId;
@@ -23,12 +21,12 @@ public class Profile {
         this.bio = bio;
     }
 
-    public int getProfileId() {
-        return profileId;
+    public int getId() {
+        return id;
     }
 
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {
@@ -74,7 +72,7 @@ public class Profile {
     @Override
     public String toString() {
         return "Profile{" +
-                "profileId=" + profileId +
+                "profileId=" + id +
                 ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", pictureId=" + pictureId +

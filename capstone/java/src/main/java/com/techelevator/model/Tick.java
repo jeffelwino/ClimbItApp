@@ -3,7 +3,7 @@ package com.techelevator.model;
 import java.time.LocalDate;
 
 public class Tick {
-    private int tickId;
+    private int id;
     private String routeId;
     private int profileId;
     private LocalDate date;
@@ -13,8 +13,8 @@ public class Tick {
     public Tick() {
     }
 
-    public Tick(int tickId, String routeId, int profileId, LocalDate date, String note, int rating) {
-        this.tickId = tickId;
+    public Tick(int id, String routeId, int profileId, LocalDate date, String note, int rating) {
+        this.id = id;
         this.routeId = routeId;
         this.profileId = profileId;
         this.date = date;
@@ -22,12 +22,12 @@ public class Tick {
         this.rating = rating;
     }
 
-    public int getTickId() {
-        return tickId;
+    public int getId() {
+        return id;
     }
 
-    public void setTickId(int tickId) {
-        this.tickId = tickId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRouteId() {
@@ -73,7 +73,7 @@ public class Tick {
     @Override
     public String toString() {
         return "Tick{" +
-                "tickId=" + tickId +
+                "tickId=" + id +
                 ", routeId='" + routeId + '\'' +
                 ", profileId=" + profileId +
                 ", date=" + date +
