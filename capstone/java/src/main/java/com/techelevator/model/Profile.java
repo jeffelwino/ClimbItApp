@@ -6,7 +6,7 @@ public class Profile {
     private int profileId;
     private int userId;
     private String name;
-    private int pictureId;
+    private String pictureId;
     private String location;
     private String bio;
 
@@ -14,7 +14,7 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String name, int pictureId, String location, String bio) {
+    public Profile(int profileId, int userId, String name, String pictureId, String location, String bio) {
         this.profileId = profileId;
         this.userId = userId;
         this.name = name;
@@ -47,11 +47,11 @@ public class Profile {
         this.name = name;
     }
 
-    public int getPictureId() {
+    public String getPictureId() {
         return pictureId;
     }
 
-    public void setPictureId(int pictureId) {
+    public void setPictureId(String pictureId) {
         this.pictureId = pictureId;
     }
 
