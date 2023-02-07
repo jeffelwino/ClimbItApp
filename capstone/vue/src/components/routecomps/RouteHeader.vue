@@ -14,7 +14,7 @@
         <tick-box :route="route"/>
 
         <!-- add to to-do list button -->
-        <v-btn small v-if: @click="addTodo"> Wanna ClimbIt </v-btn>
+        <v-btn small v-if="!isHidden" v-on:click="isHidden = true" @click="addTodo"> Wanna ClimbIt </v-btn>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
@@ -28,10 +28,15 @@ export default {
   components: { TickBox },
   name: "route-header",
   props: ["route"],
+  data() {
+    return {
+      isHidden: false,
+    }
+
+  },
+  
   methods: {
-    // markClimbStatus() {
-    //   this.$store.commit("FLIP_CLIMBEDIT", this.route)
-    // },
+   
     addTodo() {
       console.log(this.route.id);
       this.$store.commit("ADD_TODO", {

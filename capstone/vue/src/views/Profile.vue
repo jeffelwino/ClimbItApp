@@ -1,6 +1,14 @@
 <template>
   <!-- <div class="profile"> -->
     <v-container>
+      <div class="mx-3">
+      <v-row class="mt-n15 pb-5 justify-start">
+        <v-btn small @click="$router.go(-1)" exact class="back-button">
+          <v-icon x-small>mdi-arrow-left-circle</v-icon>
+          Back
+        </v-btn>
+      </v-row>
+      </div>
     <profile-picture :profile="profile" class="picture" />
     <profile-info :profile="profile" class="info" />
     <profile-ticks :profile="profile" class="ticks" />
