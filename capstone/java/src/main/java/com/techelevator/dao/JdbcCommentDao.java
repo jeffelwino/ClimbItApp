@@ -39,6 +39,32 @@ public class JdbcCommentDao implements CommentDao{
     }
 
     @Override
+    public List<Comment> getAllCragComments() {
+        List<Comment> comments = new ArrayList<>();
+        String sql = "SELECT com.comment_id, body, profile_id, post_date, route_id " +
+                "FROM comments com " +
+                "JOIN comment_crag c_c on c_c.comment_id = com.comment_id ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            comments.add(mapRowToComment(results));
+        }
+        return comments;
+    }
+
+    @Override
+    public List<Comment> getAllRouteComments() {
+        List<Comment> comments = new ArrayList<>();
+        String sql = "SELECT com.comment_id, body, profile_id, post_date, route_id " +
+                "FROM comments com " +
+                "JOIN comment_route c_r  on c_r.comment_id = com.comment_id";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            comments.add(mapRowToComment(results));
+        }
+        return comments;
+    }
+
+    @Override
     public Comment getCommentById(int id) {
         Comment comment = null;
         String sql = "SELECT comment_id, body, profile_id, post_date, subject_id " +
@@ -59,7 +85,13 @@ public class JdbcCommentDao implements CommentDao{
         if(results.getDate("post_date") != null){
             postDate = results.getDate("post_date").toLocalDate();
         }
-        String subjectId = results.getString("subject_id");
+        String subjectId = null;
+        try {
+            subjectId = results.getString("crag_id");
+        } catch(Exception e){
+            subjectId = results.getString("route_id");
+        }
+
         return new Comment(commentId,body,profileId,postDate,subjectId);
     }
 }

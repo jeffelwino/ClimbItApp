@@ -10,6 +10,8 @@ public interface CommentDao {
     Comment addComment(Comment comment);
 //    READ
     List<Comment> getAllComments();
+    List<Comment> getAllCragComments();
+    List<Comment> getAllRouteComments();
     Comment getCommentById(int id);
 //    UPDATE
 //    DELETE
