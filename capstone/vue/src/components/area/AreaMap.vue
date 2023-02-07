@@ -7,6 +7,7 @@
       style="width: 100%; height: 600px"
       id="map"
     >
+      <div @mouseenter="openMarker(crag.id)">
       <GmapMarker
         v-for="crag in crags"
         :key="crag.id"
@@ -14,16 +15,25 @@
           lat: parseFloat(crag.position.lat),
           lng: parseFloat(crag.position.lng),
         }"
-        :label="crag.name"
+        @mouseover="openMarker(crag.id)"
         v-on:click="navigateToPage(crag.id)"
-    /></GmapMap>
+        >
+       <GmapInfoWindow
+          :closeclick="true"
+          @closeclick="openMarker(null)"
+          :opened="openedMarkerID === crag.id"> 
+          <v-card>{{crag.name}}</v-card>
+    </GmapInfoWindow>
+    
+    </GmapMarker></div></GmapMap>
+     <!-- v-on:click="navigateToPage(crag.id)" -->
   </div>
 </template>
 
 <script>
 //import AreaDetail from './components/AreaDetail.vue'
 export default {
-  name: "display-map",
+  name: "area-map",
   props: ["area"], //This variable holds whatever is in the area detail
   computed: {
     crags() {
@@ -34,51 +44,25 @@ export default {
   },
   data() {
     return {
-      center: { lat: this.area.latitude, lng: this.area.longitude }, // this.$store.state.areas{id: {area.id}}....needs to be on whatever the area clicked on is
-      // currentPlace: null,
-      // markers: [],
-      // places: [],
-      // areas: [],
-      // crags: [],
+      center: { 
+        lat: this.area.latitude, 
+        lng: this.area.longitude 
+        },
+        openedMarkerID: null,
+        
     };
   },
-  mounted() {
-    // this.getCrags();
-  },
   methods: {
-    // loadPlaces() {
-    //   this.$store.state.areas.forEach((area) => {
-    //     const marker = {
-    //       lat: area.latitude,
-    //       lng: area.longitude,
-    //     };
-    //     this.markers.push({
-    //       position: marker,
-    //       name: area.name,
-    //       id: area.area_name,
-    //     });
-    //   });
-    // },
+        openMarker(id){
+          this.openedMarkerID = id;
+
+        },
     navigateToPage(id) {
       this.$router.push({
         name: "crag",
         params: { id: id },
       });
     },
-    //To-do: move to Area.vue
-    // getCrags() {
-    //   this.$store.state.crags.forEach((crag) => {
-    //     const cragMarker = {
-    //       lat: crag.latitude,
-    //       lng: crag.longitude,
-    //     };
-    //     this.crags.push({
-    //       position: cragMarker,
-    //       name: crag.name,
-    //       id: crag.id,
-    //     });
-    //   });
-    // },
   },
 };
 </script>
