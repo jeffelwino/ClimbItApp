@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="home mt-n10">
-      <display-map />
+      <home-map />
 
       <v-sheet class="mt-5">
         <state-list></state-list>
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import DisplayMap from "../components/HomeMap.vue";
+import HomeMap from "../components/HomeMap.vue";
 import StateList from "../components/StateList.vue";
 
 export default {
-  components: { DisplayMap, StateList },
+  components: { HomeMap, StateList },
   name: "home",
 };
 </script>

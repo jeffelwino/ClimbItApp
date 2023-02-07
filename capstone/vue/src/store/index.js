@@ -137,7 +137,7 @@ export default new Vuex.Store({
         name: 'New River Gorge',
         stateAbbrev: 'WV',
         id: 3,
-        description: "Bullet-hard sandstone, abeautiful views, what's not to love?",
+        description: "Bullet-hard sandstone, beautiful views, what's not to love?",
         latitude: 38.070297443941975,
         longitude: -81.08009084642055
       },
