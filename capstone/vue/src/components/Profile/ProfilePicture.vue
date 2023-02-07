@@ -1,12 +1,16 @@
 <template>
   <v-container class="profile-picture mt-n10">
-    <cld-context cloudName="dacyocfmf" secure="true">
-      <cld-image
-        :cloudName="profile.picture.cloudName"
-        :publicId="profile.picture.publicId"
-        width="300"
-      />
-    </cld-context>
+    <div>
+      <v-row class="justify-center">
+        <cld-context cloudName="dacyocfmf" secure="true">
+          <cld-image
+            :cloudName="profile.picture.cloudName"
+            :publicId="profile.picture.publicId"
+            width="300"
+          />
+        </cld-context>
+      </v-row>
+    </div>
   </v-container>
 </template>
 
@@ -25,7 +29,7 @@ export default {
     return {
       picture: {
         cloudName: this.profile.picture.cloudName,
-        publicId: this.profile.picture.publicId
+        publicId: this.profile.picture.publicId,
       },
     };
   },
@@ -46,6 +50,6 @@ export default {
   height: 15rem;
   border-radius: 50%;
   border: black solid 2px;
-  margin-left: 13%;  
+  /* margin-left: 13%; */
 }
 </style>

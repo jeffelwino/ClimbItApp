@@ -3,41 +3,19 @@
     <div id="map-header">
       <GmapAutocomplete @place_changed="setPlace" id="search-bar" />
       
-      <!-- <input v-on:click="addPinViaInput" type="button" value="Add Marker" /> -->
-     
-       <!-- <div id="latitude" class ='coord-input'>
-        <span>Latitude:</span><br />
-        <input id="latitude-input" type="text" /><br />
-        <select id="latitude-direction">
-          <option>North</option>
-          <option>South</option></select
-        ><br />
-      </div>
-
-      <div id="longitude" class ='coord-input'>
-        <span>Longitude:</span><br />
-        <input id="longitude-input" type="text" /><br />
-        <select id="longitude-direction">
-          <option>West</option>
-          <option>East</option>
-        </select>
-        <br />
-         <div id="description" class ='coord-input'>
-        <span class="menu-label">Description</span><br />
-        <input id="description-input" type="text" /><br />
-      </div>
-      </div> -->
     </div>
     <GmapMap
       :center="mapCenter"
       :zoom="7"
       style="width: 100%; height: 400px"
-      id="map">
+      id="map"
+      @click='addMarker'>
       <GmapMarker
         :key="index"
         v-for="(m, index) in markers"
         :position="m.position"
         @click="center=m.position"
+        :clickable="true"
       />
     </GmapMap>
   </div>
@@ -67,7 +45,14 @@ export default {
   
 
   methods: {
-
+    geolocate: function () {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.mapCenter = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+      });
+    },
     setPlace(place) {
       this.currentPlace = place;
     },
@@ -168,14 +153,7 @@ export default {
     //   });
     // },
 
-    geolocate: function () {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.mapCenter = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-      });
-    },
+
   },
 };
 </script>

@@ -31,7 +31,7 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     public List<RouteComment> getAllRouteComments() {
         List<RouteComment> comments = new ArrayList<>();
         String sql = "SELECT comment_id, body, profile_id, post_date, route_id " +
-                "FROM comments ";
+                "FROM route_comments ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
             comments.add(mapRowToComment(results));
@@ -42,7 +42,7 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     @Override
     public RouteComment getCommentById(int id) {
         RouteComment comment = null;
-        String sql = "SELECT comment_id, body, profile_id, post_date, crag_id " +
+        String sql = "SELECT comment_id, body, profile_id, post_date, route_id " +
                 "FROM route_comments " +
                 "WHERE comment_id=?";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql, id);
