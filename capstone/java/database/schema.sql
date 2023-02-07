@@ -91,9 +91,10 @@ CREATE TABLE routes (
 );
 
 CREATE TABLE todos (
+    todo_id SERIAL,
 	profile_id int,
 	route_id varchar(5),
-	CONSTRAINT PK_todos PRIMARY KEY (profile_id, route_id),
+	CONSTRAINT PK_todos PRIMARY KEY (todo_id),
 	CONSTRAINT FK_profile_todo FOREIGN KEY (profile_id) REFERENCES profiles(profile_id),
 	CONSTRAINT FK_route_todo FOREIGN KEY (route_id) REFERENCES routes(id)
 	
