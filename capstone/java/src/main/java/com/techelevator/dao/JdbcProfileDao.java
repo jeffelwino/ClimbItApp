@@ -29,7 +29,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public List<Profile> getAllProfiles() {
         List<Profile> profiles = new ArrayList<>();
-        String sql = "SELECT profile_id, user_id, name, picture_id, location, bio " +
+        String sql = "SELECT profile_id, user_id, name, location, bio, picture_id " +
                 "FROM profiles ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -73,8 +73,8 @@ public class JdbcProfileDao implements ProfileDao{
         int profileId=results.getInt("profile_id");
         int userId=results.getInt("user_id");
         String name=results.getString("name");
-        int pictureId=results.getInt("picture_id");
-        String location=results.getString("locations");
+        String pictureId=results.getString("picture_id");
+        String location=results.getString("location");
         String bio=results.getString("bio");
         return new Profile(profileId,userId,name,pictureId,location,bio);
     }
