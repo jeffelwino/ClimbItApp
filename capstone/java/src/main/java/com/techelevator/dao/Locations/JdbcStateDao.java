@@ -33,7 +33,7 @@ public class JdbcStateDao implements StateDao{
         State state = null;
         String sql = "SELECT abbrev, state_name, latitude, longitude " +
                 "FROM states " +
-                "WHERE state_abbrev=?";
+                "WHERE abbrev=?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,abbrev);
         if(results.next()){
             state=mapRowToState(results);
