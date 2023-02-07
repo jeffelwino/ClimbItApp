@@ -1,17 +1,17 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Comment;
+import com.techelevator.model.CragComment;
 
 import java.util.List;
 
-public interface CommentDao {
+public interface CragCommentDao {
 //    CRUD
 //    CREATE
-    Comment addComment(Comment comment);
+    CragComment addComment(CragComment comment);
 //    READ
-    List<Comment> getAllComments();
-    List<Comment> getAllCragComments();
-    List<Comment> getAllRouteComments();
+    List<CragComment> getAllCragComments();
+
     Comment getCommentById(int id);
 //    UPDATE
 //    DELETE

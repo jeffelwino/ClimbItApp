@@ -14,7 +14,9 @@ import java.util.List;
 public class SocialController {
     
     @Autowired
-    private CommentDao commentDao;
+    private CragCommentDao cragCommentDao;
+    @Autowired
+    private RouteCommentDao routeCommentDao;
     @Autowired
     private ProfileDao profileDao;
     @Autowired
@@ -27,18 +29,23 @@ public class SocialController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path="/comment")
-    public Comment addComment(@RequestBody Comment comment){
-        return commentDao.addComment(comment);
+    public Comment addComment(@RequestBody CragComment comment){
+        return cragCommentDao.addComment(comment);
     }
 
-    @GetMapping(path="/comment")
-    public List<Comment> getAllComments(){
-        return commentDao.getAllComments();
+
+    @GetMapping(path="/comment/crag")
+    public List<CragComment> getAllCragComments(){
+        return cragCommentDao.getAllCragComments();
+    }
+    @GetMapping(path="/comment/route")
+    public List<RouteComment> getAllRouteComments(){
+        return routeCommentDao.getAllRouteComments();
     }
 
     @GetMapping(path="/comment/{id}")
     public Comment getCommentById(@PathVariable int id){
-        Comment comment = commentDao.getCommentById(id);
+        Comment comment = cragCommentDao.getCommentById(id);
         return comment;
     }
 
