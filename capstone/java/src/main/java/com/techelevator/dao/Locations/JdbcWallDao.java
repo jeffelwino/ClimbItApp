@@ -3,10 +3,12 @@ package com.techelevator.dao.locations;
 import com.techelevator.model.locations.Wall;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcWallDao implements WallDao {
     private JdbcTemplate jdbcTemplate;
 
