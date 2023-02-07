@@ -7,7 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcRouteDao implements RouteDao{
+public class JdbcRouteDao implements RouteDao {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcRouteDao(JdbcTemplate jdbcTemplate) {
