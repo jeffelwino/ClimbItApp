@@ -61,7 +61,7 @@ public boolean updateArea(@RequestBody Area area){
 }
 @ResponseStatus(HttpStatus.NO_CONTENT)
 @DeleteMapping(path="/area/{id}")
-public boolean deleteArea(@RequestBody String id){
+public boolean deleteArea(@PathVariable String id){
     return areaDao.deleteArea(id);
 }
 @GetMapping(path="/crag")
@@ -83,7 +83,7 @@ public boolean updateCrag(@RequestBody Crag crag){
 }
 @ResponseStatus(HttpStatus.NO_CONTENT)
 @DeleteMapping(path="/crag/{id}")
-public boolean deleteCrag(@RequestBody String id){
+public boolean deleteCrag(@PathVariable String id){
     return cragDao.deleteCrag(id);
 }
 @GetMapping(path="/wall")
@@ -105,7 +105,7 @@ public Wall addWall(@RequestBody Wall wall){
 }
 @ResponseStatus(HttpStatus.NO_CONTENT)
 @DeleteMapping(path="/wall/{id}")
-    public boolean deleteWall(@RequestBody String id){
+    public boolean deleteWall(@PathVariable String id){
     return wallDao.deleteWall(id);
 }
 @GetMapping(path="/route")
@@ -127,7 +127,7 @@ public Wall addWall(@RequestBody Wall wall){
 }
 @ResponseStatus(HttpStatus.NO_CONTENT)
 @DeleteMapping(path="/route/{id}")
-public boolean deleteRoute(@RequestBody String id){
+public boolean deleteRoute(@PathVariable String id){
     return routeDao.deleteRoute(id);
 }
 
