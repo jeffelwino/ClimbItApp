@@ -1,55 +1,70 @@
 package com.techelevator.controller;
 
 
-import com.techelevator.dao.CommentDao;
-import com.techelevator.dao.JdbcCommentDao;
-import com.techelevator.dao.JdbcProfileDao;
-import com.techelevator.dao.JdbcUserDao;
+import com.techelevator.dao.*;
 import com.techelevator.model.Comment;
+import com.techelevator.model.Profile;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class SocialController {
     
     @Autowired
-    private CommentDao;
+    private CommentDao commentDao;
     @Autowired
-    private JdbcProfileDao jdbcProfileDao;
+    private ProfileDao profileDao;
     @Autowired
-    private JdbcUserDao jdbcUserDao;
+    private UserDao userDao;
 
 
 
-    @RequestMapping(path="/comment", method = RequestMethod.POST)
+    @PostMapping(path="/comment")
     public Comment addComment(@RequestBody Comment comment){
-        return comment;
+        return commentDao.addComment(comment);
     }
 
-    @RequestMapping(path="/", method = RequestMethod.GET)
+    @GetMapping(path="/comment")
     public List<Comment> getAllComments(){
-        return jdbcCommentDao.getAllComments();
+        return commentDao.getAllComments();
     }
 
-    @RequestMapping(path="/{id}", method = RequestMethod.GET)
+    @GetMapping(path="/comment/{id}")
     public Comment getCommentById(@PathVariable int id){
-        Comment comment = jdbcCommentDao.getCommentById(id);
+        Comment comment = commentDao.getCommentById(id);
         return comment;
     }
 
-    @RequestMapping(path="", method = RequestMethod.GET)
-    public int findIdByUsername(@PathVariable String username){
-        return jdbcUserDao.findIdByUsername(username);
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(path="/profile")
+    public Profile addProfile(@RequestBody Profile profile){
+        return profileDao.addProfile(profile);
     }
 
-    @RequestMapping(path="", method = RequestMethod.GET)
-    public User getUserById(int userId){
-
+    @GetMapping(path="/profile")
+    public List<Profile> getAllProfiles(){
+        return profileDao.getAllProfiles();
     }
 
+    @GetMapping(path="/profile/{id}")
+    public Profile getProfileById(@PathVariable int id){
+        return profileDao.getProfileById(id);
+    }
+
+    @PutMapping(path="/profile")
+    public boolean updateProfile(@RequestBody Profile profile){
+        return profileDao.updateProfile(profile);
+    }
+
+    @DeleteMapping(path="/profile/{id}")
+    public boolean deleteProfile(@PathVariable int id){
+        return profileDao.deleteProfile(id);
+    }
 
 
 }
