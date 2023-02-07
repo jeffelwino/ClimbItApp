@@ -13,7 +13,7 @@
 
       <v-text-field outlined label="Password" :type="showPassword ? 'text' : 'password'" v-model="user.password"></v-text-field>
 
-      <v-text-field outlined label="Confirm Password" v-model="user.confirmPassword"></v-text-field>
+      <v-text-field outlined label="Confirm Password" :type="showPassword ? 'text' : 'password'" v-model="user.confirmPassword"></v-text-field>
 
 
 <v-layout class="mt-5">
