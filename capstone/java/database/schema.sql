@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE profiles (
 	profile_id SERIAL,
 	user_id int NOT NULL,
-	name varchar(20) default 'new climber',
+	name varchar(50) default 'new climber',
 	location varchar(30),
 	bio varchar(200),
 	picture_id varchar(50),
@@ -23,7 +23,7 @@ CREATE TABLE profiles (
 );
 
 CREATE TABLE states (
-	abbrev char(2),
+	abbrev char(2) UNIQUE,
 	state_name varchar(50) NOT NULL,
 	latitude decimal(8,6) NOT NULL,
 	longitude decimal(9,6) NOT NULL,
@@ -143,8 +143,4 @@ CREATE TABLE comment_route(
 	CONSTRAINT FK_comment FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
 	CONSTRAINT FK_route FOREIGN KEY (route_id) REFERENCES routes(id)
 );
-
-                                            
-ROLLBACK;
-
 COMMIT TRANSACTION;
