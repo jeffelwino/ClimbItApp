@@ -9,10 +9,10 @@ INSERT INTO users (username,password_hash,role) VALUES('michael1','$2a$10$Z5Of0z
 
 INSERT INTO profiles (user_id, name, location, bio) VALUES (1, 'user', 'user', 'user');
 INSERT INTO profiles (user_id, name, location, bio) VALUES (2, 'admin', 'user', 'user');
-INSERT INTO profiles (user_id, name, location, bio) VALUES (3, 'kevin a', 'Long Island, NY', 'Hey, Im climin here!');
-INSERT INTO profiles (user_id, name, location, bio) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!');
-INSERT INTO profiles (user_id, name, location, bio) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees');
-INSERT INTO profiles (user_id, name, location, bio) VALUES (6, 'the michael eden', 'dayton ohio', 'hit me up if you need a climbing bud or a gram of bud ;)');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (3, 'kevin a', 'Long Island, NY', 'Hey, Im climin here!','cld-sample-2');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','cld-sample-3');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees','cld-sample');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'the michael eden', 'dayton ohio', 'hit me up if you need a climbing bud or a gram of bud ;)', 'irqp67luc3rpadoxzndi');
 
 
 INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
@@ -75,7 +75,6 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('KY','Murder Branch', 'Rarely climbed sandstone rock in the Daniel Boone Pioneer Weapons Area. Parking along the forest road.',37.99237,-83.49257)
 ;
 
-
 INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
 ('a-2', 'Muir Valley','A luxury climbing experience',37.724503,-83.634545),
@@ -106,8 +105,7 @@ INSERT INTO comment_route (comment_id, route_id) VALUES
 (1,'r-1'),
 (3,'r-1'),
 (4,'r-1'),
-(5,'r-2'),
-(6,'r-1');
+(5,'r-2');
 
 INSERT INTO comment_crag (comment_id, crag_id) VALUES
 (2, 'c-1'),
@@ -118,6 +116,19 @@ INSERT INTO todos (profile_id, route_id) VALUES
 (3,'r-1'),
 (4,'r-1'),
 (3,'r-2');
+
+INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
+(3,'r-1','2022-12-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
+(4,'r-1','2022-12-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',3),
+(3,'r-2','2022-12-12','Good climb. little wet when i ascented',3),
+(5,'r-1','2022-12-13','runout was nasty. fell twice',4);
+
+INSERT INTO shared_images (image_id,route_id) VALUES
+('hgmoslrkrc9sl6mvebis','r-1'),
+('kpa3jdaxgvcdgqbtxamk','r-1'),
+('tdp0unnsmhsxbwvi21pp','r-2'),
+('fmopabltozw1o6s4han8','r-2');
+
 
 COMMIT;
 
