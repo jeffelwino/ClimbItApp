@@ -6,4 +6,8 @@ export default {
         return axios.get('/profile')
     },
 
+    loadTicks() {
+        return axios.get('/tick');
+    }
+
 }

@@ -18,7 +18,7 @@ public class JdbcAreaDao implements AreaDao{
 
     @Override
     public Area addArea(Area area) {
-        String sql = "INSERT INTO areas (stateAbbrev, name, description, latitude, longitude) " +
+        String sql = "INSERT INTO areas (state_abbrev, name, description, latitude, longitude) " +
                 "VALUES (?,?,?,?,?) " +
                 "RETURNING id ";
         String id = jdbcTemplate.queryForObject(sql, String.class, area.getStateAbbrev(),
@@ -29,7 +29,7 @@ public class JdbcAreaDao implements AreaDao{
     @Override
     public List<Area> getAllAreas() {
         List<Area> areas = new ArrayList<>();
-        String sql = "SELECT id, stateAbbrev, name, description, latitude, longitude " +
+        String sql = "SELECT id, state_abbrev, name, description, latitude, longitude " +
                 "FROM areas ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -41,7 +41,7 @@ public class JdbcAreaDao implements AreaDao{
     @Override
     public Area getAreaById(String id) {
         Area area = null;
-        String sql = "SELECT id, stateAbbrev, name, description, latitude, longitude " +
+        String sql = "SELECT id, state_abbrev, name, description, latitude, longitude " +
                 "FROM areas " +
                 "WHERE id=?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
@@ -54,7 +54,7 @@ public class JdbcAreaDao implements AreaDao{
     @Override
     public boolean updateArea(Area area) {
         String sql = "UPDATE areas " +
-                "SET stateAbbrev=?, name=?, description=?, latitude=?, longitude=? " +
+                "SET state_abbrev=?, name=?, description=?, latitude=?, longitude=? " +
                 "WHERE id=?";
         int rowsUpdated = jdbcTemplate.update(sql, area.getStateAbbrev(),
                 area.getName(), area.getDescription(),area.getLatitude(),area.getLongitude(), area.getId());
