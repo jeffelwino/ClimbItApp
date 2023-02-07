@@ -19,7 +19,7 @@ public class JdbcTickDao implements TickDao{
 
     @Override
     public Tick addTick(Tick tick) {
-        String sql = "INSERT INTO ticks (route_id, profile_id, date, note, rating) " +
+        String sql = "INSERT INTO ticks (route_id, profile_id, date_climbed, note, rating) " +
                 "VALUES (?,?,?,?,?) " +
                 "RETURNING tick_id";
         Integer id = jdbcTemplate.queryForObject(sql, Integer.class, tick.getRouteId(),
@@ -30,7 +30,7 @@ public class JdbcTickDao implements TickDao{
     @Override
     public List<Tick> getAllTicks() {
         List<Tick> ticks = new ArrayList<>();
-        String sql = "SELECT tick_id, route_id, profile_id, date, note, rating " +
+        String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
                 "FROM ticks ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -42,7 +42,7 @@ public class JdbcTickDao implements TickDao{
     @Override
     public Tick getTickById(int tickId) {
         Tick tick = null;
-        String sql = "SELECT tick_id, route_id, profile_id, date, note, rating " +
+        String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
                 "FROM ticks " +
                 "WHERE tick_id=?";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql, tickId);
@@ -55,7 +55,7 @@ public class JdbcTickDao implements TickDao{
     @Override
     public boolean updateTick(Tick tick) {
         String sql = "UPDATE ticks " +
-                "SET route_id=?, profile_id=?, date=?, note=?, rating=? " +
+                "SET route_id=?, profile_id=?, date_climbed=?, note=?, rating=? " +
                 "WHERE tick_id=?";
         int rowsUpdated = jdbcTemplate.update(sql, tick.getRouteId(), tick.getProfileId(),
                 tick.getDate(),tick.getNote(),tick.getRating(), tick.getTickId());
@@ -75,8 +75,8 @@ public class JdbcTickDao implements TickDao{
         String routeId=results.getString("route_id");
         int profileId=results.getInt("profile_id");
         LocalDate date=null;
-        if(results.getDate("date") != null){
-            date=results.getDate("date").toLocalDate();
+        if(results.getDate("date_climbed") != null){
+            date=results.getDate("date_climbed").toLocalDate();
         }
         String note=results.getString("note");
         int rating=results.getInt("rating");
