@@ -125,15 +125,15 @@ public class SocialController {
         return todoDao.getAllTodos();
     }
 
-    @GetMapping(path="/todo/{profileId}")
+    @GetMapping(path="/todo/user/{profileId}")
     public List<Todo> getTodosByUser(@PathVariable int profileId){
         return todoDao.getTodosByUser(profileId);
     }
 
-//    @GetMapping(path="/todo/{id}")
-//    public Todo getTodoById(@PathVariable int id){
-//        return todoDao.getTodoById(id);
-//    }
+    @GetMapping(path="/todo/{id}")
+    public Todo getTodoById(@PathVariable int id){
+        return todoDao.getTodoById(id);
+    }
 
     @DeleteMapping(path="/todo/{id}")
     public boolean deleteTodo(@PathVariable int id){
