@@ -44,7 +44,7 @@ public class JdbcProfileDao implements ProfileDao{
                 "WHERE profile_id=?";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
         if(results.next()){
-            profile=mapRowToProfile(results)
+            profile=mapRowToProfile(results);
         }
         return profile;
     }
