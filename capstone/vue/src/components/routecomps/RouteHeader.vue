@@ -46,6 +46,11 @@ export default {
     },
    
   },
+  // computed: {
+  //   toDo() {
+  //     if(this.profile.ticks.contains(this.$route.routeId))
+  //   },
+  // }
 };
 </script>
 
