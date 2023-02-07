@@ -117,6 +117,7 @@ export default new Vuex.Store({
       // },
     ],
     areas: [
+<<<<<<< HEAD
       // {
       //   name: 'Western Ohio',
       //   stateAbbrev: 'OH',
@@ -149,6 +150,40 @@ export default new Vuex.Store({
       //   latitude: 39.90432334823612,
       //   longitude: -82.46752271817516
       // },
+=======
+      {
+        name: 'Western Ohio',
+        stateAbbrev: 'OH',
+        id: 1,
+        description: 'Largely flat, but there is some stuff to do',
+        latitude: 39.918360653356046,
+        longitude: -84.09394703120233
+      },
+      {
+        name: 'Red River Gorge',
+        stateAbbrev: 'KY',
+        id: 2,
+        description: 'One of the largest climbing areas in the world, tons of sport climbing to do',
+        latitude: 37.7829227300536,
+        longitude: -83.68310316808764
+      },
+      {
+        name: 'New River Gorge',
+        stateAbbrev: 'WV',
+        id: 3,
+        description: "Bullet-hard sandstone, beautiful views, what's not to love?",
+        latitude: 38.070297443941975,
+        longitude: -81.08009084642055
+      },
+      {
+        name: 'Central/Southern Ohio',
+        stateAbbrev: 'OH',
+        id: 4,
+        description: "Plenty of bouldering if that's your thing, but also some options for roped climbing",
+        latitude: 39.90432334823612,
+        longitude: -82.46752271817516
+      },
+>>>>>>> main
     ],
     crags: [
       // { id: 1, areaId: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', position: { lat: 39.912833, lng: -83.860439 } },
