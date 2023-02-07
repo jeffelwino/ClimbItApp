@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Profile {
     private int profileId;
     private int userId;
@@ -7,6 +9,7 @@ public class Profile {
     private int pictureId;
     private String location;
     private String bio;
+
 
     public Profile() {
     }
