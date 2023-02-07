@@ -8,18 +8,18 @@ public class Tick {
     private int profileId;
     private LocalDate date;
     private String note;
-    private int individualRating;
+    private int rating;
 
     public Tick() {
     }
 
-    public Tick(int tickId, String routeId, int profileId, LocalDate date, String note, int individualRating) {
+    public Tick(int tickId, String routeId, int profileId, LocalDate date, String note, int rating) {
         this.tickId = tickId;
         this.routeId = routeId;
         this.profileId = profileId;
         this.date = date;
         this.note = note;
-        this.individualRating = individualRating;
+        this.rating = rating;
     }
 
     public int getTickId() {
@@ -62,12 +62,12 @@ public class Tick {
         this.note = note;
     }
 
-    public int getIndividualRating() {
-        return individualRating;
+    public int getRating() {
+        return rating;
     }
 
-    public void setIndividualRating(int individualRating) {
-        this.individualRating = individualRating;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Tick {
                 ", profileId=" + profileId +
                 ", date=" + date +
                 ", note='" + note + '\'' +
-                ", individualRating=" + individualRating +
+                ", individualRating=" + rating +
                 '}';
     }
 }

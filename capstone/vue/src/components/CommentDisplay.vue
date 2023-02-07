@@ -7,8 +7,9 @@
       class="grey lighten-4 py-2"
     >
       <v-avatar size="36" color="blue" class="mr-3">
+        
         <!-- <v-icon dark> mdi-account-circle </v-icon> -->
-        <profile-picture :profile="profile" />
+        <profile-picture :profile="profile"/>
       </v-avatar>
       {{ profile.name }}</v-card-title
     >
