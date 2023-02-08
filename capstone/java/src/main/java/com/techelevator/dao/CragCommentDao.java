@@ -9,11 +9,11 @@ import java.util.List;
 public interface CragCommentDao {
 //    CRUD
 //    CREATE
-    CragComment addComment(CragComment comment);
+    CragComment addCragComment(CragComment comment);
 //    READ
-    List<CragComment> getAllCragComments();
+    List<CragComment> getAllCragComments(String cragId);
 
-    CragComment getCommentById(int id);
+    CragComment getCragCommentById(int id);
 //    UPDATE
 //    DELETE
 }

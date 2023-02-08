@@ -3,7 +3,7 @@
     <h2>Crags in the Area</h2>
     <GmapMap
       :center="center"
-      :zoom="8"
+      :zoom="10"
       style="width: 100%; height: 600px"
       id="map"
     >
@@ -26,7 +26,6 @@
     </GmapInfoWindow>
     
     </GmapMarker></div></GmapMap>
-     <!-- v-on:click="navigateToPage(crag.id)" -->
   </div>
 </template>
 

@@ -9,8 +9,8 @@ public interface TickDao {
 //    CREATE
     Tick addTick(Tick tick);
 //    READ
-    List<Tick> getAllTicks();
-    Tick getTickById(int tickId);
+    List<Tick> getTicksByRoute(String routeId);
+    List<Tick> getTicksByProfile(int profileId);
 //    UPDATE
     boolean updateTick(Tick tick);
 //    DELETE

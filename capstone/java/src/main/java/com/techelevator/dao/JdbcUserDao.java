@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -75,11 +76,27 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?) RETURNING user_id";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
+        Integer newUserId;
+        try{
+            newUserId = jdbcTemplate.queryForObject(insertUserSql, Integer.class, username, password_hash, ssRole);
+        } catch (DataAccessException e){
+            return false;
+        }
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+
+        String profileSQL = "INSERT INTO profiles (user_id, name) " +
+               "VALUES (?,?) " +
+                "RETURNING profile_id";
+        Integer newProfileId;
+        try{
+            newProfileId = jdbcTemplate.queryForObject(profileSQL,Integer.class,newUserId,username);
+        } catch (DataAccessException e){
+            return false;
+        }
+        return true;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

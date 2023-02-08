@@ -16,15 +16,15 @@ public class JdbcProfileDao implements ProfileDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    @Override
-    public Profile addProfile(Profile profile) {
-        String sql = "INSERT INTO profiles (user_id, name, picture_id, location, bio) " +
-                "VALUES (?,?,?,?,?) " +
-                "RETURNING profile_id";
-        Integer profileId=jdbcTemplate.queryForObject(sql, Integer.class, profile.getUserId(),
-                profile.getName(),profile.getPictureId(),profile.getLocation(),profile.getBio());
-        return getProfileById(profileId);
-    }
+//    @Override
+//    public Profile addProfile(Profile profile) {
+//        String sql = "INSERT INTO profiles (user_id, name, picture_id, location, bio) " +
+//                "VALUES (?,?,?,?,?) " +
+//                "RETURNING profile_id";
+//        Integer profileId=jdbcTemplate.queryForObject(sql, Integer.class, profile.getUserId(),
+//                profile.getName(),profile.getPictureId(),profile.getLocation(),profile.getBio());
+//        return getProfileById(profileId);
+//    }
 
     @Override
     public List<Profile> getAllProfiles() {

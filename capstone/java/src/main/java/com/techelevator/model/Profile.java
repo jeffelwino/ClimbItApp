@@ -11,7 +11,7 @@ public class Profile {
     private String bio;
 
 
-    public Profile() {
+    public Profile(){
     }
 
     public Profile(int profileId, int userId, String name, String pictureId, String location, String bio) {

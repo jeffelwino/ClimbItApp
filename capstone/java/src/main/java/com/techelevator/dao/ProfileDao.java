@@ -7,7 +7,7 @@ import java.util.List;
 public interface ProfileDao {
 //    CRUD
 //    CREATE
-    Profile addProfile(Profile profile);
+//    Profile addProfile(Profile profile);
 //    READ
     List<Profile> getAllProfiles();
     Profile getProfileById(int id);

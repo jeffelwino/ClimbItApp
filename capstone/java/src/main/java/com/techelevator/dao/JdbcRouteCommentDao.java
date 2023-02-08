@@ -19,20 +19,20 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     }
 
     @Override
-    public RouteComment addComment(RouteComment comment) {
+    public RouteComment addRouteComment(RouteComment comment) {
         String sql = "INSERT INTO route_comments (body, profile_id, post_date, route_id) " +
                 "VALUES (?,?,?,?) " +
                 "RETURNING comment_id";
         Integer id = jdbcTemplate.queryForObject(sql, Integer.class, comment.getBody(),comment.getProfileId(),comment.getPostDate(), comment.getRouteId());
-        return getCommentById(id);
+        return getRouteCommentById(id);
     }
 
     @Override
-    public List<RouteComment> getAllRouteComments() {
+    public List<RouteComment> getAllRouteComments(String routeId) {
         List<RouteComment> comments = new ArrayList<>();
         String sql = "SELECT comment_id, body, profile_id, post_date, route_id " +
-                "FROM route_comments ";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+                "FROM route_comments WHERE route_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
         while(results.next()){
             comments.add(mapRowToComment(results));
         }
@@ -40,7 +40,7 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     }
 
     @Override
-    public RouteComment getCommentById(int id) {
+    public RouteComment getRouteCommentById(int id) {
         RouteComment comment = null;
         String sql = "SELECT comment_id, body, profile_id, post_date, route_id " +
                 "FROM route_comments " +

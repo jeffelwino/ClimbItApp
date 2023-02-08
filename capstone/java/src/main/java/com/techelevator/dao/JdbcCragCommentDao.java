@@ -20,20 +20,20 @@ public class JdbcCragCommentDao implements CragCommentDao {
     }
 
     @Override
-    public CragComment addComment(CragComment comment) {
+    public CragComment addCragComment(CragComment comment) {
         String sql = "INSERT INTO crag_comments (body, profile_id, post_date, crag_id) " +
                 "VALUES (?,?,?,?) " +
                 "RETURNING comment_id";
         Integer id = jdbcTemplate.queryForObject(sql, Integer.class, comment.getBody(),comment.getProfileId(),comment.getPostDate(), comment.getCragId());
-        return getCommentById(id);
+        return getCragCommentById(id);
     }
 
     @Override
-    public List<CragComment> getAllCragComments() {
+    public List<CragComment> getAllCragComments(String cragId) {
         List<CragComment> comments = new ArrayList<>();
         String sql = "SELECT comment_id, body, profile_id, post_date, crag_id " +
-                "FROM crag_comments ";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+                "FROM crag_comments WHERE crag_id = ? ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cragId);
         while(results.next()){
             comments.add(mapRowToComment(results));
         }
@@ -41,7 +41,7 @@ public class JdbcCragCommentDao implements CragCommentDao {
     }
 
     @Override
-    public CragComment getCommentById(int id) {
+    public CragComment getCragCommentById(int id) {
         CragComment comment = null;
         String sql = "SELECT comment_id, body, profile_id, post_date, crag_id " +
                 "FROM crag_comments " +
