@@ -1,36 +1,42 @@
 <template>
-  <v-card @click="navigateToRoute()"
-    >
+  <v-card @click="navigateToRoute()">
     <v-layout class="mr-4 py-2">
-    <span>{{ route.name }} ({{ route.grade }})  </span>
-    <v-spacer></v-spacer>
-   <v-rating
-      readonly
-      small
-      dense
-      v-model="averageRating"
-      half-increments
-      color="yellow darken-3"
-      background-color="grey darken-1"
-      empty-icon="$ratingFull"
-    ></v-rating>
+      <span>{{ route.name }} ({{ route.grade }}) </span>
+      <v-spacer></v-spacer>
+      <v-rating
+        readonly
+        small
+        dense
+        v-model="averageRating"
+        half-increments
+        color="yellow darken-3"
+        background-color="grey darken-1"
+        empty-icon="$ratingFull"
+      ></v-rating>
     </v-layout>
- 
+
     <v-divider class="blue"></v-divider>
   </v-card>
-  
 </template>
 
 <script>
+import tickService from "../../services/TickService.js";
 export default {
   name: "route-card",
   props: ["route"],
+  data() {
+    return {
+      ticks: [],
+    };
+  },
+  created() {
+    tickService.listByRoute(this.route.id).then((response) => {
+      if (response.status == 200) {
+        this.ticks = response.data;
+      }
+    });
+  },
   computed: {
-    ticks() {
-      return this.$store.state.ticks.filter((tick) => {
-        return tick.routeId == this.route.id;
-      });
-    },
     averageRating() {
       let sum = 0;
       this.ticks.forEach((tick) => {
