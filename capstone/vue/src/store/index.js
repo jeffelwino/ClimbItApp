@@ -383,60 +383,6 @@ export default new Vuex.Store({
 
   },
   mutations: {
-<<<<<<< HEAD
-    LOAD_PROFILES(state, profiles) {
-      profiles.forEach(profile => {
-        if (!state.profiles.find(profile)) {
-          state.profiles.push(profile);
-        }
-      })
-    },
-    LOAD_TICKS(state, ticks) {
-      ticks.forEach(tick => {
-        if (!state.ticks.includes(tick)) {
-          state.ticks.push(tick);
-        }
-      })
-    },
-
-    LOAD_STATES(state, states) {
-      states.forEach(s => {
-        if (!state.states.includes(s)) {
-          state.states.push(s);
-        }
-      })
-    },
-    LOAD_AREAS(state, areas) {
-      areas.forEach(area => {
-        if (!state.areas.includes(area)) {
-          state.areas.push(area);
-        }
-      })
-    },
-    LOAD_CRAGS(state, crags) {
-      crags.forEach(crag => {
-        if (!state.crags.includes(crag)) {
-          state.crags.push(crag);
-        }
-      })
-    },
-    LOAD_WALLS(state, walls) {
-      walls.forEach(wall => {
-        if (!state.walls.includes(wall)) {
-          state.walls.push(wall);
-        }
-      })
-    },
-
-    LOAD_ROUTES(state, routes) {
-      routes.forEach(route => {
-        if (!state.routes.includes(route)) {
-          state.routes.push(route);
-        }
-      })
-    },
-=======
->>>>>>> main
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
