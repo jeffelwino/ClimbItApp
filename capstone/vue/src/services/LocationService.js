@@ -39,6 +39,9 @@ export default {
     saveCrag(crag) {
         return axios.post('/crag/create', crag)
     },
+    updateCrag(crag) {
+        return axios.put('/crag', crag)
+    },
 
     // Wall
     loadWalls() {
@@ -49,6 +52,9 @@ export default {
     },
     getWallById(id) {
         return axios.get(`/wall/${id}`);
+    },
+    saveWall(wall) {
+        return axios.post('/wall/create', wall)
     },
 
     // Route

@@ -68,7 +68,7 @@ public class JdbcCragDao implements CragDao{
     public boolean updateCrag(Crag crag) {
         String sql = "UPDATE crags " +
                 "SET area_id=?, name=?, description=?, latitude=?, longitude=? " +
-                "WHERE values=?";
+                "WHERE id=?";
         int updatedRows = jdbcTemplate.update(sql, crag.getAreaId(), crag.getName(),
                 crag.getDescription(),crag.getLatitude(),crag.getLongitude(),crag.getId());
         return updatedRows==1;
