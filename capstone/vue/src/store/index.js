@@ -28,7 +28,7 @@ export default new Vuex.Store({
     routeComment: {},
 
     activeState: {},
-    acitveAreas: [],
+    activeAreas: [],
     activeArea: {},
     activeCrags: [],
     activeCrag: {},
