@@ -114,7 +114,7 @@ const router = new Router({
       }
     },
     {
-      path: "/not-found",
+      path: "/notfound",
       name: "NotFound",
       component: NotFound
     },

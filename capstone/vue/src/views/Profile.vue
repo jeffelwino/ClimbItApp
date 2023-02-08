@@ -14,29 +14,38 @@ import ProfileInfo from "../components/profile/ProfileInfo.vue";
 import ProfilePicture from "../components/profile/ProfilePicture.vue";
 import ProfileTicks from "../components/profile/ProfileTicks.vue";
 import ProfileTodo from "../components/profile/ProfileTodo.vue";
+import profileService from "../services/ProfileService.js";
+
 export default {
   components: { ProfilePicture, ProfileInfo, ProfileTicks, ProfileTodo },
   name: "profile",
-  computed: {
-    profile() {
-      return this.$store.state.profiles.find((profile) => {
-        return profile.id == this.$route.params.id;
-      });
-    },
-  }
+  // computed: {
+  //   profile() {
+  //     return this.$store.state.profiles.find((profile) => {
+  //       return profile.id == this.$route.params.id;
+  //     });
+  //   },
+  // }
 
-  // data() {
-  //   return {
-  //     profile: {
-  //       id: 0,
-  //       name: "",
-  //       location: "",
-  //       bio: "",
-  //       todos: [],
-  //       picture: "",
-  //     },
-  //   };
-  // },
+  data() {
+    return {
+      profile: {},
+    };
+  },
+  created() {
+    profileService
+      .get(this.$route.params.id)
+      .then((response) => {
+        if (response.status == 200) {
+          this.profile = response.data;
+        }
+      })
+      .catch((error) => {
+        if (error.response.status == 404) {
+          this.$router.push({ name: "NotFound" });
+        }
+      });
+  },
   // methods: {
   //   loadProfile() {
   //     this.profile = this.$store.state.profiles.find((profile) => {

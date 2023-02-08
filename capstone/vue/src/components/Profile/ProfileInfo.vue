@@ -32,26 +32,28 @@
 
 <script>
 import Cloudinary from "../imageComps/Cloudinary.vue";
+import profileService from "../../services/ProfileService.js";
 export default {
   components: { Cloudinary },
   name: "profile-info",
   data() {
     return {
+      profile: {},
       showForm: false,
       editedProfile: {},
       currentPicture: "",
     };
   },
-  computed: {
-    profile() {
-      return this.$store.state.profiles.find((profile) => {
-        return profile.id == this.$route.params.id;
-      });
-    },
-  },
+  // computed: {
+  //   profile() {
+  //     return this.$store.state.profiles.find((profile) => {
+  //       return profile.id == this.$route.params.id;
+  //     });
+  //   },
+  // },
   methods: {
     snapShot() {
-      this.currentPicture = this.profile.pictureIdId;
+      this.currentPicture = this.profile.pictureId;
       this.showForm = !this.showForm;
     },
     updateProfileChanges() {
@@ -81,6 +83,14 @@ export default {
       };
       this.showForm = false;
     },
+  },
+  created(){
+    profileService.get(this.$route.params.id).then((response) =>{
+    if (response.status == 200) {
+    this.profile = response.data;
+     }
+    });
+
   },
   mounted() {
     this.editedProfile = {
