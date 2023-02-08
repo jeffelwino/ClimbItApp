@@ -1,7 +1,12 @@
 <template>
   <v-container class="profile-picture mt-n10">
     <div>
+        <v-btn small @click="$router.go(-1)" exact class="back-button mt-n10 justify-start">
+            <v-icon small>mdi-arrow-left-circle</v-icon>
+            Back
+          </v-btn>
       <v-row class="justify-center">
+        
         <cld-context cloudName="dacyocfmf" secure="true">
           <cld-image
             :cloudName="this.$store.state.cloudName"
