@@ -383,7 +383,6 @@ export default new Vuex.Store({
 
   },
   mutations: {
-<<<<<<< HEAD
     LOAD_PROFILES(state, profiles) {
       profiles.forEach(profile => {
         if (!state.profiles.find(profile)) {
@@ -435,8 +434,6 @@ export default new Vuex.Store({
         }
       })
     },
-=======
->>>>>>> main
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
