@@ -167,5 +167,5 @@ public class LocationsController {
     public boolean deleteRoute(@RequestBody String id){
         return routeDao.deleteRoute(id);
     }
-    
+
 }
