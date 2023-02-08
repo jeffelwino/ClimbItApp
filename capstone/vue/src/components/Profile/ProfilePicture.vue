@@ -4,8 +4,8 @@
       <v-row class="justify-center">
         <cld-context cloudName="dacyocfmf" secure="true">
           <cld-image
-            cloudName="dacyocfmf"
-            :publicId="profile.pictureId"
+            :cloudName="this.$store.state.cloudName"
+            :publicId="profile.picture.publicId"
             width="300"
           />
         </cld-context>

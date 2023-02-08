@@ -1,13 +1,21 @@
 import axios from 'axios';
 
-export default {
 
-    loadProfiles() {
-        return axios.get('/profile')
-    },
+export default{
+    get(id) {
+        return axios.get(`/profile/${id}`);
+      },
 
-    loadTicks() {
-        return axios.get('/tick');
-    }
+      list() {
+        return axios.get('/profile');
+      },
+
+      put(profile){
+        return axios.put('/profile', profile);
+      },
+
+      delete(id){
+          return axios.delete(`/profile/${id}`);
+      },
 
 }

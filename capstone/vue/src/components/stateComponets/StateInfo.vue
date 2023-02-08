@@ -7,17 +7,17 @@
     <!-- mapdisplay placeholder-->
 
     <state-map v-bind:state="state" v-bind:areas="areas" />
+    <button @click="test">Test</button>
 
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas">
       <h3>Climbing areas in {{ state.name }}:</h3>
-      
-        <v-card v-for="area in areas" :key="area.id">
-          <router-link :to="{ name: 'area', params: { id: area.id } }">
-            {{ area.name }}
-          </router-link>
-        </v-card>
-     
+
+      <v-card v-for="area in areas" :key="area.id">
+        <router-link :to="{ name: 'area', params: { id: area.id } }">
+          {{ area.name }}
+        </router-link>
+      </v-card>
     </div>
     <!-- 
         <v-list-item
@@ -32,45 +32,41 @@
 
 <script>
 import StateMap from "./StateMap.vue";
+import locationService from "../../services/LocationService.js";
 export default {
   components: { StateMap },
   name: "state-info",
-  props: ["state"],
-  computed: {
-    areas(){
-      return this.$store.state.areas.filter((a) => {
-          return a.stateAbbrev == this.state.abbrev;
+  data() {
+    return {
+      state: {},
+      areas: [],
+    };
+  },
+  methods: {
+    test() {
+      console.log(this.state);
+    },
+  },
+  created() {
+    locationService
+      .getStateByAbbrev(this.$route.params.abbrev)
+      .then((response) => {
+        if (response.status == 200) {
+          console.log("state:");
+          console.log(response.data);
+          this.state = response.data;
+          locationService
+            .getAreasByState(this.state.abbrev)
+            .then((response) => {
+              if (response.status == 200) {
+                console.log("areas:");
+                console.log(response.data);
+                this.areas = response.data;
+              }
+            });
+        }
       });
-    }
-  }
-  // data() {
-  //   return {
-  //     state: {
-  //       abbrev: "",
-  //       name: "",
-  //       areas: 0,
-  //     },
-  //     areas: [],
-  //   };
-  // },
-  // methods: {
-  //   loadState() {
-  //     this.state = this.$store.state.states.find((estado) => {
-  //       return estado.abbrev == this.$route.params.abbrev;
-  //     });
-  //   },
-  //   loadAreas() {
-  //     this.$store.state.areas.forEach((area) => {
-  //       if (area.stateAbbrev == this.state.abbrev) {
-  //         this.areas.push(area);
-  //       }
-  //     });
-  //   },
-  // },
-  // created() {
-  //   this.loadState();
-  //   this.loadAreas();
-  // },
+  },
 };
 </script>
 

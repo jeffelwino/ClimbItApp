@@ -52,6 +52,19 @@ public class JdbcAreaDao implements AreaDao{
     }
 
     @Override
+    public List<Area> getAreasByState(String abbrev) {
+        List<Area> areas = new ArrayList<>();
+        String sql = "SELECT id, state_abbrev, name, description, latitude, longitude " +
+                "FROM areas " +
+                "WHERE state_abbrev=?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,abbrev);
+        while(results.next()){
+            areas.add(mapRowToArea(results));
+        }
+        return areas;
+    }
+
+    @Override
     public boolean updateArea(Area area) {
         String sql = "UPDATE areas " +
                 "SET state_abbrev=?, name=?, description=?, latitude=?, longitude=? " +

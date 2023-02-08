@@ -27,16 +27,22 @@
 import CragTools from "../components/adminTools/CragTools.vue";
 import WallCardContainer from "../components/crag/WallCardContainer.vue";
 import CragComment from "../components/CragComment.vue";
+import locationService from "../services/LocationService.js";
 
 export default {
   components: { WallCardContainer, CragComment, CragTools },
   name: "crag",
-  computed: {
-    crag() {
-      return this.$store.state.crags.find((c) => {
-        return c.id == this.$route.params.id;
-      });
-    },
+  data() {
+    return {
+      crag: {},
+    };
+  },
+  created() {
+    locationService.getCragById(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.crag = response.data;
+      }
+    });
   },
 };
 </script>

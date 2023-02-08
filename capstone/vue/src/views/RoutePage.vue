@@ -2,12 +2,12 @@
   <div class="route">
     <v-container class="route-contents" justify:center>
       <div class="mx-3">
-      <v-row class="mt-n15 pb-15 mR-5 justify-start">
-        <v-btn x-small @click="navigateUp" exact class="back-button">
-          <v-icon x-small>mdi-arrow-left-circle</v-icon>
-          To Wall
-        </v-btn>
-      </v-row>
+        <v-row class="mt-n15 pb-15 mR-5 justify-start">
+          <v-btn x-small @click="navigateUp" exact class="back-button">
+            <v-icon x-small>mdi-arrow-left-circle</v-icon>
+            To Wall
+          </v-btn>
+        </v-row>
       </div>
       <!-- header -->
       <route-header v-bind:route="route" />
@@ -59,6 +59,7 @@ import RouteGallery from "../components/imageComps/RouteGallery.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
 import RouteComment from "../components/routecomps/RouteComment.vue";
 import RouteTools from "../components/adminTools/RouteTools.vue";
+import locationService from "../services/LocationService";
 
 export default {
   name: "route",
@@ -70,17 +71,22 @@ export default {
     RouteComment,
     RouteTools,
   },
-  computed: {
-    route() {
-      return this.$store.state.routes.find((r) => {
-        return r.id == this.$route.params.id;
-      });
-    },
+  data() {
+    return {
+      route: {},
+    };
   },
   methods: {
     navigateUp() {
       this.$router.push({ name: "wall", params: { id: this.route.wallId } });
     },
+  },
+  created() {
+    locationService.getRouteById(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.route = response.data;
+      }
+    });
   },
 };
 </script>

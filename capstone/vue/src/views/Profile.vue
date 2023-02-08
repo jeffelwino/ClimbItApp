@@ -23,7 +23,7 @@ export default {
         return profile.id == this.$route.params.id;
       });
     },
-  },
+  }
 
   // data() {
   //   return {

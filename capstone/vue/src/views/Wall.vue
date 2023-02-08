@@ -15,7 +15,7 @@
     />
 
     <div class="card mx-3">
-      <wall-detail v-bind:wall="wall" />
+      <wall-detail />
     </div>
   </div>
 </template>
@@ -23,15 +23,22 @@
 <script>
 import WallDetail from "../components/wall/WallDetail.vue";
 import WallTools from "../components/adminTools/WallTools.vue";
+import locationService from "../services/LocationService.js";
 export default {
   name: "wall",
   components: { WallDetail, WallTools },
-  computed: {
-    wall() {
-      return this.$store.state.walls.find((w) => {
-        return w.id == this.$route.params.id;
-      });
-    },
+  data() {
+    return {
+      wall: {},
+    };
+  },
+  created() {
+    locationService.getWallById(this.$route.params.id).then((response) => {
+      console.log(response);
+      if (response.status == 200) {
+        this.wall = response.data;
+      }
+    });
   },
   methods: {
     navigateUp() {

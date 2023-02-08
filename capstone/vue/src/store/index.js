@@ -22,7 +22,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    // activeST: '',
+    cragComment: {},
+    cragComments: [],
+    routeComments: [],
+    routeComment: {},
+
+    cloudName: "dacyocfmf",
     states: [
       // {
       //   abbrev: "AL",
@@ -117,7 +122,6 @@ export default new Vuex.Store({
       // },
     ],
     areas: [
-<<<<<<< HEAD
       // {
       //   name: 'Western Ohio',
       //   stateAbbrev: 'OH',
@@ -150,40 +154,6 @@ export default new Vuex.Store({
       //   latitude: 39.90432334823612,
       //   longitude: -82.46752271817516
       // },
-=======
-      {
-        name: 'Western Ohio',
-        stateAbbrev: 'OH',
-        id: 1,
-        description: 'Largely flat, but there is some stuff to do',
-        latitude: 39.918360653356046,
-        longitude: -84.09394703120233
-      },
-      {
-        name: 'Red River Gorge',
-        stateAbbrev: 'KY',
-        id: 2,
-        description: 'One of the largest climbing areas in the world, tons of sport climbing to do',
-        latitude: 37.7829227300536,
-        longitude: -83.68310316808764
-      },
-      {
-        name: 'New River Gorge',
-        stateAbbrev: 'WV',
-        id: 3,
-        description: "Bullet-hard sandstone, beautiful views, what's not to love?",
-        latitude: 38.070297443941975,
-        longitude: -81.08009084642055
-      },
-      {
-        name: 'Central/Southern Ohio',
-        stateAbbrev: 'OH',
-        id: 4,
-        description: "Plenty of bouldering if that's your thing, but also some options for roped climbing",
-        latitude: 39.90432334823612,
-        longitude: -82.46752271817516
-      },
->>>>>>> main
     ],
     crags: [
       // { id: 1, areaId: 1, name: 'Mad River Gorge', description: 'The finest climbing Ohio has to offer', position: { lat: 39.912833, lng: -83.860439 } },
@@ -275,6 +245,75 @@ export default new Vuex.Store({
       //   rating: 4,
       // },
     ],
+<<<<<<< HEAD
+    // profiles: [
+    //   {
+    //     id: 2,
+    //     name: "Admin",
+    //     location: "Admin",
+    //     bio: "Admin",
+    //     todos: [],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "ssu0yraojylulspeeuhv"
+
+    //     }
+    //   }, {
+    //     id: 1,
+    //     name: "user",
+    //     location: "user",
+    //     bio: "user",
+    //     todos: [],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "cld-sample-5"
+    //     }
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "Kevin",
+    //     location: "Long Island, New  York",
+    //     bio: "My name is Kevin and I like to climb rocks",
+    //     todos: [1, 9, 5],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "s"
+    //     }
+    //   },
+    //   {
+    //     id: 5,
+    //     name: "Mike",
+    //     location: "Sunbury, Ohio",
+    //     bio: "My name is Michael and I like to climb rocks",
+    //     todos: [12, 5, 3],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "cld-sample-4"
+    //     }
+    //   },
+    //   {
+    //     id: 4,
+    //     name: "Jeff",
+    //     location: "Chicago, Illinois",
+    //     bio: "I am Jeff Winograd and I love front-end developpment, design, and vuetify",
+    //     todos: [12],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "cld-sample-3"
+    //     }
+    //   },
+    //   {
+    //     id: 6,
+    //     name: "Allan",
+    //     bio: "Hey there, my name is Allan, and I climb trees not rocks so I think this site is frankly rather dumb",
+    //     todos: [],
+    //     picture: {
+    //       cloudName: "dacyocfmf",
+    //       publicId: "cld-sample-2"
+    //     }
+    //   },
+    // ]
+=======
     profiles: [
       // {
       //   id: 2,
@@ -342,6 +381,7 @@ export default new Vuex.Store({
       //   }
       // },
     ]
+>>>>>>> main
 
   },
   getters: {
@@ -518,7 +558,6 @@ export default new Vuex.Store({
         }
       }
     },
-
     DELETE_ROUTE(state, id) {
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == id) {

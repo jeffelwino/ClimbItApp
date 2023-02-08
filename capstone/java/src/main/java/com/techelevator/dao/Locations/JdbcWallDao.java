@@ -38,6 +38,19 @@ public class JdbcWallDao implements WallDao {
     }
 
     @Override
+    public List<Wall> getWallsByCragId(String id) {
+        List<Wall> walls = new ArrayList<>();
+        String sql = "SELECT id, crag_id, name, description " +
+                "FROM walls " +
+                "WHERE crag_id=?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while(results.next()){
+            walls.add(mapRowToWall(results));
+        }
+        return walls;
+    }
+
+    @Override
     public Wall getWallById(String id) {
         Wall wall = null;
         String sql = "SELECT id, crag_id, name, description " +
