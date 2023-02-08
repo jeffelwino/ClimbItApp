@@ -39,6 +39,19 @@ public class JdbcRouteDao implements RouteDao {
     }
 
     @Override
+    public List<Route> getRouteByWallId(String id) {
+        List<Route> routes = new ArrayList<>();
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
+                "FROM routes " +
+                "WHERE wall_id=?";
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
+        while(results.next()){
+            routes.add(mapRowToRoute(results));
+        }
+        return routes;
+    }
+
+    @Override
     public Route getRouteById(String routeId) {
         Route route=null;
         String sql = "SELECT id, wall_id, name, grade, height, style, protection " +

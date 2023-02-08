@@ -106,12 +106,17 @@ public class LocationsController {
     }
 
     @GetMapping(path="/wall")
-        public List<Wall> getAllWalls(){
+    public List<Wall> getAllWalls(){
         return wallDao.getAllWalls();
     }
 
+    @GetMapping(path="/wall/crag/{id}")
+    List<Wall> getWallsByCragId(@PathVariable String id){
+        return  wallDao.getWallsByCragId(id);
+    }
+
     @GetMapping(path="/wall/{id}")
-        public Wall getWallById(@PathVariable String id){
+    public Wall getWallById(@PathVariable String id){
         return wallDao.getWallById(id);
     }
 
@@ -136,6 +141,12 @@ public class LocationsController {
         public List<Route> getAllRoutes(){
         return routeDao.getAllRoutes();
     }
+
+    @GetMapping(path="/route/wall/{id}")
+    public List<Route> getRoutesByWallId(@PathVariable String id){
+        return routeDao.getRouteByWallId(id);
+    }
+
     @GetMapping(path="/route/{id}")
         public Route getRouteById(@PathVariable String id){
         return routeDao.getRouteById(id);
