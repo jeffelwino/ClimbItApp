@@ -8,11 +8,13 @@
         </v-btn>
       </v-row>
     </div>
+    <!-- Component -->
     <state-tools
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
     <div>
-      <state-info :state="state" />
+      <!-- component -->
+      <state-info />
     </div>
   </v-container>
 </template>
@@ -35,7 +37,7 @@ export default {
       this.$router.push({ name: "home" });
     },
   },
-  beforeCreate() {
+  created() {
     locationService
       .getStateByAbbrev(this.$route.params.abbrev)
       .then((response) => {

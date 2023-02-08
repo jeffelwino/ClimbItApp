@@ -32,15 +32,13 @@
 import locationService from "../../services/LocationService.js";
 export default {
   name: "state-map",
-  // props: ["state", "areas"],
-
   data() {
     return {
       state: {},
       areas: {},
       center: {
-        lat: parseFloat(this.state.latitude),
-        lng: parseFloat(this.state.longitude),
+        lat: "",
+        lng: "",
       },
     };
   },
@@ -52,7 +50,7 @@ export default {
       });
     },
   },
-  beforeCreate() {
+  created() {
     locationService
       .getStateByAbbrev(this.$route.params.abbrev)
       .then((response) => {
@@ -60,18 +58,19 @@ export default {
           console.log("state:");
           console.log(response.data);
           this.state = response.data;
+          this.center.lat = parseFloat(this.state.latitude);
+          this.center.lng = parseFloat(this.state.longitude);
+          locationService
+            .getAreasByState(this.state.abbrev)
+            .then((response) => {
+              if (response.status == 200) {
+                console.log("areas:");
+                console.log(response.data);
+                this.areas = response.data;
+              }
+            });
         }
       });
-  },
-  created() {
-    locationService.getAreasByState(this.state.abbrev).then((response) => {
-      // console.log(response);
-      if (response.status == 200) {
-        console.log("areas:");
-        console.log(response.data);
-        this.areas = response.data;
-      }
-    });
   },
 };
 </script>

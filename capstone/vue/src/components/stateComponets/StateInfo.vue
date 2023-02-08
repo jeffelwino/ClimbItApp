@@ -36,7 +36,6 @@ import locationService from "../../services/LocationService.js";
 export default {
   components: { StateMap },
   name: "state-info",
-  // props: ["state"],
   data() {
     return {
       state: {},
@@ -48,7 +47,7 @@ export default {
       console.log(this.state);
     },
   },
-  beforeCreate() {
+  created() {
     locationService
       .getStateByAbbrev(this.$route.params.abbrev)
       .then((response) => {
@@ -56,18 +55,17 @@ export default {
           console.log("state:");
           console.log(response.data);
           this.state = response.data;
+          locationService
+            .getAreasByState(this.state.abbrev)
+            .then((response) => {
+              if (response.status == 200) {
+                console.log("areas:");
+                console.log(response.data);
+                this.areas = response.data;
+              }
+            });
         }
       });
-  },
-  created() {
-    locationService.getAreasByState(this.state.abbrev).then((response) => {
-      // console.log(response);
-      if (response.status == 200) {
-        console.log("areas:");
-        console.log(response.data);
-        this.areas = response.data;
-      }
-    });
   },
 };
 </script>
