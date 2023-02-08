@@ -13,6 +13,7 @@
                 <v-list-item>
                   Rating:
                   <v-rating
+                    v-if="averageRating"
                     readonly
                     dense
                     v-model="averageRating"
@@ -38,23 +39,30 @@
 </template>
 
 <script>
+import tickService from "../../services/TickService.js";
 export default {
   name: "route-detail",
   props: ["route"],
+  data() {
+    return {
+      ticks: [],
+    };
+  },
 
   computed: {
     averageRating() {
-      const ticks = this.$store.state.ticks.filter((t) => {
-        return t.routeId == this.route.id;
-      });
-      let sum = ticks.reduce((currentSum, tick) => {
+      let sum = this.ticks.reduce((currentSum, tick) => {
         return currentSum + tick.rating;
       }, 0);
-      return (sum / ticks.length).toFixed(2);
+      return (sum / this.ticks.length).toFixed(2);
     },
   },
-  data() {
-    return {};
+  created() {
+    tickService.listByRoute(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.ticks = response.data;
+      }
+    });
   },
 };
 </script>
