@@ -29,8 +29,8 @@
               label="Area Longitude(East-West)"
               v-model="newArea.longitude"
             ></v-text-field>
-            <!-- <StateMap v-bind:state="estado"/> -->
-            <NewAreaFormMap v-bind:state="estado"/>
+            <!-- <StateMap v-bind:state="state"/> -->
+            <NewAreaFormMap v-bind:state="state" />
             <v-btn @click.stop="saveArea">Submit</v-btn>
             <v-btn @click="cancelArea">Cancel</v-btn>
           </v-form>
@@ -41,58 +41,59 @@
 </template>
 
 <script>
-import NewAreaFormMap from '../area/NewAreaFormMap.vue';
+import NewAreaFormMap from "../area/NewAreaFormMap.vue";
+import locationService from "../../services/LocationService.js";
 //import StateMap from "../stateComponets/StateMap.vue"; <---This was just practice to load the screen!
 export default {
-  components: {NewAreaFormMap}, // StateMap ^^Same as up top
+  components: { NewAreaFormMap }, // StateMap ^^Same as up top
   name: "state-tools",
   data() {
     return {
       dialog: false,
-      newArea: {
-        id: 0,
-        name: "",
-        stateAbbrev: this.$route.params.abbrev,
-        latitude: "",
-        longitude: "",
-      },
+      state: {},
+      newArea: {},
     };
   },
-  computed: {
-    estado() {
-      return this.$store.state.states.find((s) => {
-        return s.abbrev == this.$route.params.abbrev;
-      });
-    },
+  created() {
+    this.loadState();
+    this.resetNewArea();
+    this.dialog = false;
   },
   methods: {
-    //ADDS NEW AREA TO STATE
+    loadState() {
+      locationService
+        .getStateByAbbrev(this.$route.params.id)
+        .then((response) => {
+          if (response.status == 200) {
+            this.state = response.data;
+          }
+        });
+    },
     saveArea() {
-      this.newArea.id = this.$store.getters.nextAreaId;
-      this.$store.commit("SAVE_AREA", this.newArea);
+      locationService.saveArea(this.newArea).then((response) => {
+        if (response == 201) {
+          window.alert("New Area Added!");
+        } else {
+          window.alert("Uh-oh, something went wrong!");
+        }
+      });
       this.dialog = false;
-      this.newArea = {
-        id: 0,
-        name: "",
-        stateAbbrev: this.$route.params.abbrev,
-        latitude: "",
-        longitude: "",
-      };
+      this.resetNewArea();
     },
-
     cancelArea() {
+      this.resetNewArea();
+      this.dialog = false;
+    },
+    resetNewArea() {
       this.newArea = {
         id: 0,
         name: "",
+        description: "",
         stateAbbrev: this.$route.params.abbrev,
         latitude: "",
         longitude: "",
       };
-      this.dialog = false;
     },
-  },
-  created() {
-    this.dialog = false;
   },
 };
 </script>

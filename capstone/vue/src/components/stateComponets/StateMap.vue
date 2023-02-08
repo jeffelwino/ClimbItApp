@@ -55,8 +55,6 @@ export default {
       .getStateByAbbrev(this.$route.params.abbrev)
       .then((response) => {
         if (response.status == 200) {
-          console.log("state:");
-          console.log(response.data);
           this.state = response.data;
           this.center.lat = parseFloat(this.state.latitude);
           this.center.lng = parseFloat(this.state.longitude);
@@ -64,8 +62,6 @@ export default {
             .getAreasByState(this.state.abbrev)
             .then((response) => {
               if (response.status == 200) {
-                console.log("areas:");
-                console.log(response.data);
                 this.areas = response.data;
               }
             });

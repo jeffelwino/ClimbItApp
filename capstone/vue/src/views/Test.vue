@@ -28,10 +28,7 @@ export default {
       },
     };
   },
-  created() {
-    console.log(this.$store.state.user);
-    console.log(this.$store.state.user.authorities[0].name);
-  },
+  created() {},
 };
 </script>
 

@@ -19,6 +19,9 @@ export default {
     getAreaById(id) {
         return axios.get(`area/${id}`);
     },
+    saveArea(area) {
+        return axios.post(`/area/create`, area)
+    },
 
 
     loadCrags() {

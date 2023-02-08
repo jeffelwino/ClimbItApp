@@ -106,7 +106,6 @@ export default {
     saveChanges() {
       let lat = parseFloat(this.updatedArea.position.lat);
       let lng = parseFloat(this.updatedArea.position.lng);
-      console.log(lat);
       this.updatedArea.position = { lat: lat, lng: lng };
       this.$store.commit("UPDATE_AREA", this.updatedArea);
       this.dialog = false;
