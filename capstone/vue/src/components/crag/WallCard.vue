@@ -7,7 +7,8 @@
       ></v-img> -->
       <cld-context cloudName="dacyocfmf" secure="true">
         <cld-image
-          :publicId="photoId"/>
+          :publicId="photoId"
+          :width="700"/>
       </cld-context>
       <v-card-title>
         {{ wall.name }}
