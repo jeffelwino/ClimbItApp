@@ -27,11 +27,6 @@ public class LocationsController {
 	@Autowired
 	private CragDao cragDao;
 
-
-
-
-
-
     //@PreAuthorize("hasRole('USER')")
     @GetMapping(path="/state")
     public List<State> getAllStates(){
@@ -123,44 +118,6 @@ public class LocationsController {
     public Wall getWallById(@PathVariable String id){
     return wallDao.getWallById(id);
 }
-//@ResponseStatus(HttpStatus.CREATED)
-//@PostMapping(path="/wall/create")
-//public Wall addWall(@RequestBody Wall wall){
-//    return wallDao.addWall(wall);
-//}
-//@PutMapping(path="/wall")
-//    public boolean updateWall(@RequestBody Wall wall){
-//    return wallDao.updateWall(wall);
-//}
-//@ResponseStatus(HttpStatus.NO_CONTENT)
-//@DeleteMapping(path="/wall/{id}")
-//    public boolean deleteWall(@PathVariable String id){
-//    return wallDao.deleteWall(id);
-//}
-//@GetMapping(path="/route")
-//    public List<Route> getAllRoutes(){
-//    return routeDao.getAllRoutes();
-//}
-//@GetMapping(path="/route/{id}")
-//    public Route getRouteById(@PathVariable String id){
-//    return routeDao.getRouteById(id);
-//}
-//@ResponseStatus(HttpStatus.CREATED)
-//@PostMapping(path="/route/create")
-//    public Route addRoute(@RequestBody Route route){
-//    return routeDao.addRoute(route);
-//}
-//@PutMapping(path="/route")
-//    public boolean updateRoute(@RequestBody Route route){
-//    return routeDao.updateRoute(route);
-//}
-//@ResponseStatus(HttpStatus.NO_CONTENT)
-//@DeleteMapping(path="/route/{id}")
-//public boolean deleteRoute(@PathVariable String id){
-//    return routeDao.deleteRoute(id);
-//}
-
-
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path="/wall/create")
@@ -210,6 +167,5 @@ public class LocationsController {
     public boolean deleteRoute(@RequestBody String id){
         return routeDao.deleteRoute(id);
     }
-
-
+    
 }
