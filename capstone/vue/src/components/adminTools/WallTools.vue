@@ -23,7 +23,7 @@
                 label="Description"
                 v-model="updatedWall.description"
               ></v-text-field>
-              <v-btn @click.stop="saveChanges">Submit</v-btn>
+              <v-btn @click.stop="updateWall">Submit</v-btn>
               <v-btn @click.stop="cancelChanges">Cancel</v-btn>
             </v-form>
           </v-card>
@@ -76,35 +76,44 @@
 </template>
 
 <script>
+import locationService from "../../services/LocationService.js";
 export default {
   name: "wall-tools",
   data() {
     return {
       dialog2: false,
       dialog: false,
-      newRoute: {
-        id: 0,
-        wallId: this.$route.params.id,
-        name: "",
-        grade: "",
-        height: "",
-        style: "",
-        protection: "",
-        description: "",
-      },
+      wall: {},
+      updatedWall: {},
+      newRoute: {},
     };
   },
-  computed: {
-    wall() {
-      return this.$store.state.walls.find((w) => {
-        return w.id == this.$route.params.id;
-      });
-    },
+  created() {
+    this.loadWall();
+    this.dialog = false;
+    this.dialog2 = false;
   },
   methods: {
+    loadWall() {
+      locationService.getWallById(this.$route.params.id).then((response) => {
+        if (response.status == 200) {
+          this.wall = response.data;
+          this.$store.commit("SET_ACTIVE_WALL", this.wall);
+          this.resetUpdatedWall();
+          this.cancelRoute();
+        }
+      });
+    },
     //Saves updates to wall
-    saveChanges() {
-      this.$store.commit("UPDATE_WALL", this.updatedWall);
+    updateWall() {
+      locationService.updateWall(this.updatedWall).then((response) => {
+        if (response.status == 200) {
+          window.alert("Wall updated");
+          this.$router.go(0);
+        } else {
+          window.alert("Uh-oh, something went wrong trying to update the wall");
+        }
+      });
       this.dialog = false;
       this.resetUpdatedWall();
     },
@@ -121,19 +130,15 @@ export default {
 
     //ADDS NEW ROUTE TO WALL
     saveRoute() {
-      this.newRoute.id = this.$store.getters.nextRouteId;
-      this.$store.commit("SAVE_ROUTE", this.newRoute);
-      this.dialog2 = false;
-      this.newRoute = {
-        id: 0,
-        wallId: this.$route.params.id,
-        name: "",
-        grade: "",
-        height: "",
-        style: "",
-        protection: "",
-        description: "",
-      };
+      locationService.saveRoute(this.newRoute).then((response) => {
+        if (response.status == 201) {
+          window.alert("route saved!");
+          this.$router.go(0);
+        } else {
+          window.alert("something went wrong saving the route");
+        }
+      });
+      this.cancelRoute();
     },
     // DELETES WALL AND CHILD ROUTES
     deleteWall() {
@@ -159,8 +164,7 @@ export default {
 
     cancelRoute() {
       this.newRoute = {
-        id: 0,
-        wallId: this.$route.params.id,
+        wallId: this.wall.id,
         name: "",
         grade: "",
         height: "",
@@ -170,11 +174,6 @@ export default {
       };
       this.dialog2 = false;
     },
-  },
-  created() {
-    this.resetUpdatedWall();
-    this.dialog = false;
-    this.dialog2 = false;
   },
 };
 </script>
