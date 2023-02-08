@@ -47,6 +47,8 @@ public class SocialController {
         return profileDao.updateProfile(profile);
     }
 
+    //this is causing an issue because the profile is referenced in the tick table
+    //as well.
     @DeleteMapping(path="/profile/{id}")
     public boolean deleteProfile(@PathVariable int id){
         return profileDao.deleteProfile(id);

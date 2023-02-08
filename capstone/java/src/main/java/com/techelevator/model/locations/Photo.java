@@ -1,24 +1,25 @@
 package com.techelevator.model.locations;
 
 public class Photo {
-    private String imageId;
+    private String photoId;
     private String routeId;
 
-    public Photo(String imageId, String routeId) {
-        this.imageId = imageId;
+    public Photo(String photoId, String routeId) {
+        this.photoId = photoId;
         this.routeId = routeId;
     }
+
 
     public Photo() {
 
     }
 
-    public String getImageId() {
-        return imageId;
+    public String getPhotoId() {
+        return photoId;
     }
 
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public String getRouteId() {
@@ -32,7 +33,7 @@ public class Photo {
     @Override
     public String toString() {
         return "Photo{" +
-                "imageId=" + imageId + '\'' +
+                "imageId=" + photoId + '\'' +
                 "routeId=" + routeId + '\'' +
                 '}';
     }
