@@ -66,7 +66,7 @@ public class JdbcRouteDao implements RouteDao {
 
     @Override
     public boolean updateRoute(Route route) {
-        String sql = "UPDATE route " +
+        String sql = "UPDATE routes " +
                 "SET wall_id =?, name=?, grade=?, height=?, style=?, protection=?, description=? " +
                 "WHERE id=?";
         int rowsUpdated = jdbcTemplate.update(sql, route.getWallId(), route.getName(),
@@ -76,7 +76,7 @@ public class JdbcRouteDao implements RouteDao {
 
     @Override
     public boolean deleteRoute(String routeId) {
-        String sql = "DELETE FROM account " +
+        String sql = "DELETE FROM routes " +
                 "WHERE id = ?";
         int rowsDeleted=jdbcTemplate.update(sql, routeId);
         return rowsDeleted==1;

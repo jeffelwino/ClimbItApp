@@ -164,7 +164,7 @@ public class LocationsController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path="/route/{id}")
-    public boolean deleteRoute(@RequestBody String id){
+    public boolean deleteRoute(@PathVariable String id){
         return routeDao.deleteRoute(id);
     }
 

@@ -2,7 +2,7 @@
   <div>
     <v-sheet color="red">
       <h1>Admin TOOL BAR</h1>
-      <v-btn @click="deleteRoutePage(routePage.id)"> Delete Route</v-btn>
+      <v-btn @click="deleteRoute()"> Delete Route</v-btn>
 
       <v-btn @click.stop="dialog = !dialog">Edit Info</v-btn>
 
@@ -50,57 +50,54 @@
 </template>
 
 <script>
+import locationService from "../../services/LocationService.js";
 export default {
   name: "route-tools",
-  computed: {
-    routePage() {
-      return this.$store.state.routes.find((r) => {
-        return r.id == this.$route.params.id;
-      });
-    },
-  },
+
   data() {
     return {
       dialog: false,
-      updatedRoute: {
-        // id: this.$route.params.id,
-        // wallId: '',
-        // name:'',
-        // grade:'',
-        // height:'',
-        // style: '',
-        // protection: '',
-        // description:''
-      },
+      route: {},
+      updatedRoute: {},
     };
   },
+  created() {
+    this.loadRoute();
+    this.dialog = false;
+  },
   methods: {
-    //helper function. resets route information at submit or cancel or created
-    resetUpdatedRoute() {
-      this.updatedRoute = {
-        id: this.routePage.id,
-        wallId: this.routePage.wallId,
-        name: this.routePage.name,
-        grade: this.routePage.grade,
-        height: this.routePage.height,
-        style: this.routePage.style,
-        protection: this.routePage.protection,
-        description: this.routePage.description,
-      };
+    loadRoute() {
+      locationService.getRouteById(this.$route.params.id).then((response) => {
+        if (response.status == 200) {
+          this.route = response.data;
+          this.$store.commit("SET_ACTIVE_ROUTE", this.route);
+          this.resetUpdatedRoute();
+        }
+      });
     },
-    deleteRoutePage(id) {
+    deleteRoute() {
       if (
         confirm(
           "Are you sure you want to delete this page? This cannot be undone."
         )
       ) {
-        let wallId = this.routePage.wallId;
-        this.$store.commit("DELETE_ROUTE", id);
-        this.$router.push({ name: "wall", params: { id: wallId } });
+        let wallId = this.route.wallId;
+        locationService.deleteRoute(this.route.id).then((response) => {
+          if (response.status == 204) {
+            this.$router.push({ name: "wall", params: { id: wallId } });
+          }
+        });
       }
     },
     saveChanges() {
-      this.$store.commit("UPDATE_ROUTE", this.updatedRoute);
+      locationService.updateRoute(this.updatedRoute).then((response) => {
+        if (response.status == 200) {
+          window.alert("Route updated!");
+          this.$router.go(0);
+        } else {
+          window.alert("Uh-oh, something went wrong updating the route");
+        }
+      });
       this.dialog = false;
       this.resetUpdatedRoute();
     },
@@ -108,10 +105,18 @@ export default {
       this.dialog = false;
       this.resetUpdatedRoute();
     },
-  },
-  created() {
-    this.resetUpdatedRoute();
-    this.dialog = false;
+    resetUpdatedRoute() {
+      this.updatedRoute = {
+        id: this.route.id,
+        wallId: this.route.wallId,
+        name: this.route.name,
+        grade: this.route.grade,
+        height: this.route.height,
+        style: this.route.style,
+        protection: this.route.protection,
+        description: this.route.description,
+      };
+    },
   },
 };
 </script>
