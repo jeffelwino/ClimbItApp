@@ -76,7 +76,7 @@ public class JdbcCragDao implements CragDao{
 
     @Override
     public boolean deleteCrag(String id) {
-        String sql = "DELETE FROM crag " +
+        String sql = "DELETE FROM crags " +
                 "WHERE id = ?";
         int deletedRows = jdbcTemplate.update(sql, id);
         return deletedRows==1;
