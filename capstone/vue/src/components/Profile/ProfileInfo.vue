@@ -3,8 +3,8 @@
     <h2>{{ profile.name }}</h2>
     <h3>{{ profile.location }}</h3>
     <p>{{ profile.bio }}</p>
-    <v-btn v-if="$route.params.id == $store.state.user.id" @click="snapShot"
-      >Edit</v-btn
+    <v-btn v-if="$route.params.id == $store.state.user.id" @click="snapShot">
+      Edit</v-btn
     >
 
     <v-card v-if="showForm">
@@ -44,13 +44,7 @@ export default {
       currentPicture: "",
     };
   },
-  // computed: {
-  //   profile() {
-  //     return this.$store.state.profiles.find((profile) => {
-  //       return profile.id == this.$route.params.id;
-  //     });
-  //   },
-  // },
+
   methods: {
     snapShot() {
       this.currentPicture = this.profile.pictureId;
@@ -84,13 +78,12 @@ export default {
       this.showForm = false;
     },
   },
-  created(){
-    profileService.get(this.$route.params.id).then((response) =>{
-    if (response.status == 200) {
-    this.profile = response.data;
-     }
+  created() {
+    profileService.get(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.profile = response.data;
+      }
     });
-
   },
   mounted() {
     this.editedProfile = {

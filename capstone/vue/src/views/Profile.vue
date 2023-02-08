@@ -19,14 +19,6 @@ import profileService from "../services/ProfileService.js";
 export default {
   components: { ProfilePicture, ProfileInfo, ProfileTicks, ProfileTodo },
   name: "profile",
-  // computed: {
-  //   profile() {
-  //     return this.$store.state.profiles.find((profile) => {
-  //       return profile.id == this.$route.params.id;
-  //     });
-  //   },
-  // }
-
   data() {
     return {
       profile: {},
@@ -41,21 +33,12 @@ export default {
         }
       })
       .catch((error) => {
+        console.log(error);
         if (error.response.status == 404) {
           this.$router.push({ name: "NotFound" });
         }
       });
   },
-  // methods: {
-  //   loadProfile() {
-  //     this.profile = this.$store.state.profiles.find((profile) => {
-  //       return profile.id == this.$route.params.id;
-  //     });
-  //   },
-  // },
-  // mounted() {
-  //   this.loadProfile();
-  // },
 };
 </script>
 

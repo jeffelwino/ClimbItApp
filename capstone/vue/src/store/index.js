@@ -386,6 +386,7 @@ export default new Vuex.Store({
         }
       })
     },
+
     LOAD_STATES(state, states) {
       states.forEach(s => {
         if (!state.states.includes(s)) {
@@ -479,6 +480,7 @@ export default new Vuex.Store({
         }
       })
     },
+
     UPDATE_ROUTE(state, route) {
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == route.id) {

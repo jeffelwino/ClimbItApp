@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Page</h1>
+    <h1>Not Found</h1>
     <p>
-      The Page you are looking for could not be found.
+      The page you are looking for could not be found.
       <router-link to="/">Return To Home</router-link>.
     </p>
   </div>
@@ -12,5 +12,12 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+div {
+  text-align: center;
+}
+h1,
+p {
+  margin-left: 2rem;
+}
 </style>
