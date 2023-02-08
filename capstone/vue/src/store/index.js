@@ -164,15 +164,6 @@ export default new Vuex.Store({
         }
       })
     },
-<<<<<<< HEAD
-    UPDATE_ROUTE_IMAGE(state, info) {
-      state.route.forEach(route => {
-        if (route.id == info.routeId) {
-          route.pictureId = info.picture
-        }
-      })
-    },
-=======
     // UPDATE_ROUTE_IMAGE(state, info){
     //   state.route.forEach(route => {
     //     if(route.id == info.routeId){
@@ -180,7 +171,6 @@ export default new Vuex.Store({
     //     }
     //   })
     // },
->>>>>>> main
 
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
