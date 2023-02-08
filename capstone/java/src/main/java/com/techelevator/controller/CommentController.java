@@ -33,12 +33,12 @@ public class CommentController {
         return routeCommentDao.addRouteComment(comment);
     }
 
-    @GetMapping(path="/crag/{id}/comment")
+    @GetMapping(path="/crag/{id}/comments")
     public List<CragComment> getAllCragComments(@PathVariable String id){
         return cragCommentDao.getAllCragComments(id);
     }
 
-    @GetMapping(path="/route/{id}comment")
+    @GetMapping(path="/route/{id}/comments")
     public List<RouteComment> getAllRouteComments(@PathVariable String id){
         return routeCommentDao.getAllRouteComments(id);
     }

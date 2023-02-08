@@ -57,7 +57,7 @@ import RouteHeader from "../components/routecomps/RouteHeader.vue";
 import RouteGallery from "../components/imageComps/RouteGallery.vue";
 // import Description from "../components/Description.vue";
 import RouteTicks from "../components/routecomps/RouteTicks.vue";
-import RouteComment from "../components/routecomps/RouteComment.vue";
+import RouteComment from "../components/commentComps/RouteComment.vue";
 import RouteTools from "../components/adminTools/RouteTools.vue";
 import locationService from "../services/LocationService";
 
