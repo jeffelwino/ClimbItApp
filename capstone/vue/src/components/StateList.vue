@@ -33,15 +33,9 @@
 </template>
 
 <script>
-// import locationService from "../services/LocationService.js";
 export default {
   name: "state-list",
   props: ["states"],
-  data() {
-    return {
-      // states: [],
-    };
-  },
   methods: {
     // if user is loggedIn, goes to state-page. else, goes to login page
     goToStatePage(abbrev) {
@@ -57,15 +51,6 @@ export default {
       }
     },
   },
-  // created() {
-  //   if (!this.states) {
-  //     locationService.loadStates().then((response) => {
-  //       if (response.data == 200) {
-  //         this.states = response.data;
-  //       }
-  //     });
-  //   }
-  // },
 };
 </script>
 

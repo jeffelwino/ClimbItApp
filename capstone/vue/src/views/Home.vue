@@ -26,9 +26,7 @@ export default {
   created() {
     if (this.states.length == 0) {
       locationService.loadStates().then((response) => {
-        console.log(response);
         if (response.status == 200) {
-          console.log(response.data);
           this.states = response.data;
         }
       });
