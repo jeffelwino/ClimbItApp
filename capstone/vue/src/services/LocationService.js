@@ -14,8 +14,14 @@ export default {
     getAreasByState(abbrev) {
         return axios.get(`area/state/${abbrev}`)
     },
+    getAreaById(id) {
+        return axios.get(`area/${id}`);
+    },
     loadCrags() {
         return axios.get('/crag');
+    },
+    getCragsByArea(id) {
+        return axios.get(`/crag/area/${id}`)
     },
 
     loadWalls() {

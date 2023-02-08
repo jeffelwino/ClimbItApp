@@ -78,6 +78,11 @@ public class LocationsController {
         return cragDao.getAllCrags();
     }
 
+    @GetMapping(path="/crag/area/{id}")
+    public List<Crag> getCragsByAreaId(@PathVariable String id){
+        return cragDao.getCragsByAreaId(id);
+    }
+
     @GetMapping(path="/crag/{id}")
         public Crag getCragsById(@PathVariable String id){
         return cragDao.getCragById(id);

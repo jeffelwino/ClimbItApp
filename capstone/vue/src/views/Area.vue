@@ -16,14 +16,16 @@
         </v-btn>
       </v-row>
     </div>
-
+    <!-- component -->
     <area-tools
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
     <h2>{{ area.name }}</h2>
-    <area-map v-bind:area="area" />
+    <!-- component -->
+    <area-map />
     <!-- <new-area-form-map v-bind:area="area"/> -->
-    <area-detail v-bind:area="area" />
+    <!-- component -->
+    <area-detail />
     <!-- <comment-container  -->
   </div>
 </template>
@@ -33,16 +35,21 @@ import AreaDetail from "../components/area/AreaDetail.vue";
 //import NewAreaFormMap from '../components/area/NewAreaFormMap.vue'
 import AreaMap from "../components/area/AreaMap.vue";
 import AreaTools from "../components/adminTools/AreaTools.vue";
+import locationService from "../services/LocationService.js";
 export default {
-  
-  components: { AreaDetail, AreaMap, AreaTools,  }, //NewAreaFormMap
+  components: { AreaDetail, AreaMap, AreaTools }, //NewAreaFormMap
   name: "area",
-  computed: {
-    area() {
-      return this.$store.state.areas.find((area) => {
-        return area.id == this.$route.params.id;
-      });
-    },
+  data() {
+    return {
+      area: {},
+    };
+  },
+  created() {
+    locationService.getAreaById(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.area = response.data;
+      }
+    });
   },
 };
 </script>
