@@ -2,7 +2,7 @@
   <div>
     <v-sheet color="red">
       <h1>Admin TOOL BAR</h1>
-      <v-btn @click="deleteRoute(route.id)"> Delete Route</v-btn>
+      <v-btn @click="deleteRoute()"> Delete Route</v-btn>
 
       <v-btn @click.stop="dialog = !dialog">Edit Info</v-btn>
 
@@ -75,15 +75,18 @@ export default {
         }
       });
     },
-    deleteRoute(id) {
+    deleteRoute() {
       if (
         confirm(
           "Are you sure you want to delete this page? This cannot be undone."
         )
       ) {
         let wallId = this.route.wallId;
-        this.$store.commit("DELETE_ROUTE", id);
-        this.$router.push({ name: "wall", params: { id: wallId } });
+        locationService.deleteRoute(this.route.id).then((response) => {
+          if (response.status == 204) {
+            this.$router.push({ name: "wall", params: { id: wallId } });
+          }
+        });
       }
     },
     saveChanges() {

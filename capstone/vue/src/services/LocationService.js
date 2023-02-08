@@ -76,5 +76,8 @@ export default {
     updateRoute(route) {
         return axios.put('/route', route);
     },
+    deleteRoute(id) {
+        return axios.delete(`/route/${id}`);
+    }
 
 }
