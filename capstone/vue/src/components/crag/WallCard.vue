@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" max-width="700">
+    <v-card class="mx-auto" max-width="700" >
       <!-- <v-img
         src="https://media.istockphoto.com/id/527531592/photo/rock-climber-clinging-to-a-cliff.jpg?s=612x612&w=0&k=20&c=2AUDSQAWDVzyvTeWQ5rXTwQGGBqQ0eCJw4kk4S6r6OQ="
         height="200px"
@@ -8,7 +8,9 @@
       <cld-context cloudName="dacyocfmf" secure="true">
         <cld-image
           :publicId="photoId"
-          :width="700"/>
+          width="700"
+          height="300"
+          crop="fill"/>
       </cld-context>
       <v-card-title>
         {{ wall.name }}
