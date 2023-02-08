@@ -408,6 +408,24 @@ export default new Vuex.Store({
     SET_ACTIVE_AREA(state, area) {
       state.activeArea = area;
     },
+    SET_ACTIVE_CRAGS(state, crags) {
+      state.activeCrags = crags;
+    },
+    SET_ACTIVE_CRAG(state, crag) {
+      state.activeCrag = crag;
+    },
+    SET_ACTIVE_WALL(state, wall) {
+      state.activeWall = wall;
+    },
+    SET_ACTIVE_WALLS(state, walls) {
+      state.activeWalls = walls;
+    },
+    SET_ACTIVE_ROUTE(state, route) {
+      state.activeRoute = route;
+    },
+    SET_ACTIVE_ROUTES(state, routes) {
+      state.activeRoutes = routes;
+    },
 
 
     RELOAD(state) {
