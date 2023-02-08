@@ -18,18 +18,18 @@ public class JdbcRouteDao implements RouteDao {
 
     @Override
     public Route addRoute(Route route) {
-        String sql = "INSERT INTO routes (wall_id, name, grade, height, style, protection) " +
-                "VALUES (?,?,?,?,?,?) " +
+        String sql = "INSERT INTO routes (wall_id, name, grade, height, style, protection, description) " +
+                "VALUES (?,?,?,?,?,?,?) " +
                 "RETURNING id ";
         String routeId = jdbcTemplate.queryForObject(sql, String.class, route.getWallId(),
-                route.getName(), route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection());
+                route.getName(), route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection(), route.getDescription());
         return getRouteById(routeId);
     }
 
     @Override
     public List<Route> getAllRoutes() {
         List<Route> routes = new ArrayList<>();
-        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection, description " +
                 "FROM routes ";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -41,7 +41,7 @@ public class JdbcRouteDao implements RouteDao {
     @Override
     public List<Route> getRouteByWallId(String id) {
         List<Route> routes = new ArrayList<>();
-        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection, description " +
                 "FROM routes " +
                 "WHERE wall_id=?";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
@@ -54,7 +54,7 @@ public class JdbcRouteDao implements RouteDao {
     @Override
     public Route getRouteById(String routeId) {
         Route route=null;
-        String sql = "SELECT id, wall_id, name, grade, height, style, protection " +
+        String sql = "SELECT id, wall_id, name, grade, height, style, protection, description " +
                 "FROM routes " +
                 "WHERE id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
@@ -67,10 +67,10 @@ public class JdbcRouteDao implements RouteDao {
     @Override
     public boolean updateRoute(Route route) {
         String sql = "UPDATE route " +
-                "SET wall_id =?, name=?, grade=?, height=?, style=?, protection=? " +
+                "SET wall_id =?, name=?, grade=?, height=?, style=?, protection=?, description=? " +
                 "WHERE id=?";
         int rowsUpdated = jdbcTemplate.update(sql, route.getWallId(), route.getName(),
-                route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection(), route.getId());
+                route.getGrade(),route.getHeight(),route.getStyle(), route.getProtection(), route.getDescription(), route.getId());
         return rowsUpdated==1;
     }
 
@@ -90,6 +90,7 @@ public class JdbcRouteDao implements RouteDao {
         String height=results.getString("height");
         String style=results.getString("style");
         String protection=results.getString("protection");
-        return new Route(routeId,wallId,routeName,grade,height,style,protection);
+        String description = results.getString("description");
+        return new Route(routeId,wallId,routeName,grade,height,style,protection,description);
     }
 }

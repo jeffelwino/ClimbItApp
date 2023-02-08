@@ -48,6 +48,9 @@ export default {
     },
     getRoutesByWall(id) {
         return axios.get(`/route/wall/${id}`);
+    },
+    getRouteById(id) {
+        return axios.get(`route/${id}`);
     }
 
 }
