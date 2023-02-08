@@ -1,7 +1,12 @@
 <template>
   <v-sheet>
     <!-- v-slot:activator="{ on, attrs }"> -->
-    <v-btn class="light-green" small @click.stop="dialog = true" v-bind:disabled="!isClicked">
+    <v-btn
+      class="light-green"
+      small
+      @click.stop="dialog = true"
+      v-bind:disabled="!isClicked"
+    >
       <!-- small v-bind="attrs" v-on="on"> -->
       ClimbedIt!
     </v-btn>
@@ -27,8 +32,8 @@
                 >Date Climbed:</label
               >
             </v-col>
-          
-            <v-col cols="12" sm="6" >
+
+            <v-col cols="12" sm="6">
               <input
                 name="date-climbed"
                 id="date-climbed"
@@ -39,7 +44,7 @@
           </v-row>
 
           <v-row class="inline-block">
-            <v-col cols="12" sm="6" >
+            <v-col cols="12" sm="6">
               <v-card-text>
                 Rating:
                 <v-rating
@@ -62,11 +67,11 @@
             </v-col>
           </v-row>
           <v-row class="justify-space-around">
-            <v-btn color="blue darken-1" text @click.stop="dialog = false">
+            <v-btn color="blue darken-1" text @click.prevent="dialog = false">
               Cancel
             </v-btn>
 
-            <v-btn color="blue darken-1" text @click.stop="saveTick">
+            <v-btn color="blue darken-1" text @click.prevent="saveTick">
               Submit
             </v-btn>
           </v-row>
@@ -79,36 +84,62 @@
 
 
 <script>
+import tickService from "../../services/TickService.js";
+
 export default {
   name: "tickbox",
-  props: ["route"],
+  props: ["route", "profile"],
 
   data() {
     return {
       isClicked: true,
       dialog: false,
-      // To-do: Similar to principle, set profileId to logged in user's profileId
+
       survey: {
         id: 0,
+        routeId: this.$route.params.id,
         profileId: this.$store.state.user.id,
-        routeId: this.route.id,
         date: "",
         rating: 0,
         note: "",
       },
     };
   },
-  computed: {
-    //if the user has a tick for that specific route then we don't want that ClimbIt button to show for that route
-  },
   methods: {
+    // saveTick() {
+    //   this.survey.id = this.$store.getters.nextTickId;
+    //   this.$store.commit("SAVE_TICK", this.survey);
+    //   this.survey = {
+    //     id: 0,
+    //     profileId: this.$store.state.user.id,
+    //     routeId: this.route.id,
+    //     date: "",
+    //     rating: 0,
+    //     note: "",
+    //   };
+    //   this.dialog = false;
+    // },
     saveTick() {
-      this.survey.id = this.$store.getters.nextTickId;
-      this.$store.commit("SAVE_TICK", this.survey);
+      const newTick = {
+        routeId: this.survey.routeId,
+        profileId: this.survey.profileId,
+        date: this.survey.date,
+        rating: this.survey.rating,
+        note: this.survey.note,
+      };
+      console.log(this.survey);
+      tickService.post(newTick).then((response) => {
+        if (response.status === 201) {
+          this.$router.go(0);
+        }
+      });
+      this.resetSurvey();
+    },
+    resetSurvey() {
       this.survey = {
         id: 0,
+        routeId: this.$route.params.id,
         profileId: this.$store.state.user.id,
-        routeId: this.route.id,
         date: "",
         rating: 0,
         note: "",
