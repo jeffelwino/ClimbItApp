@@ -51,30 +51,33 @@ export default {
       this.showForm = !this.showForm;
     },
     updateProfileChanges() {
-      this.$store.commit("UPDATE_PROFILE", this.editedProfile);
-      this.editedProfile = {
-        id: this.$route.params.id,
-        name: this.profile.name,
-        location: this.profile.location,
-        bio: this.profile.bio,
-        todos: this.profile.todos,
-        picture: this.profile.picture,
-      };
+      profileService.put(this.profile).then(
+        () => {
+          window.alert("Profile Recently updated")
+        }
+      ).catch(
+        (error) => {
+          if(error.response) {
+            window.alert("There was an error updating your profile");
+          }
+        }
+      )
       this.showForm = false;
     },
     cancelChanges() {
-      this.$store.commit("UPDATE_PROFILE_PIC", {
-        profileId: this.$store.state.user.id,
-        picture: this.currentPicture,
-      });
-      this.editedProfile = {
-        id: this.$route.params.id,
-        name: this.profile.name,
-        location: this.profile.location,
-        bio: this.profile.bio,
-        todos: this.profile.todos,
-        picture: this.profile.picture,
-      };
+      // this.$store.commit("UPDATE_PROFILE_PIC", {
+      //   profileId: this.$store.state.user.id,
+      //   picture: this.currentPicture,
+      // });
+      // this.editedProfile = {
+      //   id: this.$route.params.id,
+      //   name: this.profile.name,
+      //   location: this.profile.location,
+      //   bio: this.profile.bio,
+      //   todos: this.profile.todos,
+      //   picture: this.profile.picture,
+      // };
+      this.editedProfile = this.$route.params.profile.id;
       this.showForm = false;
     },
   },
