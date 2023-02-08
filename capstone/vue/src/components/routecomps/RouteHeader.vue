@@ -30,6 +30,7 @@
 
 <script>
 import TickBox from "./TickBox.vue";
+import todoService from "../../services/TodoService.js";
 
 export default {
   components: { TickBox },
@@ -43,9 +44,15 @@ export default {
 
   methods: {
     addTodo() {
-      this.$store.commit("ADD_TODO", {
+      const newTodo = {
         profileId: this.$store.state.user.id,
         routeId: this.route.id,
+      };
+
+      todoService.post(newTodo).then((response) => {
+        if (response.status === 201) {
+          this.$router.push(`${this.route.id}`);
+        }
       });
     },
   },
