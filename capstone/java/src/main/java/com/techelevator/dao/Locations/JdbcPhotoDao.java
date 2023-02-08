@@ -20,8 +20,8 @@ public class JdbcPhotoDao implements PhotoDao{
     public Photo addPhoto(Photo photo){
      String sql = "INSERT into shared_images (image_id, route_id) " +
              "VALUES (?,?) " +
-             "RETURNING id ";
-     String id = jdbcTemplate.queryForObject(sql, String.class, photo.getImageId(), photo.getRouteId());
+             "RETURNING image_id ";
+     String id = jdbcTemplate.queryForObject(sql, String.class, photo.getPhotoId(), photo.getRouteId());
      return getPhotoById(id);
     }
 
@@ -40,7 +40,7 @@ public class JdbcPhotoDao implements PhotoDao{
     @Override
     public List<Photo> getAllPhotosByProfileId(String profileid) {
         List<Photo> photos = new ArrayList<>();
-        String sql = "SELECT image_id, route_id" +
+        String sql = "SELECT image_id, route_id " +
                 "FROM shared_images WHERE profile_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, profileid);
         while(results.next()){
@@ -52,7 +52,7 @@ public class JdbcPhotoDao implements PhotoDao{
     @Override
     public Photo getPhotoById(String imageId) {
         Photo photo = null;
-        String sql = "SELECT image_id, route_id" +
+        String sql = "SELECT image_id, route_id " +
                 "FROM shared_images WHERE image_id = ?";
         SqlRowSet results= jdbcTemplate.queryForRowSet(sql, imageId);
         if(results.next()){

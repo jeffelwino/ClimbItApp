@@ -1,11 +1,16 @@
 <template>
   <v-container class="profile-picture mt-n10">
     <div>
+        <v-btn small @click="$router.go(-1)" exact class="back-button mt-n10 justify-start">
+            <v-icon small>mdi-arrow-left-circle</v-icon>
+            Back
+          </v-btn>
       <v-row class="justify-center">
+        
         <cld-context cloudName="dacyocfmf" secure="true">
           <cld-image
             :cloudName="this.$store.state.cloudName"
-            :publicId="profile.picture.publicId"
+            :publicId="profile.pictureId"
             width="300"
           />
         </cld-context>
@@ -15,32 +20,29 @@
 </template>
 
 <script>
-// import Vue from 'vue';
-// import Cloudinary from "cloudinary-vue";
-// Vue.use(Cloudinary, {
-//   configuration: {
-//     cloudName: "dacyocfmf",
-//     secure: true }
-// });
+import profileService from "../../services/ProfileService.js";
 
 export default {
-  props: ["profile"],
-  // data() {
-  //   return {
-  //     picture: {
-  //       cloudName: this.profile.picture.cloudName,
-  //       publicId: this.profile.pictureIdId,
-  //     },
-  //   };
-  // },
-  // computed: {
-  //   profile() {
-  //     return this.$store.state.profiles.find((profile) => {
-  //       return profile.id == this.$route.params.id;
-  //     });
-  //   },
-  // },
-  created() {},
+  // props: ["profile"],
+  data() {
+    return {
+      profile: {},
+    };
+    // computed: {
+    //   profile() {
+    //     return this.$store.state.profiles.find((profile) => {
+    //       return profile.id == this.$route.params.id;
+    //     });
+  },
+  created() {
+    profileService.get(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.profile = response.data;
+      } else {
+        this.$router.push("/notfound");
+      }
+    });
+  },
 };
 </script>
 

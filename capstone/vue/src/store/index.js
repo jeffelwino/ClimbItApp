@@ -28,7 +28,7 @@ export default new Vuex.Store({
     routeComment: {},
 
     activeState: {},
-    acitveAreas: [],
+    activeAreas: [],
     activeArea: {},
     activeCrags: [],
     activeCrag: {},
@@ -450,6 +450,14 @@ export default new Vuex.Store({
         }
       })
     },
+    UPDATE_ROUTE_IMAGE(state, info){
+      state.route.forEach(route => {
+        if(route.id == info.routeId){
+          route.pictureId = info.picture
+        }
+      })
+    },
+
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
     },
@@ -475,6 +483,7 @@ export default new Vuex.Store({
         }
       })
     },
+
     UPDATE_ROUTE(state, route) {
       for (let i = 0; i < state.routes.length; i++) {
         if (state.routes[i].id == route.id) {
