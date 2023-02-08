@@ -12,6 +12,7 @@ public interface PhotoDao {
     List<Photo> getAllPhotosByRouteId(String id);
     List<Photo> getAllPhotosByProfileId(String profileId); //<---Not sure if we will use this
     Photo getPhotoById(String imageId); //<---Not sure if we will use this
+    List<Photo> getAllPhotosByWallId(String id);
     //UPDATE
     //DELETE
     boolean deletePhoto(String imageId); //ADMIN only for this one-ADMIN can delete any photo

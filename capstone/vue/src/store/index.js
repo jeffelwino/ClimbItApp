@@ -450,13 +450,13 @@ export default new Vuex.Store({
         }
       })
     },
-    UPDATE_ROUTE_IMAGE(state, info){
-      state.route.forEach(route => {
-        if(route.id == info.routeId){
-          route.pictureId = info.picture
-        }
-      })
-    },
+    // UPDATE_ROUTE_IMAGE(state, info){
+    //   state.route.forEach(route => {
+    //     if(route.id == info.routeId){
+    //       route.pictureId = info.picture
+    //     }
+    //   })
+    // },
 
     SAVE_TICK(state, tick) {
       state.ticks.push(tick);
