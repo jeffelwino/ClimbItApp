@@ -12,11 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class SocialController {
-    
-    @Autowired
-    private CragCommentDao cragCommentDao;
-    @Autowired
-    private RouteCommentDao routeCommentDao;
+
     @Autowired
     private ProfileDao profileDao;
     @Autowired
@@ -26,45 +22,6 @@ public class SocialController {
     @Autowired
     private TodoDao todoDao;
 
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path="/crag/comment")
-    public Comment addComment(@RequestBody CragComment comment){
-        return cragCommentDao.addComment(comment);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path="/route/comment")
-    public RouteComment addComment(@RequestBody RouteComment comment){
-        return routeCommentDao.addComment(comment);
-    }
-
-
-    @GetMapping(path="/crag/comment")
-    public List<CragComment> getAllCragComments(){
-        return cragCommentDao.getAllCragComments();
-    }
-
-    @GetMapping(path="/route/comment")
-    public List<RouteComment> getAllRouteComments(){
-        return routeCommentDao.getAllRouteComments();
-    }
-
-    @GetMapping(path="/crag/comment/{id}")
-    public CragComment getCragCommentById(@PathVariable int id){
-        return cragCommentDao.getCommentById(id);
-
-    }
-    @GetMapping(path="/route/comment/{id}")
-    public RouteComment getCommentById(@PathVariable int id){
-        return routeCommentDao.getCommentById(id);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path="/profile")
-    public Profile addProfile(@RequestBody Profile profile){
-        return profileDao.addProfile(profile);
-    }
 
     @GetMapping(path="/profile")
     public List<Profile> getAllProfiles(){
@@ -94,14 +51,13 @@ public class SocialController {
         return tickDao.addTick(tick);
     }
 
-    @GetMapping(path="/tick")
-    public List<Tick> getAllTicks(){
-        return tickDao.getAllTicks();
+    @GetMapping(path="/profile/{id}/ticks")
+    public List<Tick> getTicksByProfile(@PathVariable int id){
+        return tickDao.getTicksByProfile(id);
     }
-
-    @GetMapping(path="/tick/{tickId}")
-    public Tick getTickById(@PathVariable int tickId){
-        return tickDao.getTickById(tickId);
+    @GetMapping(path="route/{id}/ticks")
+    public List<Tick> getTicksByRoute(@PathVariable String id){
+        return tickDao.getTicksByRoute(id);
     }
 
     @PutMapping(path="/tick")
@@ -125,7 +81,7 @@ public class SocialController {
         return todoDao.getAllTodos();
     }
 
-    @GetMapping(path="/todo/user/{profileId}")
+    @GetMapping(path="profile/{profileId}/todo")
     public List<Todo> getTodosByUser(@PathVariable int profileId){
         return todoDao.getTodosByUser(profileId);
     }

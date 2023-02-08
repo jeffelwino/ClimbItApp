@@ -19,7 +19,7 @@ public class JdbcStateDao implements StateDao{
     @Override
     public List<State> getAllStates() {
         List<State> states = new ArrayList<>();
-        String sql = "SELECT state_abbrev, name, latitude, longitude " +
+        String sql = "SELECT abbrev, state_name, latitude, longitude " +
                 "FROM states ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -31,9 +31,9 @@ public class JdbcStateDao implements StateDao{
     @Override
     public State getStateByAbbrev(String abbrev) {
         State state = null;
-        String sql = "SELECT state_abbrev, name, latitude, longitude " +
+        String sql = "SELECT abbrev, state_name, latitude, longitude " +
                 "FROM states " +
-                "WHERE state_abbrev=?";
+                "WHERE abbrev=?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,abbrev);
         if(results.next()){
             state=mapRowToState(results);
@@ -42,8 +42,8 @@ public class JdbcStateDao implements StateDao{
     }
 
     State mapRowToState(SqlRowSet results){
-        String stateAbbrev = results.getString("state_abbrev");
-        String stateName = results.getString("name");
+        String stateAbbrev = results.getString("abbrev");
+        String stateName = results.getString("state_name");
         double latitude=results.getDouble("latitude");
         double longitude=results.getDouble("longitude");
         return new State(stateAbbrev,stateName, latitude, longitude);

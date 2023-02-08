@@ -1,44 +1,37 @@
 <template>
-  
-    <v-card class="light-blue">
-      <h2>{{ profile.name }}</h2>
-      <h3>{{ profile.location }}</h3>
-      <p>{{ profile.bio }}</p>
-      <v-btn
-        v-if="$route.params.id == $store.state.user.id"
-        @click="snapShot"
-        >Edit</v-btn
-      >
+  <v-card class="light-blue">
+    <h2>{{ profile.name }}</h2>
+    <h3>{{ profile.location }}</h3>
+    <p>{{ profile.bio }}</p>
+    <v-btn v-if="$route.params.id == $store.state.user.id" @click="snapShot"
+      >Edit</v-btn
+    >
 
-      <v-card v-if="showForm">
-        <v-form ref="form">
-          <v-text-field
-            label="Name"
-            v-model="editedProfile.name"
-          ></v-text-field>
-          <v-text-field
-            label="Location"
-            v-model="editedProfile.location"
-          ></v-text-field>
-          <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
-          <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
-          <!-- <v-file-input
+    <v-card v-if="showForm">
+      <v-form ref="form">
+        <v-text-field label="Name" v-model="editedProfile.name"></v-text-field>
+        <v-text-field
+          label="Location"
+          v-model="editedProfile.location"
+        ></v-text-field>
+        <v-text-field label="Bio" v-model="editedProfile.bio"></v-text-field>
+        <!-- FOR UPLOADING IMAGES. CURRENTLY FOR SHOW -->
+        <!-- <v-file-input
             show-size
             disabled
             multiple
             label="Profile Pic"
           ></v-file-input> -->
-          <cloudinary/>
-          <v-btn @click="updateProfileChanges">Submit</v-btn>
-          <v-btn @click="cancelChanges">Cancel</v-btn>
-        </v-form>
-      </v-card>
+        <cloudinary />
+        <v-btn @click="updateProfileChanges">Submit</v-btn>
+        <v-btn @click="cancelChanges">Cancel</v-btn>
+      </v-form>
     </v-card>
-  
+  </v-card>
 </template>
 
 <script>
-import Cloudinary from "../imageComps/Cloudinary.vue"
+import Cloudinary from "../imageComps/Cloudinary.vue";
 export default {
   components: { Cloudinary },
   name: "profile-info",
@@ -46,7 +39,7 @@ export default {
     return {
       showForm: false,
       editedProfile: {},
-      currentPicture: ""
+      currentPicture: "",
     };
   },
   computed: {
@@ -57,8 +50,8 @@ export default {
     },
   },
   methods: {
-    snapShot(){
-      this.currentPicture = this.profile.picture.publicId;
+    snapShot() {
+      this.currentPicture = this.profile.pictureIdId;
       this.showForm = !this.showForm;
     },
     updateProfileChanges() {
@@ -74,7 +67,10 @@ export default {
       this.showForm = false;
     },
     cancelChanges() {
-      this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:this.currentPicture})
+      this.$store.commit("UPDATE_PROFILE_PIC", {
+        profileId: this.$store.state.user.id,
+        picture: this.currentPicture,
+      });
       this.editedProfile = {
         id: this.$route.params.id,
         name: this.profile.name,

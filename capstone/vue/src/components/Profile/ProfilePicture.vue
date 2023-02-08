@@ -4,7 +4,7 @@
       <v-row class="justify-center">
         <cld-context cloudName="dacyocfmf" secure="true">
           <cld-image
-            :cloudName="profile.picture.cloudName"
+            :cloudName="this.$store.state.cloudName"
             :publicId="profile.picture.publicId"
             width="300"
           />
@@ -25,14 +25,14 @@
 
 export default {
   props: ["profile"],
-  data() {
-    return {
-      picture: {
-        cloudName: this.profile.picture.cloudName,
-        publicId: this.profile.picture.publicId,
-      },
-    };
-  },
+  // data() {
+  //   return {
+  //     picture: {
+  //       cloudName: this.profile.picture.cloudName,
+  //       publicId: this.profile.pictureIdId,
+  //     },
+  //   };
+  // },
   // computed: {
   //   profile() {
   //     return this.$store.state.profiles.find((profile) => {

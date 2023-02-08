@@ -10,6 +10,7 @@ public interface WallDao {
     Wall addWall(Wall wall);
 //    READ
     List<Wall> getAllWalls();
+    List<Wall> getWallsByCragId(String id);
     Wall getWallById(String id);
 //    UPDATE
     boolean updateWall(Wall wall);

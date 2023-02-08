@@ -9,10 +9,10 @@ import java.util.List;
 public interface RouteCommentDao {
     //    CRUD
     //    CREATE
-    RouteComment addComment(RouteComment comment);
+    RouteComment addRouteComment(RouteComment comment);
     //    READ
-    List<RouteComment> getAllRouteComments();
-    RouteComment getCommentById(int id);
+    List<RouteComment> getAllRouteComments(String routeId);
+    RouteComment getRouteCommentById(int id);
     //    UPDATE
     //    DELETE
 }

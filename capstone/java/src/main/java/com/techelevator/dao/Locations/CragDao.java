@@ -11,6 +11,7 @@ public interface CragDao {
 //    READ
     List<Crag> getAllCrags();
     Crag getCragById(String id);
+    List<Crag> getCragsByAreaId(String id);
 //    UPDATE
     boolean updateCrag(Crag crag);
 //    DELETE

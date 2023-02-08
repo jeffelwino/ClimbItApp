@@ -28,18 +28,29 @@ public class JdbcTickDao implements TickDao{
     }
 
     @Override
-    public List<Tick> getAllTicks() {
+    public List<Tick> getTicksByRoute(String routeId){
         List<Tick> ticks = new ArrayList<>();
         String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
-                "FROM ticks ";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+                "FROM ticks WHERE route_id ILIKE ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
         while(results.next()){
             ticks.add(mapRowToTick(results));
         }
         return ticks;
     }
-
     @Override
+    public List<Tick> getTicksByProfile(int profileId){
+        List<Tick> ticks = new ArrayList<>();
+        String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
+                "FROM ticks where profile_id = ? ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, profileId);
+        while(results.next()){
+            ticks.add(mapRowToTick(results));
+        }
+        return ticks;
+
+    }
+
     public Tick getTickById(int tickId) {
         Tick tick = null;
         String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
@@ -58,7 +69,7 @@ public class JdbcTickDao implements TickDao{
                 "SET route_id=?, profile_id=?, date_climbed=?, note=?, rating=? " +
                 "WHERE tick_id=?";
         int rowsUpdated = jdbcTemplate.update(sql, tick.getRouteId(), tick.getProfileId(),
-                tick.getDate(),tick.getNote(),tick.getRating(), tick.getTickId());
+                tick.getDate(),tick.getNote(),tick.getRating(), tick.getId());
         return rowsUpdated==1;
     }
 

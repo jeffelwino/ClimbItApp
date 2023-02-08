@@ -10,6 +10,7 @@ public interface RouteDao {
     Route addRoute(Route route);
 //    Read
     List<Route> getAllRoutes();
+    List<Route> getRouteByWallId(String id);
     Route getRouteById(String routeId);
 //    Update
     boolean updateRoute(Route route);

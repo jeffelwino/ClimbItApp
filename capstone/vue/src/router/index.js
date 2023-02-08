@@ -15,6 +15,7 @@ import Crag from '../views/Crag.vue'
 import Wall from '../views/Wall.vue'
 import Profile from '../views/Profile.vue'
 import RoutePage from '../views/RoutePage.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(Router)
 
@@ -111,6 +112,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/not-found",
+      name: "NotFound",
+      component: NotFound
     },
     {
       path: "/test/:id/",

@@ -8,7 +8,7 @@
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: true,
-        disableDefaultUi: false,   
+        disableDefaultUi: false,
       }"
       :center="center"
       :zoom="7"
@@ -18,7 +18,10 @@
       <GmapMarker
         v-for="area in areas"
         :key="area.id"
-        :position="{ lat: area.latitude, lng: area.longitude }"
+        :position="{
+          lat: parseFloat(area.latitude),
+          lng: parseFloat(area.longitude),
+        }"
         :label="area.name"
         @click="navigateToPage(area.id)"
     /></GmapMap>
@@ -26,13 +29,17 @@
 </template>
 
 <script>
+import locationService from "../../services/LocationService.js";
 export default {
   name: "state-map",
-  props: ["state", "areas"],
-
   data() {
     return {
-      center: {lat: this.state.latitude, lng: this.state.longitude},
+      state: {},
+      areas: {},
+      center: {
+        lat: "",
+        lng: "",
+      },
     };
   },
   methods: {
@@ -42,6 +49,28 @@ export default {
         params: { id: id },
       });
     },
+  },
+  created() {
+    locationService
+      .getStateByAbbrev(this.$route.params.abbrev)
+      .then((response) => {
+        if (response.status == 200) {
+          console.log("state:");
+          console.log(response.data);
+          this.state = response.data;
+          this.center.lat = parseFloat(this.state.latitude);
+          this.center.lng = parseFloat(this.state.longitude);
+          locationService
+            .getAreasByState(this.state.abbrev)
+            .then((response) => {
+              if (response.status == 200) {
+                console.log("areas:");
+                console.log(response.data);
+                this.areas = response.data;
+              }
+            });
+        }
+      });
   },
 };
 </script>
