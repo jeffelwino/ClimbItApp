@@ -52,6 +52,19 @@ public class JdbcCragDao implements CragDao{
     }
 
     @Override
+    public List<Crag> getCragsByAreaId(String id) {
+        List<Crag> crags= new ArrayList<>();
+        String sql = "SELECT id, area_id, name, description, latitude, longitude " +
+                "FROM crags " +
+                "WHERE area_id=?";
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
+        while(results.next()){
+            crags.add(mapRowToCrag(results));
+        }
+        return crags;
+    }
+
+    @Override
     public boolean updateCrag(Crag crag) {
         String sql = "UPDATE crag" +
                 "SET area_id=?, name=?, description=?, latitude=?, longitude=? " +

@@ -69,7 +69,7 @@ public class JdbcTickDao implements TickDao{
                 "SET route_id=?, profile_id=?, date_climbed=?, note=?, rating=? " +
                 "WHERE tick_id=?";
         int rowsUpdated = jdbcTemplate.update(sql, tick.getRouteId(), tick.getProfileId(),
-                tick.getDate(),tick.getNote(),tick.getRating(), tick.getTickId());
+                tick.getDate(),tick.getNote(),tick.getRating(), tick.getId());
         return rowsUpdated==1;
     }
 

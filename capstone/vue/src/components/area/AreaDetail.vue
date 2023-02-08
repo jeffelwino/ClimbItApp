@@ -1,7 +1,8 @@
 <template>
   <div class="area">
     <div class="weather">
-      The weather here the next 5 days is going to be perfect for climbing! <!--Find a way to display the weather!-->
+      The weather here the next 5 days is going to be perfect for climbing!
+      <!--Find a way to display the weather!-->
     </div>
     <!-- Description component -->
     <p>{{ area.description }}</p>
@@ -17,35 +18,27 @@
 </template>
 
 <script>
+import locationService from "../../services/LocationService.js";
 export default {
   name: "area-detail",
-  props: ["area"],
-  computed:{
-    crags(){
-      return this.$store.state.crags.filter((c) => {
-        return c.areaId == this.area.id;
-      });
-    }
-  }
-
-
-  // data() {
-  //   return {
-  //     crags: [],
-  //   };
-  // },
-  // methods: {
-  //   loadCrags() {
-  //     this.$store.state.crags.forEach((crag) => {
-  //       if (crag.areaId == this.area.id) {
-  //         this.crags.push(crag);
-  //       }
-  //     });
-  //   },
-  // },
-  // created() {
-  //   this.loadCrags();
-  // },
+  data() {
+    return {
+      area: {},
+      crags: [],
+    };
+  },
+  created() {
+    locationService.getAreaById(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.area = response.data;
+        locationService.getCragsByArea(this.area.id).then((r) => {
+          if (r.status == 200) {
+            this.crags = r.data;
+          }
+        });
+      }
+    });
+  },
 };
 </script>
 

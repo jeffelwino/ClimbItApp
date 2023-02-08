@@ -8,8 +8,9 @@ public class Route {
     private String height;
     private String style;
     private String protection;
+    private String description;
 
-    public Route(String id, String wallId, String name, String grade, String height, String style, String protection) {
+    public Route(String id, String wallId, String name, String grade, String height, String style, String protection, String description) {
         this.id = id;
         this.wallId = wallId;
         this.name = name;
@@ -17,9 +18,18 @@ public class Route {
         this.height = height;
         this.style = style;
         this.protection = protection;
+        this.description = description;
     }
 
     public Route() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getId() {
@@ -82,13 +92,14 @@ public class Route {
     @Override
     public String toString() {
         return "Route{" +
-                "routeId='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", wallId='" + wallId + '\'' +
-                ", routeName='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", grade='" + grade + '\'' +
                 ", height='" + height + '\'' +
                 ", style='" + style + '\'' +
                 ", protection='" + protection + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

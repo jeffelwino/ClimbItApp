@@ -11,6 +11,7 @@ public interface AreaDao {
 //    READ
     List<Area> getAllAreas();
     Area getAreaById(String id);
+    List<Area> getAreasByState(String abbrev);
 //    UPDATE
     boolean updateArea(Area area);
 //    DELETE

@@ -1,7 +1,7 @@
 package com.techelevator.model.locations;
 
 public class State {
-    private String stateAbbrev;
+    private String abbrev;
     private String name;
     private double latitude;
     private double longitude;
@@ -9,19 +9,19 @@ public class State {
     public State() {
     }
 
-    public State(String stateAbbrev, String name, double latitude, double longitude) {
-        this.stateAbbrev = stateAbbrev;
+    public State(String abbrev, String name, double latitude, double longitude) {
+        this.abbrev = abbrev;
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getStateAbbrev() {
-        return stateAbbrev;
+    public String getAbbrev() {
+        return abbrev;
     }
 
-    public void setStateAbbrev(String stateAbbrev) {
-        this.stateAbbrev = stateAbbrev;
+    public void setAbbrev(String abbrev) {
+        this.abbrev = abbrev;
     }
 
     public String getName() {
@@ -51,7 +51,7 @@ public class State {
     @Override
     public String toString() {
         return "State{" +
-                "stateAbbrev='" + stateAbbrev + '\'' +
+                "stateAbbrev='" + abbrev + '\'' +
                 ", stateName='" + name + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +

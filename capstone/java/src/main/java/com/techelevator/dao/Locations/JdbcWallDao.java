@@ -18,7 +18,7 @@ public class JdbcWallDao implements WallDao {
 
     @Override
     public Wall addWall(Wall wall) {
-        String sql = "INSERT INTO wall (crag_id, name, description) " +
+        String sql = "INSERT INTO walls (crag_id, name, description) " +
                 "VALUES (?,?,?) " +
                 "RETURNING id ";
         String id = jdbcTemplate.queryForObject(sql, String.class, wall.getCragId(), wall.getName(), wall.getDescription());
@@ -31,6 +31,19 @@ public class JdbcWallDao implements WallDao {
         String sql = "SELECT id, crag_id, name, description " +
                 "FROM walls ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            walls.add(mapRowToWall(results));
+        }
+        return walls;
+    }
+
+    @Override
+    public List<Wall> getWallsByCragId(String id) {
+        List<Wall> walls = new ArrayList<>();
+        String sql = "SELECT id, crag_id, name, description " +
+                "FROM walls " +
+                "WHERE crag_id=?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while(results.next()){
             walls.add(mapRowToWall(results));
         }
@@ -52,7 +65,7 @@ public class JdbcWallDao implements WallDao {
 
     @Override
     public boolean updateWall(Wall wall) {
-        String sql = "UPDATE wall " +
+        String sql = "UPDATE walls " +
                 "SET crag_id=?, name=?, description=? " +
                 "WHERE id=? ";
         int rowsUpdated = jdbcTemplate.update(sql, wall.getCragId(), wall.getName(),
@@ -62,7 +75,7 @@ public class JdbcWallDao implements WallDao {
 
     @Override
     public boolean deleteWall(String id) {
-        String sql = "DELETE FROM wall " +
+        String sql = "DELETE FROM walls " +
                 "WHERE id = ?";
         int rowsDeleted = jdbcTemplate.update(sql, id);
         return rowsDeleted==1;
