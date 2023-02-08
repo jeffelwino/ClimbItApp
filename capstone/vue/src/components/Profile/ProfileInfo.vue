@@ -44,13 +44,14 @@ export default {
 
   methods: {
     snapShot() {
-      this.currentPicture = this.editedProfile.pictureId;
+      this.currentPicture = this.profile.pictureId;
       this.showForm = !this.showForm;
     },
     updateProfileChanges() {
       profileService.put(this.editedProfile).then(
-        () => {
-          window.alert("Profile Recently updated")
+        (response) => {
+          if(response.status == 200)
+          this.$router.go(0)
         }
       ).catch(
         (error) => {
@@ -65,16 +66,8 @@ export default {
       this.editedProfile = {};
       this.showForm = false;
     },
-  },
-  created() {
-    profileService.get(this.$route.params.id).then((response) => {
-      if (response.status == 200) {
-        this.profile = response.data;
-      }
-    });
-  },
-  mounted() {
-    this.editedProfile = {
+    refreshEditedProfile(){
+      this.editedProfile = {
       id: this.$route.params.id,
       name: this.profile.name,
       location: this.profile.location,
@@ -82,6 +75,17 @@ export default {
       todos: this.profile.todos,
       picture: this.profile.picture,
     };
+    }
+  },
+  created() {
+    profileService.get(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.profile = response.data;
+        this.refreshEditedProfile();
+        // this.snapShot();
+
+      }
+    });
   },
 };
 </script>
