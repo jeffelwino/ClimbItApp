@@ -44,7 +44,7 @@ export default {
 
   methods: {
     snapShot() {
-      this.currentPicture = this.profile.pictureId;
+      this.currentPicture = this.editedProfile.pictureId;
       this.showForm = !this.showForm;
     },
     updateProfileChanges() {
