@@ -1,28 +1,28 @@
 import axios from 'axios';
 
 
-export default{
+export default {
 
-    getCragComment(id){
+    getCragComment(id) {
         return axios.get(`/crag/comment/${id}`);
     },
-    listCragComments(cragId){
+    listCragComments(cragId) {
         return axios.get(`/crag/${cragId}/comments`);
     },
 
-    postCragComment(cragComment){
+    postCragComment(cragComment) {
         return axios.post('/crag/comment', cragComment);
     },
 
-    
-    getRouteComment(id){
+
+    getRouteComment(id) {
         return axios.get(`/route/comment/${id}`);
     },
-    listRouteComments(routeId){
+    listRouteComments(routeId) {
         return axios.get(`/route/${routeId}/comments`);
     },
 
-    postRouteComment(routeComment){
+    postRouteComment(routeComment) {
         return axios.post('/route/comment', routeComment);
     }
 

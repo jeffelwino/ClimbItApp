@@ -19,7 +19,10 @@ addPhoto(photo){
 },
 
 deletePhoto(id){
-    return axios.delete(`/photo/${id}`)
-}
+    return axios.delete(`/photo/${id}`);
+},
+getPhotosByWallId(id){
+    return axios.get(`/wall/${id}/photo`);
+} 
 
 }

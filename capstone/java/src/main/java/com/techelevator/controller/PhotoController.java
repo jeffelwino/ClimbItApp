@@ -41,4 +41,9 @@ public class PhotoController {
     public boolean deletePhoto(@RequestBody String id){
         return photoDao.deletePhoto(id);
     }
+
+    @GetMapping(path="/wall/{id}/photo")
+    public List<Photo> getAllPhotosByWall(@PathVariable String id){
+        return photoDao.getAllPhotosByWallId(id);
+    }
 }
