@@ -43,6 +43,7 @@ export default {
       .then((response) => {
         if (response.status == 200) {
           this.state = response.data;
+          this.$store.commit("SET_ACTIVE_STATE", this.state);
         }
       });
   },

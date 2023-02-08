@@ -7,7 +7,6 @@
     <!-- mapdisplay placeholder-->
 
     <state-map v-bind:state="state" v-bind:areas="areas" />
-    <button @click="test">Test</button>
 
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas">
@@ -42,25 +41,28 @@ export default {
       areas: [],
     };
   },
-  methods: {
-    test() {
-      console.log(this.state);
+  computed: {
+    key() {
+      return this.$state.store.key;
     },
+    // state() {
+    //   return this.$store.state.activeState;
+    // },
+    // areas() {
+    //   return this.$store.state.activeAreas;
+    // },
   },
   created() {
     locationService
       .getStateByAbbrev(this.$route.params.abbrev)
       .then((response) => {
         if (response.status == 200) {
-          console.log("state:");
-          console.log(response.data);
           this.state = response.data;
           locationService
             .getAreasByState(this.state.abbrev)
             .then((response) => {
               if (response.status == 200) {
-                console.log("areas:");
-                console.log(response.data);
+                this.$store.commit("SET_ACTIVE_AREAS", response.data);
                 this.areas = response.data;
               }
             });

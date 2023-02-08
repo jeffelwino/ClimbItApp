@@ -42,6 +42,14 @@ export default {
       },
     };
   },
+  // computed: {
+  //   state() {
+  //     return this.$store.state.activeState;
+  //   },
+  //   areas() {
+  //     return this.$store.state.activeAreas;
+  //   },
+  // },
   methods: {
     navigateToPage(id) {
       this.$router.push({
@@ -56,13 +64,16 @@ export default {
       .then((response) => {
         if (response.status == 200) {
           this.state = response.data;
+          // this.$store.commit("SET_ACTIVE_STATE", response.data);
           this.center.lat = parseFloat(this.state.latitude);
           this.center.lng = parseFloat(this.state.longitude);
           locationService
             .getAreasByState(this.state.abbrev)
             .then((response) => {
+              console.log(response);
               if (response.status == 200) {
                 this.areas = response.data;
+                // this.$store.commit("SET_ACTIVE_AREAS", response.data);
               }
             });
         }

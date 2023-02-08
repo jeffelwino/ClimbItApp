@@ -50,32 +50,49 @@ export default {
   data() {
     return {
       dialog: false,
-      state: {},
-      newArea: {},
+      // state: {},
+      // newArea: {},
     };
   },
+  computed: {
+    state() {
+      return this.$store.state.activeState;
+    },
+    areas() {
+      return this.$store.state.activeAreas;
+    },
+  },
   created() {
-    this.loadState();
+    // this.loadState();
     this.resetNewArea();
     this.dialog = false;
   },
   methods: {
-    loadState() {
-      locationService
-        .getStateByAbbrev(this.$route.params.id)
-        .then((response) => {
-          if (response.status == 200) {
-            this.state = response.data;
-          }
-        });
+    // loadState() {
+    //   locationService
+    //     .getStateByAbbrev(this.$route.params.id)
+    //     .then((response) => {
+    //       if (response.status == 200) {
+    //         this.state = response.data;
+    //       }
+    //     });
+    // },
+    refreshAreas() {
+      locationService.getAreasByState(this.state.abbrev).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_ACTIVE_AREAS", response.data);
+        }
+      });
     },
     saveArea() {
       locationService.saveArea(this.newArea).then((response) => {
-        if (response == 201) {
-          window.alert("New Area Added!");
+        if (response.status == 201) {
+          this.refreshAreas();
+          this.$router.go(0);
         } else {
           window.alert("Uh-oh, something went wrong!");
         }
+        this.$store.commit("RELOAD");
       });
       this.dialog = false;
       this.resetNewArea();
