@@ -27,8 +27,6 @@ public class LocationsController {
 	@Autowired
 	private CragDao cragDao;
 
-
-
     //@PreAuthorize("hasRole('USER')")
     @GetMapping(path="/state")
     public List<State> getAllStates(){
@@ -106,6 +104,7 @@ public class LocationsController {
     }
 
     @GetMapping(path="/wall")
+
     public List<Wall> getAllWalls(){
         return wallDao.getAllWalls();
     }
@@ -117,8 +116,8 @@ public class LocationsController {
 
     @GetMapping(path="/wall/{id}")
     public Wall getWallById(@PathVariable String id){
-        return wallDao.getWallById(id);
-    }
+    return wallDao.getWallById(id);
+}
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path="/wall/create")

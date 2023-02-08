@@ -40,10 +40,7 @@ export default {
     return {
       area: {},
       crags: [],
-      center: {
-        lat: "",
-        lng: "",
-      },
+      center: { lat: "", lng: "" },
       openedMarkerID: null,
     };
   },

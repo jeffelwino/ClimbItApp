@@ -90,7 +90,8 @@ INSERT INTO walls(crag_id, name, description) VALUES
 INSERT INTO routes(wall_id, name, grade, height, style, protection, description) VALUES
 ('w-1','Slappy McKracken','5.10b','30ft','sport', '7 bolts', 'The oldest climbing route in Ohio. Very busy during the weekend.'),
 ('w-1','Knope We Can','5.7', '25ft', 'sport', '7 bolts', 'A climb in the classic Northhampton style. Old granite so watch your head!' ),
-('w-2','Chain Mail Hula Skirt','5.7','25ft','trad', '7 bolts','Est quid nostre papadio.The raccoons are notorious here. Avoid in winter.');
+('w-2','Chain Mail Hula Skirt','5.7','25ft','trad', '7 bolts','Est quid nostre papadio.The raccoons are notorious here. Avoid in winter.'),
+('w-2','McHenry''s Request','5.12b','60ft','sport', '12 bolts','The only climbing route where Brad Pitt almost died');
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
 ('c-1',3,'Great Crag','2022-01-01'),
@@ -109,6 +110,13 @@ INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
 (4,'r-1','2022-12-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',3),
 (3,'r-2','2022-12-12','Good climb. little wet when i ascented',3),
 (5,'r-1','2022-12-13','runout was nasty. fell twice',4);
+
+INSERT INTO todos (profile_id, route_id)VALUES
+(3,'r-3'),
+(3,'r-4'),
+(4, 'r-2'),
+(4, 'r-4');
+
 
 INSERT INTO shared_images (image_id,route_id) VALUES
 ('hgmoslrkrc9sl6mvebis','r-1'),

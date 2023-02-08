@@ -6,6 +6,8 @@ import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -28,9 +30,16 @@ public class SocialController {
         return profileDao.getAllProfiles();
     }
 
+
     @GetMapping(path="/profile/{id}")
-    public Profile getProfileById(@PathVariable int id){
-        return profileDao.getProfileById(id);
+    public Profile getProfileById(@PathVariable int id) {
+        Profile result = profileDao.getProfileById(id);
+        if(result == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No profile with that id.");
+        }
+        else{
+            return result;
+        }
     }
 
     @PutMapping(path="/profile")
@@ -55,6 +64,7 @@ public class SocialController {
     public List<Tick> getTicksByProfile(@PathVariable int id){
         return tickDao.getTicksByProfile(id);
     }
+
     @GetMapping(path="route/{id}/ticks")
     public List<Tick> getTicksByRoute(@PathVariable String id){
         return tickDao.getTicksByRoute(id);

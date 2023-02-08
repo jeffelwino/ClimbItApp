@@ -11,10 +11,17 @@
         <!-- <v-btn small v-bind:to="{ name: 'wall', params: '{id: route.wallId}' }"> -->
 
         <!-- Tickbox button -->
-        <tick-box :route="route"/>
+        <tick-box :route="route" />
 
         <!-- add to to-do list button -->
-        <v-btn small v-if="!isHidden" v-on:click="isHidden = true" @click="addTodo"> Wanna ClimbIt </v-btn>
+        <v-btn
+          small
+          v-if="!isHidden"
+          v-on:click="isHidden = true"
+          @click="addTodo"
+        >
+          Wanna ClimbIt
+        </v-btn>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
@@ -31,20 +38,16 @@ export default {
   data() {
     return {
       isHidden: false,
-    }
-
+    };
   },
-  
+
   methods: {
-   
     addTodo() {
-      console.log(this.route.id);
       this.$store.commit("ADD_TODO", {
         profileId: this.$store.state.user.id,
         routeId: this.route.id,
       });
     },
-   
   },
   // computed: {
   //   toDo() {

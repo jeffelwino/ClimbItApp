@@ -48,6 +48,7 @@ export default {
     locationService.getAreaById(this.$route.params.id).then((response) => {
       if (response.status == 200) {
         this.area = response.data;
+        this.$store.commit("SET_ACTIVE_AREA", this.area);
       }
     });
   },

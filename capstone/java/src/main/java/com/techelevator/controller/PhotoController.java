@@ -1,12 +1,11 @@
 package com.techelevator.controller;
 
-import com.techelevator.model.Picture;
+import com.techelevator.dao.locations.PhotoDao;
+import com.techelevator.model.locations.Photo;
 import com.techelevator.services.CloudinaryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,14 +13,31 @@ import java.util.List;
 public class PhotoController {
     @Autowired
     CloudinaryService cloudinaryService;
+    @Autowired
+    private PhotoDao photoDao;
 
+    @GetMapping(path="/route/{id}/photos")
+    public List<Photo> getAllPhotosByRouteId(@PathVariable String id) {
+        return photoDao.getAllPhotosByRouteId(id);
 
-//    @RequestMapping(path="/test", method= RequestMethod.GET)
-//    public List<Picture> test(@RequestParam String query) {
-//
-//
-//        return CloudinaryService.getSearchResults(query);
-//
-//    }
+    }
+    @GetMapping(path="/profile/{id}/photos")
+    public List<Photo> getAllPhotosByProfileId(@PathVariable String id) {
+        return photoDao.getAllPhotosByProfileId(id);
+    }
 
+    @GetMapping(path="/photo/{id}")
+    public Photo getPhotoById(@PathVariable String id) {
+        return photoDao.getPhotoById(id);
+    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(path="/photo/add")
+    public Photo addPhoto(@RequestBody Photo photo) {
+        return photoDao.addPhoto(photo);
+    }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(path="/photo/{id}")
+    public boolean deletePhoto(@RequestBody String id){
+        return photoDao.deletePhoto(id);
+    }
 }

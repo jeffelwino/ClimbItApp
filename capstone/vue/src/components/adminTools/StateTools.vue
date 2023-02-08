@@ -29,8 +29,8 @@
               label="Area Longitude(East-West)"
               v-model="newArea.longitude"
             ></v-text-field>
-            <!-- <StateMap v-bind:state="estado"/> -->
-            <NewAreaFormMap v-bind:state="estado"/>
+            <!-- <StateMap v-bind:state="state"/> -->
+            <NewAreaFormMap v-bind:state="state" />
             <v-btn @click.stop="saveArea">Submit</v-btn>
             <v-btn @click="cancelArea">Cancel</v-btn>
           </v-form>
@@ -41,58 +41,76 @@
 </template>
 
 <script>
-import NewAreaFormMap from '../area/NewAreaFormMap.vue';
+import NewAreaFormMap from "../area/NewAreaFormMap.vue";
+import locationService from "../../services/LocationService.js";
 //import StateMap from "../stateComponets/StateMap.vue"; <---This was just practice to load the screen!
 export default {
-  components: {NewAreaFormMap}, // StateMap ^^Same as up top
+  components: { NewAreaFormMap }, // StateMap ^^Same as up top
   name: "state-tools",
   data() {
     return {
       dialog: false,
-      newArea: {
-        id: 0,
-        name: "",
-        stateAbbrev: this.$route.params.abbrev,
-        latitude: "",
-        longitude: "",
-      },
+      // state: {},
+      // newArea: {},
     };
   },
   computed: {
-    estado() {
-      return this.$store.state.states.find((s) => {
-        return s.abbrev == this.$route.params.abbrev;
-      });
+    state() {
+      return this.$store.state.activeState;
     },
-  },
-  methods: {
-    //ADDS NEW AREA TO STATE
-    saveArea() {
-      this.newArea.id = this.$store.getters.nextAreaId;
-      this.$store.commit("SAVE_AREA", this.newArea);
-      this.dialog = false;
-      this.newArea = {
-        id: 0,
-        name: "",
-        stateAbbrev: this.$route.params.abbrev,
-        latitude: "",
-        longitude: "",
-      };
-    },
-
-    cancelArea() {
-      this.newArea = {
-        id: 0,
-        name: "",
-        stateAbbrev: this.$route.params.abbrev,
-        latitude: "",
-        longitude: "",
-      };
-      this.dialog = false;
+    areas() {
+      return this.$store.state.activeAreas;
     },
   },
   created() {
+    // this.loadState();
+    this.resetNewArea();
     this.dialog = false;
+  },
+  methods: {
+    // loadState() {
+    //   locationService
+    //     .getStateByAbbrev(this.$route.params.id)
+    //     .then((response) => {
+    //       if (response.status == 200) {
+    //         this.state = response.data;
+    //       }
+    //     });
+    // },
+    refreshAreas() {
+      locationService.getAreasByState(this.state.abbrev).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_ACTIVE_AREAS", response.data);
+        }
+      });
+    },
+    saveArea() {
+      locationService.saveArea(this.newArea).then((response) => {
+        if (response.status == 201) {
+          this.refreshAreas();
+          this.$router.go(0);
+        } else {
+          window.alert("Uh-oh, something went wrong!");
+        }
+        this.$store.commit("RELOAD");
+      });
+      this.dialog = false;
+      this.resetNewArea();
+    },
+    cancelArea() {
+      this.resetNewArea();
+      this.dialog = false;
+    },
+    resetNewArea() {
+      this.newArea = {
+        id: 0,
+        name: "",
+        description: "",
+        stateAbbrev: this.$route.params.abbrev,
+        latitude: "",
+        longitude: "",
+      };
+    },
   },
 };
 </script>
