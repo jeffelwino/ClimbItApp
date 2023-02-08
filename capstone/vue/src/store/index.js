@@ -27,6 +27,17 @@ export default new Vuex.Store({
     routeComments: [],
     routeComment: {},
 
+    activeState: {},
+    acitveAreas: [],
+    activeArea: {},
+    activeCrags: [],
+    activeCrag: {},
+    activeWalls: [],
+    activeWall: {},
+    activeRoutes: [],
+    activeRoute: {},
+    key: 1,
+
     cloudName: "dacyocfmf",
     states: [
       // {
@@ -372,6 +383,7 @@ export default new Vuex.Store({
 
   },
   mutations: {
+<<<<<<< HEAD
     LOAD_PROFILES(state, profiles) {
       profiles.forEach(profile => {
         if (!state.profiles.find(profile)) {
@@ -423,6 +435,8 @@ export default new Vuex.Store({
         }
       })
     },
+=======
+>>>>>>> main
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
@@ -439,6 +453,41 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    SET_ACTIVE_STATE(state, regionalState) {
+      state.activeState = regionalState;
+    },
+    SET_ACTIVE_AREAS(state, areas) {
+      state.acitveAreas = areas;
+    },
+    SET_ACTIVE_AREA(state, area) {
+      state.activeArea = area;
+    },
+    SET_ACTIVE_CRAGS(state, crags) {
+      state.activeCrags = crags;
+    },
+    SET_ACTIVE_CRAG(state, crag) {
+      state.activeCrag = crag;
+    },
+    SET_ACTIVE_WALL(state, wall) {
+      state.activeWall = wall;
+    },
+    SET_ACTIVE_WALLS(state, walls) {
+      state.activeWalls = walls;
+    },
+    SET_ACTIVE_ROUTE(state, route) {
+      state.activeRoute = route;
+    },
+    SET_ACTIVE_ROUTES(state, routes) {
+      state.activeRoutes = routes;
+    },
+
+
+    RELOAD(state) {
+      state.key += 1;
+    },
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+
     UPDATE_PROFILE(state, profileToChange) {
       for (let i = 0; i < state.profiles.length; i++) {
         if (state.profiles[i].id == profileToChange.id) {

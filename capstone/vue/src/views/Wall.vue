@@ -34,7 +34,6 @@ export default {
   },
   created() {
     locationService.getWallById(this.$route.params.id).then((response) => {
-      console.log(response);
       if (response.status == 200) {
         this.wall = response.data;
       }

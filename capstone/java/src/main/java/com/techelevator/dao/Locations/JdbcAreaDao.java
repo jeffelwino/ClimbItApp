@@ -76,7 +76,7 @@ public class JdbcAreaDao implements AreaDao{
 
     @Override
     public boolean deleteArea(String id) {
-        String sql = "DELETE FROM area " +
+        String sql = "DELETE FROM areas " +
                 "WHERE id=?";
         int rowsDeleted = jdbcTemplate.update(sql, id);
         return rowsDeleted==1;

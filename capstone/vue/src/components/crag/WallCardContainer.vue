@@ -13,15 +13,21 @@ import WallCard from "./WallCard.vue";
 import locationService from "../../services/LocationService.js";
 export default {
   components: { WallCard },
-  data() {
-    return {
-      walls: [],
-    };
+  // data() {
+  //   return {
+  //     walls: [],
+  //   };
+  // },
+  computed: {
+    walls() {
+      return this.$store.state.activeWalls;
+    },
   },
   created() {
     locationService.getWallsByCragId(this.$route.params.id).then((response) => {
       if (response.status == 200) {
-        this.walls = response.data;
+        // this.walls = response.data;
+        this.$store.commit("SET_ACTIVE_WALLS", response.data);
       }
     });
   },

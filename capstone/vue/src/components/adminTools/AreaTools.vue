@@ -33,7 +33,7 @@
               label="Area Longitude(East-West)"
               v-model="updatedArea.longitude"
             ></v-text-field>
-            <v-btn @click.stop="saveChanges">Submit</v-btn>
+            <v-btn @click.stop="updateArea">Submit</v-btn>
             <v-btn @click.stop="cancelChanges">Cancel</v-btn>
           </v-form>
         </v-card>
@@ -58,12 +58,12 @@
             <v-text-field
               clearable
               label="Crag Latitude(North-South)"
-              v-model="newCrag.position.lat"
+              v-model="newCrag.latitude"
             ></v-text-field>
             <v-text-field
               clearable
               label="Crag Longitude(East-West)"
-              v-model="newCrag.position.lng"
+              v-model="newCrag.longitude"
             ></v-text-field>
             <v-btn @click="saveCrag">Submit</v-btn>
             <v-btn @click="cancelCrag">Cancel</v-btn>
@@ -77,38 +77,47 @@
 
 
 <script>
+import locationService from "../../services/LocationService.js";
 export default {
   name: "area-tools",
   data() {
     return {
       dialog2: false,
       dialog: false,
-      newCrag: {
-        id: 0,
-        areaId: parseInt(this.$route.params.id),
-        name: "",
-        position: {
-          lat: "",
-          lng: "",
-        },
-      },
+      updatedArea: {},
+      newCrag: {},
     };
   },
   computed: {
     area() {
-      return this.$store.state.areas.find((a) => {
-        return a.id == this.$route.params.id;
-      });
+      return this.$store.state.activeArea;
     },
   },
+  created() {
+    this.setActiveArea();
+    this.cancelCrag();
+    this.resetUpdatedArea();
+    this.dialog = false;
+  },
   methods: {
+    setActiveArea() {
+      locationService.getAreaById(this.$route.params.id).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_ACTIVE_AREA", response.data);
+        }
+      });
+    },
     //Saves updates to area
-    saveChanges() {
-      let lat = parseFloat(this.updatedArea.position.lat);
-      let lng = parseFloat(this.updatedArea.position.lng);
-      console.log(lat);
-      this.updatedArea.position = { lat: lat, lng: lng };
-      this.$store.commit("UPDATE_AREA", this.updatedArea);
+    updateArea() {
+      // this.$store.commit("UPDATE_AREA", this.updatedArea);
+      locationService.updateArea(this.updatedArea).then((response) => {
+        if (response.status == 200) {
+          window.alert("succesffully updated");
+          this.$router.go(0);
+        } else {
+          window.alert("something went wrong");
+        }
+      });
       this.dialog = false;
       this.resetUpdatedArea();
     },
@@ -120,28 +129,24 @@ export default {
         stateAbbrev: this.area.stateAbbrev,
         name: this.area.name,
         description: this.area.description,
-        position: {
-          lat: "",
-          lng: "",
-        },
+        latitude: this.area.latitude,
+        longitude: this.area.longitude,
       };
     },
 
     //ADDS NEW CRAG TO AREA
     saveCrag() {
-      this.newCrag.id = this.$store.getters.nextCragId;
-      this.$store.commit("SAVE_CRAG", this.newCrag);
-      this.dialog2 = false;
-      this.newCrag = {
-        id: 0,
-        AreaId: this.$route.params.id,
-        name: "",
-        description: "",
-        position: {
-          lat: "",
-          lng: "",
-        },
-      };
+      // this.newCrag.id = this.$store.getters.nextCragId;
+      // this.$store.commit("SAVE_CRAG", this.newCrag);
+      locationService.saveCrag(this.newCrag).then((response) => {
+        if (response.status == 201) {
+          window.alert("Crag successfully added!");
+          this.$router.go(0);
+        } else {
+          window.alert("Uh-oh, something went wrong");
+        }
+      });
+      this.cancelCrag();
     },
     cancelChanges() {
       this.dialog = false;
@@ -150,22 +155,14 @@ export default {
 
     cancelCrag() {
       this.newCrag = {
-        id: 0,
         areaId: this.$route.params.id,
         name: "",
         description: "",
-        position: {
-          lat: "",
-          lng: "",
-        },
+        latitude: "",
+        longitude: "",
       };
       this.dialog2 = false;
     },
-  },
-  created() {
-    this.resetUpdatedArea();
-    this.dialog = false;
-    this.dialog2 = false;
   },
 };
 </script>
