@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import imageService from "../../services/ImageService.js"
+
 export default {
   props: ["route"],
   name: 'cloudinary-comp',
@@ -34,8 +36,13 @@ export default {
           console.log("Image URL: " + result.info.url);
           console.log("This is the public id: " + result.info.public_id);
         //   this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
-          this.$store.commit("UPDATE_ROUTE_IMAGE", {routeId:this.$store.state.routes.id, picture:result.info.public_id})
-
+        //  this.$store.commit("UPDATE_ROUTE_IMAGE", {routeId:this.$store.state.routes.id, picture:result.info.public_id})
+          imageService.addPhoto({photoId:result.info.public_id, routeId:this.$route.params.id})
+          .then(response => {
+              if(response.status == 201){
+                  this.$router.go(0);
+              }
+          })  
         }
       }
     );
