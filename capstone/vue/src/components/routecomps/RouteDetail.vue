@@ -24,7 +24,7 @@
                   >
                   </v-rating>
                 </v-list-item>
-                <v-list-item>Protection: {{route.protection}} </v-list-item>
+                <v-list-item>Protection: {{ route.protection }} </v-list-item>
               </v-list>
               <!-- <v-spacer></v-spacer> -->
               <v-list> </v-list>
@@ -40,10 +40,9 @@
 <script>
 export default {
   name: "route-detail",
-  props: ['route'],
+  props: ["route"],
 
   computed: {
-        
     averageRating() {
       const ticks = this.$store.state.ticks.filter((t) => {
         return t.routeId == this.route.id;
