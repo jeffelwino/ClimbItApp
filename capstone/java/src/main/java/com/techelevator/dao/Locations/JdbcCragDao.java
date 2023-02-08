@@ -18,11 +18,11 @@ public class JdbcCragDao implements CragDao{
 
     @Override
     public Crag addCrag(Crag crag) {
-        String sql = "INSERT INTO crag (area_id, name, description, latitude, longitude)" +
+        String sql = "INSERT INTO crags (area_id, name, description, latitude, longitude) " +
                 "VALUES (?,?,?,?,?) " +
                 "RETURNING id ";
         String id = jdbcTemplate.queryForObject(sql, String.class, crag.getAreaId(),
-                crag.getName(),crag.getDescription(),crag.getLatitude(),crag.getLongitude(),crag.getId());
+                crag.getName(),crag.getDescription(),crag.getLatitude(),crag.getLongitude());
         return getCragById(id);
     }
 
@@ -66,7 +66,7 @@ public class JdbcCragDao implements CragDao{
 
     @Override
     public boolean updateCrag(Crag crag) {
-        String sql = "UPDATE crag" +
+        String sql = "UPDATE crags " +
                 "SET area_id=?, name=?, description=?, latitude=?, longitude=? " +
                 "WHERE values=?";
         int updatedRows = jdbcTemplate.update(sql, crag.getAreaId(), crag.getName(),

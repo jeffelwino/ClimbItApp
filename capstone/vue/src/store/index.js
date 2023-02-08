@@ -405,6 +405,9 @@ export default new Vuex.Store({
     SET_ACTIVE_AREAS(state, areas) {
       state.acitveAreas = areas;
     },
+    SET_ACTIVE_AREA(state, area) {
+      state.activeArea = area;
+    },
 
 
     RELOAD(state) {
