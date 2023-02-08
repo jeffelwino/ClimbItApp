@@ -11,6 +11,7 @@
 <script>
 import WallCard from "./WallCard.vue";
 import locationService from "../../services/LocationService.js";
+
 export default {
   components: { WallCard },
   // data() {

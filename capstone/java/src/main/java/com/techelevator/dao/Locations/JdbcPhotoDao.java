@@ -62,6 +62,20 @@ public class JdbcPhotoDao implements PhotoDao{
     }
 
     @Override
+    public List<Photo> getAllPhotosByWallId(String id) {
+        List<Photo> photos = new ArrayList<>();
+        String sql = "SELECT image_id, route_id " +
+                "FROM shared_images si " +
+                "JOIN routes r ON r.id = si.route_id " +
+                "WHERE wall_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while(results.next()){
+            photos.add(mapRowToPhoto(results));
+        }
+        return photos;
+    }
+
+    @Override
     public boolean deletePhoto(String imageId) {
         String sql = "DELETE from shared_images " +
                 "WHERE image_id = ?";

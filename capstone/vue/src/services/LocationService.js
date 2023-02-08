@@ -56,6 +56,9 @@ export default {
     saveWall(wall) {
         return axios.post('/wall/create', wall)
     },
+    updateWall(wall) {
+        return axios.put('/wall', wall)
+    },
 
     // Route
     loadRoutes() {
@@ -66,6 +69,15 @@ export default {
     },
     getRouteById(id) {
         return axios.get(`route/${id}`);
+    },
+    saveRoute(route) {
+        return axios.post('/route/create', route);
+    },
+    updateRoute(route) {
+        return axios.put('/route', route);
+    },
+    deleteRoute(id) {
+        return axios.delete(`/route/${id}`);
     }
 
 }
