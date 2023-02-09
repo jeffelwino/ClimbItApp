@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import profileService from "../services/ProfileService.js"
+
 export default {
   props: ["profile"],
   name: 'cloudinary-comp',
@@ -33,12 +35,22 @@ export default {
           console.log('Done! Here is the image info: ', result.info); 
           console.log("Image URL: " + result.info.url);
           console.log("This is the public id: " + result.info.public_id);
-          this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
-        }
+          // this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
+          this.profile.pictureId = result.info.public_id;
+              profileService.put(this.profile).then((response) => {
+                if(response.status == 200) {
+                  this.$router.go(0)
+                } else {
+                  window.alert("There was a problem...")
+                }
+              });
       }
-    );
+        
   }
+       )}
 }
+
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

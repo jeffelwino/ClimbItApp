@@ -8,8 +8,8 @@
       <cld-context cloudName="dacyocfmf" secure="true">
         <cld-image
           :publicId="photoId"
-          width="700"
-          height="300"
+          width="100"
+          height="100"
           crop="fill"/>
       </cld-context>
       <v-card-title>
