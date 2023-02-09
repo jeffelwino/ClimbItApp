@@ -19,19 +19,21 @@
             multiple
             label="Profile Pic"
           ></v-file-input> -->
-        <cloudinary />
+        
         <v-btn @click="updateProfileChanges">Submit</v-btn>
         <v-btn @click="cancelChanges">Cancel</v-btn>
+        <cloudinary />
       </v-form>
     </v-card>
   </v-card>
 </template>
 
 <script>
-import Cloudinary from "../imageComps/Cloudinary.vue";
+
 import profileService from "../../services/ProfileService.js";
+import Cloudinary from "../imageComps/Cloudinary.vue";
 export default {
-  components: { Cloudinary },
+ components: { Cloudinary },
   name: "profile-info",
   data() {
     return {
