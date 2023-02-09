@@ -74,7 +74,6 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('KY','Murder Branch', 'Rarely climbed sandstone rock in the Daniel Boone Pioneer Weapons Area. Parking along the forest road.',37.99237,-83.49257),
 ('OH','Central/Eastern Ohio','Not much, but some nice places near Newark and Hocking Hills',39.5363696,-81.8427258),
 ('WV','Seneca Rocks','Classic area for mult-pitch trad climbing',38.83259260133902,-79.3852547868337),
-('WV','New River Gorge','Incredible climbing on bullet-hard sandstone. Enjoy the views of the gorge, they are hard to beat',38.06989729160144,-81.08049901380537),
 ('AL','Northern Alabama','Only area in the state with any climbing at all',33.98856, -86.458150),
 ('AK','Horseshoe Canyon Ranch','Best moderate climbing in the country, maybe even the world. Camping on property, and it is a short walk to all the different crags. Amazing.',36.0118,-93.2922),
 ('AK','Sams Throne and Surroundings','Beautiful sandstone cliff faces in the ozarks, gotta love it.',35.8578,-93.0444),
@@ -83,7 +82,15 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('AZ','Mount Lemmon (Santa Catalina Mountains)','Commonly known among climbers and non-climbers alike as, simply, Mount Lemmon. Over 1,500 climbs, one of the most popular in the state.',32.4471,-110.79047),
 ('CA','Joshua Tree National Park','World famous, known for bouldering and traditional rock climbing',34.0122,-116.16799),
 ('CA','Yosemite National Park','The iconic birthplace of American rock climbing, and arguably the center of the climbing universe. Not enough can be said.',37.73968,-119.57297),
-('CA','Owens River Gorge','Mostost concentrated sport climbing area in California',37.51373,-118.57109);
+('CA','Owens River Gorge','Most concentrated sport climbing area in California',37.51373,-118.57109),
+('CO','Boulder Canyon','Not farm from downtown boulder, beautiful scenery and a variety of styles for everyoone',40.00239,-105.41014),
+('CO','Eldorado Canyon State Park','A world famous climbing area. Steep, beautiful,  conglomerate sandstone walls up to 700 ft high',39.9318,-105.28123),
+('CO','Rifle Mountain Park','The best limestone sport climbing in North America',39.7159,-107.6912),
+('CO','Flatirons','Starting with scrambles, up through hard technical climbing, one of the great places to climb in the US',39.9828,-105.289),
+('CT','Central Valley','People do not think of Connecticut as a pdestination for climbing, but we love it',41.62972,-72.80963),
+('GA','Mount Yonah','A beautiful granite dome in northern Georgia, plenty of history here',34.6372,-83.7141),
+('ID','The Fins','Southern end of the Lost River mountain range, vertical to overhanging limestone walls',43.73145,-113.08444),
+('ID','Castle Rocks','Only open to the public since 2003, a healthy mix of sprt and trad routes',42.13537,-113.67);
 
 INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
@@ -95,7 +102,13 @@ INSERT INTO walls(crag_id, name, description) VALUES
 ('c-1','Amusement Wall','Fun climbing, seeps for awhile after it rains. Busy on nice days'),
 ('c-1', 'Dad''s Wall','Get here early if you''re looking to warm up'),
 ('c-1','Trash Shoot','Good variety, some spicy climbs for their grade'),
-('c-2','Bruise Brothers','An iconic starting place for new climbers, avoid on busy days');
+('c-2','Bruise Brothers','An iconic starting place for new climbers, avoid on busy days'),
+('c-2','Animal Crackers','Slabby little wall with some good moderates'),
+('c-2','Boneyard','Tall walls, good variety of climbs, good warmup for the harder stuff at Midnight Surf'),
+('c-2','Midnight Surf','Tall, overhanging, and impressive'),
+('c-2','Great Wall','Good variety, a Muir Vallery classic'),
+('c-2','Techtonic Wall','Fun spot for beginner climbers with well bolted routes to safely try on lead'),
+('c-2','Land Before Time','Nice place to take the brand new climber, but the more experienced will be bored');
 
 INSERT INTO routes(wall_id, name, grade, height, style, protection, description) VALUES
 ('w-1','Slappy McKracken','5.10b','30ft','sport', '7 bolts', 'The oldest climbing route in Ohio. Very busy during the weekend.'),
@@ -106,7 +119,12 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-1','Scrappy','5.10c/d','25ft','Sport','3 bolts, ring anchors','Start deep in the cave, pull the corner and find good resting rails in between each move'),
 ('w-1','Shaggy','5.10c/d','25ft','Trad','standard rack + tricams, ring anchors','Find confidence in your gear placement and be ready to hang'),
 ('w-1','Pocket Rocket Man','5.12a','25ft','Sport','2 bolts, ring anchors','Start is a little bit left of Wu Who. Two options for the boulder-style start, gain the large shelf, move away from the jugs to finish'),
-('w-1','Wu Who','5.9','30ft','sport','2 botls, ring anchors','Just left of Unknown and Sparky near the top of the slope. Slightly overhanging crack with bomber clipping ledges. Great movement');
+('w-1','Wu Who','5.9','30ft','sport','2 botls, ring anchors','Just left of Unknown and Sparky near the top of the slope. Slightly overhanging crack with bomber clipping ledges. Great movement'),
+('w-2','Little Viper','5.10b','50ft','sport','6 bolts','Start on a right-facing flake, then pull boulder problem through the roof, and up easier ground to the chains.'),
+('w-2','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
+('w-2','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
+('w-2','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
+('w-2','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
 
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
