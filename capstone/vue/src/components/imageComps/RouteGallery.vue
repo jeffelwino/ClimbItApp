@@ -1,27 +1,12 @@
 <template>
   <div class="text-center">
-<<<<<<< HEAD
     <v-card class="mx-7 mt-5">
-      <v-carousel hide-delimiters height="auto">
+      <v-carousel hide-delimiters height="400">
         <v-carousel-item v-for="(photo, i) in photos" :key="i">
           <cld-context cloudName="dacyocfmf" secure="true">
             <cld-image :publicId="photo.photoId" />
             <!-- <v-img :src="item.src" contain max-height="400"></v-img>  -->
           </cld-context>
-=======
-    <v-card class="mx-7 mt-5"  >
-      <v-carousel hide-delimiters  height="400">
-       <v-carousel-item
-        v-for="(photo,i) in photos"
-        :key="i"
-      > 
-         <cld-context cloudName="dacyocfmf" secure="true">
-           <cld-image
-              :publicId="photo.photoId"
-              />
-         <!-- <v-img :src="item.src" contain max-height="400"></v-img>  -->
-         </cld-context>
->>>>>>> main
         </v-carousel-item>
       </v-carousel>
       <upload-route-image />
@@ -67,6 +52,4 @@ export default {
 </script>
 
 <style>
-
-
 </style>
