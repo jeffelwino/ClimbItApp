@@ -6,6 +6,9 @@ INSERT INTO users (username,password_hash,role) VALUES('kevin1','$2a$10$z1aZXjPT
 INSERT INTO users (username,password_hash,role) VALUES('jeff1','$2a$10$TG4zgsZHjdhHlx40IdZY3ux060Cd52dv/hRRfy1c4xp2YcU6TSEbW','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('allan1','$2a$10$OvoSz9P8Zb72Fw86sYi0puGPX56t9PnR0UmzS.IK6pQf515nbDBlO','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('michael1','$2a$10$Z5Of0z2u9OkFNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES('susyloohoo','$2a$10$TG4zgsZHjdhHlx40IdZY3ux060Cd52dv/hRRfy1c4xp2YcU6TSEbW','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES('bobsHobs','$2a$10$OvoSz9P8Zb72Fw86sYi0puGPX56t9PnR0UmzS.IK6pQf515nbDBlO','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES('trustinURGEAR','$2a$10$Z5Of0z2u9OkFNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
 
 INSERT INTO profiles (user_id, name, location, bio) VALUES (1, 'user', 'user', 'user');
 INSERT INTO profiles (user_id, name, location, bio) VALUES (2, 'admin', 'user', 'user');
@@ -13,6 +16,9 @@ INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (3, 'kevin
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','cld-sample-3');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees','cld-sample');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'Michael Eden', 'Sunbury, Ohio', 'My name is Michael and I love to climb!', 'irqp67luc3rpadoxzndi');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (7, 'Susan Lindley', 'Phoenix, AZ', 'Software Engineer, ironman athlete, and climber','cld-sample-2');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (8, 'Austin Baker', 'Tampa Bay, FL', 'The victor is not victorious if the vanquished does not consider himself so.','cld-sample-3');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (9, 'William Smith', 'Brooklyn, NY', 'Can you take me higher?', 'irqp67luc3rpadoxzndi');
 
 
 INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
@@ -162,20 +168,27 @@ INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
 ('c-1',3,'Great Crag','2022-01-01'),
 ('c-1',6, 'awful crag. polluted. full of rocks', '2022-01-15'),
 ('c-2',3, 'a craggy crag. about the only good thing', '2022-05-02'),
-('c-1',5, 'seen better crags', '2023-01-02');
+('c-1',5, 'seen better crags', '2023-01-02'),
+('c-2',7, 'Very fun crag with lots of options!', '2021-06-03'),
+('c-2',8, 'Lots of different options for a wide variety of climbers','2019-10-20'),
+('c-2',9, 'Not as good as advertised: half the walls were too wet and slippery', '2020-07-03')
 
 INSERT INTO route_comments (route_id, profile_id, body, post_date) VALUES
 ('r-2',3,'Slippery when dry','2022-02-02'),
 ('r-1',4, 'Watch out for ice', '2022-02-03'),
 ('r-1',3,'Great Climb','2022-02-22'),
-('r-1',4, 'better the second time', '2022-04-02');
-
+('r-1',4, 'better the second time', '2022-04-02'),
+('r-10',7, 'Better to climb in the summer', '2021-01-31'),
+('r-10',8 'Very fun climb, had a couple broken bolts in some places', '2017-06-22'),
+('r-10',9 'Kinda crowded but fun nonetheless', '2018-05-24')
 INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
 (3,'r-1','2022-12-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
 (4,'r-1','2022-12-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',3),
 (3,'r-2','2022-12-12','Good climb. little wet when i ascented',3),
-(5,'r-1','2022-12-13','runout was nasty. fell twice',4);
-
+(5,'r-1','2022-12-13','runout was nasty. fell twice',4),
+(7,'r-10','2021-01-31','better climb in the summer',3),
+(8,'r-10','2017-06-22','couple of broken bolts in a few places',4),
+(9,'r-10','2018-05-24','avoid the busy season',4)
 INSERT INTO todos (profile_id, route_id)VALUES
 (3,'r-3'),
 (3,'r-4'),
