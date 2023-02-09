@@ -1,6 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.CragComment;
 import com.techelevator.model.RouteComment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -31,7 +30,7 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     public List<RouteComment> getAllRouteComments(String routeId) {
         List<RouteComment> comments = new ArrayList<>();
         String sql = "SELECT comment_id, body, profile_id, post_date, route_id " +
-                "FROM route_comments WHERE route_id = ?";
+                "FROM route_comments WHERE route_id = ? ORDER BY post_date DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
         while(results.next()){
             comments.add(mapRowToComment(results));

@@ -31,7 +31,7 @@ public class JdbcTickDao implements TickDao{
     public List<Tick> getTicksByRoute(String routeId){
         List<Tick> ticks = new ArrayList<>();
         String sql = "SELECT tick_id, route_id, profile_id, date_climbed, note, rating " +
-                "FROM ticks WHERE route_id ILIKE ?";
+                "FROM ticks WHERE route_id ILIKE ? ORDER BY date_climbed DESC ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, routeId);
         while(results.next()){
             ticks.add(mapRowToTick(results));
