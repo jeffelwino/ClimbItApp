@@ -74,7 +74,6 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('KY','Murder Branch', 'Rarely climbed sandstone rock in the Daniel Boone Pioneer Weapons Area. Parking along the forest road.',37.99237,-83.49257),
 ('OH','Central/Eastern Ohio','Not much, but some nice places near Newark and Hocking Hills',39.5363696,-81.8427258),
 ('WV','Seneca Rocks','Classic area for mult-pitch trad climbing',38.83259260133902,-79.3852547868337),
-('WV','New River Gorge','Incredible climbing on bullet-hard sandstone. Enjoy the views of the gorge, they are hard to beat',38.06989729160144,-81.08049901380537),
 ('AL','Northern Alabama','Only area in the state with any climbing at all',33.98856, -86.458150),
 ('AK','Horseshoe Canyon Ranch','Best moderate climbing in the country, maybe even the world. Camping on property, and it is a short walk to all the different crags. Amazing.',36.0118,-93.2922),
 ('AK','Sams Throne and Surroundings','Beautiful sandstone cliff faces in the ozarks, gotta love it.',35.8578,-93.0444),

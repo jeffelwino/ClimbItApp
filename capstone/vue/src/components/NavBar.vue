@@ -68,11 +68,12 @@ export default {
   methods: {
     goToProfile() {
       this.$router.push({
-        name: "my-profile",
+        name: "profile",
+        params: { id: this.$store.state.user.id },
       });
     },
     goToAboutUs() {
-      this.$router.push({ name: "aboutus"});
+      this.$router.push({ name: "aboutus" });
     },
     goToLogout() {
       this.$router.push({ name: "logout" });
