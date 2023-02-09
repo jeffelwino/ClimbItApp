@@ -7,7 +7,7 @@
     <!-- List of climbing areas in state w/ ratings -->
     <div class="areas my-2 mx-2">
       <h2 id="climbing-areas" class="pl-2 blue white--text">
-        {{ state.name }} Climbing Areas ({{ areas.length }}) :
+        {{ state.abbrev }} Climbing Areas ({{ areas.length }}) :
       </h2>
       <v-card
         outlined
@@ -79,7 +79,6 @@ h2 {
   text-align: center;
 }
 #climbing-areas {
-  background-color: #f4511e;
   width: 100%;
 }
 .placeholdermap {

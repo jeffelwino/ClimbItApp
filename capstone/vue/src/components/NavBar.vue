@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="blue" dark>
+  <v-app-bar app color="primary white--text">
     <v-row class="d-flex align-center">
       <!-- <v-icon large>mdi-spa</v-icon> -->
       <div class="d-flex justify-start">
@@ -42,7 +42,7 @@
           >
           </v-app-bar-nav-icon>
         </template>
-        <v-list color="green">
+        <v-list color="accent">
           <v-list-item exact @click="goToProfile" link>
             <v-list-item-title>View Profile</v-list-item-title>
           </v-list-item>

@@ -13,5 +13,15 @@ export default new Vuetify({
         // mobileBreakpoint: 'sm' //This is the equivalent value of 960
     },
     scrollBarWidth: 24,
-    
+    theme: {
+        themes: {
+            light: {
+                primary: '#1E88E5',
+                secondary: '#f2be90',
+                accent: '#CFD8DC',
+                error: '#b71c1c',
+            },
+        },
+    },
+
 });

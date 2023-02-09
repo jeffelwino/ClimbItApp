@@ -1,5 +1,5 @@
 <template>
-  <div class="route-header">
+  <div class="secondary route-header">
     <v-container class="main-body mt-n12">
       <!-- route name and grade box -->
 
@@ -76,7 +76,6 @@ export default {
 
 <style>
 .main-body {
-  background-color: #f4511e;
   width: 100%;
 }
 </style>

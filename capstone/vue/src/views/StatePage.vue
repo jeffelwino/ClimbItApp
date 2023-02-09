@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="mx-3">
-      <v-row class="mt-n15 pb-15 mR-5 justify-start">
+      <v-row class="mt-n15 pb-8 mR-5 justify-start">
         <v-btn x-small @click="navigateUp" exact class="back-button">
           <v-icon x-small>mdi-arrow-left-circle</v-icon>
           To Home
@@ -9,6 +9,7 @@
       </v-row>
     </div>
     <!-- Component -->
+    <h2 class="secondary">{{ state.name }}</h2>
     <state-tools
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />

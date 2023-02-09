@@ -17,7 +17,7 @@
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
     <v-sheet>
-      <h2 id="header" class="pl-5 mt-5 ml-6">{{ crag.name }}</h2>
+      <h2 id="header" class="secondary pl-5 mt-5 ml-6">{{ crag.name }}</h2>
       <!-- Refactored into the container -->
       <wall-card-container v-bind:crag="crag" />
       <crag-comment class="comments" v-bind:crag="crag" />
@@ -51,7 +51,6 @@ export default {
 
 <style>
 #header {
-  background-color: #f4511e;
   color: white;
   width: 87%;
   text-align: center;

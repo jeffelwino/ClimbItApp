@@ -1,6 +1,6 @@
 <template>
   <div class="map">
-    <h2>Climbs near you!</h2>
+    <h2 class="secondary">Climbs near you!</h2>
     <GmapMap
       :options="{
         zoomControl: true,

@@ -20,7 +20,7 @@
     <area-tools
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
-    <h2>{{ area.name }}</h2>
+    <h2 class="secondary">{{ area.name }}</h2>
     <!-- component -->
     <area-map />
     <!-- <new-area-form-map v-bind:area="area"/> -->
@@ -57,7 +57,6 @@ export default {
 
 <style>
 h2 {
-  background-color: #f4511e;
   color: white;
   width: 100%;
 }

@@ -52,6 +52,6 @@ export default {
 
 <style scoped>
 h2 {
-  background-color: #f4511e;
+  background-color: "secondary";
 }
 </style>
