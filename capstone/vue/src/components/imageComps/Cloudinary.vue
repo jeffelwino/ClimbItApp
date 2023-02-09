@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import imageService from "../../services/ImageService.js"
 export default {
   props: ["profile"],
   name: 'cloudinary-comp',
@@ -33,7 +34,14 @@ export default {
           console.log('Done! Here is the image info: ', result.info); 
           console.log("Image URL: " + result.info.url);
           console.log("This is the public id: " + result.info.public_id);
-          this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
+          // this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
+          imageService.updateProfilePicture({profileId:this.$route.params.id, photoId:result.info.public_id}).then(response => {
+            if(response.status == 200){
+              this.$router.go(0);
+            } else{
+              window.alert("Something Went wrong!!")
+            }
+          })
         }
       }
     );

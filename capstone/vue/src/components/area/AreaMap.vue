@@ -1,9 +1,18 @@
 <template>
   <div class="map">
     <GmapMap
+      :options="{
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        disableDefaultUi: true,
+      }"
       :center="center"
-      :zoom="10"
-      style="width: 100%; height: 600px"
+      :zoom="9.75"
+      style="width: 100%; height: 400px"
       id="map"
     >
       <div>
@@ -83,8 +92,8 @@ export default {
 </script>
 
 <style>
-#map {
+/* #map {
   width: 100%;
   height: 400px;
-}
+} */
 </style>
