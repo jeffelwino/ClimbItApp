@@ -102,6 +102,7 @@ public class SocialController {
     }
 
     @DeleteMapping(path="/todo/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteTodo(@PathVariable int id){
         return todoDao.deleteTodo(id);
     }
