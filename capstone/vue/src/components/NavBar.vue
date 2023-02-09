@@ -52,8 +52,8 @@
             <v-list-item-title>View Profile</v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link>
-            <v-list-item-title>Lorem Ipsum</v-list-item-title>
+          <v-list-item exact @click="goToAboutUs" link>
+            <v-list-item-title>About Us</v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
 
@@ -77,7 +77,9 @@ export default {
         params: { id: this.$store.state.user.id },
       });
     },
-
+    goToAboutUs() {
+      this.$router.push({ name: "aboutus"});
+    },
     goToLogout() {
       this.$router.push({ name: "logout" });
     },
