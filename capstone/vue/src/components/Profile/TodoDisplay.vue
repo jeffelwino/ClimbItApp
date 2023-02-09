@@ -1,13 +1,16 @@
 <template>
-  <div class="todo">
-    <v-card outlined @click.prevent="navigateToPage">
-      <h5>{{ route.name }}</h5>
+  <div class="jjj">
+    <v-card outlined class="todo">
+      <h5 @click.prevent="navigateToPage">{{ route.name }}</h5>
+      <v-spacer></v-spacer>
+      <v-btn icon right @click="deleteTodo">X</v-btn>
     </v-card>
   </div>
 </template>
 
 <script>
 import locationService from "../../services/LocationService.js";
+import todoService from "../../services/TodoService.js";
 export default {
   name: "todo-display",
   props: ["todo"],
@@ -24,6 +27,13 @@ export default {
         params: { id: this.route.id },
       });
     },
+    deleteTodo() {
+      todoService.delete(this.todo.todoId).then((response) => {
+        if (response.status == 204) {
+          this.$router.go(0);
+        }
+      });
+    },
   },
   created() {
     locationService.getRouteById(this.todo.routeId).then((response) => {
@@ -35,5 +45,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.todo {
+  display: flex;
+  /* justify-content: space-evenly; */
+}
 </style>
