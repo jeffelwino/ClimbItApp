@@ -12,12 +12,7 @@
         ></v-img>
       </div>
 
-      <v-toolbar-title class="
-            ma-2
-            text-h10
-            text-md-h7.5
-            
-            text-truncate">
+      <v-toolbar-title class="ma-2 text-h10 text-md-h7.5 text-truncate">
         <h1 @click="goToHome">ClimbIt</h1>
       </v-toolbar-title>
 
@@ -25,11 +20,11 @@
 
       <h4
         class="
-            text-h10
-            text-md-h9
-            text-lg-h8
-            text-truncate
-        white--text d-flex align-center"
+          text-h10 text-md-h9 text-lg-h8 text-truncate
+          white--text
+          d-flex
+          align-center
+        "
         v-if="$store.state.token === ''"
         @click="goToLogin"
       >
@@ -39,7 +34,7 @@
       <!-- pop-out nav menu -->
       <v-menu transition="scroll-y-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-app-bar-nav-icon 
+          <v-app-bar-nav-icon
             large
             v-bind="attrs"
             v-on="on"
@@ -73,8 +68,7 @@ export default {
   methods: {
     goToProfile() {
       this.$router.push({
-        name: "profile",
-        params: { id: this.$store.state.user.id },
+        name: "my-profile",
       });
     },
     goToAboutUs() {
