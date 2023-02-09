@@ -206,7 +206,15 @@ INSERT INTO shared_images (image_id,route_id) VALUES
 ('hgmoslrkrc9sl6mvebis','r-1'),
 ('kpa3jdaxgvcdgqbtxamk','r-1'),
 ('tdp0unnsmhsxbwvi21pp','r-2'),
-('fmopabltozw1o6s4han8','r-2');
+('fmopabltozw1o6s4han8','r-2'),
+('Little Viper', 'r-10'),
+('Harvey', 'r-15'),
+('One-Armed Bandit', 'r-16'),
+('Shiva', 'r-17'),
+('Dynabolt Gold', 'r-18'),
+('Plate Tectonics', 'r-19'),
+('Prehistoric Extermination', 'r-20');
+
 
 
 COMMIT;
