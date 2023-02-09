@@ -56,4 +56,9 @@ export default {
 </script>
 
 <style>
+h2 {
+  background-color: #f4511e;
+  color: white;
+  width: 100%;
+}
 </style>

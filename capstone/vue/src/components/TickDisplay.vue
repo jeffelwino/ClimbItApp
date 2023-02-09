@@ -38,18 +38,6 @@ export default {
       route: {},
     };
   },
-  // computed: {
-  //   route() {
-  //     return this.$store.state.routes.find((r) => {
-  //       return r.id == this.tick.routeId;
-  //     });
-  //   },
-  //   profile() {
-  //     return this.$store.state.profiles.find((p) => {
-  //       return p.id == this.tick.profileId;
-  //     });
-  //   },
-  // },
   methods: {
     navigateToPage() {
       if (this.showNote) {
