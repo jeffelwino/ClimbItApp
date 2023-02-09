@@ -1,7 +1,6 @@
 <template>
   <div class="state-map">
-    <GmapMap
-      :options="{
+    <!-- :options="{
         zoomControl: true,
         mapTypeControl: true,
         scaleControl: true,
@@ -9,7 +8,8 @@
         rotateControl: false,
         fullscreenControl: true,
         disableDefaultUi: false,
-      }"
+      }" -->
+    <GmapMap
       :center="center"
       :zoom="7"
       style="width: 100%; height: 400px"
@@ -22,15 +22,26 @@
           lat: parseFloat(area.latitude),
           lng: parseFloat(area.longitude),
         }"
-        :label="area.name"
-        @click="navigateToPage(area.id)"
+        @click="openMarker(area.id)"
       >
         <GmapInfoWindow
           :closeclick="true"
           @closeclick="openMarker(null)"
           :opened="openedMarkerID === area.id"
+          :options="{
+            pixelOffset: {
+              width: 10,
+              height: 0,
+            },
+            maxWidth: 150,
+            maxHeight: 320,
+          }"
         >
-          <v-card>{{ area.name }}</v-card>
+          <div @click.stop="navigateToPage(area.id)">
+            {{ area.name }}
+            <v-divider></v-divider>
+            {{ area.description }}
+          </div>
         </GmapInfoWindow>
       </GmapMarker>
     </GmapMap>

@@ -53,6 +53,10 @@ export default {
   },
 
   methods: {
+    navigateUp() {
+      this.$router.push({ name: "wall", params: { id: this.route.wallId } });
+    },
+
     addTodo() {
       const newTodo = {
         profileId: this.$store.state.user.id,

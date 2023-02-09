@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex pa-2 block">
+  <div class="d-flex block">
     <v-container class="route-contents" justify:center>
       <!-- header -->
       <route-header v-bind:route="route"> </route-header>
@@ -85,8 +85,5 @@ export default {
 #description {
   width: 93%;
   margin-left: 4%;
-}
-
-.comments {
 }
 </style>

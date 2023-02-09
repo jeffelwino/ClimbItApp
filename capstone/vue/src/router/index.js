@@ -5,11 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import Test from '../views/Test.vue'
+
 import StatePage from '../views/StatePage.vue'
-import JeffPlay from '../views/JeffPlay.vue'
-import AllanPlay from '../views/AllanPlay.vue'
-import KevinPlay from '../views/KevinPlay.vue'
+
 import Area from '../views/Area.vue'
 import Crag from '../views/Crag.vue'
 import Wall from '../views/Wall.vue'
@@ -30,6 +28,9 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  scrollBehavior() {
+    window.scrollTo(0, 0);
+  },
   base: process.env.BASE_URL,
   routes: [
     {
@@ -116,39 +117,7 @@ const router = new Router({
       path: "/notfound",
       name: "NotFound",
       component: NotFound
-    },
-    {
-      path: "/test/:id/",
-      name: "test",
-      component: Test,
-      meta: {
-        requiresAuth: true
-      },
-    },
-    {
-      path: "/jeffplay",
-      name: "jeffplay",
-      component: JeffPlay,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/allanplay",
-      name: "allanplay",
-      component: AllanPlay,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/kevinplay",
-      name: "kevinplay",
-      component: KevinPlay,
-      meta: {
-        requiresAuth: false
-      }
-    },
+    }
   ]
 })
 

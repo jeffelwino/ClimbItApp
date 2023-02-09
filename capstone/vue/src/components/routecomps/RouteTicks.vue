@@ -14,13 +14,14 @@
         :tick="tick"
         :offProfile="true"
       />
+
       <v-btn
         class="ml-1 mb-2"
+        :class="{ active: seeAll }"
         small
-        v-show="ticks.length > limit"
         @click="toggleLimit"
-        >See All</v-btn
-      >
+        >{{ seeAll ? "HIDE" : "SEE ALL" }}
+      </v-btn>
     </v-card>
   </v-container>
 </template>
@@ -38,16 +39,12 @@ export default {
        ** toggleLimit value in methods
        */
       limit: 2,
+      seeAll: false,
     };
   },
   components: { TickDisplay },
   props: ["route"],
   computed: {
-    //   ticks() {
-    //     return this.$store.state.ticks.filter((t) => {
-    //       return t.routeId == this.route.id;
-    //     });
-    //   },
     limitedList() {
       return this.limit ? this.ticks.slice(0, this.limit) : this.ticks;
     },
@@ -60,6 +57,7 @@ export default {
       } else {
         this.limit = 2;
       }
+      this.seeAll = this.seeAll ? false : true;
     },
   },
   created() {

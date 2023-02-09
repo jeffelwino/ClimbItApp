@@ -1,16 +1,12 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" max-width="700" >
+    <v-card class="mx-auto" max-width="700">
       <!-- <v-img
         src="https://media.istockphoto.com/id/527531592/photo/rock-climber-clinging-to-a-cliff.jpg?s=612x612&w=0&k=20&c=2AUDSQAWDVzyvTeWQ5rXTwQGGBqQ0eCJw4kk4S6r6OQ="
         height="200px"
       ></v-img> -->
       <cld-context cloudName="dacyocfmf" secure="true">
-        <cld-image
-          :publicId="photoId"
-          width="700"
-          height="300"
-          crop="fill"/>
+        <cld-image :publicId="photoId" width="318" height="150" crop="fill" />
       </cld-context>
       <v-card-title>
         {{ wall.name }}
@@ -42,7 +38,7 @@
 </template>
 
 <script>
-import imageService from "../../services/ImageService.js"
+import imageService from "../../services/ImageService.js";
 
 export default {
   name: "wall-card",
@@ -50,23 +46,22 @@ export default {
   data: () => ({
     show: false,
     photos: [],
-    photoId: ""
+    photoId: "",
   }),
   methods: {
     loadRoute() {
       this.$router.push({ name: "wall", params: { id: this.wall.id } });
     },
   },
-  created(){
-    imageService.getPhotosByWallId(this.wall.id)
-    .then(response => {
-      if(response.status == 200){
+  created() {
+    imageService.getPhotosByWallId(this.wall.id).then((response) => {
+      if (response.status == 200) {
         this.photos = response.data;
-        let index = Math.floor(Math.random()* this.photos.length);
-        this.photoId= this.photos[index].photoId;
+        let index = Math.floor(Math.random() * this.photos.length);
+        this.photoId = this.photos[index].photoId;
       }
-    })
-  }
+    });
+  },
 };
 </script>
 

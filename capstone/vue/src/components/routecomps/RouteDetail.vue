@@ -24,6 +24,12 @@
                     size="20"
                   >
                   </v-rating>
+                  <caption>
+                    ({{
+                      ticks.length
+                    }}
+                    reviews)
+                  </caption>
                 </v-list-item>
                 <v-list-item>Protection: {{ route.protection }} </v-list-item>
               </v-list>
