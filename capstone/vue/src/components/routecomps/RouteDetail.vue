@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-card class="ma-4 justify-center" width="90%">
+  <v-container width="110%">
+    <v-card class="my-auto justify-center">
       <v-card-title> <h3>Stats:</h3> </v-card-title>
       <v-divider></v-divider>
       <v-card-text class="justify-center">

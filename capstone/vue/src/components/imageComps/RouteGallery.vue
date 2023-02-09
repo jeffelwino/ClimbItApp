@@ -1,26 +1,22 @@
 <template>
-  <div>
-    <v-card class="mx-7 mt-5"  >
-      <v-carousel hide-delimiters  height="auto">
-       <v-carousel-item
-        v-for="(photo,i) in photos"
-        :key="i"
-      > 
-         <cld-context cloudName="dacyocfmf" secure="true">
-           <cld-image
-              :publicId="photo.photoId"/>
-         <!-- <v-img :src="item.src" contain max-height="400"></v-img>  -->
-         </cld-context>
+  <div class="text-center">
+    <v-card class="mx-7 mt-5">
+      <v-carousel hide-delimiters height="auto">
+        <v-carousel-item v-for="(photo, i) in photos" :key="i">
+          <cld-context cloudName="dacyocfmf" secure="true">
+            <cld-image :publicId="photo.photoId" />
+            <!-- <v-img :src="item.src" contain max-height="400"></v-img>  -->
+          </cld-context>
         </v-carousel-item>
       </v-carousel>
-      <upload-route-image/>
+      <upload-route-image />
     </v-card>
   </div>
 </template>
 
 <script>
-import UploadRouteImage from './UploadRouteImage.vue';
-import imageService from '../../services/ImageService.js'
+import UploadRouteImage from "./UploadRouteImage.vue";
+import imageService from "../../services/ImageService.js";
 
 export default {
   components: { UploadRouteImage },
@@ -28,7 +24,7 @@ export default {
   name: "route-gallery",
   data() {
     return {
-        photos: []
+      photos: [],
       // items: [
       //   {
       //     src: "https://mountainproject.com/assets/photos/climb/117828911_medium_1570200281_topo.jpg?cache=1574302555",
@@ -43,16 +39,15 @@ export default {
       //     src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
       //   },
       //],
-   };
+    };
   },
-  created(){
-    imageService.getPhotosByRoute(this.$route.params.id)
-    .then(response => {
-      if(response.status == 200){
-        this.photos=response.data
+  created() {
+    imageService.getPhotosByRoute(this.$route.params.id).then((response) => {
+      if (response.status == 200) {
+        this.photos = response.data;
       }
-    })
-  }
+    });
+  },
 };
 </script>
 

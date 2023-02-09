@@ -7,13 +7,20 @@
       </v-card-title>
       <v-divider></v-divider>
       <tick-display
+        class="mb-2"
         v-bind:route-ticks="false"
         v-for="tick in limitedList"
         :key="tick.id"
         :tick="tick"
         :offProfile="true"
       />
-      <v-btn v-show="ticks.length > limit" @click="toggleLimit">See All</v-btn>
+      <v-btn
+        class="ml-1 mb-2"
+        small
+        v-show="ticks.length > limit"
+        @click="toggleLimit"
+        >See All</v-btn
+      >
     </v-card>
   </v-container>
 </template>

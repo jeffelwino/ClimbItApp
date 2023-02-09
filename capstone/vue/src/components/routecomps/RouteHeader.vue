@@ -1,27 +1,37 @@
 <template>
   <div class="route-header">
-    <!-- route name and grade box -->
-    <v-container class="blue mt-n12">
-      <v-row class="justify-center blue">
+    <v-container class="main-body mt-n12">
+      <!-- route name and grade box -->
+
+      <v-row class="pb-3 mr-5 justify-start">
+        <v-btn x-small @click="navigateUp" exact class="back-button">
+          <v-icon x-small>mdi-arrow-left-circle</v-icon>
+          To Wall
+        </v-btn>
+      </v-row>
+
+      <v-row class="pb-2 justify-center">
         <h3 class="white--text">{{ route.name }} ({{ route.grade }})</h3>
       </v-row>
 
       <!-- return to wall page button -->
-      <v-row class="pb-2 justify-space-around">
+      <v-row class="pb-2 justify-center">
         <!-- <v-btn small v-bind:to="{ name: 'wall', params: '{id: route.wallId}' }"> -->
-
-        <!-- Tickbox button -->
-        <tick-box :route="route" />
-
+        <v-cols>
+          <!-- Tickbox button -->
+          <tick-box class="pr-2" :route="route" />
+        </v-cols>
         <!-- add to to-do list button -->
-        <v-btn
-          small
-          v-if="!isHidden"
-          v-on:click="isHidden = true"
-          @click="addTodo"
-        >
-          Wanna ClimbIt
-        </v-btn>
+        <v-cols>
+          <v-btn
+            x-small
+            v-if="!isHidden"
+            v-on:click="isHidden = true"
+            @click="addTodo"
+          >
+            Wanna ClimbIt
+          </v-btn>
+        </v-cols>
       </v-row>
       <v-card class="blue"> </v-card>
     </v-container>
@@ -65,4 +75,8 @@ export default {
 </script>
 
 <style>
+.main-body {
+  background-color: #f4511e;
+  width: 100%;
+}
 </style>

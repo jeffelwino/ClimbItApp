@@ -1,12 +1,14 @@
 <template>
   <div>
-    <route-submit-comment v-bind:route="route" />
-    <h3>Comment</h3>
-    <comment-display
-      v-for="comment in comments"
-      v-bind:key="comment.commentId"
-      v-bind:comment="comment"
-    />
+    <v-sheet class="ml-3" width="93%">
+      <route-submit-comment v-bind:route="route" />
+      <h3>Comments</h3>
+      <comment-display
+        v-for="comment in comments"
+        v-bind:key="comment.commentId"
+        v-bind:comment="comment"
+      />
+    </v-sheet>
   </div>
 </template>
 

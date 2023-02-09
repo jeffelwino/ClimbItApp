@@ -24,7 +24,16 @@
         }"
         :label="area.name"
         @click="navigateToPage(area.id)"
-    /></GmapMap>
+      >
+        <GmapInfoWindow
+          :closeclick="true"
+          @closeclick="openMarker(null)"
+          :opened="openedMarkerID === area.id"
+        >
+          <v-card>{{ area.name }}</v-card>
+        </GmapInfoWindow>
+      </GmapMarker>
+    </GmapMap>
   </div>
 </template>
 
@@ -35,11 +44,12 @@ export default {
   data() {
     return {
       state: {},
-      areas: {},
+      areas: [],
       center: {
         lat: "",
         lng: "",
       },
+      openedMarkerID: null,
     };
   },
   // computed: {
@@ -51,6 +61,9 @@ export default {
   //   },
   // },
   methods: {
+    openMarker(id) {
+      this.openedMarkerID = id;
+    },
     navigateToPage(id) {
       this.$router.push({
         name: "area",

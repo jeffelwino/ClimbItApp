@@ -24,7 +24,6 @@ INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
 ('Colorado','CO',39.059811,-105.311104),
 ('Connecticut','CT',41.597782,-72.755371),
 ('Delaware','DE',39.318523,-75.507141),
-('District of Columbia','DC',38.897438,-77.026817),
 ('Florida','FL',27.766279,-81.686783),
 ('Georgia','GA',33.040619,-83.643074),
 ('Hawaii','HI',21.094318,-157.498337),
