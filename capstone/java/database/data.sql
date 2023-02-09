@@ -10,10 +10,11 @@ INSERT INTO users (username,password_hash,role) VALUES('susyloohoo','$2a$10$TG4z
 INSERT INTO users (username,password_hash,role) VALUES('bobsHobs','$2a$10$OvoSz9P8Zb72Fw86sYi0puGPX56t9PnR0UmzS.IK6pQf515nbDBlO','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('trustinURGEAR','$2a$10$Z5Of0z2u9OkFNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
 
+
 INSERT INTO profiles (user_id, name, location, bio) VALUES (1, 'user', 'user', 'user');
 INSERT INTO profiles (user_id, name, location, bio) VALUES (2, 'admin', 'user', 'user');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (3, 'kevin a', 'Long Island, NY', 'Hey, Im climin here!','cld-sample-2');
-INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','cld-sample-3');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff W', 'Chicago', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','zncw5utsy9tfs6jkx01y');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees','cld-sample');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'Michael Eden', 'Sunbury, Ohio', 'My name is Michael and I love to climb!', 'irqp67luc3rpadoxzndi');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (7, 'Susan Lindley', 'Phoenix, AZ', 'Software Engineer, ironman athlete, and climber','cld-sample-2');
@@ -161,13 +162,20 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-4','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
 ('w-4','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
 ('w-4','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
-('w-4','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
+('w-4','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.'),
+('w-5','Harvey','5.7','80ft','Sport','10 Bolts','Can be climbed as two pitches or one. Optional anchor at 45 feet (6 bolts)'),
+('w-6','One-Armed Bandit','5.9','90ft','Sport','12 bolts','This fun little route shares its opening moves with Captain Blondie before breaking right onto the arete and climbing the face above.'),
+('w-7','Shiva','5.13b','80ft','Sport','Permadraws','Don''t cheat yourself by detouring left of the crux - you''ll be missing out on some of the most fun and gymnastic climbing on the Midnight Surf wall.'),
+('w-8','Dynabolt Gold','5.10a','70ft','Sport','7 bolts','After clipping the first bolt it is more like 9+ all the way to the anchors. Big holds and lots of rests if needed.'),
+('w-9','Plate Tectonics','5.10a','70ft','Sport','6bolts/anchor','Another classic...a tricky start leads to pumpy plate pulling pleasure...Yeah'),
+('w-10','Prehistoric Extermination','5.8','50ft','Sport','6 bolts, 2 chain anchor','Climb the short slabby start to pull through a reachy but short juggy plate section. Continue past the 6 bolts to the chains.');
 
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
-('c-1',3,'Great Crag','2022-01-01'),
-('c-1',6, 'awful crag. polluted. full of rocks', '2022-01-15'),
+('c-2',4,'Great Crag','2022-01-01'),
+('c-2',6, 'awful crag. polluted. full of rocks', '2022-01-15'),
 ('c-2',3, 'a craggy crag. about the only good thing', '2022-05-02'),
+
 ('c-1',5, 'seen better crags', '2023-01-02'),
 ('c-2',7, 'Very fun crag with lots of options!', '2021-06-03'),
 ('c-2',8, 'Lots of different options for a wide variety of climbers','2019-10-20'),
@@ -189,10 +197,38 @@ INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
 (7,'r-10','2021-01-31','better climb in the summer',3),
 (8,'r-10','2017-06-22','couple of broken bolts in a few places',4),
 (9,'r-10','2018-05-24','avoid the busy season',4)
+
+('c-2',5, 'seen better crags', '2023-01-02');
+
+INSERT INTO route_comments (route_id, profile_id, body, post_date) VALUES
+('r-10',4,'Slippery when dry','2022-04-02'),
+('r-10',5, 'Watch out for ice', '2022-07-03'),
+('r-10',3, 'Best climb i''ve ever done! i''d give 6 stars if I could!!', '2023-01-02');
+
+INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
+(3,'r-11','2022-12-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
+(4,'r-12','2022-12-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',3),
+(3,'r-13','2022-12-12','Good climb. little wet when i ascented',3),
+(5,'r-14','2022-12-13','runout was nasty. fell twice',4),
+(3,'r-10','2022-10-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
+(4,'r-10','2022-11-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',4),
+(6,'r-10','2022-12-12','Good climb. little wet when i ascented',3),
+(5,'r-1','2022-10-01','runout was nasty. fell twice',4),
+(5,'r-2','2022-10-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',2),
+(5,'r-3','2022-11-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',4),
+(5,'r-4','2022-12-12','Good climb. little wet when i ascended',3);
+
+
+
 INSERT INTO todos (profile_id, route_id)VALUES
+(3,'r-2'),
 (3,'r-3'),
 (3,'r-4'),
-(4, 'r-2'),
+(3,'r-5'),
+(4, 'r-8'),
+(5,'r-11'),
+(5,'r-5'),
+(5, 'r-8'),
 (4, 'r-4');
 
 
