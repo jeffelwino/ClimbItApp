@@ -1,7 +1,12 @@
 <template>
-  <v-card class="mb-5">
-    <v-card-title>Leave a comment here!</v-card-title>
-    <v-text-field clearable outlined v-model="comment.body"> </v-text-field>
+  <v-card class="mb-5" width="100%">
+    <v-textarea
+      clearable
+      outlined
+      v-model="comment.body"
+      label="Leave a Comment!"
+    >
+    </v-textarea>
     <v-btn @click="submitComment">Submit</v-btn>
   </v-card>
 </template>

@@ -1,6 +1,5 @@
 <template>
   <div class="map">
-    <h2>Crags in the Area</h2>
     <GmapMap
       :options="{
         zoomControl: true,
@@ -16,7 +15,7 @@
       style="width: 100%; height: 400px"
       id="map"
     >
-      <div @mouseenter="openMarker(crag.id)">
+      <div>
         <GmapMarker
           v-for="crag in crags"
           :key="crag.id"
@@ -24,15 +23,26 @@
             lat: parseFloat(crag.latitude),
             lng: parseFloat(crag.longitude),
           }"
-          @mouseover="openMarker(crag.id)"
-          v-on:click="navigateToPage(crag.id)"
+          @click="openMarker(crag.id)"
         >
           <GmapInfoWindow
             :closeclick="true"
             @closeclick="openMarker(null)"
             :opened="openedMarkerID === crag.id"
+            :options="{
+              pixelOffset: {
+                width: 10,
+                height: 0,
+              },
+              maxWidth: 150,
+              maxHeight: 320,
+            }"
           >
-            <v-card>{{ crag.name }}</v-card>
+            <div @click.stop="navigateToPage(crag.id)">
+              {{ crag.name }}
+              <v-divider></v-divider>
+              {{ crag.description }}
+            </div>
           </GmapInfoWindow>
         </GmapMarker>
       </div></GmapMap

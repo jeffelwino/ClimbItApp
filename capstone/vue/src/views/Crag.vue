@@ -1,8 +1,8 @@
 <template>
-  <div class="crag">
+  <v-container fluid class="crag">
     <!-- return to area page button -->
     <div class="mx-5">
-      <v-row class="mt-n10 pb-5 justify-start">
+      <v-row class="mt-n10 pb-2 justify-start">
         <v-btn
           x-small
           v-bind:to="{ name: 'area', params: { id: crag.areaId } }"
@@ -16,11 +16,13 @@
     <crag-tools
       v-if="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
     />
-    <h2>{{ crag.name }}</h2>
-    <!-- Refactored into the container -->
-    <wall-card-container v-bind:crag="crag" />
-    <crag-comment v-bind:crag="crag" />
-  </div>
+    <v-sheet>
+      <h2 id="header" class="pl-5 mt-5 ml-6">{{ crag.name }}</h2>
+      <!-- Refactored into the container -->
+      <wall-card-container v-bind:crag="crag" />
+      <crag-comment class="comments" v-bind:crag="crag" />
+    </v-sheet>
+  </v-container>
 </template>
 
 <script>
@@ -48,4 +50,14 @@ export default {
 </script>
 
 <style>
+#header {
+  background-color: #f4511e;
+  color: white;
+  width: 87%;
+  text-align: center;
+}
+.comments {
+  width: 87%;
+  margin-left: 1.5rem;
+}
 </style>

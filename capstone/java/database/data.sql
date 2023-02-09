@@ -12,7 +12,7 @@ INSERT INTO profiles (user_id, name, location, bio) VALUES (2, 'admin', 'user', 
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (3, 'kevin a', 'Long Island, NY', 'Hey, Im climin here!','cld-sample-2');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','cld-sample-3');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees','cld-sample');
-INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'the michael eden', 'dayton ohio', 'hit me up if you need a climbing bud or a gram of bud ;)', 'irqp67luc3rpadoxzndi');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'Michael Eden', 'Sunbury, Ohio', 'My name is Michael and I love to climb!', 'irqp67luc3rpadoxzndi');
 
 
 INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
@@ -90,13 +90,44 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('CT','Central Valley','People do not think of Connecticut as a pdestination for climbing, but we love it',41.62972,-72.80963),
 ('GA','Mount Yonah','A beautiful granite dome in northern Georgia, plenty of history here',34.6372,-83.7141),
 ('ID','The Fins','Southern end of the Lost River mountain range, vertical to overhanging limestone walls',43.73145,-113.08444),
-('ID','Castle Rocks','Only open to the public since 2003, a healthy mix of sprt and trad routes',42.13537,-113.67);
+('ID','Castle Rocks','Only open to the public since 2003, a healthy mix of sprt and trad routes',42.13537,-113.67),
+('IL','The Holy Boulders','Largest concentration of boulders in Southern Illinois',37.61793,-89.41494),
+('ME','Acadia National Park','Known for beautiful ocean views and kayaking, also boasts options for climbing',44.33958,-68.25809),
+('MT','Gallatin Canyon','Divided into the Gallatin Tower and the limestone buttress area',45.40709,-111.22527),
+('NV','Red Rocks','Iconic sandstone climbing, multipitch sport',36.13128,-115.42452),
+('NH','Rumney','Premier sport climbing destination in the country, schist rock makes for a special experience',43.8021,-71.8367),
+('NH','Cathedral Ledge','Epicenter of trad climbing in New Hampshire',44.064,-71.1663),
+('NM','Sandia Mountains','Long approaches make for a great experience if you are willing to make the hike',35.2106,-106.44996),
+('NY','Adirondacks','The Dacks. Largest state park in the lower 48.',43.9375,-74.3775),
+('NY','The Gunks','Short for the Shawangunks, one of the premier climbingareas in the country. Known for traditional climbing.',41.74442,-74.19717),
+('NC','Linville Gorge','One of the great destinations in the southeast, mostly low angle quartzite',35.8868,-81.88509),
+('NC','Stone Mountain','Huge granite dome',36.3916,-81.0473),
+('OR','Smith Rock','Home of the birth of sport climbing in the United States, continues to be one of its premiere destinations',44.36765,-121.13889),
+('OR','Mt. Hood','Tallest peak in Oregon, an alpine destination',45.3733,-121.6957),
+('TN','Obed and Clear Creek','beautiful sandstone cliffs located around the confluence of Clear Creek and the Obed Rive',36.1166,-84.7317),
+('TX','Hueco Tanks','Iconic bouldering destination',31.9169,-106.0429),
+('UT','Indian Creek','Trad climbing on  perfect splitter cracks, basically sport though',38.02574,-109.53987),
+('UT','Zion National Park','Amazing sandstone, known for long wall routes',37.25928,-112.97265),
+('UT','Little Cottonwood Canyon','Quartz monzonite, otherwise known as white granite, and some limestone. ',40.5727,-111.77699),
+('WI','Devils Lake','Quartzite cliffs on a beautiful lake, and lots of history here',43.4168,-89.73151),
+('WY','Wild Iris','One of the most beautiful sport climbing areas in the US. Mostly short climbs, but the environment makes up for it',42.5792,-108.71797),
+('WY','Devils Tower','Devils Tower crams a high concentration of great cracks into the smallest area possible. People come from around the world to climb on this unique wonder. ',44.59051,-104.7151),
+('WY','Grand Teton National Park','Everything from two-pitch sunny crag adventures to mixed alpine endurance testpieces',43.7407,-110.803);
 
 INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
 ('a-2', 'Muir Valley','A luxury climbing experience',37.724503,-83.634545),
 ('a-1', 'Paint Creek State Park', 'Walls of Peebels Dolomite about 70 yards long with numerous routes. Stays in the shade all day',39.24979,-83.34637),
-('a-3', 'Upper Meadow', 'Beautiful area upstream on the Meadow River',38.151515,-80.926571);
+('a-3', 'Upper Meadow', 'Beautiful area upstream on the Meadow River',38.151515,-80.926571),
+('a-2','Northern Gorge','For non-climbers, this area is the Red River Gorge proper',37.78418,-83.68236),
+('a-2','Natural Bridge Area','Home of Miguels, Natural Bridge State Park, and lots of good climbing',37.7842,-83.68239),
+('a-2','PMRP','The Pendergrass-Murray Recreational Preserve, land owned by the Red River Gorge Climber Coalition',37.64845,-83.72501),
+('a-2','Miller Fork Recreational Preserve','One of the newer areas in the Red, it can be tough to get down to the lot but there is a lot to do and the crag will only clean up with time',37.63903,-83.6766),
+('a-3','Lower Meadow','The cliffline north of the river and downstream of the highway',38.15362,-80.93385),
+('a-3','Summersville Lake','Formed in the gorge of the Gauley River, the dam forms the lake',38.2445,-80.85393),
+('a-3','Kaymoor','Great collection of sport climbs on the southern side of the river',38.046,-81.06841),
+('a-3','Bridge Area','Among the first developed in the New, traditional climbing area',38.07223,-81.07949),
+('a-3','Junkyard Area','Another traditional area, but with clifftop access for easy top roping, and bouldering in the cave',38.08477,-81.08144);
 
 INSERT INTO walls(crag_id, name, description) VALUES
 ('c-1','Amusement Wall','Fun climbing, seeps for awhile after it rains. Busy on nice days'),

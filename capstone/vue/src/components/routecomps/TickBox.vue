@@ -1,9 +1,9 @@
 <template>
-  <v-sheet>
+  <div>
     <!-- v-slot:activator="{ on, attrs }"> -->
     <v-btn
       class="light-green"
-      small
+      x-small
       @click.stop="dialog = true"
       v-bind:disabled="!isClicked"
     >
@@ -78,7 +78,7 @@
         </v-form>
       </v-card>
     </v-dialog>
-  </v-sheet>
+  </div>
 </template>
  
 
@@ -106,19 +106,6 @@ export default {
     };
   },
   methods: {
-    // saveTick() {
-    //   this.survey.id = this.$store.getters.nextTickId;
-    //   this.$store.commit("SAVE_TICK", this.survey);
-    //   this.survey = {
-    //     id: 0,
-    //     profileId: this.$store.state.user.id,
-    //     routeId: this.route.id,
-    //     date: "",
-    //     rating: 0,
-    //     note: "",
-    //   };
-    //   this.dialog = false;
-    // },
     saveTick() {
       const newTick = {
         routeId: this.survey.routeId,
