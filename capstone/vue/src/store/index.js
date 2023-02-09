@@ -117,7 +117,7 @@ export default new Vuex.Store({
       state.activeState = regionalState;
     },
     SET_ACTIVE_AREAS(state, areas) {
-      state.acitveAreas = areas;
+      state.activeAreas = areas;
     },
     SET_ACTIVE_AREA(state, area) {
       state.activeArea = area;
@@ -148,22 +148,22 @@ export default new Vuex.Store({
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    UPDATE_PROFILE(state, profileToChange) {
-      for (let i = 0; i < state.profiles.length; i++) {
-        if (state.profiles[i].id == profileToChange.id) {
-          state.profiles.splice(i, 1);
-          state.profiles.push(profileToChange);
-          break;
-        }
-      }
-    },
-    UPDATE_PROFILE_PIC(state, info) {
-      state.profiles.forEach(profile => {
-        if (profile.id == info.profileId) {
-          profile.pictureId = info.picture
-        }
-      })
-    },
+    // UPDATE_PROFILE(state, profileToChange) {
+    //   for (let i = 0; i < state.profiles.length; i++) {
+    //     if (state.profiles[i].id == profileToChange.id) {
+    //       state.profiles.splice(i, 1);
+    //       state.profiles.push(profileToChange);
+    //       break;
+    //     }
+    //   }
+    // },
+    // UPDATE_PROFILE_PIC(state, info) {
+    //   state.profiles.forEach(profile => {
+    //     if (profile.id == info.profileId) {
+    //       profile.pictureId = info.picture
+    //     }
+    //   })
+    // },
     // UPDATE_ROUTE_IMAGE(state, info){
     //   state.route.forEach(route => {
     //     if(route.id == info.routeId){

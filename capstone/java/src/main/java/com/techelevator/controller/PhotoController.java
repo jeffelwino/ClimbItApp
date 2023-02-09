@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.locations.PhotoDao;
+import com.techelevator.model.ProfilePhotoDto;
 import com.techelevator.model.locations.Photo;
 import com.techelevator.services.CloudinaryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class PhotoController {
     @PostMapping(path="/photo/add")
     public Photo addPhoto(@RequestBody Photo photo) {
         return photoDao.addPhoto(photo);
+    }
+    @PutMapping(path="/profile/photo")
+    public boolean updateProfilePhoto(@RequestBody ProfilePhotoDto profilePhotoDto){
+        return photoDao.updateProfilePhoto(profilePhotoDto);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path="/photo/{id}")
