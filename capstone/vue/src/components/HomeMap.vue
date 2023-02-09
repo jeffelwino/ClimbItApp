@@ -23,7 +23,7 @@
           lng: parseFloat(area.longitude),
         }"
         :label="area.name"
-        v-on:click="navigateToPage(marker.id)"
+        v-on:click="navigateToPage(area.id)"
     /></GmapMap>
   </div>
 </template>
@@ -37,9 +37,6 @@ export default {
     return {
       areas: [],
       center: { lat: 39.92099, lng: -83.81161 },
-      currentPlace: null,
-      markers: [],
-      places: [],
     };
   },
   created() {
@@ -47,7 +44,6 @@ export default {
   },
   mounted() {
     this.geolocate();
-    // this.loadPlaces();
   },
   methods: {
     geolocate: function () {
