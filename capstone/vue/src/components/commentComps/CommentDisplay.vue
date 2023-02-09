@@ -9,7 +9,7 @@
     >
       <v-avatar size="24" color="blue" class="mr-3">
         <!-- <v-icon dark> mdi-account-circle </v-icon> -->
-        <profile-picture :profile="profile" />
+        <profile-picture :commentProfile="profile" />
       </v-avatar>
       {{ profile.name }} <v-spacer></v-spacer>
       <caption>
