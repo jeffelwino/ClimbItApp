@@ -12,7 +12,7 @@ INSERT INTO profiles (user_id, name, location, bio) VALUES (2, 'admin', 'user', 
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (3, 'kevin a', 'Long Island, NY', 'Hey, Im climin here!','cld-sample-2');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (4, 'jeff blublowski', 'chitown', 'im a trad-dad like my trad-dad before me. Grateful Dead 4ever!','cld-sample-3');
 INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (5, 'allan the treat', 'Knoxville', 'here for a good climb not a long climb. hobbies include climbing trees','cld-sample');
-INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'the michael eden', 'dayton ohio', 'hit me up if you need a climbing bud or a gram of bud ;)', 'irqp67luc3rpadoxzndi');
+INSERT INTO profiles (user_id, name, location, bio,picture_id) VALUES (6, 'Michael Eden', 'Sunbury, Ohio', 'My name is Michael and I love to climb!', 'irqp67luc3rpadoxzndi');
 
 
 INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
