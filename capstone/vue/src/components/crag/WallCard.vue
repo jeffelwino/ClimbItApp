@@ -8,9 +8,9 @@
       <cld-context cloudName="dacyocfmf" secure="true">
         <cld-image
           :publicId="photoId"
-          width="100"
-          height="100"
-          crop="fill"/>
+          width="100%"
+          height="100%"
+          crop=""/>
       </cld-context>
       <v-card-title>
         {{ wall.name }}

@@ -120,11 +120,11 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-1','Shaggy','5.10c/d','25ft','Trad','standard rack + tricams, ring anchors','Find confidence in your gear placement and be ready to hang'),
 ('w-1','Pocket Rocket Man','5.12a','25ft','Sport','2 bolts, ring anchors','Start is a little bit left of Wu Who. Two options for the boulder-style start, gain the large shelf, move away from the jugs to finish'),
 ('w-1','Wu Who','5.9','30ft','sport','2 botls, ring anchors','Just left of Unknown and Sparky near the top of the slope. Slightly overhanging crack with bomber clipping ledges. Great movement'),
-('w-2','Little Viper','5.10b','50ft','sport','6 bolts','Start on a right-facing flake, then pull boulder problem through the roof, and up easier ground to the chains.'),
-('w-2','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
-('w-2','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
-('w-2','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
-('w-2','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
+('w-4','Little Viper','5.10b','50ft','sport','6 bolts','Start on a right-facing flake, then pull boulder problem through the roof, and up easier ground to the chains.'),
+('w-4','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
+('w-4','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
+('w-4','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
+('w-4','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
 
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
