@@ -23,14 +23,7 @@
         </v-cols>
         <!-- add to to-do list button -->
         <v-cols>
-          <v-btn
-            x-small
-            v-if="!isHidden"
-            v-on:click="isHidden = true"
-            @click="addTodo"
-          >
-            Wanna ClimbIt
-          </v-btn>
+          <v-btn x-small v-if="!toDo" @click="addTodo"> Wanna ClimbIt </v-btn>
         </v-cols>
       </v-row>
       <v-card class="blue"> </v-card>
@@ -65,6 +58,7 @@ export default {
 
       todoService.post(newTodo).then((response) => {
         if (response.status === 201) {
+          this.isHidden = true;
           this.$router.push(`${this.route.id}`);
         }
       });
