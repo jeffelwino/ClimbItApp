@@ -1,8 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Comment;
 import com.techelevator.model.CragComment;
-import com.techelevator.model.locations.Crag;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -32,7 +30,7 @@ public class JdbcCragCommentDao implements CragCommentDao {
     public List<CragComment> getAllCragComments(String cragId) {
         List<CragComment> comments = new ArrayList<>();
         String sql = "SELECT comment_id, body, profile_id, post_date, crag_id " +
-                "FROM crag_comments WHERE crag_id = ? ";
+                "FROM crag_comments WHERE crag_id = ? ORDER BY post_date DESC ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cragId);
         while(results.next()){
             comments.add(mapRowToComment(results));
