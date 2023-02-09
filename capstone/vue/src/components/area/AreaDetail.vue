@@ -1,19 +1,26 @@
 <template>
   <div class="area">
-    <div class="weather">
-      The weather here the next 5 days is going to be perfect for climbing!
-      <!--Find a way to display the weather!-->
-    </div>
     <!-- Description component -->
-    <p>{{ area.description }}</p>
-    <h2>Here are the crags available to climb at in this area:</h2>
-    <ul>
-      <li v-for="crag in crags" :key="crag.id">
-        <router-link :to="{ name: 'crag', params: { id: crag.id } }">{{
-          crag.name
-        }}</router-link>
-      </li>
-    </ul>
+    <v-card class="my-5 mx-2">
+      <h5 class="text--secondary pa-2">
+        {{ area.description }}
+      </h5>
+    </v-card>
+
+    <div class="mb-2 mx-2">
+      <h2 class="pl-2 blue white--text">
+        Crags in {{ area.name }} ({{ crags.length }}):
+      </h2>
+      <v-card
+        outlined
+        class="my-2 py-2 pl-2"
+        v-for="crag in crags"
+        :key="crag.id"
+        @click="$router.push(`/crag/${crag.id}`)"
+      >
+        {{ crag.name }}
+      </v-card>
+    </div>
   </div>
 </template>
 
@@ -27,6 +34,7 @@ export default {
       crags: [],
     };
   },
+
   created() {
     locationService.getAreaById(this.$route.params.id).then((response) => {
       if (response.status == 200) {
@@ -43,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-.weather {
-  background-color: aqua;
+h2 {
+  background-color: #f4511e;
 }
 </style>
