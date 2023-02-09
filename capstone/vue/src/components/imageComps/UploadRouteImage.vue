@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-btn v-on:click="upload">Upload your route picture</v-btn><br>
+      <v-btn v-on:click="upload">Upload your route photo</v-btn><br>
   </v-container>
 </template>
 

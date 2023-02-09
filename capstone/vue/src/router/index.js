@@ -16,6 +16,7 @@ import Wall from '../views/Wall.vue'
 import Profile from '../views/Profile.vue'
 import RoutePage from '../views/RoutePage.vue'
 import NotFound from '../views/NotFound.vue'
+import AboutUs from '../views/AboutUs.vue'
 
 Vue.use(Router)
 
@@ -149,6 +150,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/aboutus",
+      name: "aboutus",
+      component: AboutUs,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 
