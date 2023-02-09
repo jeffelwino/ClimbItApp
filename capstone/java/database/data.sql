@@ -103,7 +103,13 @@ INSERT INTO walls(crag_id, name, description) VALUES
 ('c-1','Amusement Wall','Fun climbing, seeps for awhile after it rains. Busy on nice days'),
 ('c-1', 'Dad''s Wall','Get here early if you''re looking to warm up'),
 ('c-1','Trash Shoot','Good variety, some spicy climbs for their grade'),
-('c-2','Bruise Brothers','An iconic starting place for new climbers, avoid on busy days');
+('c-2','Bruise Brothers','An iconic starting place for new climbers, avoid on busy days'),
+('c-2','Animal Crackers','Slabby little wall with some good moderates'),
+('c-2','Boneyard','Tall walls, good variety of climbs, good warmup for the harder stuff at Midnight Surf'),
+('c-2','Midnight Surf','Tall, overhanging, and impressive'),
+('c-2','Great Wall','Good variety, a Muir Vallery classic'),
+('c-2','Techtonic Wall','Fun spot for beginner climbers with well bolted routes to safely try on lead'),
+('c-2','Land Before Time','Nice place to take the brand new climber, but the more experienced will be bored');
 
 INSERT INTO routes(wall_id, name, grade, height, style, protection, description) VALUES
 ('w-1','Slappy McKracken','5.10b','30ft','sport', '7 bolts', 'The oldest climbing route in Ohio. Very busy during the weekend.'),
