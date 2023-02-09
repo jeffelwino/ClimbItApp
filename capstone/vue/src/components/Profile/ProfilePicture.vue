@@ -10,7 +10,7 @@
         <v-icon small>mdi-arrow-left-circle</v-icon>
         Back
       </v-btn>
-      <v-row class="justify-center">
+      <v-row v-if="!commentProfile" class="justify-center">
         <cld-context
           v-if="profile.pictureId"
           cloudName="dacyocfmf"
@@ -24,6 +24,20 @@
           />
         </cld-context>
       </v-row>
+      <v-row v-if="commentProfile" class="justify-center">
+        <cld-context
+          v-if="commentProfile.pictureId"
+          cloudName="dacyocfmf"
+          secure="true"
+        >
+          <!--My publicId is coming back as null -->
+          <cld-image
+            :cloudName="this.$store.state.cloudName"
+            :publicId="commentProfile.pictureId"
+            width="300"
+          />
+        </cld-context>
+      </v-row>
     </div>
   </v-container>
 </template>
@@ -32,7 +46,7 @@
 import profileService from "../../services/ProfileService.js";
 
 export default {
-  // props: ["profile"],
+  props: ["commentProfile"],
 
   data() {
     return {
