@@ -118,7 +118,16 @@ INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
 ('a-2', 'Muir Valley','A luxury climbing experience',37.724503,-83.634545),
 ('a-1', 'Paint Creek State Park', 'Walls of Peebels Dolomite about 70 yards long with numerous routes. Stays in the shade all day',39.24979,-83.34637),
-('a-3', 'Upper Meadow', 'Beautiful area upstream on the Meadow River',38.151515,-80.926571);
+('a-3', 'Upper Meadow', 'Beautiful area upstream on the Meadow River',38.151515,-80.926571),
+('a-2','Northern Gorge','For non-climbers, this area is the Red River Gorge proper',37.78418,-83.68236),
+('a-2','Natural Bridge Area','Home of Miguels, Natural Bridge State Park, and lots of good climbing',37.7842,-83.68239),
+('a-2','PMRP','The Pendergrass-Murray Recreational Preserve, land owned by the Red River Gorge Climber Coalition',37.64845,-83.72501),
+('a-2','Miller Fork Recreational Preserve','One of the newer areas in the Red, it can be tough to get down to the lot but there is a lot to do and the crag will only clean up with time',37.63903,-83.6766),
+('a-3','Lower Meadow','The cliffline north of the river and downstream of the highway',38.15362,-80.93385),
+('a-3','Summersville Lake','Formed in the gorge of the Gauley River, the dam forms the lake',38.2445,-80.85393),
+('a-3','Kaymoor','Great collection of sport climbs on the southern side of the river',38.046,-81.06841),
+('a-3','Bridge Area','Among the first developed in the New, traditional climbing area',38.07223,-81.07949),
+('a-3','Junkyard Area','Another traditional area, but with clifftop access for easy top roping, and bouldering in the cave',38.08477,-81.08144);
 
 INSERT INTO walls(crag_id, name, description) VALUES
 ('c-1','Amusement Wall','Fun climbing, seeps for awhile after it rains. Busy on nice days'),
