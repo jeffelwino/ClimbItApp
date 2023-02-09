@@ -90,7 +90,29 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('CT','Central Valley','People do not think of Connecticut as a pdestination for climbing, but we love it',41.62972,-72.80963),
 ('GA','Mount Yonah','A beautiful granite dome in northern Georgia, plenty of history here',34.6372,-83.7141),
 ('ID','The Fins','Southern end of the Lost River mountain range, vertical to overhanging limestone walls',43.73145,-113.08444),
-('ID','Castle Rocks','Only open to the public since 2003, a healthy mix of sprt and trad routes',42.13537,-113.67);
+('ID','Castle Rocks','Only open to the public since 2003, a healthy mix of sprt and trad routes',42.13537,-113.67),
+('IL','The Holy Boulders','Largest concentration of boulders in Southern Illinois',37.61793,-89.41494),
+('ME','Acadia National Park','Known for beautiful ocean views and kayaking, also boasts options for climbing',44.33958,-68.25809),
+('MT','Gallatin Canyon','Divided into the Gallatin Tower and the limestone buttress area',45.40709,-111.22527),
+('NV','Red Rocks','Iconic sandstone climbing, multipitch sport',36.13128,-115.42452),
+('NH','Rumney','Premier sport climbing destination in the country, schist rock makes for a special experience',43.8021,-71.8367),
+('NH','Cathedral Ledge','Epicenter of trad climbing in New Hampshire',44.064,-71.1663),
+('NM','Sandia Mountains','Long approaches make for a great experience if you are willing to make the hike',35.2106,-106.44996),
+('NY','Adirondacks','The Dacks. Largest state park in the lower 48.',43.9375,-74.3775),
+('NY','The Gunks','Short for the Shawangunks, one of the premier climbingareas in the country. Known for traditional climbing.',41.74442,-74.19717),
+('NC','Linville Gorge','One of the great destinations in the southeast, mostly low angle quartzite',35.8868,-81.88509),
+('NC','Stone Mountain','Huge granite dome',36.3916,-81.0473),
+('OR','Smith Rock','Home of the birth of sport climbing in the United States, continues to be one of its premiere destinations',44.36765,-121.13889),
+('OR','Mt. Hood','Tallest peak in Oregon, an alpine destination',45.3733,-121.6957),
+('TN','Obed and Clear Creek','beautiful sandstone cliffs located around the confluence of Clear Creek and the Obed Rive',36.1166,-84.7317),
+('TX','Hueco Tanks','Iconic bouldering destination',31.9169,-106.0429),
+('UT','Indian Creek','Trad climbing on  perfect splitter cracks, basically sport though',38.02574,-109.53987),
+('UT','Zion National Park','Amazing sandstone, known for long wall routes',37.25928,-112.97265),
+('UT','Little Cottonwood Canyon','Quartz monzonite, otherwise known as white granite, and some limestone. ',40.5727,-111.77699),
+('WI','Devils Lake','Quartzite cliffs on a beautiful lake, and lots of history here',43.4168,-89.73151),
+('WY','Wild Iris','One of the most beautiful sport climbing areas in the US. Mostly short climbs, but the environment makes up for it',42.5792,-108.71797),
+('WY','Devils Tower','Devils Tower crams a high concentration of great cracks into the smallest area possible. People come from around the world to climb on this unique wonder. ',44.59051,-104.7151),
+('WY','Grand Teton National Park','Everything from two-pitch sunny crag adventures to mixed alpine endurance testpieces',43.7407,-110.803);
 
 INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
@@ -120,11 +142,11 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-1','Shaggy','5.10c/d','25ft','Trad','standard rack + tricams, ring anchors','Find confidence in your gear placement and be ready to hang'),
 ('w-1','Pocket Rocket Man','5.12a','25ft','Sport','2 bolts, ring anchors','Start is a little bit left of Wu Who. Two options for the boulder-style start, gain the large shelf, move away from the jugs to finish'),
 ('w-1','Wu Who','5.9','30ft','sport','2 botls, ring anchors','Just left of Unknown and Sparky near the top of the slope. Slightly overhanging crack with bomber clipping ledges. Great movement'),
-('w-2','Little Viper','5.10b','50ft','sport','6 bolts','Start on a right-facing flake, then pull boulder problem through the roof, and up easier ground to the chains.'),
-('w-2','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
-('w-2','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
-('w-2','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
-('w-2','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
+('w-4','Little Viper','5.10b','50ft','sport','6 bolts','Start on a right-facing flake, then pull boulder problem through the roof, and up easier ground to the chains.'),
+('w-4','Send Me on My Way','5.9-','75ft','sport','9 bolts','Feels easier than 5.9, easy clipping stances, nice jugs. Very good climb.'),
+('w-4','Ohio Climbing','5.8','50ft','sport','6 bolt','Climb large plates and pockets to a short crux near the anchors.'),
+('w-4','Workin For The Weekend','5.10c','70ft','sport','8 bolts','Climb the moderate slab to get to the first crux section as the wall steepens... This crux can be done to the right of the bolt (techy) or the left (powerful) at about the same grade'),
+('w-4','Rat Stew','5.10a','75ft','sport','8 bolts','Nice moderate sport route. Climb up the low-angle slabby start on balancy little knobs. Then climb up the steeper upper wall using good big holds.');
 
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
