@@ -10,37 +10,44 @@
         rotateControl: false,
         fullscreenControl: true,
         disableDefaultUi: false,
-        
       }"
       :center="center"
       :zoom="10"
       id="map"
     >
       <GmapMarker
-        v-for="marker in markers"
-        :key="marker.id"
-        :position="marker.position"
-        :label="marker.name"
+        v-for="area in areas"
+        :key="area.id"
+        :position="{
+          lat: parseFloat(area.latitude),
+          lng: parseFloat(area.longitude),
+        }"
+        :label="area.name"
         v-on:click="navigateToPage(marker.id)"
     /></GmapMap>
   </div>
 </template>
 
 <script>
+import locationService from "../services/LocationService.js";
 export default {
   name: "area-map",
 
   data() {
     return {
+      areas: [],
       center: { lat: 39.92099, lng: -83.81161 },
       currentPlace: null,
       markers: [],
       places: [],
     };
   },
+  created() {
+    this.loadAreas();
+  },
   mounted() {
     this.geolocate();
-    this.loadPlaces();
+    // this.loadPlaces();
   },
   methods: {
     geolocate: function () {
@@ -51,17 +58,11 @@ export default {
         };
       });
     },
-    loadPlaces() {
-      this.$store.state.areas.forEach((area) => {
-        const marker = {
-          lat: area.latitude,
-          lng: area.longitude,
-        };
-        this.markers.push({
-          position: marker,
-          name: area.name,
-          id: area.id,
-        });
+    loadAreas() {
+      locationService.loadAreas().then((response) => {
+        if (response.status == 200) {
+          this.areas = response.data;
+        }
       });
     },
     navigateToPage(areaId) {
