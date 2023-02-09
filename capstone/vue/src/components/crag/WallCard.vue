@@ -3,7 +3,7 @@
     <v-card class="mx-auto" max-width="700">
       <v-img>
         <cld-context cloudName="dacyocfmf" secure="true">
-          <cld-image :publicId="photoId" width="318" height="150" />
+          <cld-image :publicId="photoId" width="318" height="150" crop="fill" />
           <cld-transformation aspect-ratio="1.5" crop="crop" />
         </cld-context>
       </v-img>

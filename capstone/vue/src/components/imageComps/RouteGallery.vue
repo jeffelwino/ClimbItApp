@@ -5,7 +5,6 @@
         <v-carousel-item v-for="(photo, i) in photos" :key="i">
           <cld-context cloudName="dacyocfmf" secure="true">
             <cld-image :publicId="photo.photoId" contain />
-            <!-- <v-img :src="item.src" contain max-height="400"></v-img>  -->
           </cld-context>
         </v-carousel-item>
       </v-carousel>

@@ -71,6 +71,7 @@ export default {
         name: "profile",
         params: { id: this.$store.state.user.id },
       });
+      this.$router.go(0);
     },
     goToAboutUs() {
       this.$router.push({ name: "aboutus" });

@@ -3,16 +3,16 @@
     <h3>{{ profile.name }}'s Latest ClimbedIts:</h3>
     <tick-display
       class="tick-cards"
-      v-for="tick in ticks"
+      :class="{ active: seeAll }"
+      v-for="tick in limitedList"
       :key="tick.id"
       :tick="tick"
       :showNote="true"
       :onProfile="false"
       :offRoute="true"
+      @click="toggleLimit"
     />
-    <v-btn v-show="ticks.length > limit" @click="toggleLimit"
-      >See All ({{ ticks.length }})</v-btn
-    >
+    <v-btn @click="toggleLimit"> {{ seeAll ? "HIDE" : "SEE ALL" }}</v-btn>
   </v-container>
 </template>
 
@@ -26,14 +26,20 @@ export default {
    ** toggleLimit value in methods
    */
 
-  limit: 3,
   components: { TickDisplay },
   name: "profile-ticks",
   props: ["profile"],
   data() {
     return {
       ticks: [],
+      limit: 2,
+      seeAll: false,
     };
+  },
+  computed: {
+    limitedList() {
+      return this.limit ? this.ticks.slice(0, this.limit) : this.ticks;
+    },
   },
   methods: {
     toggleLimit() {
@@ -43,6 +49,7 @@ export default {
       } else {
         this.limit = 2;
       }
+      this.seeAll = this.seeAll ? false : true;
     },
   },
   created() {

@@ -24,13 +24,14 @@ import commentService from "../../services/CommentService.js";
 
 export default {
   name: "crag-comment",
-  seeAll: false,
+
   components: { CragSubmitComment, CommentDisplay },
   props: ["crag"],
   data() {
     return {
       comments: [],
       limit: 2,
+      seeAll: false,
     };
   },
   computed: {
