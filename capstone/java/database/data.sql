@@ -71,8 +71,19 @@ INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('OH','Western Ohio','Largely flat, but there is some stuff to do',39.918360,-84.093947),
 ('KY','Red River Gorge','One of the largest climbing areas in the world, tons of sport climbing to do',37.782922,-83.683103),
 ('WV','New River Gorge','Bullet-hard sandstone, beautiful views, what''s not to love?',38.070297,-81.080090),
-('KY','Murder Branch', 'Rarely climbed sandstone rock in the Daniel Boone Pioneer Weapons Area. Parking along the forest road.',37.99237,-83.49257)
-;
+('KY','Murder Branch', 'Rarely climbed sandstone rock in the Daniel Boone Pioneer Weapons Area. Parking along the forest road.',37.99237,-83.49257),
+('OH','Central/Eastern Ohio','Not much, but some nice places near Newark and Hocking Hills',39.5363696,-81.8427258),
+('WV','Seneca Rocks','Classic area for mult-pitch trad climbing',38.83259260133902,-79.3852547868337),
+('WV','New River Gorge','Incredible climbing on bullet-hard sandstone. Enjoy the views of the gorge, they are hard to beat',38.06989729160144,-81.08049901380537),
+('AL','Northern Alabama','Only area in the state with any climbing at all',33.98856, -86.458150),
+('AK','Horseshoe Canyon Ranch','Best moderate climbing in the country, maybe even the world. Camping on property, and it is a short walk to all the different crags. Amazing.',36.0118,-93.2922),
+('AK','Sams Throne and Surroundings','Beautiful sandstone cliff faces in the ozarks, gotta love it.',35.8578,-93.0444),
+('AZ','Cochise Stronghold','Rugged canyons and towering granite domes. Traditional, multi-pitchm and plenty of sport',31.92117,-109.98697),
+('AZ','Sedona Area','Located in the southern end of the Colorado Plateau, known for sandstone spires and towers',34.86786,-111.76197),
+('AZ','Mount Lemmon (Santa Catalina Mountains)','Commonly known among climbers and non-climbers alike as, simply, Mount Lemmon. Over 1,500 climbs, one of the most popular in the state.',32.4471,-110.79047),
+('CA','Joshua Tree National Park','World famous, known for bouldering and traditional rock climbing',34.0122,-116.16799),
+('CA','Yosemite National Park','The iconic birthplace of American rock climbing, and arguably the center of the climbing universe. Not enough can be said.',37.73968,-119.57297),
+('CA','Owens River Gorge','Mostost concentrated sport climbing area in California',37.51373,-118.57109);
 
 INSERT INTO crags(area_id, name, description, latitude, longitude) VALUES
 ('a-1', 'Mad River Gorge', 'The finest climbing Ohio has to offer', 39.912833,-83.860439),
@@ -90,7 +101,13 @@ INSERT INTO routes(wall_id, name, grade, height, style, protection, description)
 ('w-1','Slappy McKracken','5.10b','30ft','sport', '7 bolts', 'The oldest climbing route in Ohio. Very busy during the weekend.'),
 ('w-1','Knope We Can','5.7', '25ft', 'sport', '7 bolts', 'A climb in the classic Northhampton style. Old granite so watch your head!' ),
 ('w-2','Chain Mail Hula Skirt','5.7','25ft','trad', '7 bolts','Est quid nostre papadio.The raccoons are notorious here. Avoid in winter.'),
-('w-2','McHenry''s Request','5.12b','60ft','sport', '12 bolts','The only climbing route where Brad Pitt almost died');
+('w-2','McHenry''s Request','5.12b','60ft','sport', '12 bolts','The only climbing route where Brad Pitt almost died'),
+('w-1','Scooby Doo','5.10c/d','25ft','Sport','2 bolts, ring anchors','Hard Dayton start to some small ledges and crimps. Pleasant finish.'),
+('w-1','Scrappy','5.10c/d','25ft','Sport','3 bolts, ring anchors','Start deep in the cave, pull the corner and find good resting rails in between each move'),
+('w-1','Shaggy','5.10c/d','25ft','Trad','standard rack + tricams, ring anchors','Find confidence in your gear placement and be ready to hang'),
+('w-1','Pocket Rocket Man','5.12a','25ft','Sport','2 bolts, ring anchors','Start is a little bit left of Wu Who. Two options for the boulder-style start, gain the large shelf, move away from the jugs to finish'),
+('w-1','Wu Who','5.9','30ft','sport','2 botls, ring anchors','Just left of Unknown and Sparky near the top of the slope. Slightly overhanging crack with bomber clipping ledges. Great movement');
+
 
 INSERT INTO crag_comments (crag_id, profile_id, body, post_date) VALUES
 ('c-1',3,'Great Crag','2022-01-01'),
