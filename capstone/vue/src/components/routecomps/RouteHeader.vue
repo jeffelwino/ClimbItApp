@@ -23,7 +23,9 @@
         </v-cols>
         <!-- add to to-do list button -->
         <v-cols>
-          <v-btn x-small v-if="!toDo" @click="addTodo"> Wanna ClimbIt </v-btn>
+          <v-btn x-small v-if="!isHidden" @click="addTodo">
+            Wanna ClimbIt
+          </v-btn>
         </v-cols>
       </v-row>
       <v-card class="blue"> </v-card>

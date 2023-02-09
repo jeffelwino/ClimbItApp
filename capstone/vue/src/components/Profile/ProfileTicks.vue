@@ -10,7 +10,9 @@
       :onProfile="false"
       :offRoute="true"
     />
-    <v-btn v-show="ticks.length > limit" @click="toggleLimit">See All</v-btn>
+    <v-btn v-show="ticks.length > limit" @click="toggleLimit"
+      >See All ({{ ticks.length }})</v-btn
+    >
   </v-container>
 </template>
 
