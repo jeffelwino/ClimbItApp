@@ -1,5 +1,6 @@
 package com.techelevator.dao.locations;
 
+import com.techelevator.model.ProfilePhotoDto;
 import com.techelevator.model.locations.Photo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -74,6 +75,14 @@ public class JdbcPhotoDao implements PhotoDao{
         }
         return photos;
     }
+
+    @Override
+    public boolean updateProfilePhoto(ProfilePhotoDto profilePhotoDto) {
+        String sql = "UPDATE profiles SET picture_id = ? WHERE profile_id = ?";
+        int rowsUpdated = jdbcTemplate.update(sql, profilePhotoDto.getPhotoId(), profilePhotoDto.getProfileId());
+        return rowsUpdated==1;
+    }
+
 
     @Override
     public boolean deletePhoto(String imageId) {

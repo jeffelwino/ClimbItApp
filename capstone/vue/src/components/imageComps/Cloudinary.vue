@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import profileService from "../services/ProfileService.js"
-
+import imageService from "../../services/ImageService.js"
 export default {
   props: ["profile"],
   name: 'cloudinary-comp',
@@ -36,19 +35,18 @@ export default {
           console.log("Image URL: " + result.info.url);
           console.log("This is the public id: " + result.info.public_id);
           // this.$store.commit("UPDATE_PROFILE_PIC", {profileId:this.$store.state.user.id, picture:result.info.public_id})
-          this.profile.pictureId = result.info.public_id;
-              profileService.put(this.profile).then((response) => {
-                if(response.status == 200) {
-                  this.$router.go(0)
-                } else {
-                  window.alert("There was a problem...")
-                }
-              });
-      }
-        
+          imageService.updateProfilePicture({profileId:this.$route.params.id, photoId:result.info.public_id}).then(response => {
+            if(response.status == 200){
+              this.$router.go(0);
+            } else{
+              window.alert("Something Went wrong!!")
+            }
+          })
+        }
+      })        
   }
-       )}
 }
+
 
 
 </script>
