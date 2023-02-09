@@ -2,9 +2,18 @@
   <div class="map">
     <h2>Crags in the Area</h2>
     <GmapMap
+      :options="{
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        disableDefaultUi: true,
+      }"
       :center="center"
-      :zoom="10"
-      style="width: 100%; height: 600px"
+      :zoom="9.75"
+      style="width: 100%; height: 400px"
       id="map"
     >
       <div @mouseenter="openMarker(crag.id)">
@@ -73,8 +82,8 @@ export default {
 </script>
 
 <style>
-#map {
+/* #map {
   width: 100%;
   height: 400px;
-}
+} */
 </style>
