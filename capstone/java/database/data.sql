@@ -3,12 +3,12 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES('kevin1','$2a$10$z1aZXjPTXdqw6MFWuG59jep4ZFFeoLi/lueBsmqyKoAokPVQPdI6G','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES('jeff1','$2a$10$TG4zgsZHjdhHlx40IdZY3ux060Cd52dv/hRRfy1c4xp2YcU6TSEbW','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES('jeff1','$2a$10$S2wcokjUfjOvCT8bPEHh7ekXAkslx8bj0SeADYaIm1Yyru.MThoK6','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('allan1','$2a$10$OvoSz9P8Zb72Fw86sYi0puGPX56t9PnR0UmzS.IK6pQf515nbDBlO','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('michael1','$2a$10$Z5Of0z2u9OkFNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('susyloohoo','$2a$10$TG4zgsZHjdhHlx40IdZY3ux060Cd52dv/hRRfy1c4xp2YcU6TSEbW','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES('bobsHobs','$2a$10$OvoSz9P8Zb72Fw86sYi0puGPX56t9PnR0UmzS.IK6pQf515nbDBlO','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES('trustinURGEAR','$2a$10$Z5Of0z2u9OkFNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES('trustinURGEAR','$2a$10$Z5Of0z2u9OkFMasterBlasterNTXFyJwFKOGUQMn5RISWzty2Ek2n1E2hvKqBnXSGK','ROLE_USER');
 
 
 INSERT INTO profiles (user_id, name, location, bio) VALUES (1, 'user', 'user', 'user');
@@ -188,8 +188,8 @@ INSERT INTO route_comments (route_id, profile_id, body, post_date) VALUES
 ('r-10',7, 'Better to climb in the summer', '2021-01-31'),
 ('r-10',8, 'Very fun climb, had a couple broken bolts in some places', '2017-06-22'),
 ('r-10',9, 'Kinda crowded but fun nonetheless', '2018-05-24'),
-('r-10',4,'Slippery when dry','2022-04-02'),
-('r-10',5, 'Watch out for ice', '2022-07-03'),
+('r-10',5,'Slippery when dry','2022-04-02'),
+('r-10',6, 'Watch out for ice', '2022-07-03'),
 ('r-10',3, 'Best climb i''ve ever done! i''d give 6 stars if I could!!', '2023-01-02');
 
 INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
@@ -203,12 +203,12 @@ INSERT INTO ticks (profile_id,route_id,date_climbed,note,rating)VALUES
 (3,'r-11','2022-12-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
 (4,'r-12','2022-12-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',3),
 (3,'r-13','2022-12-12','Good climb. little wet when i ascented',3),
-(5,'r-14','2022-12-13','runout was nasty. fell twice',4),
+(4,'r-14','2022-12-13','runout was nasty. fell twice',4),
 (3,'r-10','2022-10-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',4),
-(4,'r-10','2022-11-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',4),
+(5,'r-10','2022-11-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',4),
 (6,'r-10','2022-12-12','Good climb. little wet when i ascented',3),
 (5,'r-1','2022-10-01','runout was nasty. fell twice',4),
-(5,'r-2','2022-10-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',2),
+(4,'r-2','2022-10-01','Great climb, loved the moves on the arete. Redpoint after giving it a burn on toprope earlier in the week',2),
 (5,'r-3','2022-11-02', 'Stout for the grade, but very fun. Onsight ascent, sketchy move to the anchors.',4),
 (5,'r-4','2022-12-12','Good climb. little wet when i ascended',3);
 
@@ -220,10 +220,10 @@ INSERT INTO todos (profile_id, route_id)VALUES
 (3,'r-4'),
 (3,'r-5'),
 (4, 'r-8'),
-(5,'r-11'),
-(5,'r-5'),
-(5, 'r-8'),
-(4, 'r-4');
+(4,'r-11'),
+(4,'r-5'),
+(4, 'r-9'),
+(5, 'r-4');
 
 
 INSERT INTO shared_images (image_id,route_id) VALUES
