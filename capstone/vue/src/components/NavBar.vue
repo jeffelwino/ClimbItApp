@@ -4,7 +4,7 @@
       <!-- <v-icon large>mdi-spa</v-icon> -->
       <div class="d-flex justify-start">
         <v-img
-          src="../assets\climbit-logo-v4.png"
+          src="../assets/climbit-logo-v4.png"
           class="ma-1"
           contain
           height="3rem"
@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  name: "navbar",
+  name: "nav-bar",
 
   methods: {
     goToProfile() {

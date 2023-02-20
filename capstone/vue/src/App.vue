@@ -1,6 +1,6 @@
 <template>
    <v-app>
-     <NavBar></NavBar>
+     <nav-bar></nav-bar>
      <!--<image-upload-preview/> -->
     <v-main>
 
