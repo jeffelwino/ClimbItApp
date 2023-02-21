@@ -74,6 +74,8 @@ INSERT INTO states(state_name,abbrev,latitude,longitude) VALUES
 ('Wisconsin','WI',44.268543,-89.616508),
 ('Wyoming','WY',42.755966,-107.302490);
 
+
+
 INSERT INTO areas(state_abbrev, name, description, latitude, longitude) VALUES
 ('OH','Western Ohio','Largely flat, but there is some stuff to do',39.918360,-84.093947),
 ('KY','Red River Gorge','One of the largest climbing areas in the world, tons of sport climbing to do',37.782922,-83.683103),
